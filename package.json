@@ -1,0 +1,19 @@
+{
+  "name": "chasinggood-website",
+  "version": "1.0.0",
+  "description": "Front end website for Chasing Good Inc.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/groths89/ChasingGood-website.git"
+  },
+  "author": "Gregory Rothstein",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/groths89/ChasingGood-website/issues"
+  },
+  "homepage": "https://github.com/groths89/ChasingGood-website#readme"
+}
