@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+}
+body {
+    height: 1500px;
+    background: url(https://www.brainpickings.org/wp-content/themes/brainpickings/images/bckgd_body.png);
+}
+
+section:nth-of-type(2) {
+    margin: 350px auto 0;
+    width: 75vw;
+    height: 100vh;
+}
+
+.margin-top {
+
+}
+
+.height-full {
+    height: 100vh;
+}
+
+.height-auto {
+    height: auto;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.left {
+    float: left;
+    display: block;
+    margin-left: 150px;
+    margin-right: 0;
+    text-align: left;
+}
+
+.display {
+    display: block;
+}
+
+.no-display{
+    display: none;
+}

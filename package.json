@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/groths89/ChasingGood-website/issues"
   },
-  "homepage": "https://github.com/groths89/ChasingGood-website#readme"
+  "homepage": "https://github.com/groths89/ChasingGood-website#readme",
+  "dependencies": {
+    "jquery": "^3.6.0"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.5"
+  }
 }

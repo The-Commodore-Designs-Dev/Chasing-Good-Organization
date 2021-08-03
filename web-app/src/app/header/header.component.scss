@@ -1,0 +1,76 @@
+.header {
+    position: fixed;
+    width: 100%;
+    height: 490px;
+    font-weight: bold;
+    text-align: center;
+    background: rgba(0, 91, 30, 0.959);
+    transition: .3s;
+    // header shrinks when .small added to .header
+    &.small {
+      height: 70px;
+      box-shadow: 0 0 5px rgba(black, .2);
+      // when header.small also change page offset
+      & ~ .offset {
+        padding-top: 140px;
+      }
+      // when header.small change logo pad & font size
+      .header_logo {
+        padding-top: 20px;
+        font-size: 20px;
+        text-shadow: none;
+      }
+    }
+}
+
+.logo {
+    height: 490px;
+    font-weight: bold;
+    text-align: center;
+    transition: .3s;
+    // header shrinks when .small added to .header
+    &.small {
+        height: 70px;
+    // when header.small also change page offset
+    & ~ .offset {
+        padding-top: 140px;
+    }
+      // when header.small change logo pad & font size
+      .header_logo {
+        padding-top: 20px;
+        font-size: 20px;
+        text-shadow: none;
+      }
+    }
+}
+
+.menu {
+    width: 500px;
+    float: left;
+    height: 50px;
+    margin: 15px 0;
+}
+
+.menu ul{
+    list-style: none;
+}
+
+.menu ul li {
+    float: left;
+    display: block;
+    width: 150px;
+}
+
+.menu ul li a {
+    cursor: pointer;
+}
+.menu ul li a:hover {
+    color: hsla(140, 100%, 18%);
+}
+
+.offset {
+    margin-top: 0;
+    padding-top: 270px;
+    text-align: center;
+    transition: .3s;
+}

@@ -1,0 +1,30 @@
+<form class="form-wrap">
+    <div class="your-name">
+        <label for="nameNominator">Full Name: </label>
+        <input id="firstNameNominator" type="text" [formControl]="firstNameNominator" placeholder="Your First Name">
+        <input id="lastNameNominator" type="text" [formControl]="lastNameNominator" placeholder="Your Last Name">
+    </div>
+
+    <div class="your-organization">
+        <label for="organization">Organization: </label>
+        <input id="organization" type="text" [formControl]="organization" placeholder="Your Organization">        
+    </div>
+
+    <div class="your-nomination">
+        <label for="nameNominee">Nomination For: </label>
+        <input id="nameNominee" type="text" [formControl]="nameNominee" placeholder="Full Name of Nominee">
+    </div>
+
+    <div class="good-deed-category">
+        <label for="category">Category Of Good: </label>
+        <select id="category" type="text" [formControl]="category">
+            <option value="Select a Category" selected>Select a Category</option>
+            <option value="Good Deed Category #1">Good Deed Category #1</option>
+        </select>
+    </div>
+
+    <div class="story">
+        <label for="yourStory">Your Story: </label>
+        <textarea id="yourStory" cols="40" rows="15" [formControl]="yourStory" placeholder="Write your story here"></textarea>
+    </div>
+</form>

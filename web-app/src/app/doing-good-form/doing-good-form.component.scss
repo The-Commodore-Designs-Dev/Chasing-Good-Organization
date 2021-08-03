@@ -1,0 +1,40 @@
+.form-wrap {
+    margin: 0 auto;
+    background-color: #ededed;
+    width: 50vw;
+    display: block;
+}
+
+.your-name {
+    display: flex;
+    margin: 2em 1em;
+}
+
+.your-name > input {
+    margin: 2em 4em 2em 0;
+}
+
+.your-organization {
+    display: flex;
+    margin: 2em 1em;
+}
+
+.your-organization > input{
+    margin: 2em 4em 2em 0;
+    width: 25em;
+}
+
+.your-nomination {
+    display: flex;
+    margin: 2em 1em;
+}
+
+.good-deed-category {
+    display: flex;
+    margin: 2em 1em;
+}
+
+.story {
+    display: flex;
+    margin: 2em 1em;
+}
