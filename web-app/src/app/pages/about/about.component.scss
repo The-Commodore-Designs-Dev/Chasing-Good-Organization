@@ -1,0 +1,83 @@
+p {
+    line-height: 1.5;
+}
+
+.about-section {
+    margin: -70px auto 0 auto;
+    padding: 15px;
+    background-color: white;
+    width: 75vw;
+}
+
+.about-section h1 {
+   text-align: center;
+   font-size: 32pt;
+}
+
+.family-image {
+    margin: 0 auto 15px auto;
+    width: 667px;
+}
+
+.family-image img {
+    margin: 0 auto 0 auto;
+    width: 667px;
+}
+
+.quote-wrap {
+    text-align: center;
+    font-size: 24pt;
+    width: 550px;
+    margin: 0 auto;
+}
+
+.quote-wrap span {
+    font-style: italic;
+    line-height: 2;
+}
+
+.quote {
+    text-align: center;
+    font-size: 24pt;
+    width: 550px;
+    margin: 0 auto;
+}
+
+.quote::before {
+    content: '“';
+    font-size: 48pt;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding-top: 120px;
+    line-height: 2;
+
+}
+
+.quote::after {
+    content: '”';
+    font-size: 48pt;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.rows {
+    display: flex;
+    flex-direction: column;
+}
+.columns {
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+}
+
+.greeting, .our-story-1, .our-story-2 {
+    font-size: 18pt;
+}
+
+.our-story-1 {
+    flex: 2;
+    margin: 0 10px 0 0;
+}
+
+.our-story-2 {
+    flex: 2;
+    margin: 0 0 0 10px;
+}

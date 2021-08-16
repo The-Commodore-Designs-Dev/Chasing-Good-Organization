@@ -1,0 +1,28 @@
+<form [formGroup]="nominationDetailsFormGroup">
+    <div class="mt">
+        <mat-label for="organization">Who are you nominating:</mat-label>
+        <mat-radio-group formControlName="nominating">
+            <mat-radio-button value="Self" labelPosition="after">Self</mat-radio-button>
+            <mat-radio-button value="Organization" labelPosition="after">Organization: <mat-form-field><input matInput id="organization" type="text" formControlName="organization"><mat-hint>(type the organization here)</mat-hint></mat-form-field></mat-radio-button>
+            <mat-radio-button value="Individual" labelPosition="after">Individual: <mat-form-field><input matInput id="individual" type="text" formControlName="organization"><mat-hint>(type the name of the nominee here)</mat-hint></mat-form-field></mat-radio-button>
+            <mat-radio-button value="Other" labelPosition="after">Other: <mat-form-field><input matInput type="text" formControlName="organization"><mat-hint>(type the other group here)</mat-hint></mat-form-field></mat-radio-button>
+        </mat-radio-group>
+    </div>
+    
+    <div class="mt">
+        <mat-label for="category">Category for nomination:</mat-label>
+        <mat-select id="category" type="text" formControlName="category">
+            <mat-option value="Select a Category" ng-model="selected" ng-init="selected='1'">Select a Category</mat-option>
+            <mat-option value="An Organization That Has Done Good">An Organization That Has Done Good</mat-option>
+            <mat-option value="An Individual 18 Or Over Who Has Done Good">An Individual 18 Or Over Who Has Done Good</mat-option>
+            <mat-option value="An Individual Under 18 Who Has Done Good">An Individual Under 18 Who Has Done Good</mat-option>
+        </mat-select>
+    </div>
+    <div class="mt">
+        <mat-label for="nj_county">NJ County Where You/Organization Reside:</mat-label>
+        <mat-select id="nj_county" type="text" formControlName="njCounty">
+            <mat-option value="Select a County" ng-model="selected" ng-init="selected='1'">Select a NJ County</mat-option>
+            <mat-option *ngFor="let county of njCounties;" [value]="county.name">{{ county.name }}</mat-option>
+        </mat-select>
+    </div>
+</form>

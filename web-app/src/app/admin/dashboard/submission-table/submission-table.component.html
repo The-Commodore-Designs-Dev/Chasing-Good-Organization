@@ -1,0 +1,14 @@
+<table mat-table  [dataSource]="submissionData">
+    <mat-text-column name="id">ID</mat-text-column>
+    <mat-text-column name="firstName">First Name</mat-text-column>
+    <mat-text-column name="lastName">Last Name</mat-text-column>
+    <mat-text-column name="email">ID</mat-text-column>
+    <mat-text-column name="nominating">First Name</mat-text-column>
+    <mat-text-column name="category">Last Name</mat-text-column>
+    <mat-text-column name="county">ID</mat-text-column>
+    <mat-text-column name="story">First Name</mat-text-column>
+    <mat-text-column name="uploadedVideo">Last Name</mat-text-column>
+    <mat-text-column name="agreement">ID</mat-text-column>
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let submissionRowData; columns: columnsToDisplay"></tr>
+</table>

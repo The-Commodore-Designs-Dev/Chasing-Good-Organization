@@ -1,0 +1,28 @@
+<div id="summary">
+    <div id="nameReview">
+        <h4><strong>Name:</strong></h4><p>{{submission.firstName}} {{submission.lastName}}</p>    
+    </div>
+    <div id="emailReview">
+        <h4><strong>Email:</strong></h4><p>{{submission.email}}</p>    
+    </div>
+    <div id="nominatingReview">
+        <h4><strong>Who are you Nominating:</strong></h4>
+        <p>{{submission.nominating}}</p>
+        <!-- <p><span *ngIf="submission.nominating != self">{{submission.nominatingOrganization}}{{submission.nominatingOther}}</span></p>      -->  
+    </div>
+    <div id="categoryReview">
+        <h4><strong>Category for Nomination:</strong></h4><p>{{submission.category}}</p>    
+    </div>
+    <div id="countyReview">
+        <h4><strong>NJ County:</strong></h4><p>{{submission.county}}</p>    
+    </div>
+    <div id="storyReview">
+        <h4><strong>Story:</strong></h4><p>{{submission.story}}</p>    
+    </div>
+    <div id="uploadReview">
+        <h4><strong>Uploaded:</strong></h4><p *ngIf="submission.uploadedVideo == false">nothing uploaded</p>    
+    </div>
+    <div id="disclaimerReview">
+        <h4><strong>Disclaimer:</strong></h4><p *ngIf="submission.agreement == true">I agreed</p>    
+    </div>
+</div>

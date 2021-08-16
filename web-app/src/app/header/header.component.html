@@ -1,12 +1,10 @@
-<div id="header" class="header">
-    <img class="center logo" src="../assets/Chasing Good.png" alt="">
-    <div class="menu">
-        <ul>
-            <li><a>About</a></li>
-            <li><a>Forms</a></li>
-            <li><a>Contact</a></li>
-        </ul>
+<div id="header" class="header small" *ngIf="_router.url != '/home'">
+    <img class="left logo small" src="../assets/chasinggood-logo.png" alt="">
+    <div class="menu display">
+        <nav mat-tab-nav-bar>
+            <a mat-tab-link *ngFor="let link of links" [routerLink]="link.link"  routerLinkActive #rla="routerLinkActive" [active]="rla.isActive"> {{link.label}} </a>
+        </nav>
     </div>
 </div>
-<div class="offset"></div>
+<div class="offset" *ngIf="_router.url != '/home'"></div>
 

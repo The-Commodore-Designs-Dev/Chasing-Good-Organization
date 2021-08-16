@@ -1,0 +1,64 @@
+.form-wrap {
+    margin: 0 auto;
+    background-color: #ededed;
+    width: 50vw;
+    display: block;
+}
+
+.your-organization {
+    display: flex;
+    margin: 2em 1em;
+}
+
+.your-organization > input{
+    margin: 2em 4em 2em 0;
+    width: 25em;
+}
+
+.your-nomination {
+    display: flex;
+    margin: 2em 1em;
+}
+
+.good-deed-category {
+    display: flex;
+    margin: 2em 1em;
+}
+
+.story {
+    display: flex;
+    margin: 2em 1em;
+}
+
+textarea.mat-input-element {
+    height: 25em;
+}
+
+.mat-form-field {
+    width: 53em;
+}
+
+.mat-radio-group {
+    display: block;
+    width: 100%;
+    margin-left: 3em;
+}
+
+.mat-radio-button {
+    width: 100%;
+    padding: 0.5em 0;
+}
+
+.mat-select {
+    border: 1px solid #868686;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+.mt {
+    margin-top: 7em;
+}
+
+#fileUpload {
+    margin-left: 7px;
+}

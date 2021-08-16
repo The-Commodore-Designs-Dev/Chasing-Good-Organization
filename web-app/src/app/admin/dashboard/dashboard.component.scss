@@ -1,0 +1,12 @@
+.main-content {
+    display: inline-flex;
+    flex-direction: row;
+    background: #ffffff;
+    margin-top: -1px;
+}
+
+.dashboard-content {
+    order: 0;
+    width: 100%;
+    padding: 100px;
+}

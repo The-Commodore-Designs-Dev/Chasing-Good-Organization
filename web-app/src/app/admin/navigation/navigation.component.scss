@@ -1,0 +1,28 @@
+.sidebar {
+    min-height: 100vh;
+    background: #ffffff;
+    width: 270px;
+}
+
+.nav-group {
+    width: 270px;
+    height: 830px;
+    box-shadow: 1px 0 0 0 #eaedf3;
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.list-item {
+    height: 55px;
+}
+
+a {
+    color: #000000;
+    cursor: pointer;
+    margin-left: 50px;
+}
+
+.mat-divider {
+    margin-bottom: 30px;
+}

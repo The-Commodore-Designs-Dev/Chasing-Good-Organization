@@ -1,0 +1,10 @@
+.main-content {
+    display: flex;
+    flex-direction: row;
+    background: #ffffff;
+}
+
+.dashboard-content {
+    order: 0;
+    width: 100%;
+}
