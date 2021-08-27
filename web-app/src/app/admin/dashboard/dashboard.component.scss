@@ -1,12 +1,17 @@
-.main-content {
-    display: inline-flex;
-    flex-direction: row;
+.main {
     background: #ffffff;
-    margin-top: -1px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow: hidden;
+    position: fixed;
 }
 
 .dashboard-content {
-    order: 0;
-    width: 100%;
     padding: 100px;
+}
+
+app-dashboard {
+    position: fixed;
+    width: 100vw;
 }

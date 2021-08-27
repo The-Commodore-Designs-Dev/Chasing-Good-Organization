@@ -16,7 +16,6 @@ export interface Submission {
     referenceEmail1: string;
     referenceName2: string;
     referenceEmail2: string;
-    referenceName3: string;
-    referenceEmail3: string;
     agreement: boolean;
+    voted: boolean;
 }

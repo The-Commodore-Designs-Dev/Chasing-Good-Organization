@@ -4,7 +4,7 @@
     height: 100vh;
     font-weight: bold;
     text-align: center;
-    background: #1621ba;
+    background: var(--primary);
     transition: .3s;
     // header shrinks when .small added to .header
     &.small {
@@ -24,7 +24,7 @@
 }
 
 .logo {
-    height: 55vh;
+    height: 40vh;
     font-weight: bold;
     text-align: center;
     transition: .3s;
@@ -60,7 +60,8 @@
 .menu ul li {
     float: left;
     display: block;
-    width: 150px;
+    min-width: 63px;
+    margin: 0 15px;
 }
 
 .menu ul li a {

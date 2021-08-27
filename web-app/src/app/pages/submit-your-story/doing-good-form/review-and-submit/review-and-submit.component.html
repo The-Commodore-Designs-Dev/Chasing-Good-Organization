@@ -20,7 +20,12 @@
         <h4><strong>Story:</strong></h4><p>{{submission.story}}</p>    
     </div>
     <div id="uploadReview">
-        <h4><strong>Uploaded:</strong></h4><p *ngIf="submission.uploadedVideo == false">nothing uploaded</p>    
+        <h4><strong>Uploaded:</strong></h4>
+        <p *ngIf="submission.uploadedVideo == false">nothing uploaded</p>
+        <p *ngIf="submission.uploadedVideo == true">{{submission.uploadedVideo}}</p>
+    </div>
+    <div id="references">
+        <h4><strong>References:</strong></h4><p>{{submission.referenceName1}}</p> 
     </div>
     <div id="disclaimerReview">
         <h4><strong>Disclaimer:</strong></h4><p *ngIf="submission.agreement == true">I agreed</p>    

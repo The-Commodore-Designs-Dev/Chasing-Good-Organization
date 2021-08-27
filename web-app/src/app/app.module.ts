@@ -27,6 +27,10 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatIconModule} from '@angular/material/icon';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatDialogModule} from '@angular/material/dialog';
+import {CdkAccordionModule} from '@angular/cdk/accordion';
 
 
 import 'hammerjs';
@@ -52,6 +56,12 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BasicAuthInterceptor } from './_helpers/basic-auth.interceptor';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { ReferencesFormComponent } from './pages/submit-your-story/doing-good-form/references-form/references-form.component';
+import { AuthGuard } from './_helpers/auth.guard';
+import { DetailsComponentDialog } from './admin/dashboard/submission-table/details/details.component';
+import { WatchVideoComponentDialog } from './admin/dashboard/submission-table/watch-video/watch-video.component';
+import { ReadStoryComponentDialog } from './admin/dashboard/submission-table/read-story/read-story.component';
+import { ContactComponentDialog } from './admin/dashboard/submission-table/contact/contact.component';
+import { VoteComponentDialog } from './admin/dashboard/submission-table/vote/vote.component';
 
 @NgModule({
   declarations: [
@@ -69,15 +79,20 @@ import { ReferencesFormComponent } from './pages/submit-your-story/doing-good-fo
     BasicInfoFormComponent,
     NominationDetailsFormComponent,
     StoryDetailsFormComponent,
-    ReviewAndSubmitComponent,
+    ReferencesFormComponent,
     DisclaimerFormComponent,
+    ReviewAndSubmitComponent,
     DashboardComponent,
     NavigationComponent,
     ToolbarComponent,
     SubmissionTableComponent,
     UsersComponent,
     LoginComponent,
-    ReferencesFormComponent
+    DetailsComponentDialog,
+    WatchVideoComponentDialog,
+    ReadStoryComponentDialog,
+    ContactComponentDialog,
+    VoteComponentDialog
   ],
   imports: [
     BrowserModule,
@@ -101,12 +116,17 @@ import { ReferencesFormComponent } from './pages/submit-your-story/doing-good-fo
     MatDividerModule,
     MatTableModule,
     MatSortModule,
-    MatIconModule
+    MatIconModule,
+    MatPaginatorModule,
+    MatMenuModule,
+    MatDialogModule,
+    CdkAccordionModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
-    fakeBackendProvider
+    fakeBackendProvider,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

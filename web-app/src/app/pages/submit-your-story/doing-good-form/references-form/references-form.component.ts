@@ -8,28 +8,32 @@ import { Submission } from 'src/app/Submission';
   styleUrls: ['./references-form.component.scss']
 })
 export class ReferencesFormComponent implements OnInit {
-  refFormGroup: FormGroup =  new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    emailAddress: new FormControl(''), 
+  refFormGroup: FormGroup = new FormGroup({
+    referenceName1: new FormControl(''),
+    referenceEmail1: new FormControl(''),
+    referenceName2: new FormControl(''),
+    referenceEmail2: new FormControl(''),
   });
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.refFormGroup = this.fb.group({
-      'firstName': ['', []],
-      'lastName': ['', []],
-      'email': ['', []]
+      'referenceName1': ['', []],
+      'referenceEmail1': ['', []],
+      'referenceName2': ['', []],
+      'referenceEmail2': ['', []]
     })
   }
 
   populateSubmission(submission: Submission) {
     let references: FormGroup = this.refFormGroup;
 
-    submission.email = references.controls['email'].value.trim();
-    submission.firstName = references.controls['firstName'].value.trim();
-    submission.lastName = references.controls['lastName'].value.trim();
+    submission.referenceName1 = references.controls['referenceName1'].value.trim();
+    submission.referenceEmail1 = references.controls['referenceEmail1'].value.trim();
+    submission.referenceName2 = references.controls['referenceName2'].value.trim();
+    submission.referenceEmail2 = references.controls['referenceEmail2'].value.trim();
+    console.log("Ref Name: " + submission.referenceName1);
 }
 
 }

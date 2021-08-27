@@ -8,6 +8,7 @@ import { NominationDetailsFormComponent } from './nomination-details-form/nomina
 import { StoryDetailsFormComponent } from './story-details-form/story-details-form.component';
 import { DisclaimerFormComponent } from './disclaimer-form/disclaimer-form.component';
 import { ReviewAndSubmitComponent } from './review-and-submit/review-and-submit.component';
+import { ReferencesFormComponent } from './references-form/references-form.component';
 
 const BASIC_INFO_INDEX: number = 0;
 const NOMINATION_INDEX: number = 1;
@@ -35,6 +36,9 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
 
   @ViewChild(StoryDetailsFormComponent)
   storyDetailsFormComponent: StoryDetailsFormComponent;
+
+  @ViewChild(ReferencesFormComponent)
+  referencesFormComponent: ReferencesFormComponent;
 
   @ViewChild(DisclaimerFormComponent)
   disclaimerFormComponent: DisclaimerFormComponent;

@@ -5,7 +5,7 @@
     height: 100vh;
     font-weight: bold;
     text-align: center;
-    background: #1621ba;
+    background: var(--primary);
     transition: .3s;
     // header shrinks when .small added to .header
     &.small {
