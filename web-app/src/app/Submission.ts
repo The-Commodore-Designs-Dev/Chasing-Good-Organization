@@ -4,6 +4,7 @@ export interface Submission {
     firstName: string;
     lastName: string;
     email: string;
+    date: Date;
     nominating: string;
     nominatingOrganization: string;
     nominatingIndividual: string;

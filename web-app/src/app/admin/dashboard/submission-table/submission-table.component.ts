@@ -10,11 +10,13 @@ import { WatchVideoComponentDialog } from './watch-video/watch-video.component';
 import { ContactComponentDialog } from './contact/contact.component';
 import { VoteComponentDialog } from './vote/vote.component';
 
+const submittedDateDATA = new Date();
 const SUBMISSION_DATA: Submission[] = [{
   id: '1',
-  firstName: 'Antonia',
-  lastName: 'Cleaveland',
-  email: 'antoniacleavland@gmail.com',
+  firstName: 'Fred',
+  lastName: 'Wilcox',
+  email: 'fred.wilcox@gmail.com',
+  date: submittedDateDATA,
   nominating: 'Self',
   nominatingOrganization: 'null',
   nominatingIndividual: 'null',
@@ -32,7 +34,32 @@ const SUBMISSION_DATA: Submission[] = [{
   referenceEmail2: '',
   agreement: true,
   voted: true
-}]
+},
+{
+  id: '2',
+  firstName: 'Dale',
+  lastName: 'Johnson',
+  email: 'johnsondj@gmail.com',
+  date: submittedDateDATA,
+  nominating: 'Organization',
+  nominatingOrganization: 'Google',
+  nominatingIndividual: 'null',
+  nominatingOther: 'null',
+  category: 'An Organization That Has Done Good',
+  county: {
+    id: 5,
+    name: 'Cape May County'
+  },
+  story: 'Test Story',
+  uploadedVideo: false,
+  referenceName1: '',
+  referenceEmail1: '',
+  referenceName2: '',
+  referenceEmail2: '',
+  agreement: true,
+  voted: false
+}
+]
 
 @Component({
   selector: 'app-submission-table',
@@ -40,18 +67,26 @@ const SUBMISSION_DATA: Submission[] = [{
   styleUrls: ['./submission-table.component.scss']
 })
 export class SubmissionTableComponent implements AfterViewInit {
-  columnsToDisplay: string[] = ['id', 'firstName', 'lastName', 'email','nominating', 'voted','action'];
+  columnsToDisplay: string[] = ['id', 'firstName', 'lastName', 'email', 'date', 'nominating', 'voted','action'];
   dataSource = new MatTableDataSource(SUBMISSION_DATA);
   
   constructor(public dialog: MatDialog) {}
 
   @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(DetailsComponentDialog) detailsComponentDialog: DetailsComponentDialog;
+  @ViewChild(ReadStoryComponentDialog) readStorycomponentDialog: ReadStoryComponentDialog;
+  @ViewChild(WatchVideoComponentDialog) watchVideoComponentDialog: WatchVideoComponentDialog;
+  @ViewChild(ContactComponentDialog) contanctComponentDialog: ContactComponentDialog;
+
 
   openDetailsDialog(): void {
     const dialogRef = this.dialog.open(DetailsComponentDialog, {
       width: '60vw',
       height: '80vh',
-      data: {}
+      data: { 
+        firstName: 'Fred',
+        lastName: 'Wilcox'
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {

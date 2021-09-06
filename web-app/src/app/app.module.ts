@@ -32,7 +32,6 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
 import {CdkAccordionModule} from '@angular/cdk/accordion';
 
-
 import 'hammerjs';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { HomeComponent } from './pages/home/home.component';
