@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -94,6 +95,7 @@ import { VoteComponentDialog } from './admin/dashboard/submission-table/vote/vot
     VoteComponentDialog
   ],
   imports: [
+    AmplifyAngularModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
@@ -122,6 +124,7 @@ import { VoteComponentDialog } from './admin/dashboard/submission-table/vote/vot
     CdkAccordionModule
   ],
   providers: [
+    AmplifyService,
     {provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
     fakeBackendProvider,
