@@ -23,6 +23,19 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "uuid",
+              "ulid",
+              "lodash",
+              "@aws-crypto/sha256-js",
+              "@aws-crypto/sha256-browser",
+              "@aws-crypto/crc32",
+              "url",
+              "buffer",
+              "fast-xml-parser",
+              "crypto-js",
+              "isomorphic-unfetch"
+            ],
             "outputPath": "dist/web-app",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -48,8 +61,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "4mb"
                 }
               ],
               "fileReplacements": [
