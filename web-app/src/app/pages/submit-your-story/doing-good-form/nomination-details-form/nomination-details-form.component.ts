@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
-import { njCounties } from '../../../../njCounties';
-import { Submission } from 'src/app/Submission';
+import { njCounties } from '../../../../../types/NJCounty';
+import { categories } from '../../../../../types/Category';
+import { Submission } from '../../../../../types/Submission';
 
 @Component({
   selector: 'app-nomination-details-form',
@@ -11,32 +12,22 @@ import { Submission } from 'src/app/Submission';
 })
 export class NominationDetailsFormComponent implements OnInit {
   njCounties = njCounties;
+  categories = categories;
 
-  nominationDetailsFormGroup: FormGroup = new FormGroup({
-    nominating: new FormControl(''),
-    organization: new FormControl(''),
-    other: new FormControl(''),
-    category: new FormControl(''),
-    njCounty: new FormControl('')
-  });
+  @Input() nominationDetailsFormGroup: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.nominationDetailsFormGroup = this.fb.group({
-      'nominating': ['', []],
-      'organization': ['', []],
-      'other': ['', []],
-      'category': ['', []],
-      'njCounty': ['', []]
-    })
   }
+
   populateSubmission(submission: Submission) {
       let nominationDetails: FormGroup = this.nominationDetailsFormGroup;
   
-      submission.nominating = nominationDetails.controls['nominating'].value;
-      submission.nominatingOrganization = nominationDetails.controls['organization'].value.trim();
-      submission.nominatingOther = nominationDetails.controls['other'].value.trim();
+      submission.nominatingOptions = nominationDetails.controls['nominatingOptions'].value;
+      submission.organizationName = nominationDetails.controls['organizationName'].value.trim();
+      submission.individualFullName = nominationDetails.controls['individualFullName'].value.trim();
+      submission.otherDescription = nominationDetails.controls['otherDescription'].value.trim();
       submission.category = nominationDetails.controls['category'].value;
       submission.county = nominationDetails.controls['njCounty'].value;
   }

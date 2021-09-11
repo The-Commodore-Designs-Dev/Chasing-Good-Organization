@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
-import { Submission } from 'src/app/Submission';
+import { Submission } from '../../../../../types/Submission';
 
 @Component({
   selector: 'app-story-details-form',
@@ -8,19 +8,11 @@ import { Submission } from 'src/app/Submission';
   styleUrls: ['./story-details-form.component.scss']
 })
 export class StoryDetailsFormComponent implements OnInit {
-
-  storyDetailsFormGroup: FormGroup = new FormGroup({
-    yourStory: new FormControl(''),
-    yourVideo: new FormControl(''),
-  })
+  @Input() storyDetailsFormGroup: FormGroup;
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.storyDetailsFormGroup = this.fb.group({
-      'yourStory': ['', []],
-      'yourVideo': ['', []]
-    })
   }
 
   populateSubmission(submission: Submission) {

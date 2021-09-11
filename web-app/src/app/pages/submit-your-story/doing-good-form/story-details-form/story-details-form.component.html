@@ -1,4 +1,4 @@
-<form [formGroup]="storyDetailsFormGroup">
+<form *ngIf="storyDetailsFormGroup" [formGroup]="storyDetailsFormGroup">
     <div class="story-suggestions">
         <mat-card>
             <mat-card-subtitle>Things to think about when telling your story:</mat-card-subtitle>

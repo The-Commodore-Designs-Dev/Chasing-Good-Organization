@@ -1,8 +1,9 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, ValidationErrors } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, ValidationErrors, Validators } from '@angular/forms';
+import { APIService } from '../../../API.service';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { Submission } from 'src/app/Submission';
-import { Subscription } from 'rxjs';
+import { Submission } from '../../../../types/Submission';
+import { Subscription, GroupedObservable } from 'rxjs';
 import { BasicInfoFormComponent } from './basic-info-form/basic-info-form.component';
 import { NominationDetailsFormComponent } from './nomination-details-form/nomination-details-form.component';
 import { StoryDetailsFormComponent } from './story-details-form/story-details-form.component';
@@ -27,6 +28,30 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
   basicInfoFormSubscription: Subscription = new Subscription;
   formSubmitted: boolean = false;
   allFormsValid: boolean = false;
+  public createForm: FormGroup;
+  public refFormGroup: FormGroup;
+  public disclaimerFormGroup: FormGroup;
+  
+  public basicInfoFormGroup: FormGroup =  new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    emailAddress: new FormControl(''),
+    phone: new FormControl(''), 
+  });
+  
+  public nominationDetailsFormGroup: FormGroup = new FormGroup({
+    nominatingOptions: new FormControl(''),
+    organizationName: new FormControl(''),
+    individualFullName: new FormControl(''),
+    otherDescription: new FormControl(''),
+    category: new FormControl(''),
+    njCounty: new FormControl('')
+  });
+
+  public storyDetailsFormGroup: FormGroup = new FormGroup({
+    yourStory: new FormControl(''),
+    yourVideo: new FormControl(''),
+  });
 
   @ViewChild(BasicInfoFormComponent)
   basicInfoFormComponent: BasicInfoFormComponent;
@@ -42,13 +67,58 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
 
   @ViewChild(DisclaimerFormComponent)
   disclaimerFormComponent: DisclaimerFormComponent;
+
+  @ViewChild(ReviewAndSubmitComponent)
+  reviewAndSubmitComponent: ReviewAndSubmitComponent;
  
-  constructor() {
+  constructor(private api: APIService, private fb: FormBuilder) {
 
   }
 
   ngOnInit(): void {
-    
+    this.basicInfoFormGroup = this.fb.group({
+      'firstName': ['', [Validators.required, Validators.pattern('[A-Za-z \-\_]+')]],
+      'lastName': ['', [Validators.required, Validators.pattern('[A-Za-z \-\_]+')]],
+      'email': ['', {
+        validators: Validators.compose([Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")])
+      }],
+      'phone': ['', {}]
+    });
+
+    this.nominationDetailsFormGroup = this.fb.group({
+      'nominatingOptions': [['Self', 'Organization', 'Individual', 'Other'], []],
+      'organizationName': ['', []],
+      'individualFullName': ['', []],
+      'otherDescription': ['', []],
+      'category': ['', []],
+      'njCounty': ['', []]
+    });
+
+    this.storyDetailsFormGroup = this.fb.group({
+      'yourStory': ['', []],
+      'yourVideo': ['', []]
+    });
+
+    this.refFormGroup = this.fb.group({
+      'referenceName1': ['', []],
+      'referenceEmail1': ['', []],
+      'referencePhone1': ['', []],
+      'referenceName2': ['', []],
+      'referenceEmail2': ['', []],
+      'referencePhone2': ['', []],
+    });
+
+    this.disclaimerFormGroup = this.fb.group({
+      'agreeToDisclaimer': ['', []]
+    });      
+
+    this.createForm = this.fb.group({
+      basicInfoForm: this.basicInfoFormGroup,
+      nominationDetailsForm: this.nominationDetailsFormGroup,
+      storyDetailsForm: this.storyDetailsFormGroup,
+      referencesForm: this.refFormGroup,
+      disclaimerAgreementForm: this.disclaimerFormGroup
+    });
   }
 
   ngOnDestroy() {
@@ -164,6 +234,19 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
   private addErrorByKey(key: string) {
     if (key == 'firstName') this.errorMessages.push("Please enter a valid first name");
     if (key == 'lastName') this.errorMessages.push("Please enter a valid last name");
+  }
+
+  /**
+  * onCreate
+  * submission: Submission   
+  */
+  public onCreate(submission: Submission) {
+    this.api.CreateSubmission(submission).then(event => {
+      console.log('Submitted!');
+      this.createForm.reset();
+    }).catch(() => {
+      console.log('error submitting story ...');
+    });
   }
 
 }

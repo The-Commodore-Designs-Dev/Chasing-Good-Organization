@@ -1,0 +1,54 @@
+type Submission @model {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  email: String!
+  date: AWSDate!
+  nominatingOptions: String!
+  organizationName: String!
+  individualFullName: String!
+  otherDescription: String!
+  category: [Category!] @connection(keyName: "bySubmission", fields: ["id"])
+  county: [NJCounty!] @connection(keyName: "bySubmission", fields: ["id"])
+  story: String!
+  uploadedVideo: String!
+  referenceOne: [Reference!] @connection(keyName: "bySubmission", fields: ["id"])
+  referenceTwo: [Reference!] @connection(keyName: "bySubmission", fields: ["id"])
+  disclaimerAgreement: Boolean!
+  voted: [Vote!] @connection(keyName: "bySubmission", fields: ["id"])
+}
+
+type Category @model @key(name: "bySubmission", fields: ["categoryID"]) {
+  id: ID!
+  name: String!
+  categoryID: ID!
+}
+
+type NJCounty @model @key(name: "bySubmission", fields: ["countyID"]) {
+  id: ID!
+  name: String!
+  countyID: ID!
+}
+
+type Reference @model @key(name: "bySubmission", fields: ["referenceID"]) {
+  name: String!
+  email: String!
+  phoneNumber: String!
+  referenceID: ID!
+}
+
+type Vote @model @key(name: "bySubmission", fields: ["voteID"]) {
+  id: ID!
+  voted: Boolean!
+  totalVotesEarned: Int!
+  maxVotesPossible: Int!
+  judges: [Judge!] @connection(keyName: "byJudge", fields: ["id"])
+  voteID: ID!
+}
+
+type Judge @model @key(name: "byJudge", fields: ["judgeID"]) {
+  id: ID!
+  name: String!
+  username: String!
+  judgeID: ID!
+}

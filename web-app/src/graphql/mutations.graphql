@@ -1,0 +1,460 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateSubmission(
+  $input: CreateSubmissionInput!
+  $condition: ModelSubmissionConditionInput
+) {
+  createSubmission(input: $input, condition: $condition) {
+    id
+    firstName
+    lastName
+    email
+    date
+    nominatingOptions
+    organizationName
+    individualFullName
+    otherDescription
+    category {
+      items {
+        id
+        name
+        categoryID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    county {
+      items {
+        id
+        name
+        countyID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    story
+    uploadedVideo
+    referenceOne {
+      items {
+        id
+        name
+        email
+        phoneNumber
+        referenceID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    referenceTwo {
+      items {
+        id
+        name
+        email
+        phoneNumber
+        referenceID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    disclaimerAgreement
+    voted {
+      items {
+        id
+        voted
+        totalVotesEarned
+        maxVotesPossible
+        voteID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateSubmission(
+  $input: UpdateSubmissionInput!
+  $condition: ModelSubmissionConditionInput
+) {
+  updateSubmission(input: $input, condition: $condition) {
+    id
+    firstName
+    lastName
+    email
+    date
+    nominatingOptions
+    organizationName
+    individualFullName
+    otherDescription
+    category {
+      items {
+        id
+        name
+        categoryID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    county {
+      items {
+        id
+        name
+        countyID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    story
+    uploadedVideo
+    referenceOne {
+      items {
+        id
+        name
+        email
+        phoneNumber
+        referenceID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    referenceTwo {
+      items {
+        id
+        name
+        email
+        phoneNumber
+        referenceID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    disclaimerAgreement
+    voted {
+      items {
+        id
+        voted
+        totalVotesEarned
+        maxVotesPossible
+        voteID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteSubmission(
+  $input: DeleteSubmissionInput!
+  $condition: ModelSubmissionConditionInput
+) {
+  deleteSubmission(input: $input, condition: $condition) {
+    id
+    firstName
+    lastName
+    email
+    date
+    nominatingOptions
+    organizationName
+    individualFullName
+    otherDescription
+    category {
+      items {
+        id
+        name
+        categoryID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    county {
+      items {
+        id
+        name
+        countyID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    story
+    uploadedVideo
+    referenceOne {
+      items {
+        id
+        name
+        email
+        phoneNumber
+        referenceID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    referenceTwo {
+      items {
+        id
+        name
+        email
+        phoneNumber
+        referenceID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    disclaimerAgreement
+    voted {
+      items {
+        id
+        voted
+        totalVotesEarned
+        maxVotesPossible
+        voteID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateCategory(
+  $input: CreateCategoryInput!
+  $condition: ModelCategoryConditionInput
+) {
+  createCategory(input: $input, condition: $condition) {
+    id
+    name
+    categoryID
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateCategory(
+  $input: UpdateCategoryInput!
+  $condition: ModelCategoryConditionInput
+) {
+  updateCategory(input: $input, condition: $condition) {
+    id
+    name
+    categoryID
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteCategory(
+  $input: DeleteCategoryInput!
+  $condition: ModelCategoryConditionInput
+) {
+  deleteCategory(input: $input, condition: $condition) {
+    id
+    name
+    categoryID
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateNJCounty(
+  $input: CreateNJCountyInput!
+  $condition: ModelNJCountyConditionInput
+) {
+  createNJCounty(input: $input, condition: $condition) {
+    id
+    name
+    countyID
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateNJCounty(
+  $input: UpdateNJCountyInput!
+  $condition: ModelNJCountyConditionInput
+) {
+  updateNJCounty(input: $input, condition: $condition) {
+    id
+    name
+    countyID
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteNJCounty(
+  $input: DeleteNJCountyInput!
+  $condition: ModelNJCountyConditionInput
+) {
+  deleteNJCounty(input: $input, condition: $condition) {
+    id
+    name
+    countyID
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateReference(
+  $input: CreateReferenceInput!
+  $condition: ModelReferenceConditionInput
+) {
+  createReference(input: $input, condition: $condition) {
+    id
+    name
+    email
+    phoneNumber
+    referenceID
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateReference(
+  $input: UpdateReferenceInput!
+  $condition: ModelReferenceConditionInput
+) {
+  updateReference(input: $input, condition: $condition) {
+    id
+    name
+    email
+    phoneNumber
+    referenceID
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteReference(
+  $input: DeleteReferenceInput!
+  $condition: ModelReferenceConditionInput
+) {
+  deleteReference(input: $input, condition: $condition) {
+    id
+    name
+    email
+    phoneNumber
+    referenceID
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateVote(
+  $input: CreateVoteInput!
+  $condition: ModelVoteConditionInput
+) {
+  createVote(input: $input, condition: $condition) {
+    id
+    voted
+    totalVotesEarned
+    maxVotesPossible
+    judges {
+      items {
+        id
+        name
+        username
+        judgeID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    voteID
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateVote(
+  $input: UpdateVoteInput!
+  $condition: ModelVoteConditionInput
+) {
+  updateVote(input: $input, condition: $condition) {
+    id
+    voted
+    totalVotesEarned
+    maxVotesPossible
+    judges {
+      items {
+        id
+        name
+        username
+        judgeID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    voteID
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteVote(
+  $input: DeleteVoteInput!
+  $condition: ModelVoteConditionInput
+) {
+  deleteVote(input: $input, condition: $condition) {
+    id
+    voted
+    totalVotesEarned
+    maxVotesPossible
+    judges {
+      items {
+        id
+        name
+        username
+        judgeID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    voteID
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateJudge(
+  $input: CreateJudgeInput!
+  $condition: ModelJudgeConditionInput
+) {
+  createJudge(input: $input, condition: $condition) {
+    id
+    name
+    username
+    judgeID
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateJudge(
+  $input: UpdateJudgeInput!
+  $condition: ModelJudgeConditionInput
+) {
+  updateJudge(input: $input, condition: $condition) {
+    id
+    name
+    username
+    judgeID
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteJudge(
+  $input: DeleteJudgeInput!
+  $condition: ModelJudgeConditionInput
+) {
+  deleteJudge(input: $input, condition: $condition) {
+    id
+    name
+    username
+    judgeID
+    createdAt
+    updatedAt
+  }
+}

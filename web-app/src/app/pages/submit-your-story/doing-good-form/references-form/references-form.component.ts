@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Submission } from 'src/app/Submission';
+import { Submission } from '../../../../../types/Submission';
 
 @Component({
   selector: 'app-references-form',
@@ -8,32 +8,23 @@ import { Submission } from 'src/app/Submission';
   styleUrls: ['./references-form.component.scss']
 })
 export class ReferencesFormComponent implements OnInit {
-  refFormGroup: FormGroup = new FormGroup({
-    referenceName1: new FormControl(''),
-    referenceEmail1: new FormControl(''),
-    referenceName2: new FormControl(''),
-    referenceEmail2: new FormControl(''),
-  });
+  @Input() refFormGroup: FormGroup;
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.refFormGroup = this.fb.group({
-      'referenceName1': ['', []],
-      'referenceEmail1': ['', []],
-      'referenceName2': ['', []],
-      'referenceEmail2': ['', []]
-    })
   }
 
   populateSubmission(submission: Submission) {
     let references: FormGroup = this.refFormGroup;
 
-    submission.referenceName1 = references.controls['referenceName1'].value.trim();
-    submission.referenceEmail1 = references.controls['referenceEmail1'].value.trim();
-    submission.referenceName2 = references.controls['referenceName2'].value.trim();
-    submission.referenceEmail2 = references.controls['referenceEmail2'].value.trim();
-    console.log("Ref Name: " + submission.referenceName1);
+    submission.referenceOne.name = references.controls['referenceName1'].value.trim();
+    submission.referenceOne.email = references.controls['referenceEmail1'].value.trim();
+    submission.referenceOne.phoneNumber = references.controls['referencePhone1'].value.trim();
+    submission.referenceTwo.name = references.controls['referenceName2'].value.trim();
+    submission.referenceTwo.email = references.controls['referenceEmail2'].value.trim();
+    submission.referenceTwo.phoneNumber = references.controls['referencePhone2'].value.trim();
+    console.log("Ref Name: " + submission.referenceOne.name);
 }
 
 }

@@ -2,8 +2,9 @@ import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { Submission } from 'src/app/Submission';
-import { NJCounty } from 'src/app/njCounties';
+import { Submission } from 'src/types/Submission';
+import { NJCounty } from 'src/types/NJCounty';
+import { Category } from 'src/types/Category';
 import { DetailsComponentDialog } from './details/details.component';
 import { ReadStoryComponentDialog } from './read-story/read-story.component';
 import { WatchVideoComponentDialog } from './watch-video/watch-video.component';
@@ -11,53 +12,92 @@ import { ContactComponentDialog } from './contact/contact.component';
 import { VoteComponentDialog } from './vote/vote.component';
 
 const submittedDateDATA = new Date();
+const date = submittedDateDATA.toDateString();
 const SUBMISSION_DATA: Submission[] = [{
   id: '1',
   firstName: 'Fred',
   lastName: 'Wilcox',
   email: 'fred.wilcox@gmail.com',
-  date: submittedDateDATA,
-  nominating: 'Self',
-  nominatingOrganization: 'null',
-  nominatingIndividual: 'null',
-  nominatingOther: 'null',
-  category: 'An Individual 18 Or Over Who Has Done Good',
-  county: {
-    id: 3,
-    name: 'Burlington County'
-  },
+  date: date,
+  nominatingOptions: 'Self',
+  organizationName: null,
+  individualFullName: null,
+  otherDescription: null,
+  category: { id: 2, name: 'An Individual 18 Or Over Who Has Done Good', categoryID: 234},
+  county: { id: 3, name:'Burlington County', countyID: 136 },
   story: 'Test Story',
-  uploadedVideo: false,
-  referenceName1: '',
-  referenceEmail1: '',
-  referenceName2: '',
-  referenceEmail2: '',
-  agreement: true,
-  voted: true
+  uploadedVideo: 'path/to/video',
+  referenceOne: {
+    id: 1,
+    name: 'Bill Engvall',
+    email: 'b.engval@gmail.com',
+    phoneNumber: '555-675-6990',
+    referenceID: 23
+  },
+  referenceTwo: {
+    id: 1,
+    name: 'Dan Aragon',
+    email: 'dan2332@gmail.com',
+    phoneNumber: '555-690-6510',
+    referenceID: 24
+  },
+  disclaimerAgreement: true,
+  voted: {
+    id: 1,
+    voted: false,
+    totalVotesEarned: 23,
+    maxVotesPossible: 23,
+    judges: {
+      id: 1,
+      name: '',
+      username: '',
+      judgeID: 23
+    },
+    voteID: 32
+  }
 },
 {
   id: '2',
   firstName: 'Dale',
   lastName: 'Johnson',
   email: 'johnsondj@gmail.com',
-  date: submittedDateDATA,
-  nominating: 'Organization',
-  nominatingOrganization: 'Google',
-  nominatingIndividual: 'null',
-  nominatingOther: 'null',
-  category: 'An Organization That Has Done Good',
-  county: {
-    id: 5,
-    name: 'Cape May County'
-  },
+  date: date,
+  nominatingOptions: 'Organization',
+  organizationName: 'Google',
+  individualFullName: null,
+  otherDescription: null,
+  category: { id: 1, name: 'An Organization That Has Done Good', categoryID: 233},
+  county: { id: 5, name:'Cape May County', countyID: 138 },
   story: 'Test Story',
-  uploadedVideo: false,
-  referenceName1: '',
-  referenceEmail1: '',
-  referenceName2: '',
-  referenceEmail2: '',
-  agreement: true,
-  voted: false
+  uploadedVideo: 'path/to/video',
+  referenceOne: {
+    id: 1,
+    name: '',
+    email: '',
+    phoneNumber: '',
+    referenceID: 25
+  },
+  referenceTwo: {
+    id: 2,
+    name: '',
+    email: '',
+    phoneNumber: '',
+    referenceID: 26
+  },
+  disclaimerAgreement: true,
+  voted: {
+    id: 2,
+    voted: true,
+    totalVotesEarned: 14,
+    maxVotesPossible: 23,
+    judges: {
+      id: 2,
+      name: '',
+      username: '',
+      judgeID: 47
+    },
+    voteID: 33
+  }
 }
 ]
 

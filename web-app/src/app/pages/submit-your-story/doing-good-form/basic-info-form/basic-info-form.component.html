@@ -1,4 +1,4 @@
-<form [formGroup]="basicInfoFormGroup">
+<form *ngIf="basicInfoFormGroup" [formGroup]="basicInfoFormGroup">
     <div class="mt your-name" >
         <mat-form-field>
             <mat-label for="firstNameNominator">First Name:</mat-label>
@@ -15,6 +15,13 @@
         <mat-form-field>
             <mat-label for="emailNominator">Email:</mat-label>
             <input matInput id="emailNominator" type="email" formControlName="email" placeholder="Email Address" required>
+            <mat-hint>hint</mat-hint>
+        </mat-form-field>
+    </div>
+    <div class="mt">
+        <mat-form-field>
+            <mat-label for="phoneNominator">Phone:</mat-label>
+            <input matInput id="phoneNominator" type="phone" formControlName="phone" placeholder="Phone Number">
             <mat-hint>hint</mat-hint>
         </mat-form-field>
     </div>

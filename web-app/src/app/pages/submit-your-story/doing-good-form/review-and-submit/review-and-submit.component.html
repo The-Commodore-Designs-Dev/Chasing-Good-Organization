@@ -7,8 +7,21 @@
     </div>
     <div id="nominatingReview">
         <h4><strong>Who are you Nominating:</strong></h4>
-        <p>{{submission.nominating}}</p>
-        <!-- <p><span *ngIf="submission.nominating != self">{{submission.nominatingOrganization}}{{submission.nominatingOther}}</span></p>      -->  
+        <div *ngIf="submission.nominatingOptions == 'Self'">
+            <p>Self</p>
+        </div>
+        <div *ngIf="submission.nominatingOptions == 'Organization'">
+            <p>Organization</p>
+            <p>{{submission.organizationName}}</p>
+        </div>
+        <div *ngIf="submission.nominatingOptions == 'Individual'">
+            <p>Individual</p>
+            <p>{{submission.individualFullName}}</p>
+        </div>
+        <div *ngIf="submission.nominatingOptions == 'Other'">
+            <p>Other</p>
+            <p>{{submission.otherDescription}}</p>
+        </div> 
     </div>
     <div id="categoryReview">
         <h4><strong>Category for Nomination:</strong></h4><p>{{submission.category}}</p>    
@@ -21,13 +34,12 @@
     </div>
     <div id="uploadReview">
         <h4><strong>Uploaded:</strong></h4>
-        <p *ngIf="submission.uploadedVideo == false">nothing uploaded</p>
-        <p *ngIf="submission.uploadedVideo == true">{{submission.uploadedVideo}}</p>
+        <p>{{submission.uploadedVideo}}</p>
     </div>
     <div id="references">
-        <h4><strong>References:</strong></h4><p>{{submission.referenceName1}}</p> 
+        <h4><strong>References:</strong></h4><p>{{submission.referenceOne}}</p> 
     </div>
     <div id="disclaimerReview">
-        <h4><strong>Disclaimer:</strong></h4><p *ngIf="submission.agreement == true">I agreed</p>    
+        <h4><strong>Disclaimer:</strong></h4><p *ngIf="submission.disclaimerAgreement == true">I agreed</p>    
     </div>
 </div>

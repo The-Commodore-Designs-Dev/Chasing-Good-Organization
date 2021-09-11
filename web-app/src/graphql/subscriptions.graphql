@@ -1,0 +1,406 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateSubmission {
+  onCreateSubmission {
+    id
+    firstName
+    lastName
+    email
+    date
+    nominatingOptions
+    organizationName
+    individualFullName
+    otherDescription
+    category {
+      items {
+        id
+        name
+        categoryID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    county {
+      items {
+        id
+        name
+        countyID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    story
+    uploadedVideo
+    referenceOne {
+      items {
+        id
+        name
+        email
+        phoneNumber
+        referenceID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    referenceTwo {
+      items {
+        id
+        name
+        email
+        phoneNumber
+        referenceID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    disclaimerAgreement
+    voted {
+      items {
+        id
+        voted
+        totalVotesEarned
+        maxVotesPossible
+        voteID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateSubmission {
+  onUpdateSubmission {
+    id
+    firstName
+    lastName
+    email
+    date
+    nominatingOptions
+    organizationName
+    individualFullName
+    otherDescription
+    category {
+      items {
+        id
+        name
+        categoryID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    county {
+      items {
+        id
+        name
+        countyID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    story
+    uploadedVideo
+    referenceOne {
+      items {
+        id
+        name
+        email
+        phoneNumber
+        referenceID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    referenceTwo {
+      items {
+        id
+        name
+        email
+        phoneNumber
+        referenceID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    disclaimerAgreement
+    voted {
+      items {
+        id
+        voted
+        totalVotesEarned
+        maxVotesPossible
+        voteID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteSubmission {
+  onDeleteSubmission {
+    id
+    firstName
+    lastName
+    email
+    date
+    nominatingOptions
+    organizationName
+    individualFullName
+    otherDescription
+    category {
+      items {
+        id
+        name
+        categoryID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    county {
+      items {
+        id
+        name
+        countyID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    story
+    uploadedVideo
+    referenceOne {
+      items {
+        id
+        name
+        email
+        phoneNumber
+        referenceID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    referenceTwo {
+      items {
+        id
+        name
+        email
+        phoneNumber
+        referenceID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    disclaimerAgreement
+    voted {
+      items {
+        id
+        voted
+        totalVotesEarned
+        maxVotesPossible
+        voteID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateCategory {
+  onCreateCategory {
+    id
+    name
+    categoryID
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateCategory {
+  onUpdateCategory {
+    id
+    name
+    categoryID
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteCategory {
+  onDeleteCategory {
+    id
+    name
+    categoryID
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateNJCounty {
+  onCreateNJCounty {
+    id
+    name
+    countyID
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateNJCounty {
+  onUpdateNJCounty {
+    id
+    name
+    countyID
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteNJCounty {
+  onDeleteNJCounty {
+    id
+    name
+    countyID
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateReference {
+  onCreateReference {
+    id
+    name
+    email
+    phoneNumber
+    referenceID
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateReference {
+  onUpdateReference {
+    id
+    name
+    email
+    phoneNumber
+    referenceID
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteReference {
+  onDeleteReference {
+    id
+    name
+    email
+    phoneNumber
+    referenceID
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateVote {
+  onCreateVote {
+    id
+    voted
+    totalVotesEarned
+    maxVotesPossible
+    judges {
+      items {
+        id
+        name
+        username
+        judgeID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    voteID
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateVote {
+  onUpdateVote {
+    id
+    voted
+    totalVotesEarned
+    maxVotesPossible
+    judges {
+      items {
+        id
+        name
+        username
+        judgeID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    voteID
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteVote {
+  onDeleteVote {
+    id
+    voted
+    totalVotesEarned
+    maxVotesPossible
+    judges {
+      items {
+        id
+        name
+        username
+        judgeID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    voteID
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateJudge {
+  onCreateJudge {
+    id
+    name
+    username
+    judgeID
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateJudge {
+  onUpdateJudge {
+    id
+    name
+    username
+    judgeID
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteJudge {
+  onDeleteJudge {
+    id
+    name
+    username
+    judgeID
+    createdAt
+    updatedAt
+  }
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Submission } from 'src/app/Submission';
+import { Submission } from '../../../../../types/Submission';
 
 @Component({
   selector: 'app-review-and-submit',

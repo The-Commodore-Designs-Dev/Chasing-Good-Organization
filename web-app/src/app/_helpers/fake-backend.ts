@@ -4,7 +4,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
 import { User } from '../_models/user';
-import { Submission } from '../Submission';
+import { Submission } from '../../types/Submission';
 
 const users: User[] = [{ id: 1, username: 'gregory@chasinggoodnj.org', password: '1234', firstName: 'Gregory', lastName: 'Rothstein' }];
 
