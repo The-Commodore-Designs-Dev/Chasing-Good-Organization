@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, ValidationErrors, Validators } from '@angular/forms';
+import { DataStore } from 'aws-amplify';
 import { APIService } from '../../../API.service';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { Submission } from '../../../../types/Submission';
@@ -241,10 +242,12 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
   * submission: Submission   
   */
   public onCreate(submission: Submission) {
-    this.api.CreateSubmission(submission).then(event => {
+    this.api.CreateSubmission(submission).then(async (event) => {
+      alert('Thank you, your form has been submitted!')
       console.log('Submitted!');
       this.createForm.reset();
     }).catch(() => {
+      alert('Sorry, something went wrong. We are working on it!');
       console.log('error submitting story ...');
     });
   }

@@ -19,7 +19,9 @@
   "dependencies": {
     "@angular/animations": "^12.2.0",
     "@angular/cdk": "^12.2.0",
+    "@angular/core": "^12.2.5",
     "@angular/material": "^12.2.0",
+    "@aws-amplify/ui-angular": "^1.0.24",
     "aws-sdk": "^2.966.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
@@ -27,7 +29,8 @@
     "express": "^4.17.1",
     "hammerjs": "^2.0.8",
     "jquery": "^3.6.0",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "rxjs": "^7.3.0"
   },
   "devDependencies": {
     "@types/jquery": "^3.5.5"

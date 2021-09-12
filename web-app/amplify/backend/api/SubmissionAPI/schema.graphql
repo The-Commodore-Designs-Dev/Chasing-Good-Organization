@@ -1,4 +1,4 @@
-type Submission @model {
+type Submission @model @auth(rules: [{ allow: public, operations: [create, read] }]) {
   id: ID!
   firstName: String!
   lastName: String!
@@ -30,7 +30,7 @@ type NJCounty @model @key(name: "bySubmission", fields: ["countyID"]) {
   countyID: ID!
 }
 
-type Reference @model @key(name: "bySubmission", fields: ["referenceID"]) {
+type Reference @model @auth(rules: [{ allow: public, operations: [create, read] }]) @key(name: "bySubmission", fields: ["referenceID"]) {
   name: String!
   email: String!
   phoneNumber: String!
