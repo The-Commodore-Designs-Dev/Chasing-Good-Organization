@@ -1,6 +1,6 @@
 export interface Judge {
-    id: number;
+    id: string;
     name: string;
     username: string;
-    judgeID: number;
+    judgeID: string;
 }

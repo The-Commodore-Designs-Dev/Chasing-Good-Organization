@@ -2,8 +2,11 @@
     position: fixed;
     width: 100%;
     height: 100vh;
+    display: flex;
+    align-items: baseline;
     font-weight: bold;
     text-align: center;
+    justify-content: center;
     background: var(--primary);
     transition: .3s;
     // header shrinks when .small added to .header
@@ -48,9 +51,8 @@
     border-top: 1px solid #ffffff;
     width: 100%;
     float: left;
-    height: 50px;
+    height: 0;
     margin: 0 0;
-    padding: 15px 0 0 0;
 }
 
 .menu ul{
@@ -73,7 +75,7 @@
 
 .offset {
     margin-top: 0;
-    padding-top: 270px;
+    padding-top: 30em;
     text-align: center;
     transition: .3s;
 }
@@ -84,8 +86,41 @@
 
 mat-card {
     margin: 0 auto 12px;
-    width: 50vw;
+    width: 100vw;
     align-items: center;
     background: none;
     color: #ffffff;
+    box-shadow: none;
+    border: none;
+}
+
+.mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: none;
+}
+
+.big {
+    font-size: 17pt;
+}
+
+.smaller-para {
+    font-size: 15pt;
+    line-height: 1.5;
+}
+
+.dots {
+    letter-spacing: 14pt;
+}
+
+#mobile-menu {
+    display: none;
+}
+
+@media(max-width: 1024px){
+    #mobile-menu {
+        display: flex;
+    }
+
+    .about-program {
+        width: 422px;
+    }
 }

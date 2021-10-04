@@ -1,0 +1,47 @@
+<div *ngIf="errorMessages && errorMessages.length > 0" class="errors-box">
+    <div>
+      <p style="margin-left: 16px" class="error-spree-header">Form Contains Errors</p>
+    </div>
+    <div>
+      <ul>
+        <li *ngFor="let errorMessage of errorMessages" class="error-spree">{{errorMessage}}</li>
+      </ul>
+    </div>
+</div>
+
+<div *ngIf="errorMessages.length == 0" class="info-box">
+    <div class="basic-info">
+      <div>
+        <p class="review-header"><strong>Basic Info Details</strong></p>
+      </div>
+      <div>
+        <div class="name">
+          {{submission.firstName}} {{submission.lastName}}
+        </div>
+        <div class="email" *ngIf="submission.email">
+          {{submission.email}}
+        </div>
+      </div>      
+    </div>
+
+    <div class="nomination-info">
+        <div>
+          <p class="review-header"><strong>Nomination Details</strong></p>
+        </div>
+        <div>
+          <div class="nominating">
+            I am nominating {{submission.nominatingOptions}} their name is {{submission.organizationName || submission.individualFullName || submission.otherDescription}} <br>
+            and the're from {{submission.county}}.
+          </div>
+          <div class="category">
+            {{submission.category}}
+          </div>
+        </div>      
+    </div>
+
+    <form [formGroup]="disclaimerFormGroup">
+        <div>
+          <mat-checkbox formControlName="agreeToTermsAndPrivacy" id="disclaimer">I Agree to the <a>Privacy Policy</a> and <a>Terms of Use</a> of ChasingGood</mat-checkbox>                                
+        </div>
+    </form>
+</div>

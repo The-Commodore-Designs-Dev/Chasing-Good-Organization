@@ -31,11 +31,11 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "date": {
-                    "name": "date",
+                "phoneNumber": {
+                    "name": "phoneNumber",
                     "isArray": false,
-                    "type": "AWSDate",
-                    "isRequired": true,
+                    "type": "AWSPhone",
+                    "isRequired": false,
                     "attributes": []
                 },
                 "nominatingOptions": {
@@ -66,20 +66,6 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "category": {
-                    "name": "category",
-                    "isArray": true,
-                    "type": {
-                        "model": "Category"
-                    },
-                    "isRequired": true,
-                    "attributes": [],
-                    "isArrayNullable": true,
-                    "association": {
-                        "connectionType": "HAS_MANY",
-                        "associatedWith": "categoryID"
-                    }
-                },
                 "county": {
                     "name": "county",
                     "isArray": true,
@@ -94,11 +80,11 @@ export const schema = {
                         "associatedWith": "countyID"
                     }
                 },
-                "story": {
-                    "name": "story",
+                "category": {
+                    "name": "category",
                     "isArray": false,
-                    "type": "String",
-                    "isRequired": true,
+                    "type": "AWSJSON",
+                    "isRequired": false,
                     "attributes": []
                 },
                 "uploadedVideo": {
@@ -157,6 +143,20 @@ export const schema = {
                         "associatedWith": "voteID"
                     }
                 },
+                "date": {
+                    "name": "date",
+                    "isArray": false,
+                    "type": "AWSDate",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "story": {
+                    "name": "story",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -192,65 +192,6 @@ export const schema = {
                                     "read"
                                 ]
                             }
-                        ]
-                    }
-                }
-            ]
-        },
-        "Category": {
-            "name": "Category",
-            "fields": {
-                "id": {
-                    "name": "id",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "name": {
-                    "name": "name",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "categoryID": {
-                    "name": "categoryID",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "createdAt": {
-                    "name": "createdAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                },
-                "updatedAt": {
-                    "name": "updatedAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                }
-            },
-            "syncable": true,
-            "pluralName": "Categories",
-            "attributes": [
-                {
-                    "type": "model",
-                    "properties": {}
-                },
-                {
-                    "type": "key",
-                    "properties": {
-                        "name": "bySubmission",
-                        "fields": [
-                            "categoryID"
                         ]
                     }
                 }
@@ -310,6 +251,22 @@ export const schema = {
                         "name": "bySubmission",
                         "fields": [
                             "countyID"
+                        ]
+                    }
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
                         ]
                     }
                 }
@@ -486,6 +443,22 @@ export const schema = {
                             "voteID"
                         ]
                     }
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
                 }
             ]
         },
@@ -552,11 +525,27 @@ export const schema = {
                             "judgeID"
                         ]
                     }
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
                 }
             ]
         }
     },
     "enums": {},
     "nonModels": {},
-    "version": "2f8b51104c3a67286f2ba1879d90da65"
+    "version": "28e2ecb7bf122ce3648b3160a49f8f82"
 };

@@ -1,7 +1,7 @@
 export interface Reference {
-    id: number;
+    id: string;
     name: string;
     email: string;
     phoneNumber: string;
-    referenceID: number;
+    referenceID: string;
 }

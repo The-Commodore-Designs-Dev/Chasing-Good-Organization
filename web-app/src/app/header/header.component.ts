@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -7,12 +10,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  links: any[] = [];
+  destroyed = new Subject<void>();
+  currentScreenSize: string;
+
+  displayNameMap = new Map([
+    [Breakpoints.XSmall, 'XSmall'],
+    [Breakpoints.Small, 'Small'],
+    [Breakpoints.Medium, 'Medium'],
+    [Breakpoints.Large, 'Large'],
+    [Breakpoints.XLarge, 'XLarge'],
+  ]);
+
+  linksLeft: any[] = [];
+  linksRight: any[] = [];
   activeLink = -1;
-  constructor(public _router: Router) { 
-    this.links = [
+
+  constructor(public _router: Router, breakpointObserver: BreakpointObserver) {
+    this.linksLeft = [
       {
-        label: 'About',
+        label: 'About Us',
         link: '/pages/about',
         index: 0
       },
@@ -21,6 +37,9 @@ export class HeaderComponent implements OnInit {
         link: '/pages/submit-your-story',
         index: 1
       },
+    ]
+
+    this.linksRight = [
       {
         label: 'Meet Some Nominees',
         link: '/pages/meet-some-nominees',
@@ -36,41 +55,34 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this._router.events.subscribe(() => {
-      this.activeLink = this.links.indexOf(this.links.find(tab => tab.link === '.' + this._router.url));
+      this.activeLink = this.linksLeft.indexOf(this.linksLeft.find(tab => tab.link === '.' + this._router.url));
+      this.activeLink = this.linksRight.indexOf(this.linksRight.find(tab => tab.link === '.' + this._router.url));
     });
-    /*window.addEventListener('scroll', () => {
+    window.addEventListener('scroll', () => {
       navbarScroll();
     })
      function navbarScroll() {
+      var header = document.getElementById('header');
+      var logo = document.getElementById('logo');
+      var menu = document.querySelectorAll('#menu');
+      var section = document.querySelector('section');
       var y = window.scrollY;
       if (y > 10) {
-        var header = document.getElementsByClassName('header')[0];
-        var headerWrap = document.getElementsByClassName('header-wrap')[0];
-        var logo = document.getElementsByClassName('logo')[0];
-        var menu = document.getElementsByClassName('menu')[0];
-        headerWrap.classList.remove('height-full');
-        headerWrap.classList.add('height-auto');
         header.classList.add('small');
-        logo.classList.add('small');
-        logo.classList.remove('center');
-        logo.classList.add('left');
-        menu.classList.add('display');
-        menu.classList.remove('no-display');
+        logo.classList.add('small')
+        menu.forEach((item)=> {
+          item.classList.add('small');
+        });
+        section.classList.add('isScrolled');
       } else if (y < 10) {
-        var header = document.getElementsByClassName('header')[0];
-        var headerWrap = document.getElementsByClassName('header-wrap')[0];
-        var logo = document.getElementsByClassName('logo')[0];
-        var menu = document.getElementsByClassName('menu')[0];
-        headerWrap.classList.add('height-full');
-        headerWrap.classList.remove('height-auto');
         header.classList.remove('small');
         logo.classList.remove('small');
-        logo.classList.remove('left');        
-        logo.classList.add('center');
-        menu.classList.remove('display');
-        menu.classList.add('no-display');
+        menu.forEach((item)=> {
+          item.classList.remove('small');
+        });
+        section.classList.remove('isScrolled');
       }
-    } */
+    }
   }
 
   

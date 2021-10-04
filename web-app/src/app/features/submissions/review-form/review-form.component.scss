@@ -1,0 +1,23 @@
+.errors-box {
+    background-color: #caa4a4;
+    border: 1px solid #cc3030;
+    color: #cc3030;
+    border-radius: 5px;
+    margin: 15px;
+    padding: 5px;
+}
+
+.info-box {
+    margin: 15px;
+    padding: 5px;
+}
+
+li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: var(--primary);
+}

@@ -1,14 +1,17 @@
 /* Import material deign variables file */
 @import './scss/_variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
 
 /* You can add global styles to this file, and also import other style files */
 * {
     margin: 0 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16pt;
+    font-weight: bold;
 }
 
 body {
-    background: url(https://www.brainpickings.org/wp-content/themes/brainpickings/images/bckgd_body.png);
+    background: #ffffff;
 }
 
 section:nth-of-type(2) {
@@ -29,6 +32,10 @@ section:nth-of-type(2) {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.t-center {
+    text-align: center;
 }
 
 .left {
@@ -54,7 +61,48 @@ section:nth-of-type(2) {
     margin: 25px auto;
 }
 
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.flex-wrapper{
+    display: flex;
+    flex-direction: row;
+    margin: 0 50px;
+    align-items: center;
+}
+
+.flex-wrapper-reverse{
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 0 50px;
+    align-items: center;
+}
+
+.flex-wrapper-colunm {
+    display: flex;
+    flex-direction: column;
+    margin: 0 50px;
+    align-items: center;
+}
+
+body { margin: 0; }
 a, :visited { text-decoration: none; color: #ffffff; }
 a:hover { color: rgb(78, 62, 53); }
 th,td { padding: 13px !important; }
+section { 
+    padding-top: 17em; 
+    &.isScrolled {
+        padding-top: 10em;
+    }
+}
+
+@media(max-width:1024px) {
+    .flex-wrapper{
+        flex-direction: column;
+        align-items: center;
+        grid-row-gap: 13px;
+    }
+
+    .flex-wrapper-reverse{
+        flex-direction: column;
+        align-items: center;
+        grid-row-gap: 13px;
+    }
+}

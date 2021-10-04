@@ -1,21 +1,75 @@
-mat-card {
-    min-height: 50em;
-    width: 75vw;
+.page-wrapper {
+    width: 100%;
+    height: 100vh;
     margin: 0 auto;
+    background: #ffffff;
+    padding-top: 2em;
+    overflow: hidden;
 }
 
-div {
-    margin: 3em auto;
-    width: 15em;
-    font-size: 38pt;
+mat-card {
+    width: 80%;
+    margin: 0 auto;
+    background: #ffffff;
+}
+
+.mat-card {
+    box-shadow: none;
+}
+
+.mat-card-title {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.mat-card-subtitle, .mat-tab-label, .mat-tab-link, .mat-tab-label-content {
+
+}
+
+h3 {
+    border-bottom: 1px solid #000000;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 p, address{
     line-height: 1.5;
-    text-align: center;
+    text-align: justify;
 }
 
 a{
-    color:#000000;
+    color: #000000;
     cursor: pointer;
+}
+
+.contact-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 0.5em;
+    margin: 0 0;
+}
+
+google-map {
+    flex: 2;
+}
+
+.details-wrapper {
+    flex: 1;
+    border: 1px solid #c4c4c4;
+    padding: 10px;
+    margin: 0 0 0 1em;
+    height: 480px;
+}
+
+.email-wrapper {
+    margin: 10px 0;
+}
+
+.socials-wrapper {
+    margin: 10px 0;
+}
+
+.hours-wrapper {
+    margin: 10px 0;
 }

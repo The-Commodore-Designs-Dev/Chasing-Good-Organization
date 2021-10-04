@@ -8,10 +8,6 @@ type SubmissionMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
-type CategoryMetaData = {
-  readOnlyFields: 'createdAt' | 'updatedAt';
-}
-
 type NJCountyMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
@@ -33,33 +29,24 @@ export declare class Submission {
   readonly firstName: string;
   readonly lastName: string;
   readonly email: string;
-  readonly date: string;
+  readonly phoneNumber?: string;
   readonly nominatingOptions: string;
   readonly organizationName: string;
   readonly individualFullName: string;
   readonly otherDescription: string;
-  readonly category?: Category[];
   readonly county?: NJCounty[];
-  readonly story: string;
+  readonly category?: string;
   readonly uploadedVideo: string;
   readonly referenceOne?: Reference[];
   readonly referenceTwo?: Reference[];
   readonly disclaimerAgreement: boolean;
   readonly voted?: Vote[];
+  readonly date: string;
+  readonly story: string;
   readonly createdAt?: string;
   readonly updatedAt?: string;
   constructor(init: ModelInit<Submission, SubmissionMetaData>);
   static copyOf(source: Submission, mutator: (draft: MutableModel<Submission, SubmissionMetaData>) => MutableModel<Submission, SubmissionMetaData> | void): Submission;
-}
-
-export declare class Category {
-  readonly id: string;
-  readonly name: string;
-  readonly categoryID: string;
-  readonly createdAt?: string;
-  readonly updatedAt?: string;
-  constructor(init: ModelInit<Category, CategoryMetaData>);
-  static copyOf(source: Category, mutator: (draft: MutableModel<Category, CategoryMetaData>) => MutableModel<Category, CategoryMetaData> | void): Category;
 }
 
 export declare class NJCounty {

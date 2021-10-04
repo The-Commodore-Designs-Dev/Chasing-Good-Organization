@@ -1,0 +1,28 @@
+<form [formGroup]="basicInfoFormGroup">
+    <div class="mt your-name">
+        <mat-form-field>
+            <mat-label for="firstNameNominator">First Name:</mat-label>
+            <input matInput id="firstNameNominator" type="text" formControlName="firstName" placeholder="Your First Name" required>
+            <mat-error *ngIf="basicInfoFormGroup.controls['firstName'].invalid">Please enter a valid first name</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label for="lastNameNominator">Last Name:</mat-label>
+            <input matInput id="lastNameNominator" type="text" formControlName="lastName" placeholder="Your Last Name" required>
+            <mat-error *ngIf="basicInfoFormGroup.controls['lastName'].invalid">Please enter a valid last name</mat-error>
+        </mat-form-field>
+    </div>
+    <div class="mt">
+        <mat-form-field>
+            <mat-label for="emailNominator">Email:</mat-label>
+            <input matInput id="emailNominator" type="email" formControlName="email" placeholder="Email Address" required>
+            <mat-error *ngIf="basicInfoFormGroup.controls['email'].invalid">Please enter a valid email address</mat-error>
+        </mat-form-field>
+    </div>
+    <div class="mt">
+        <mat-form-field>
+            <mat-label for="phoneNominator">Phone:</mat-label>
+            <input matInput id="phoneNominator" type="phone" formControlName="phone" placeholder="Phone Number">
+            <mat-error *ngIf="basicInfoFormGroup.controls['phone'].invalid">Please enter a valid phone number</mat-error>
+        </mat-form-field>
+    </div>
+</form>

@@ -1,43 +1,38 @@
-type Submission @model @auth(rules: [{ allow: public, operations: [create, read] }]) {
+type Submission @model @auth(rules: [{allow: public, operations: [create, read]}]) {
   id: ID!
   firstName: String!
   lastName: String!
   email: String!
-  date: AWSDate!
+  phoneNumber: AWSPhone
   nominatingOptions: String!
   organizationName: String!
   individualFullName: String!
   otherDescription: String!
-  category: [Category!] @connection(keyName: "bySubmission", fields: ["id"])
   county: [NJCounty!] @connection(keyName: "bySubmission", fields: ["id"])
-  story: String!
+  category: AWSJSON
   uploadedVideo: String!
   referenceOne: [Reference!] @connection(keyName: "bySubmission", fields: ["id"])
   referenceTwo: [Reference!] @connection(keyName: "bySubmission", fields: ["id"])
   disclaimerAgreement: Boolean!
   voted: [Vote!] @connection(keyName: "bySubmission", fields: ["id"])
+  date: AWSDate!
+  story: String!
 }
 
-type Category @model @key(name: "bySubmission", fields: ["categoryID"]) {
-  id: ID!
-  name: String!
-  categoryID: ID!
-}
-
-type NJCounty @model @key(name: "bySubmission", fields: ["countyID"]) {
+type NJCounty @model @key(name: "bySubmission", fields: ["countyID"]) @auth(rules: [{allow: public}]) {
   id: ID!
   name: String!
   countyID: ID!
 }
 
-type Reference @model @auth(rules: [{ allow: public, operations: [create, read] }]) @key(name: "bySubmission", fields: ["referenceID"]) {
+type Reference @model @auth(rules: [{allow: public, operations: [create, read]}]) @key(name: "bySubmission", fields: ["referenceID"]) {
   name: String!
   email: String!
   phoneNumber: String!
   referenceID: ID!
 }
 
-type Vote @model @key(name: "bySubmission", fields: ["voteID"]) {
+type Vote @model @key(name: "bySubmission", fields: ["voteID"]) @auth(rules: [{allow: public}]) {
   id: ID!
   voted: Boolean!
   totalVotesEarned: Int!
@@ -46,9 +41,10 @@ type Vote @model @key(name: "bySubmission", fields: ["voteID"]) {
   voteID: ID!
 }
 
-type Judge @model @key(name: "byJudge", fields: ["judgeID"]) {
+type Judge @model @key(name: "byJudge", fields: ["judgeID"]) @auth(rules: [{allow: public}]) {
   id: ID!
   name: String!
   username: String!
   judgeID: ID!
 }
+ 

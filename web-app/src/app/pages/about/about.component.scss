@@ -3,10 +3,10 @@ p {
 }
 
 .about-section {
-    margin: -70px auto 0 auto;
+    margin: 0 auto;
     padding: 15px;
     background-color: white;
-    width: 75vw;
+    width: 98%;
 }
 
 .about-section h1 {
@@ -27,35 +27,38 @@ p {
 .quote-wrap {
     text-align: center;
     font-size: 24pt;
-    width: 550px;
+    width: 80%;
     margin: 0 auto;
 }
 
 .quote-wrap span {
     font-style: italic;
-    line-height: 2;
+    line-height: 1.5;
 }
 
 .quote {
     text-align: center;
     font-size: 24pt;
-    width: 550px;
+    width: 100%;
     margin: 0 auto;
 }
 
 .quote::before {
     content: '“';
-    font-size: 48pt;
+    font-size: 18pt;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    padding-top: 120px;
-    line-height: 2;
 
 }
 
 .quote::after {
     content: '”';
-    font-size: 48pt;
+    font-size: 18pt;
     font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.rows-wrap {
+    width: 80%;
+    margin: 0 auto;
 }
 
 .rows {
@@ -70,14 +73,20 @@ p {
 
 .greeting, .our-story-1, .our-story-2 {
     font-size: 18pt;
+    margin: 5px 10px;
 }
 
 .our-story-1 {
     flex: 2;
-    margin: 0 10px 0 0;
+    margin: 0 10px 0 10px;
 }
 
 .our-story-2 {
     flex: 2;
-    margin: 0 0 0 10px;
+    margin: 0 10px 0 10px;
+}
+
+.dots {
+    text-align: center;
+    letter-spacing: 14pt;
 }

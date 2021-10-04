@@ -1,0 +1,39 @@
+<div class="form-wrap" [formGroup]="createForm">
+    <mat-stepper orientation="vertical" linear labelPosition="bottom" (selectionChange)="onStepChange($event)">
+                <mat-step label="Your Basic Information">
+                    <app-basic-info-form></app-basic-info-form>
+                    <div class="mt">
+                        <button mat-button matStepperNext type="button" class="nxt-btn">Next</button>
+                    </div>
+                </mat-step>
+                <mat-step label="Nomination Details">
+                    <app-nomination-details-form></app-nomination-details-form>
+                    <div class="mt">
+                        <button mat-button matStepperPrevious type="button" class="prev-btn">Back</button>
+                        <button mat-button matStepperNext type="button" class="nxt-btn">Next</button>
+                    </div>
+                </mat-step>
+                <mat-step label="Story Details">
+                    <app-story-details-form></app-story-details-form>
+                    <div class="mt">
+                        <button mat-button matStepperPrevious type="button" class="prev-btn">Back</button>
+                        <button mat-button matStepperNext type="button" class="nxt-btn">Next</button>
+                    </div>
+                </mat-step>
+                <mat-step label="References">
+                    <app-references-form></app-references-form>
+                    <div class="mt">
+                        <button mat-button matStepperPrevious type="button" class="prev-btn">Back</button>
+                        <button mat-button matStepperNext type="button" class="nxt-btn">Next</button>
+                    </div>
+                </mat-step>
+                <mat-step label="Review & Submit">
+                    <app-review-form [submission]="submission" [errorMessages]="errorMessages"></app-review-form>
+                    <div>
+                        <button mat-button matStepperPrevious type="button" class="prev-btn">Back</button>
+                        <button [disabled]="!allFormsValid" *ngIf="!formSubmitted" mat-button matStepperNext type="submit" class="submit-btn" (click)="onCreate(submission)">Submit</button>
+                        <mat-spinner *ngIf="formSubmitted" [diameter]="50"></mat-spinner>
+                    </div>
+                </mat-step>
+    </mat-stepper>
+</div>

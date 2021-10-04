@@ -4,11 +4,10 @@ import { schema } from './schema';
 
 
 
-const { Submission, Category, NJCounty, Reference, Vote, Judge } = initSchema(schema);
+const { Submission, NJCounty, Reference, Vote, Judge } = initSchema(schema);
 
 export {
   Submission,
-  Category,
   NJCounty,
   Reference,
   Vote,

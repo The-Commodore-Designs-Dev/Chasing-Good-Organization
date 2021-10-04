@@ -1,37 +1,30 @@
+<app-header></app-header>
 <div id="header" class="header" *ngIf="_router.url != '/about' || '/submit-your-story' || '/meet-some-nominees' || '/contact-us'">
-    <img class="center logo" src="../assets/chasinggood-logo.png" alt="">
+    <div class="offset"></div>
     <div class="about-program">
         <mat-card>
-            <p>
+            <p class="big">
                 Are you a NJ resident who has done something good in your community, your life, or the world?
             </p>
-            <p>
-                Do you know someone who from NJ has “done some good” in this world and want to nominate them for an award?              
+            <p class="big">
+                Do you know someone who is from NJ and has “done some good” in this world and want to nominate them for an award?              
             </p>
-            <p>
+            <p class="big">
                 Are you part of a NJ organization that does good?
             </p>
-            <p>
-                If you answered “yes”- tell us about it! We are chasing good in the world and rewarding people for their good deeds, good works, and in general doing good. We believe there is so much good in the world- we need to find it and celebrate it!
+            <p class="dots">•••</p>
+            <p class="smaller-para">
+                If you answered “yes”- tell us about it! We are chasing good in the world and rewarding people for their good deeds, good works, and in general doing good. <br> We believe there is so much good in the world- we need to find it and celebrate it!
             </p>
-            <p>
+            <p class="smaller-para">
                 Share your story with us and you could win a cash prize. We will be showcasing and highlighting good deeds, good people and good organizations!
             </p>
-            <p>
+            <p class="smaller-para">
                 Fill out the form on the Submit Your Story page and write your story or upload a video.
             </p>
-            <p>
+            <p class="smaller-para">
                 We can’t wait to see the GOOD you have done!
             </p>          
         </mat-card>
     </div>
-    <div class="menu display">
-        <ul>
-            <li><a routerLink="/pages/about">About Us</a></li>
-            <li><a routerLink="/pages/submit-your-story">Submit Your Story</a></li>
-            <li><a routerLink="/pages/meet-some-nominees">Meet Some Nominees</a></li>
-            <li><a routerLink="/pages/contact-us">Contact Us</a></li>
-        </ul>
-    </div>
 </div>
-<div class="offset"></div>
