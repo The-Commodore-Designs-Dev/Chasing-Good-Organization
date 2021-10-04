@@ -4,7 +4,7 @@
     height: 100vh;
     display: flex;
     align-items: baseline;
-    font-weight: bold;
+    font-weight: 100;
     text-align: center;
     justify-content: center;
     background: var(--primary);
@@ -28,7 +28,7 @@
 
 .logo {
     height: 40vh;
-    font-weight: bold;
+    font-weight: 100;
     text-align: center;
     transition: .3s;
     // header shrinks when .small added to .header
@@ -75,7 +75,7 @@
 
 .offset {
     margin-top: 0;
-    padding-top: 30em;
+    padding-top: 20em;
     text-align: center;
     transition: .3s;
 }
@@ -100,6 +100,7 @@ mat-card {
 
 .big {
     font-size: 17pt;
+    font-weight: 700;
 }
 
 .smaller-para {

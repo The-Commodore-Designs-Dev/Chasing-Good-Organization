@@ -3,15 +3,15 @@ p {
 }
 
 .about-section {
-    margin: 0 auto;
+    margin: 0 auto 50px;
     padding: 15px;
     background-color: white;
     width: 98%;
 }
 
 .about-section h1 {
-   text-align: center;
-   font-size: 32pt;
+    font-size: 32pt;
+    text-align: center;
 }
 
 .family-image {
@@ -26,7 +26,6 @@ p {
 
 .quote-wrap {
     text-align: center;
-    font-size: 24pt;
     width: 80%;
     margin: 0 auto;
 }
@@ -38,7 +37,6 @@ p {
 
 .quote {
     text-align: center;
-    font-size: 24pt;
     width: 100%;
     margin: 0 auto;
 }
@@ -72,7 +70,6 @@ p {
 }
 
 .greeting, .our-story-1, .our-story-2 {
-    font-size: 18pt;
     margin: 5px 10px;
 }
 

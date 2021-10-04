@@ -18,23 +18,25 @@ mat-card {
 }
 
 .mat-card-title {
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 24pt;
+    font-weight: 400;
 }
 
 .mat-card-subtitle, .mat-tab-label, .mat-tab-link, .mat-tab-label-content {
-
+    font-size: 16pt;
+    font-weight: 400;
+    color: #000000;
 }
 
 h3 {
+    font-size: 24pt;
+    font-weight: 400;
     border-bottom: 1px solid #000000;
-    font-weight: 600;
-    text-transform: uppercase;
 }
 
 p, address{
     line-height: 1.5;
-    text-align: justify;
+    text-align: center;
 }
 
 a{
