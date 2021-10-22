@@ -31,7 +31,7 @@
                     <app-review-form [submission]="submission" [errorMessages]="errorMessages"></app-review-form>
                     <div>
                         <button mat-button matStepperPrevious type="button" class="prev-btn">Back</button>
-                        <button [disabled]="!allFormsValid" *ngIf="!formSubmitted" mat-button matStepperNext type="submit" class="submit-btn" (click)="onCreate(submission)">Submit</button>
+                        <button [disabled]="!allFormsValid" *ngIf="!formSubmitted" mat-button matStepperNext type="submit" class="submit-btn" (click)="onCreate()">Submit</button>
                         <mat-spinner *ngIf="formSubmitted" [diameter]="50"></mat-spinner>
                     </div>
                 </mat-step>

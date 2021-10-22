@@ -34,11 +34,11 @@ export declare class Submission {
   readonly organizationName: string;
   readonly individualFullName: string;
   readonly otherDescription: string;
-  readonly county?: NJCounty[];
+  readonly county?: string;
   readonly category?: string;
   readonly uploadedVideo: string;
-  readonly referenceOne?: Reference[];
-  readonly referenceTwo?: Reference[];
+  readonly referenceOne?: string;
+  readonly referenceTwo?: string;
   readonly disclaimerAgreement: boolean;
   readonly voted?: Vote[];
   readonly date: string;

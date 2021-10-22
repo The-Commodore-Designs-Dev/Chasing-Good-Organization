@@ -19,6 +19,10 @@
         "AdminQueriesa09a7da4": {
           "deploymentBucketName": "amplify-amplifycgapp-dev-124349-deployment",
           "s3Key": "amplify-builds/AdminQueriesa09a7da4-7047534639456f497754-build.zip"
+        },
+        "S3Triggerbd342f6e": {
+          "deploymentBucketName": "amplify-amplifycgapp-dev-124349-deployment",
+          "s3Key": "amplify-builds/S3Triggerbd342f6e-76424661587469415669-build.zip"
         }
       }
     }

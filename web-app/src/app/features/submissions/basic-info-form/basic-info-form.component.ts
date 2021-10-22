@@ -37,6 +37,5 @@ export class BasicInfoFormComponent implements OnInit {
     submission.lastName = basicInfo.controls['lastName'].value.trim();
     submission.email = basicInfo.controls['email'].value.trim();
     submission.phoneNumber = basicInfo.controls['phone'].value.trim();
-    console.log("Email: " + submission.email);
   }
 }

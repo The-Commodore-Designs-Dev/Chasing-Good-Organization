@@ -1,0 +1,35 @@
+type Submission @model @auth(rules: [{allow: public, operations: [create]}, {allow: groups, groups: ["Judges"], operations: [read]}, {allow: groups, groups: ["DemoUsers"], operations: [read]}, {allow: groups, groups: ["PlatformAdmin"], operations: [read, update, delete]}]) {
+  id: ID!
+  firstName: String
+  lastName: String
+  email: AWSEmail
+  phoneNumber: AWSPhone
+  nominatingOptions: String
+  organizationName: String
+  individualFullName: String
+  otherDescription: String
+  category: String
+  county: String
+  story: String
+  uploadedVideo: String
+  referenceOne: AWSJSON
+  referenceTwo: AWSJSON
+  disclaimerAgreement: Boolean
+  votes: [Vote] @connection(keyName: "byVote", fields: ["id"])
+}
+
+type Vote @model @auth(rules: [{allow: public, operations: [create]}, { allow: groups, groups: ["Judges"], operations: [create, read, update, delete]}, {allow: groups, groups: ["DemoUsers"], operations: [read]}]) @key(name: "byVote", fields: ["voteID", "totalVotesEarned", "maxVotesPossible"]) {
+  id: ID!
+  voteID: ID!
+  voted: Boolean
+  totalVotesEarned: Int
+  maxVotesPossible: Int
+  judges: [Judge] @connection(keyName: "byJudge", fields: ["id"])
+}
+
+type Judge @model @auth(rules: [{allow: public, operations: [create]}, { allow: groups, groups: ["PlatformAdmin"], operations: [create, read, update, delete]}, {allow: groups, groups: ["DemoUsers"], operations: [read]}]) @key(name: "byJudge", fields: ["judgeID", "name", "username"]) {
+  id: ID!
+  judgeID: ID!
+  name: String
+  username: AWSEmail
+}

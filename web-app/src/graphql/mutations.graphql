@@ -8,72 +8,32 @@ mutation CreateSubmission(
     firstName
     lastName
     email
-    date
+    phoneNumber
     nominatingOptions
     organizationName
     individualFullName
     otherDescription
-    category {
-      items {
-        id
-        name
-        categoryID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-    county {
-      items {
-        id
-        name
-        countyID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
+    category
+    county
     story
     uploadedVideo
-    referenceOne {
-      items {
-        id
-        name
-        email
-        phoneNumber
-        referenceID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-    referenceTwo {
-      items {
-        id
-        name
-        email
-        phoneNumber
-        referenceID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
+    referenceOne
+    referenceTwo
     disclaimerAgreement
-    voted {
+    createdAt
+    updatedAt
+    votes {
       items {
         id
+        voteID
         voted
         totalVotesEarned
         maxVotesPossible
-        voteID
         createdAt
         updatedAt
       }
       nextToken
     }
-    createdAt
-    updatedAt
   }
 }
 mutation UpdateSubmission(
@@ -85,72 +45,32 @@ mutation UpdateSubmission(
     firstName
     lastName
     email
-    date
+    phoneNumber
     nominatingOptions
     organizationName
     individualFullName
     otherDescription
-    category {
-      items {
-        id
-        name
-        categoryID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-    county {
-      items {
-        id
-        name
-        countyID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
+    category
+    county
     story
     uploadedVideo
-    referenceOne {
-      items {
-        id
-        name
-        email
-        phoneNumber
-        referenceID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-    referenceTwo {
-      items {
-        id
-        name
-        email
-        phoneNumber
-        referenceID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
+    referenceOne
+    referenceTwo
     disclaimerAgreement
-    voted {
+    createdAt
+    updatedAt
+    votes {
       items {
         id
+        voteID
         voted
         totalVotesEarned
         maxVotesPossible
-        voteID
         createdAt
         updatedAt
       }
       nextToken
     }
-    createdAt
-    updatedAt
   }
 }
 mutation DeleteSubmission(
@@ -162,186 +82,32 @@ mutation DeleteSubmission(
     firstName
     lastName
     email
-    date
+    phoneNumber
     nominatingOptions
     organizationName
     individualFullName
     otherDescription
-    category {
-      items {
-        id
-        name
-        categoryID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-    county {
-      items {
-        id
-        name
-        countyID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
+    category
+    county
     story
     uploadedVideo
-    referenceOne {
-      items {
-        id
-        name
-        email
-        phoneNumber
-        referenceID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-    referenceTwo {
-      items {
-        id
-        name
-        email
-        phoneNumber
-        referenceID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
+    referenceOne
+    referenceTwo
     disclaimerAgreement
-    voted {
+    createdAt
+    updatedAt
+    votes {
       items {
         id
+        voteID
         voted
         totalVotesEarned
         maxVotesPossible
-        voteID
         createdAt
         updatedAt
       }
       nextToken
     }
-    createdAt
-    updatedAt
-  }
-}
-mutation CreateCategory(
-  $input: CreateCategoryInput!
-  $condition: ModelCategoryConditionInput
-) {
-  createCategory(input: $input, condition: $condition) {
-    id
-    name
-    categoryID
-    createdAt
-    updatedAt
-  }
-}
-mutation UpdateCategory(
-  $input: UpdateCategoryInput!
-  $condition: ModelCategoryConditionInput
-) {
-  updateCategory(input: $input, condition: $condition) {
-    id
-    name
-    categoryID
-    createdAt
-    updatedAt
-  }
-}
-mutation DeleteCategory(
-  $input: DeleteCategoryInput!
-  $condition: ModelCategoryConditionInput
-) {
-  deleteCategory(input: $input, condition: $condition) {
-    id
-    name
-    categoryID
-    createdAt
-    updatedAt
-  }
-}
-mutation CreateNJCounty(
-  $input: CreateNJCountyInput!
-  $condition: ModelNJCountyConditionInput
-) {
-  createNJCounty(input: $input, condition: $condition) {
-    id
-    name
-    countyID
-    createdAt
-    updatedAt
-  }
-}
-mutation UpdateNJCounty(
-  $input: UpdateNJCountyInput!
-  $condition: ModelNJCountyConditionInput
-) {
-  updateNJCounty(input: $input, condition: $condition) {
-    id
-    name
-    countyID
-    createdAt
-    updatedAt
-  }
-}
-mutation DeleteNJCounty(
-  $input: DeleteNJCountyInput!
-  $condition: ModelNJCountyConditionInput
-) {
-  deleteNJCounty(input: $input, condition: $condition) {
-    id
-    name
-    countyID
-    createdAt
-    updatedAt
-  }
-}
-mutation CreateReference(
-  $input: CreateReferenceInput!
-  $condition: ModelReferenceConditionInput
-) {
-  createReference(input: $input, condition: $condition) {
-    id
-    name
-    email
-    phoneNumber
-    referenceID
-    createdAt
-    updatedAt
-  }
-}
-mutation UpdateReference(
-  $input: UpdateReferenceInput!
-  $condition: ModelReferenceConditionInput
-) {
-  updateReference(input: $input, condition: $condition) {
-    id
-    name
-    email
-    phoneNumber
-    referenceID
-    createdAt
-    updatedAt
-  }
-}
-mutation DeleteReference(
-  $input: DeleteReferenceInput!
-  $condition: ModelReferenceConditionInput
-) {
-  deleteReference(input: $input, condition: $condition) {
-    id
-    name
-    email
-    phoneNumber
-    referenceID
-    createdAt
-    updatedAt
   }
 }
 mutation CreateVote(
@@ -350,23 +116,23 @@ mutation CreateVote(
 ) {
   createVote(input: $input, condition: $condition) {
     id
+    voteID
     voted
     totalVotesEarned
     maxVotesPossible
+    createdAt
+    updatedAt
     judges {
       items {
         id
+        judgeID
         name
         username
-        judgeID
         createdAt
         updatedAt
       }
       nextToken
     }
-    voteID
-    createdAt
-    updatedAt
   }
 }
 mutation UpdateVote(
@@ -375,23 +141,23 @@ mutation UpdateVote(
 ) {
   updateVote(input: $input, condition: $condition) {
     id
+    voteID
     voted
     totalVotesEarned
     maxVotesPossible
+    createdAt
+    updatedAt
     judges {
       items {
         id
+        judgeID
         name
         username
-        judgeID
         createdAt
         updatedAt
       }
       nextToken
     }
-    voteID
-    createdAt
-    updatedAt
   }
 }
 mutation DeleteVote(
@@ -400,23 +166,23 @@ mutation DeleteVote(
 ) {
   deleteVote(input: $input, condition: $condition) {
     id
+    voteID
     voted
     totalVotesEarned
     maxVotesPossible
+    createdAt
+    updatedAt
     judges {
       items {
         id
+        judgeID
         name
         username
-        judgeID
         createdAt
         updatedAt
       }
       nextToken
     }
-    voteID
-    createdAt
-    updatedAt
   }
 }
 mutation CreateJudge(
@@ -425,9 +191,9 @@ mutation CreateJudge(
 ) {
   createJudge(input: $input, condition: $condition) {
     id
+    judgeID
     name
     username
-    judgeID
     createdAt
     updatedAt
   }
@@ -438,9 +204,9 @@ mutation UpdateJudge(
 ) {
   updateJudge(input: $input, condition: $condition) {
     id
+    judgeID
     name
     username
-    judgeID
     createdAt
     updatedAt
   }
@@ -451,9 +217,9 @@ mutation DeleteJudge(
 ) {
   deleteJudge(input: $input, condition: $condition) {
     id
+    judgeID
     name
     username
-    judgeID
     createdAt
     updatedAt
   }

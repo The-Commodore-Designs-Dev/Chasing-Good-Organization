@@ -5,72 +5,32 @@ query GetSubmission($id: ID!) {
     firstName
     lastName
     email
-    date
+    phoneNumber
     nominatingOptions
     organizationName
     individualFullName
     otherDescription
-    category {
-      items {
-        id
-        name
-        categoryID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-    county {
-      items {
-        id
-        name
-        countyID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
+    category
+    county
     story
     uploadedVideo
-    referenceOne {
-      items {
-        id
-        name
-        email
-        phoneNumber
-        referenceID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-    referenceTwo {
-      items {
-        id
-        name
-        email
-        phoneNumber
-        referenceID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
+    referenceOne
+    referenceTwo
     disclaimerAgreement
-    voted {
+    createdAt
+    updatedAt
+    votes {
       items {
         id
+        voteID
         voted
         totalVotesEarned
         maxVotesPossible
-        voteID
         createdAt
         updatedAt
       }
       nextToken
     }
-    createdAt
-    updatedAt
   }
 }
 query ListSubmissions(
@@ -84,110 +44,23 @@ query ListSubmissions(
       firstName
       lastName
       email
-      date
+      phoneNumber
       nominatingOptions
       organizationName
       individualFullName
       otherDescription
-      category {
-        nextToken
-      }
-      county {
-        nextToken
-      }
+      category
+      county
       story
       uploadedVideo
-      referenceOne {
-        nextToken
-      }
-      referenceTwo {
-        nextToken
-      }
+      referenceOne
+      referenceTwo
       disclaimerAgreement
-      voted {
+      createdAt
+      updatedAt
+      votes {
         nextToken
       }
-      createdAt
-      updatedAt
-    }
-    nextToken
-  }
-}
-query GetCategory($id: ID!) {
-  getCategory(id: $id) {
-    id
-    name
-    categoryID
-    createdAt
-    updatedAt
-  }
-}
-query ListCategories(
-  $filter: ModelCategoryFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listCategories(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      name
-      categoryID
-      createdAt
-      updatedAt
-    }
-    nextToken
-  }
-}
-query GetNJCounty($id: ID!) {
-  getNJCounty(id: $id) {
-    id
-    name
-    countyID
-    createdAt
-    updatedAt
-  }
-}
-query ListNJCounties(
-  $filter: ModelNJCountyFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listNJCounties(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      name
-      countyID
-      createdAt
-      updatedAt
-    }
-    nextToken
-  }
-}
-query GetReference($id: ID!) {
-  getReference(id: $id) {
-    id
-    name
-    email
-    phoneNumber
-    referenceID
-    createdAt
-    updatedAt
-  }
-}
-query ListReferences(
-  $filter: ModelReferenceFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listReferences(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      name
-      email
-      phoneNumber
-      referenceID
-      createdAt
-      updatedAt
     }
     nextToken
   }
@@ -195,23 +68,23 @@ query ListReferences(
 query GetVote($id: ID!) {
   getVote(id: $id) {
     id
+    voteID
     voted
     totalVotesEarned
     maxVotesPossible
+    createdAt
+    updatedAt
     judges {
       items {
         id
+        judgeID
         name
         username
-        judgeID
         createdAt
         updatedAt
       }
       nextToken
     }
-    voteID
-    createdAt
-    updatedAt
   }
 }
 query ListVotes(
@@ -222,15 +95,15 @@ query ListVotes(
   listVotes(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
+      voteID
       voted
       totalVotesEarned
       maxVotesPossible
+      createdAt
+      updatedAt
       judges {
         nextToken
       }
-      voteID
-      createdAt
-      updatedAt
     }
     nextToken
   }
@@ -238,9 +111,9 @@ query ListVotes(
 query GetJudge($id: ID!) {
   getJudge(id: $id) {
     id
+    judgeID
     name
     username
-    judgeID
     createdAt
     updatedAt
   }
@@ -253,9 +126,9 @@ query ListJudges(
   listJudges(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
+      judgeID
       name
       username
-      judgeID
       createdAt
       updatedAt
     }

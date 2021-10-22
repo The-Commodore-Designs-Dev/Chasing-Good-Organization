@@ -1,6 +1,22 @@
 {
   "hosting": {},
-  "storage": {},
+  "storage": {
+    "s30572c0c1": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "S3Triggerbd342f6e",
+          "attributes": [
+            "Name",
+            "Arn",
+            "LambdaExecutionRole"
+          ]
+        }
+      ]
+    }
+  },
   "function": {
     "AdminQueriesa09a7da4": {
       "service": "Lambda",
@@ -15,6 +31,11 @@
           ]
         }
       ]
+    },
+    "S3Triggerbd342f6e": {
+      "service": "Lambda",
+      "providerPlugin": "awscloudformation",
+      "build": true
     }
   },
   "auth": {
@@ -25,32 +46,6 @@
     }
   },
   "api": {
-    "SubmissionAPI": {
-      "service": "AppSync",
-      "providerPlugin": "awscloudformation",
-      "output": {
-        "authConfig": {
-          "defaultAuthentication": {
-            "authenticationType": "API_KEY",
-            "apiKeyConfig": {
-              "apiKeyExpirationDays": 30,
-              "description": "api key description"
-            }
-          },
-          "additionalAuthenticationProviders": [
-            {
-              "authenticationType": "AWS_IAM"
-            },
-            {
-              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
-              "userPoolConfig": {
-                "userPoolId": "authcognitobbb32116"
-              }
-            }
-          ]
-        }
-      }
-    },
     "AdminQueries": {
       "service": "API Gateway",
       "providerPlugin": "awscloudformation",
@@ -72,6 +67,29 @@
           ]
         }
       ]
+    },
+    "amplifycgapp": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 365,
+              "description": "cgapi"
+            }
+          },
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authcognitobbb32116"
+              }
+            }
+          ]
+        }
+      }
     }
   }
 }

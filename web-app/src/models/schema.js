@@ -14,21 +14,21 @@ export const schema = {
                     "name": "firstName",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "lastName": {
                     "name": "lastName",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "email": {
                     "name": "email",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "phoneNumber": {
@@ -42,28 +42,28 @@ export const schema = {
                     "name": "nominatingOptions",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "organizationName": {
                     "name": "organizationName",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "individualFullName": {
                     "name": "individualFullName",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "otherDescription": {
                     "name": "otherDescription",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "county": {
@@ -72,7 +72,7 @@ export const schema = {
                     "type": {
                         "model": "NJCounty"
                     },
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true,
                     "association": {
@@ -91,7 +91,7 @@ export const schema = {
                     "name": "uploadedVideo",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "referenceOne": {
@@ -100,7 +100,7 @@ export const schema = {
                     "type": {
                         "model": "Reference"
                     },
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true,
                     "association": {
@@ -114,7 +114,7 @@ export const schema = {
                     "type": {
                         "model": "Reference"
                     },
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true,
                     "association": {
@@ -126,7 +126,7 @@ export const schema = {
                     "name": "disclaimerAgreement",
                     "isArray": false,
                     "type": "Boolean",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "voted": {
@@ -135,7 +135,7 @@ export const schema = {
                     "type": {
                         "model": "Vote"
                     },
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true,
                     "association": {
@@ -147,14 +147,14 @@ export const schema = {
                     "name": "date",
                     "isArray": false,
                     "type": "AWSDate",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "story": {
                     "name": "story",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "createdAt": {
@@ -211,14 +211,14 @@ export const schema = {
                     "name": "name",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "countyID": {
                     "name": "countyID",
                     "isArray": false,
                     "type": "ID",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "createdAt": {
@@ -286,21 +286,21 @@ export const schema = {
                     "name": "name",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "email": {
                     "name": "email",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "phoneNumber": {
                     "name": "phoneNumber",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "referenceID": {
@@ -373,21 +373,21 @@ export const schema = {
                     "name": "voted",
                     "isArray": false,
                     "type": "Boolean",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "totalVotesEarned": {
                     "name": "totalVotesEarned",
                     "isArray": false,
                     "type": "Int",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "maxVotesPossible": {
                     "name": "maxVotesPossible",
                     "isArray": false,
                     "type": "Int",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "judges": {
@@ -396,7 +396,7 @@ export const schema = {
                     "type": {
                         "model": "Judge"
                     },
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true,
                     "association": {
@@ -476,21 +476,21 @@ export const schema = {
                     "name": "name",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "username": {
                     "name": "username",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "judgeID": {
                     "name": "judgeID",
                     "isArray": false,
                     "type": "ID",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "createdAt": {

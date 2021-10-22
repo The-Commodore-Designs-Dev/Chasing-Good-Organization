@@ -26,14 +26,29 @@ export class ReferencesFormComponent implements OnInit {
 
   populateSubmission(submission: Submission) {
     let references: FormGroup = this.refFormGroup;
+    let reference1 = new Object();
+    let reference2 = new Object();
 
-    submission.referenceOne[0].name = references.controls['referenceName1'].value.trim();
-    submission.referenceOne[0].email = references.controls['referenceEmail1'].value.trim();
-    submission.referenceOne[0].phoneNumber = references.controls['referencePhone1'].value.trim();
-    submission.referenceTwo[0].name = references.controls['referenceName2'].value.trim();
-    submission.referenceTwo[0].email = references.controls['referenceEmail2'].value.trim();
-    submission.referenceTwo[0].phoneNumber = references.controls['referencePhone2'].value.trim();
-    console.log("Ref Name: " + submission.referenceOne[0].name);
+    reference1 = {
+      name: references.controls['referenceName1'].value.trim(),
+      email: references.controls['referenceEmail1'].value.trim(),
+      phone: references.controls['referencePhone1'].value.trim()
+    }
+    
+    reference2 = {
+      name: references.controls['referenceName2'].value.trim(),
+      email: references.controls['referenceEmail2'].value.trim(),
+      phone: references.controls['referencePhone2'].value.trim()
+    }
+
+    let reference1String = JSON.stringify(reference1);
+    let reference2String = JSON.stringify(reference2);  
+
+    submission.referenceOne = reference1String;
+    submission.referenceTwo = reference2String;
+
+    console.log("Ref #1: " + submission.referenceOne);
+    console.log("Ref #2: " + submission.referenceTwo);
   }
 
 }

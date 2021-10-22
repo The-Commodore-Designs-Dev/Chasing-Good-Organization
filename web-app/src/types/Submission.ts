@@ -14,11 +14,11 @@ export interface Submission {
     individualFullName: string;
     otherDescription: string;
     category?: string;
-    county?: NJCounty[];
+    county?: string;
     story: string;
     uploadedVideo: string;
-    referenceOne?: Reference[];
-    referenceTwo?: Reference[];
+    referenceOne?: string;
+    referenceTwo?: string;
     disclaimerAgreement: boolean;
     voted?: Vote[];
 }

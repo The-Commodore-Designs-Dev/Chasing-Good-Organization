@@ -5,72 +5,32 @@ subscription OnCreateSubmission {
     firstName
     lastName
     email
-    date
+    phoneNumber
     nominatingOptions
     organizationName
     individualFullName
     otherDescription
-    category {
-      items {
-        id
-        name
-        categoryID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-    county {
-      items {
-        id
-        name
-        countyID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
+    category
+    county
     story
     uploadedVideo
-    referenceOne {
-      items {
-        id
-        name
-        email
-        phoneNumber
-        referenceID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-    referenceTwo {
-      items {
-        id
-        name
-        email
-        phoneNumber
-        referenceID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
+    referenceOne
+    referenceTwo
     disclaimerAgreement
-    voted {
+    createdAt
+    updatedAt
+    votes {
       items {
         id
+        voteID
         voted
         totalVotesEarned
         maxVotesPossible
-        voteID
         createdAt
         updatedAt
       }
       nextToken
     }
-    createdAt
-    updatedAt
   }
 }
 subscription OnUpdateSubmission {
@@ -79,72 +39,32 @@ subscription OnUpdateSubmission {
     firstName
     lastName
     email
-    date
+    phoneNumber
     nominatingOptions
     organizationName
     individualFullName
     otherDescription
-    category {
-      items {
-        id
-        name
-        categoryID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-    county {
-      items {
-        id
-        name
-        countyID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
+    category
+    county
     story
     uploadedVideo
-    referenceOne {
-      items {
-        id
-        name
-        email
-        phoneNumber
-        referenceID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-    referenceTwo {
-      items {
-        id
-        name
-        email
-        phoneNumber
-        referenceID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
+    referenceOne
+    referenceTwo
     disclaimerAgreement
-    voted {
+    createdAt
+    updatedAt
+    votes {
       items {
         id
+        voteID
         voted
         totalVotesEarned
         maxVotesPossible
-        voteID
         createdAt
         updatedAt
       }
       nextToken
     }
-    createdAt
-    updatedAt
   }
 }
 subscription OnDeleteSubmission {
@@ -153,233 +73,106 @@ subscription OnDeleteSubmission {
     firstName
     lastName
     email
-    date
+    phoneNumber
     nominatingOptions
     organizationName
     individualFullName
     otherDescription
-    category {
-      items {
-        id
-        name
-        categoryID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-    county {
-      items {
-        id
-        name
-        countyID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
+    category
+    county
     story
     uploadedVideo
-    referenceOne {
-      items {
-        id
-        name
-        email
-        phoneNumber
-        referenceID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-    referenceTwo {
-      items {
-        id
-        name
-        email
-        phoneNumber
-        referenceID
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
+    referenceOne
+    referenceTwo
     disclaimerAgreement
-    voted {
+    createdAt
+    updatedAt
+    votes {
       items {
         id
+        voteID
         voted
         totalVotesEarned
         maxVotesPossible
-        voteID
         createdAt
         updatedAt
       }
       nextToken
     }
-    createdAt
-    updatedAt
-  }
-}
-subscription OnCreateCategory {
-  onCreateCategory {
-    id
-    name
-    categoryID
-    createdAt
-    updatedAt
-  }
-}
-subscription OnUpdateCategory {
-  onUpdateCategory {
-    id
-    name
-    categoryID
-    createdAt
-    updatedAt
-  }
-}
-subscription OnDeleteCategory {
-  onDeleteCategory {
-    id
-    name
-    categoryID
-    createdAt
-    updatedAt
-  }
-}
-subscription OnCreateNJCounty {
-  onCreateNJCounty {
-    id
-    name
-    countyID
-    createdAt
-    updatedAt
-  }
-}
-subscription OnUpdateNJCounty {
-  onUpdateNJCounty {
-    id
-    name
-    countyID
-    createdAt
-    updatedAt
-  }
-}
-subscription OnDeleteNJCounty {
-  onDeleteNJCounty {
-    id
-    name
-    countyID
-    createdAt
-    updatedAt
-  }
-}
-subscription OnCreateReference {
-  onCreateReference {
-    id
-    name
-    email
-    phoneNumber
-    referenceID
-    createdAt
-    updatedAt
-  }
-}
-subscription OnUpdateReference {
-  onUpdateReference {
-    id
-    name
-    email
-    phoneNumber
-    referenceID
-    createdAt
-    updatedAt
-  }
-}
-subscription OnDeleteReference {
-  onDeleteReference {
-    id
-    name
-    email
-    phoneNumber
-    referenceID
-    createdAt
-    updatedAt
   }
 }
 subscription OnCreateVote {
   onCreateVote {
     id
+    voteID
     voted
     totalVotesEarned
     maxVotesPossible
+    createdAt
+    updatedAt
     judges {
       items {
         id
+        judgeID
         name
         username
-        judgeID
         createdAt
         updatedAt
       }
       nextToken
     }
-    voteID
-    createdAt
-    updatedAt
   }
 }
 subscription OnUpdateVote {
   onUpdateVote {
     id
+    voteID
     voted
     totalVotesEarned
     maxVotesPossible
+    createdAt
+    updatedAt
     judges {
       items {
         id
+        judgeID
         name
         username
-        judgeID
         createdAt
         updatedAt
       }
       nextToken
     }
-    voteID
-    createdAt
-    updatedAt
   }
 }
 subscription OnDeleteVote {
   onDeleteVote {
     id
+    voteID
     voted
     totalVotesEarned
     maxVotesPossible
+    createdAt
+    updatedAt
     judges {
       items {
         id
+        judgeID
         name
         username
-        judgeID
         createdAt
         updatedAt
       }
       nextToken
     }
-    voteID
-    createdAt
-    updatedAt
   }
 }
 subscription OnCreateJudge {
   onCreateJudge {
     id
+    judgeID
     name
     username
-    judgeID
     createdAt
     updatedAt
   }
@@ -387,9 +180,9 @@ subscription OnCreateJudge {
 subscription OnUpdateJudge {
   onUpdateJudge {
     id
+    judgeID
     name
     username
-    judgeID
     createdAt
     updatedAt
   }
@@ -397,9 +190,9 @@ subscription OnUpdateJudge {
 subscription OnDeleteJudge {
   onDeleteJudge {
     id
+    judgeID
     name
     username
-    judgeID
     createdAt
     updatedAt
   }

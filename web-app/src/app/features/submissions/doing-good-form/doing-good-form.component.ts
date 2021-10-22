@@ -28,6 +28,9 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
   submission: Submission = {} as Submission;
   currentStepIndex: number = 0;
   basicInfoFormSubscription: Subscription = new Subscription;
+  nominationInfoFormSubscription: Subscription = new Subscription;
+  storyInfoFormSubscription: Subscription = new Subscription;
+  referencesInfoFormSubscription: Subscription = new Subscription;
   formSubmitted: boolean = false;
   allFormsValid: boolean = false;
   public createForm: FormGroup;
@@ -56,6 +59,9 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
 
   ngOnDestroy() {
     this.basicInfoFormSubscription.unsubscribe();
+    this.nominationInfoFormSubscription.unsubscribe();
+    this.storyInfoFormSubscription.unsubscribe();
+    this.referencesInfoFormSubscription.unsubscribe();
   }
 
   ngAfterViewInit() {
@@ -64,6 +70,9 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
 
   private handleSubscriptions() {
     this.handleBasicInfoFormSubscription();
+    this.handleNominationInfoFormSubscription();
+    this.handleStoryInfoFormSubscription();
+    this.handleReferencesInfoFormSubscription();
   }
 
   private handleBasicInfoFormSubscription() {
@@ -81,8 +90,56 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
     );
   }
 
+  private handleNominationInfoFormSubscription() {
+    this.nominationInfoFormSubscription = this.nominationDetailsFormComponent
+    .nominationDetailsFormGroup
+    .valueChanges
+    .pipe(
+      debounceTime(500),
+      distinctUntilChanged()
+    )
+    .subscribe(
+      (values) => {
+        this.handleFormCheck();
+      }
+    );
+  }
+
+  private handleStoryInfoFormSubscription() {
+    this.storyInfoFormSubscription = this.storyDetailsFormComponent
+    .storyDetailsFormGroup
+    .valueChanges
+    .pipe(
+      debounceTime(500),
+      distinctUntilChanged()
+    )
+    .subscribe(
+      (values) => {
+        this.handleFormCheck();
+      }
+    );
+  }
+
+  private handleReferencesInfoFormSubscription() {
+    this.referencesInfoFormSubscription = this.referencesFormComponent
+    .refFormGroup
+    .valueChanges
+    .pipe(
+      debounceTime(500),
+      distinctUntilChanged()
+    )
+    .subscribe(
+      (values) => {
+        this.handleFormCheck();
+      }
+    );
+  }
+
   private handleFormCheck() {
     this.handleBasicInfoFormCheck();
+    this.handleNominationInfoFormCheck();
+    this.handleStoryInfoFormCheck();
+    this.handleReferencesInfoFormCheck();
   }
 
   private handleBasicInfoFormCheck() {
@@ -90,6 +147,30 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
       if (this.basicInfoFormComponent.basicInfoFormGroup.valid) {
         this.clearIconError(BASIC_INFO_INDEX);
       }   
+    }
+  }
+
+  private handleNominationInfoFormCheck() {
+    if (this.currentStepIndex == NOMINATION_INDEX) {
+      if (this.nominationDetailsFormComponent.nominationDetailsFormGroup.valid) {
+        this.clearIconError(NOMINATION_INDEX);
+      }
+    }
+  }
+
+  private handleStoryInfoFormCheck() {
+    if (this.currentStepIndex == STORY_INDEX) {
+      if (this.storyDetailsFormComponent.storyDetailsFormGroup.valid) {
+        this.clearIconError(STORY_INDEX);
+      }
+    }
+  }
+
+  private handleReferencesInfoFormCheck() {
+    if (this.currentStepIndex == REFERENCES_INDEX) {
+      if (this.referencesFormComponent.refFormGroup.valid) {
+        this.clearIconError(REFERENCES_INDEX);
+      }
     }
   }
 
@@ -112,11 +193,47 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
       }
     }
 
+    if (previousIndex == NOMINATION_INDEX) {
+      this.nominationDetailsFormComponent.populateSubmission(this.submission);
+
+      let validForm: boolean = (this.nominationDetailsFormComponent.nominationDetailsFormGroup.valid);
+      if (!validForm) {
+        this.changeIcon(previousIndex);
+        this.allFormsValid = false;
+      } else {
+        this.clearIconError(previousIndex);
+        this.allFormsValid = true;
+      }
+    }
+
+    if (previousIndex == STORY_INDEX) {
+      this.storyDetailsFormComponent.populateSubmission(this.submission);
+
+      let validForm: boolean = (this.storyDetailsFormComponent.storyDetailsFormGroup.valid);
+      if (!validForm) {
+        this.changeIcon(previousIndex);
+        this.allFormsValid = false;
+      } else {
+        this.clearIconError(previousIndex);
+        this.allFormsValid = true;
+      }
+    }
+
+    if (previousIndex == REFERENCES_INDEX) {
+      this.referencesFormComponent.populateSubmission(this.submission);
+
+      let validForm: boolean = (this.referencesFormComponent.refFormGroup.valid);
+      if (!validForm) {
+        this.changeIcon(previousIndex);
+        this.allFormsValid = false;
+      } else {
+        this.clearIconError(previousIndex);
+        this.allFormsValid = true;
+      }
+    }
+
     if (currentIndex == REVIEW_INDEX) {
       this.validateForms();
-      console.log(this.submission.email);
-      console.log(this.submission.firstName);
-      console.log(this.submission.lastName);
     }
   }
 
@@ -141,7 +258,9 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
     this.errorMessages = [];
 
     this.validateBasicInfoForm();
-    this.validateAtLeastOneContactMethod();
+    this.validateNominationInfoForm();
+    this.validateStoryInfoForm();
+    this.validateReferencesInfoForm();
   }
 
   private validateBasicInfoForm() {
@@ -155,53 +274,56 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
     });
   }
 
-  private validateAtLeastOneContactMethod() {
-    if(!this.submission.email && !this.submission.phoneNumber) {
-      this.errorMessages.push("Please include at least one method of contact (email or phone)");
-    }
+  private validateNominationInfoForm() {
+    let nomintaionInfoForm: FormGroup = this.nominationDetailsFormComponent.nominationDetailsFormGroup;
+
+    Object.keys(nomintaionInfoForm.controls).forEach(key => {
+      const controlErrors: ValidationErrors = this.nominationDetailsFormComponent.nominationDetailsFormGroup;
+      if (controlErrors != null) {
+        this.addErrorByKey(key);
+      }
+    });
+  }
+
+  private validateStoryInfoForm() {
+    let storyInfoForm: FormGroup = this.storyDetailsFormComponent.storyDetailsFormGroup;
+
+    Object.keys(storyInfoForm.controls).forEach(key => {
+      const controlErrors: ValidationErrors = this.storyDetailsFormComponent.storyDetailsFormGroup;
+      if (controlErrors != null) {
+        this.addErrorByKey(key);
+      }
+    });
+  }
+
+  private validateReferencesInfoForm() {
+    let referencesInfoForm: FormGroup = this.referencesFormComponent.refFormGroup;
+
+    Object.keys(referencesInfoForm.controls).forEach(key => {
+      const controlErrors: ValidationErrors = this.referencesFormComponent.refFormGroup;
+      if (controlErrors != null) {
+        this.addErrorByKey(key);
+      }
+    });
   }
 
   private addErrorByKey(key: string) {
     if(key == 'firstName') this.errorMessages.push("Please enter a valid First Name");
     if(key == 'lastName') this.errorMessages.push("Please enter a valid Last Name");
+    if(key == 'email') this.errorMessages.push("Please Include an Email Address");
   }
 
   /**
   * onCreate
   * submission: Submission   
   */
-  public onCreate(submission: Submission) {
-    this.api.CreateSubmission(submission).then(async (event) => {
-      try {
-        await DataStore.save(
-          new Submission({
-            firstName: this.submission.firstName,
-            lastName: this.submission.lastName,
-            email: this.submission.email,
-            phoneNumber: this.submission.phoneNumber,
-            date: this.submission.createdAt,
-            nominatingOptions: this.submission.nominatingOptions,
-            organizationName: this.submission.organizationName,
-            individualFullName: this.submission.individualFullName,
-            otherDescription: this.submission.otherDescription,
-            category: this.submission.category,
-            county: this.submission.county,
-            story: this.submission.story,
-            uploadedVideo: this.submission.uploadedVideo,
-            referenceOne: this.submission.referenceOne,
-            referenceTwo: this.submission.referenceTwo,
-            disclaimerAgreement: this.submission.disclaimerAgreement
-          })
-        );
-      } catch (error) {
-        
-      }
-      alert('Thank you, your form has been submitted!')
-      console.log('Submitted!');
+  public onCreate() {
+    console.log(this.submission);
+    this.api.CreateSubmission(this.submission).then(async (event) => {
+      alert('Thank you, your form has been submitted!');
       this.createForm.reset();
-    }).catch(() => {
-      alert('Sorry, something went wrong. We are working on it!');
-      console.log('error submitting story ...');
+    }).catch((event) => {
+      console.log(event);
     });
   }
 

@@ -15,11 +15,14 @@
         <p class="review-header"><strong>Basic Info Details</strong></p>
       </div>
       <div>
-        <div class="name">
-          {{submission.firstName}} {{submission.lastName}}
+        <div class="name review">
+          <p>My name is {{submission.firstName}} {{submission.lastName}}.</p>
         </div>
-        <div class="email" *ngIf="submission.email">
-          {{submission.email}}
+        <div class="email review">
+          <p>My email is {{submission.email}}.</p>
+        </div>
+        <div class="phone review" *ngIf="submission.phoneNumber !== ''">
+          <p>My phone number is {{submission.phoneNumber}}.</p>
         </div>
       </div>      
     </div>
@@ -29,14 +32,50 @@
           <p class="review-header"><strong>Nomination Details</strong></p>
         </div>
         <div>
-          <div class="nominating">
-            I am nominating {{submission.nominatingOptions}} their name is {{submission.organizationName || submission.individualFullName || submission.otherDescription}} <br>
-            and the're from {{submission.county}}.
+          <div *ngIf="submission.nominatingOptions === 'Self'" class="nominating review">
+            <p>I am nominating my{{submission.nominatingOptions.toLowerCase()}}, and I'm from {{submission.county}}.</p>
+          </div>
+          <div *ngIf="submission.nominatingOptions === 'Organization'" class="nominating review">
+            <p>I am nominating an {{submission.nominatingOptions}} their name is {{submission.organizationName}}, and they are from {{submission.county}}.</p>
+          </div>
+          <div *ngIf="submission.nominatingOptions === 'Individual'" class="nominating review">
+            <p>I am nominating an {{submission.nominatingOptions}} their name is {{submission.individualFullName}}, and they are from {{submission.county}}.</p>
+          </div>
+          <div *ngIf="submission.nominatingOptions === 'Other'" class="nominating review">
+            <p>I am nominating an {{submission.nominatingOptions.toLowerCase()}} entity their name is {{submission.otherDescription}}, and they are from {{submission.county}}.</p>
           </div>
           <div class="category">
             {{submission.category}}
           </div>
         </div>      
+    </div>
+
+    <div class="story-info">
+      <div>
+        <p class="review-header"><strong>Story Details</strong></p>
+      </div>
+      <div>
+        <div class="story review">
+          <p>{{submission.story}}</p>
+        </div>
+        <div class="video review">
+          <p>{{submission.uploadedVideo}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="references-info">
+      <div>
+        <p class="review-header"><strong>References</strong></p>
+      </div>
+      <div>
+        <div class="reference review">
+          <p>{{submission.referenceOne | json}}</p>
+        </div>
+        <div class="reference review">
+          <p>{{submission.referenceTwo | json}}</p>
+        </div>
+      </div>
     </div>
 
     <form [formGroup]="disclaimerFormGroup">
