@@ -13,8 +13,15 @@ mat-card {
 }
 
 .page-wrapper {
-    background: #ffffff;
     width: 100%;
+    height: 100vh;
     margin: 0 auto;
-    height: auto;
+    background: #ffffff;
+    padding-top: 2em;
+    overflow: hidden;
+}
+
+.dots {
+    text-align: center;
+    letter-spacing: 14pt;
 }
