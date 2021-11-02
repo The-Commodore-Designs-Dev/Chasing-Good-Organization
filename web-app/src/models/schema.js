@@ -27,7 +27,7 @@ export const schema = {
                 "email": {
                     "name": "email",
                     "isArray": false,
-                    "type": "String",
+                    "type": "AWSEmail",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -66,24 +66,24 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "county": {
-                    "name": "county",
-                    "isArray": true,
-                    "type": {
-                        "model": "NJCounty"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true,
-                    "association": {
-                        "connectionType": "HAS_MANY",
-                        "associatedWith": "countyID"
-                    }
-                },
                 "category": {
                     "name": "category",
                     "isArray": false,
-                    "type": "AWSJSON",
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "county": {
+                    "name": "county",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "story": {
+                    "name": "story",
+                    "isArray": false,
+                    "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -96,31 +96,17 @@ export const schema = {
                 },
                 "referenceOne": {
                     "name": "referenceOne",
-                    "isArray": true,
-                    "type": {
-                        "model": "Reference"
-                    },
+                    "isArray": false,
+                    "type": "AWSJSON",
                     "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true,
-                    "association": {
-                        "connectionType": "HAS_MANY",
-                        "associatedWith": "referenceID"
-                    }
+                    "attributes": []
                 },
                 "referenceTwo": {
                     "name": "referenceTwo",
-                    "isArray": true,
-                    "type": {
-                        "model": "Reference"
-                    },
+                    "isArray": false,
+                    "type": "AWSJSON",
                     "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true,
-                    "association": {
-                        "connectionType": "HAS_MANY",
-                        "associatedWith": "referenceID"
-                    }
+                    "attributes": []
                 },
                 "disclaimerAgreement": {
                     "name": "disclaimerAgreement",
@@ -129,8 +115,8 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "voted": {
-                    "name": "voted",
+                "votes": {
+                    "name": "votes",
                     "isArray": true,
                     "type": {
                         "model": "Vote"
@@ -142,20 +128,6 @@ export const schema = {
                         "connectionType": "HAS_MANY",
                         "associatedWith": "voteID"
                     }
-                },
-                "date": {
-                    "name": "date",
-                    "isArray": false,
-                    "type": "AWSDate",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "story": {
-                    "name": "story",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -188,170 +160,42 @@ export const schema = {
                             {
                                 "allow": "public",
                                 "operations": [
-                                    "create",
+                                    "create"
+                                ]
+                            },
+                            {
+                                "groupClaim": "cognito:groups",
+                                "provider": "userPools",
+                                "allow": "groups",
+                                "groups": [
+                                    "Judges"
+                                ],
+                                "operations": [
                                     "read"
                                 ]
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        "NJCounty": {
-            "name": "NJCounty",
-            "fields": {
-                "id": {
-                    "name": "id",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "name": {
-                    "name": "name",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "countyID": {
-                    "name": "countyID",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "createdAt": {
-                    "name": "createdAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                },
-                "updatedAt": {
-                    "name": "updatedAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                }
-            },
-            "syncable": true,
-            "pluralName": "NJCounties",
-            "attributes": [
-                {
-                    "type": "model",
-                    "properties": {}
-                },
-                {
-                    "type": "key",
-                    "properties": {
-                        "name": "bySubmission",
-                        "fields": [
-                            "countyID"
-                        ]
-                    }
-                },
-                {
-                    "type": "auth",
-                    "properties": {
-                        "rules": [
+                            },
                             {
-                                "allow": "public",
+                                "groupClaim": "cognito:groups",
+                                "provider": "userPools",
+                                "allow": "groups",
+                                "groups": [
+                                    "DemoUsers"
+                                ],
                                 "operations": [
-                                    "create",
+                                    "read"
+                                ]
+                            },
+                            {
+                                "groupClaim": "cognito:groups",
+                                "provider": "userPools",
+                                "allow": "groups",
+                                "groups": [
+                                    "PlatformAdmin"
+                                ],
+                                "operations": [
+                                    "read",
                                     "update",
-                                    "delete",
-                                    "read"
-                                ]
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        "Reference": {
-            "name": "Reference",
-            "fields": {
-                "id": {
-                    "name": "id",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "name": {
-                    "name": "name",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "email": {
-                    "name": "email",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "phoneNumber": {
-                    "name": "phoneNumber",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "referenceID": {
-                    "name": "referenceID",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "createdAt": {
-                    "name": "createdAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                },
-                "updatedAt": {
-                    "name": "updatedAt",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isReadOnly": true
-                }
-            },
-            "syncable": true,
-            "pluralName": "References",
-            "attributes": [
-                {
-                    "type": "model",
-                    "properties": {}
-                },
-                {
-                    "type": "key",
-                    "properties": {
-                        "name": "bySubmission",
-                        "fields": [
-                            "referenceID"
-                        ]
-                    }
-                },
-                {
-                    "type": "auth",
-                    "properties": {
-                        "rules": [
-                            {
-                                "allow": "public",
-                                "operations": [
-                                    "create",
-                                    "read"
+                                    "delete"
                                 ]
                             }
                         ]
@@ -364,6 +208,13 @@ export const schema = {
             "fields": {
                 "id": {
                     "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "voteID": {
+                    "name": "voteID",
                     "isArray": false,
                     "type": "ID",
                     "isRequired": true,
@@ -404,13 +255,6 @@ export const schema = {
                         "associatedWith": "judgeID"
                     }
                 },
-                "voteID": {
-                    "name": "voteID",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -438,9 +282,11 @@ export const schema = {
                 {
                     "type": "key",
                     "properties": {
-                        "name": "bySubmission",
+                        "name": "byVote",
                         "fields": [
-                            "voteID"
+                            "voteID",
+                            "totalVotesEarned",
+                            "maxVotesPossible"
                         ]
                     }
                 },
@@ -451,9 +297,31 @@ export const schema = {
                             {
                                 "allow": "public",
                                 "operations": [
+                                    "create"
+                                ]
+                            },
+                            {
+                                "groupClaim": "cognito:groups",
+                                "provider": "userPools",
+                                "allow": "groups",
+                                "groups": [
+                                    "Judges"
+                                ],
+                                "operations": [
                                     "create",
+                                    "read",
                                     "update",
-                                    "delete",
+                                    "delete"
+                                ]
+                            },
+                            {
+                                "groupClaim": "cognito:groups",
+                                "provider": "userPools",
+                                "allow": "groups",
+                                "groups": [
+                                    "DemoUsers"
+                                ],
+                                "operations": [
                                     "read"
                                 ]
                             }
@@ -472,6 +340,13 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
+                "judgeID": {
+                    "name": "judgeID",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
                 "name": {
                     "name": "name",
                     "isArray": false,
@@ -482,14 +357,7 @@ export const schema = {
                 "username": {
                     "name": "username",
                     "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "judgeID": {
-                    "name": "judgeID",
-                    "isArray": false,
-                    "type": "ID",
+                    "type": "AWSEmail",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -522,7 +390,9 @@ export const schema = {
                     "properties": {
                         "name": "byJudge",
                         "fields": [
-                            "judgeID"
+                            "judgeID",
+                            "name",
+                            "username"
                         ]
                     }
                 },
@@ -533,9 +403,31 @@ export const schema = {
                             {
                                 "allow": "public",
                                 "operations": [
+                                    "create"
+                                ]
+                            },
+                            {
+                                "groupClaim": "cognito:groups",
+                                "provider": "userPools",
+                                "allow": "groups",
+                                "groups": [
+                                    "PlatformAdmin"
+                                ],
+                                "operations": [
                                     "create",
+                                    "read",
                                     "update",
-                                    "delete",
+                                    "delete"
+                                ]
+                            },
+                            {
+                                "groupClaim": "cognito:groups",
+                                "provider": "userPools",
+                                "allow": "groups",
+                                "groups": [
+                                    "DemoUsers"
+                                ],
+                                "operations": [
                                     "read"
                                 ]
                             }
@@ -547,5 +439,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "28e2ecb7bf122ce3648b3160a49f8f82"
+    "version": "52e6f8f395ac2ecfcdf80c0838bd9abe"
 };

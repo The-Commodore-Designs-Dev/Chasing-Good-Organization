@@ -38,6 +38,7 @@ export type CreateSubmissionInput = {
   referenceOne?: string | null;
   referenceTwo?: string | null;
   disclaimerAgreement?: boolean | null;
+  _version?: number | null;
 };
 
 export type ModelSubmissionConditionInput = {
@@ -125,6 +126,9 @@ export type Submission = {
   referenceOne?: string | null;
   referenceTwo?: string | null;
   disclaimerAgreement?: boolean | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
   votes?: ModelVoteConnection | null;
@@ -134,6 +138,7 @@ export type ModelVoteConnection = {
   __typename: "ModelVoteConnection";
   items?: Array<Vote | null> | null;
   nextToken?: string | null;
+  startedAt?: number | null;
 };
 
 export type Vote = {
@@ -143,6 +148,9 @@ export type Vote = {
   voted?: boolean | null;
   totalVotesEarned?: number | null;
   maxVotesPossible?: number | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
   judges?: ModelJudgeConnection | null;
@@ -152,6 +160,7 @@ export type ModelJudgeConnection = {
   __typename: "ModelJudgeConnection";
   items?: Array<Judge | null> | null;
   nextToken?: string | null;
+  startedAt?: number | null;
 };
 
 export type Judge = {
@@ -160,6 +169,9 @@ export type Judge = {
   judgeID: string;
   name?: string | null;
   username?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -181,10 +193,12 @@ export type UpdateSubmissionInput = {
   referenceOne?: string | null;
   referenceTwo?: string | null;
   disclaimerAgreement?: boolean | null;
+  _version?: number | null;
 };
 
 export type DeleteSubmissionInput = {
   id: string;
+  _version?: number | null;
 };
 
 export type CreateVoteInput = {
@@ -193,6 +207,7 @@ export type CreateVoteInput = {
   voted?: boolean | null;
   totalVotesEarned?: number | null;
   maxVotesPossible?: number | null;
+  _version?: number | null;
 };
 
 export type ModelVoteConditionInput = {
@@ -239,10 +254,12 @@ export type UpdateVoteInput = {
   voted?: boolean | null;
   totalVotesEarned?: number | null;
   maxVotesPossible?: number | null;
+  _version?: number | null;
 };
 
 export type DeleteVoteInput = {
   id: string;
+  _version?: number | null;
 };
 
 export type CreateJudgeInput = {
@@ -250,6 +267,7 @@ export type CreateJudgeInput = {
   judgeID: string;
   name?: string | null;
   username?: string | null;
+  _version?: number | null;
 };
 
 export type ModelJudgeConditionInput = {
@@ -266,10 +284,12 @@ export type UpdateJudgeInput = {
   judgeID?: string | null;
   name?: string | null;
   username?: string | null;
+  _version?: number | null;
 };
 
 export type DeleteJudgeInput = {
   id: string;
+  _version?: number | null;
 };
 
 export type ModelSubmissionFilterInput = {
@@ -298,6 +318,7 @@ export type ModelSubmissionConnection = {
   __typename: "ModelSubmissionConnection";
   items?: Array<Submission | null> | null;
   nextToken?: string | null;
+  startedAt?: number | null;
 };
 
 export type ModelVoteFilterInput = {
@@ -339,6 +360,9 @@ export type CreateSubmissionMutation = {
   referenceOne?: string | null;
   referenceTwo?: string | null;
   disclaimerAgreement?: boolean | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
   votes?: {
@@ -350,10 +374,14 @@ export type CreateSubmissionMutation = {
       voted?: boolean | null;
       totalVotesEarned?: number | null;
       maxVotesPossible?: number | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
 };
 
@@ -375,6 +403,9 @@ export type UpdateSubmissionMutation = {
   referenceOne?: string | null;
   referenceTwo?: string | null;
   disclaimerAgreement?: boolean | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
   votes?: {
@@ -386,10 +417,14 @@ export type UpdateSubmissionMutation = {
       voted?: boolean | null;
       totalVotesEarned?: number | null;
       maxVotesPossible?: number | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
 };
 
@@ -411,6 +446,9 @@ export type DeleteSubmissionMutation = {
   referenceOne?: string | null;
   referenceTwo?: string | null;
   disclaimerAgreement?: boolean | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
   votes?: {
@@ -422,10 +460,14 @@ export type DeleteSubmissionMutation = {
       voted?: boolean | null;
       totalVotesEarned?: number | null;
       maxVotesPossible?: number | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
 };
 
@@ -436,6 +478,9 @@ export type CreateVoteMutation = {
   voted?: boolean | null;
   totalVotesEarned?: number | null;
   maxVotesPossible?: number | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
   judges?: {
@@ -446,10 +491,14 @@ export type CreateVoteMutation = {
       judgeID: string;
       name?: string | null;
       username?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
 };
 
@@ -460,6 +509,9 @@ export type UpdateVoteMutation = {
   voted?: boolean | null;
   totalVotesEarned?: number | null;
   maxVotesPossible?: number | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
   judges?: {
@@ -470,10 +522,14 @@ export type UpdateVoteMutation = {
       judgeID: string;
       name?: string | null;
       username?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
 };
 
@@ -484,6 +540,9 @@ export type DeleteVoteMutation = {
   voted?: boolean | null;
   totalVotesEarned?: number | null;
   maxVotesPossible?: number | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
   judges?: {
@@ -494,10 +553,14 @@ export type DeleteVoteMutation = {
       judgeID: string;
       name?: string | null;
       username?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
 };
 
@@ -507,6 +570,9 @@ export type CreateJudgeMutation = {
   judgeID: string;
   name?: string | null;
   username?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -517,6 +583,9 @@ export type UpdateJudgeMutation = {
   judgeID: string;
   name?: string | null;
   username?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -527,6 +596,9 @@ export type DeleteJudgeMutation = {
   judgeID: string;
   name?: string | null;
   username?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -549,6 +621,9 @@ export type GetSubmissionQuery = {
   referenceOne?: string | null;
   referenceTwo?: string | null;
   disclaimerAgreement?: boolean | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
   votes?: {
@@ -560,10 +635,14 @@ export type GetSubmissionQuery = {
       voted?: boolean | null;
       totalVotesEarned?: number | null;
       maxVotesPossible?: number | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
 };
 
@@ -587,14 +666,54 @@ export type ListSubmissionsQuery = {
     referenceOne?: string | null;
     referenceTwo?: string | null;
     disclaimerAgreement?: boolean | null;
+    _version: number;
+    _deleted?: boolean | null;
+    _lastChangedAt: number;
     createdAt: string;
     updatedAt: string;
     votes?: {
       __typename: "ModelVoteConnection";
       nextToken?: string | null;
+      startedAt?: number | null;
     } | null;
   } | null> | null;
   nextToken?: string | null;
+  startedAt?: number | null;
+};
+
+export type SyncSubmissionsQuery = {
+  __typename: "ModelSubmissionConnection";
+  items?: Array<{
+    __typename: "Submission";
+    id: string;
+    firstName?: string | null;
+    lastName?: string | null;
+    email?: string | null;
+    phoneNumber?: string | null;
+    nominatingOptions?: string | null;
+    organizationName?: string | null;
+    individualFullName?: string | null;
+    otherDescription?: string | null;
+    category?: string | null;
+    county?: string | null;
+    story?: string | null;
+    uploadedVideo?: string | null;
+    referenceOne?: string | null;
+    referenceTwo?: string | null;
+    disclaimerAgreement?: boolean | null;
+    _version: number;
+    _deleted?: boolean | null;
+    _lastChangedAt: number;
+    createdAt: string;
+    updatedAt: string;
+    votes?: {
+      __typename: "ModelVoteConnection";
+      nextToken?: string | null;
+      startedAt?: number | null;
+    } | null;
+  } | null> | null;
+  nextToken?: string | null;
+  startedAt?: number | null;
 };
 
 export type GetVoteQuery = {
@@ -604,6 +723,9 @@ export type GetVoteQuery = {
   voted?: boolean | null;
   totalVotesEarned?: number | null;
   maxVotesPossible?: number | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
   judges?: {
@@ -614,10 +736,14 @@ export type GetVoteQuery = {
       judgeID: string;
       name?: string | null;
       username?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
 };
 
@@ -630,14 +756,43 @@ export type ListVotesQuery = {
     voted?: boolean | null;
     totalVotesEarned?: number | null;
     maxVotesPossible?: number | null;
+    _version: number;
+    _deleted?: boolean | null;
+    _lastChangedAt: number;
     createdAt: string;
     updatedAt: string;
     judges?: {
       __typename: "ModelJudgeConnection";
       nextToken?: string | null;
+      startedAt?: number | null;
     } | null;
   } | null> | null;
   nextToken?: string | null;
+  startedAt?: number | null;
+};
+
+export type SyncVotesQuery = {
+  __typename: "ModelVoteConnection";
+  items?: Array<{
+    __typename: "Vote";
+    id: string;
+    voteID: string;
+    voted?: boolean | null;
+    totalVotesEarned?: number | null;
+    maxVotesPossible?: number | null;
+    _version: number;
+    _deleted?: boolean | null;
+    _lastChangedAt: number;
+    createdAt: string;
+    updatedAt: string;
+    judges?: {
+      __typename: "ModelJudgeConnection";
+      nextToken?: string | null;
+      startedAt?: number | null;
+    } | null;
+  } | null> | null;
+  nextToken?: string | null;
+  startedAt?: number | null;
 };
 
 export type GetJudgeQuery = {
@@ -646,6 +801,9 @@ export type GetJudgeQuery = {
   judgeID: string;
   name?: string | null;
   username?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -658,10 +816,32 @@ export type ListJudgesQuery = {
     judgeID: string;
     name?: string | null;
     username?: string | null;
+    _version: number;
+    _deleted?: boolean | null;
+    _lastChangedAt: number;
     createdAt: string;
     updatedAt: string;
   } | null> | null;
   nextToken?: string | null;
+  startedAt?: number | null;
+};
+
+export type SyncJudgesQuery = {
+  __typename: "ModelJudgeConnection";
+  items?: Array<{
+    __typename: "Judge";
+    id: string;
+    judgeID: string;
+    name?: string | null;
+    username?: string | null;
+    _version: number;
+    _deleted?: boolean | null;
+    _lastChangedAt: number;
+    createdAt: string;
+    updatedAt: string;
+  } | null> | null;
+  nextToken?: string | null;
+  startedAt?: number | null;
 };
 
 export type OnCreateSubmissionSubscription = {
@@ -682,6 +862,9 @@ export type OnCreateSubmissionSubscription = {
   referenceOne?: string | null;
   referenceTwo?: string | null;
   disclaimerAgreement?: boolean | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
   votes?: {
@@ -693,10 +876,14 @@ export type OnCreateSubmissionSubscription = {
       voted?: boolean | null;
       totalVotesEarned?: number | null;
       maxVotesPossible?: number | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
 };
 
@@ -718,6 +905,9 @@ export type OnUpdateSubmissionSubscription = {
   referenceOne?: string | null;
   referenceTwo?: string | null;
   disclaimerAgreement?: boolean | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
   votes?: {
@@ -729,10 +919,14 @@ export type OnUpdateSubmissionSubscription = {
       voted?: boolean | null;
       totalVotesEarned?: number | null;
       maxVotesPossible?: number | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
 };
 
@@ -754,6 +948,9 @@ export type OnDeleteSubmissionSubscription = {
   referenceOne?: string | null;
   referenceTwo?: string | null;
   disclaimerAgreement?: boolean | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
   votes?: {
@@ -765,10 +962,14 @@ export type OnDeleteSubmissionSubscription = {
       voted?: boolean | null;
       totalVotesEarned?: number | null;
       maxVotesPossible?: number | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
 };
 
@@ -779,6 +980,9 @@ export type OnCreateVoteSubscription = {
   voted?: boolean | null;
   totalVotesEarned?: number | null;
   maxVotesPossible?: number | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
   judges?: {
@@ -789,10 +993,14 @@ export type OnCreateVoteSubscription = {
       judgeID: string;
       name?: string | null;
       username?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
 };
 
@@ -803,6 +1011,9 @@ export type OnUpdateVoteSubscription = {
   voted?: boolean | null;
   totalVotesEarned?: number | null;
   maxVotesPossible?: number | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
   judges?: {
@@ -813,10 +1024,14 @@ export type OnUpdateVoteSubscription = {
       judgeID: string;
       name?: string | null;
       username?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
 };
 
@@ -827,6 +1042,9 @@ export type OnDeleteVoteSubscription = {
   voted?: boolean | null;
   totalVotesEarned?: number | null;
   maxVotesPossible?: number | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
   judges?: {
@@ -837,10 +1055,14 @@ export type OnDeleteVoteSubscription = {
       judgeID: string;
       name?: string | null;
       username?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
 };
 
@@ -850,6 +1072,9 @@ export type OnCreateJudgeSubscription = {
   judgeID: string;
   name?: string | null;
   username?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -860,6 +1085,9 @@ export type OnUpdateJudgeSubscription = {
   judgeID: string;
   name?: string | null;
   username?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -870,6 +1098,9 @@ export type OnDeleteJudgeSubscription = {
   judgeID: string;
   name?: string | null;
   username?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -901,6 +1132,9 @@ export class APIService {
           referenceOne
           referenceTwo
           disclaimerAgreement
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
           votes {
@@ -912,10 +1146,14 @@ export class APIService {
               voted
               totalVotesEarned
               maxVotesPossible
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
         }
       }`;
@@ -953,6 +1191,9 @@ export class APIService {
           referenceOne
           referenceTwo
           disclaimerAgreement
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
           votes {
@@ -964,10 +1205,14 @@ export class APIService {
               voted
               totalVotesEarned
               maxVotesPossible
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
         }
       }`;
@@ -1005,6 +1250,9 @@ export class APIService {
           referenceOne
           referenceTwo
           disclaimerAgreement
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
           votes {
@@ -1016,10 +1264,14 @@ export class APIService {
               voted
               totalVotesEarned
               maxVotesPossible
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
         }
       }`;
@@ -1046,6 +1298,9 @@ export class APIService {
           voted
           totalVotesEarned
           maxVotesPossible
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
           judges {
@@ -1056,10 +1311,14 @@ export class APIService {
               judgeID
               name
               username
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
         }
       }`;
@@ -1086,6 +1345,9 @@ export class APIService {
           voted
           totalVotesEarned
           maxVotesPossible
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
           judges {
@@ -1096,10 +1358,14 @@ export class APIService {
               judgeID
               name
               username
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
         }
       }`;
@@ -1126,6 +1392,9 @@ export class APIService {
           voted
           totalVotesEarned
           maxVotesPossible
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
           judges {
@@ -1136,10 +1405,14 @@ export class APIService {
               judgeID
               name
               username
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
         }
       }`;
@@ -1165,6 +1438,9 @@ export class APIService {
           judgeID
           name
           username
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -1191,6 +1467,9 @@ export class APIService {
           judgeID
           name
           username
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -1217,6 +1496,9 @@ export class APIService {
           judgeID
           name
           username
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -1252,6 +1534,9 @@ export class APIService {
           referenceOne
           referenceTwo
           disclaimerAgreement
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
           votes {
@@ -1263,10 +1548,14 @@ export class APIService {
               voted
               totalVotesEarned
               maxVotesPossible
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
         }
       }`;
@@ -1304,14 +1593,19 @@ export class APIService {
             referenceOne
             referenceTwo
             disclaimerAgreement
+            _version
+            _deleted
+            _lastChangedAt
             createdAt
             updatedAt
             votes {
               __typename
               nextToken
+              startedAt
             }
           }
           nextToken
+          startedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {};
@@ -1329,6 +1623,66 @@ export class APIService {
     )) as any;
     return <ListSubmissionsQuery>response.data.listSubmissions;
   }
+  async SyncSubmissions(
+    filter?: ModelSubmissionFilterInput,
+    limit?: number,
+    nextToken?: string,
+    lastSync?: number
+  ): Promise<SyncSubmissionsQuery> {
+    const statement = `query SyncSubmissions($filter: ModelSubmissionFilterInput, $limit: Int, $nextToken: String, $lastSync: AWSTimestamp) {
+        syncSubmissions(filter: $filter, limit: $limit, nextToken: $nextToken, lastSync: $lastSync) {
+          __typename
+          items {
+            __typename
+            id
+            firstName
+            lastName
+            email
+            phoneNumber
+            nominatingOptions
+            organizationName
+            individualFullName
+            otherDescription
+            category
+            county
+            story
+            uploadedVideo
+            referenceOne
+            referenceTwo
+            disclaimerAgreement
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+            votes {
+              __typename
+              nextToken
+              startedAt
+            }
+          }
+          nextToken
+          startedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    if (lastSync) {
+      gqlAPIServiceArguments.lastSync = lastSync;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <SyncSubmissionsQuery>response.data.syncSubmissions;
+  }
   async GetVote(id: string): Promise<GetVoteQuery> {
     const statement = `query GetVote($id: ID!) {
         getVote(id: $id) {
@@ -1338,6 +1692,9 @@ export class APIService {
           voted
           totalVotesEarned
           maxVotesPossible
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
           judges {
@@ -1348,10 +1705,14 @@ export class APIService {
               judgeID
               name
               username
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
         }
       }`;
@@ -1378,14 +1739,19 @@ export class APIService {
             voted
             totalVotesEarned
             maxVotesPossible
+            _version
+            _deleted
+            _lastChangedAt
             createdAt
             updatedAt
             judges {
               __typename
               nextToken
+              startedAt
             }
           }
           nextToken
+          startedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {};
@@ -1403,6 +1769,55 @@ export class APIService {
     )) as any;
     return <ListVotesQuery>response.data.listVotes;
   }
+  async SyncVotes(
+    filter?: ModelVoteFilterInput,
+    limit?: number,
+    nextToken?: string,
+    lastSync?: number
+  ): Promise<SyncVotesQuery> {
+    const statement = `query SyncVotes($filter: ModelVoteFilterInput, $limit: Int, $nextToken: String, $lastSync: AWSTimestamp) {
+        syncVotes(filter: $filter, limit: $limit, nextToken: $nextToken, lastSync: $lastSync) {
+          __typename
+          items {
+            __typename
+            id
+            voteID
+            voted
+            totalVotesEarned
+            maxVotesPossible
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+            judges {
+              __typename
+              nextToken
+              startedAt
+            }
+          }
+          nextToken
+          startedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    if (lastSync) {
+      gqlAPIServiceArguments.lastSync = lastSync;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <SyncVotesQuery>response.data.syncVotes;
+  }
   async GetJudge(id: string): Promise<GetJudgeQuery> {
     const statement = `query GetJudge($id: ID!) {
         getJudge(id: $id) {
@@ -1411,6 +1826,9 @@ export class APIService {
           judgeID
           name
           username
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -1437,10 +1855,14 @@ export class APIService {
             judgeID
             name
             username
+            _version
+            _deleted
+            _lastChangedAt
             createdAt
             updatedAt
           }
           nextToken
+          startedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {};
@@ -1457,6 +1879,49 @@ export class APIService {
       graphqlOperation(statement, gqlAPIServiceArguments)
     )) as any;
     return <ListJudgesQuery>response.data.listJudges;
+  }
+  async SyncJudges(
+    filter?: ModelJudgeFilterInput,
+    limit?: number,
+    nextToken?: string,
+    lastSync?: number
+  ): Promise<SyncJudgesQuery> {
+    const statement = `query SyncJudges($filter: ModelJudgeFilterInput, $limit: Int, $nextToken: String, $lastSync: AWSTimestamp) {
+        syncJudges(filter: $filter, limit: $limit, nextToken: $nextToken, lastSync: $lastSync) {
+          __typename
+          items {
+            __typename
+            id
+            judgeID
+            name
+            username
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    if (lastSync) {
+      gqlAPIServiceArguments.lastSync = lastSync;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <SyncJudgesQuery>response.data.syncJudges;
   }
   OnCreateSubmissionListener: Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateSubmission">>
@@ -1481,6 +1946,9 @@ export class APIService {
           referenceOne
           referenceTwo
           disclaimerAgreement
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
           votes {
@@ -1492,10 +1960,14 @@ export class APIService {
               voted
               totalVotesEarned
               maxVotesPossible
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
         }
       }`
@@ -1527,6 +1999,9 @@ export class APIService {
           referenceOne
           referenceTwo
           disclaimerAgreement
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
           votes {
@@ -1538,10 +2013,14 @@ export class APIService {
               voted
               totalVotesEarned
               maxVotesPossible
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
         }
       }`
@@ -1573,6 +2052,9 @@ export class APIService {
           referenceOne
           referenceTwo
           disclaimerAgreement
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
           votes {
@@ -1584,10 +2066,14 @@ export class APIService {
               voted
               totalVotesEarned
               maxVotesPossible
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
         }
       }`
@@ -1608,6 +2094,9 @@ export class APIService {
           voted
           totalVotesEarned
           maxVotesPossible
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
           judges {
@@ -1618,10 +2107,14 @@ export class APIService {
               judgeID
               name
               username
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
         }
       }`
@@ -1642,6 +2135,9 @@ export class APIService {
           voted
           totalVotesEarned
           maxVotesPossible
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
           judges {
@@ -1652,10 +2148,14 @@ export class APIService {
               judgeID
               name
               username
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
         }
       }`
@@ -1676,6 +2176,9 @@ export class APIService {
           voted
           totalVotesEarned
           maxVotesPossible
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
           judges {
@@ -1686,10 +2189,14 @@ export class APIService {
               judgeID
               name
               username
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
         }
       }`
@@ -1709,6 +2216,9 @@ export class APIService {
           judgeID
           name
           username
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -1729,6 +2239,9 @@ export class APIService {
           judgeID
           name
           username
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -1749,6 +2262,9 @@ export class APIService {
           judgeID
           name
           username
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }

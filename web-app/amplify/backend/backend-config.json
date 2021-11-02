@@ -77,7 +77,7 @@
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
               "apiKeyExpirationDays": 365,
-              "description": "cgapi"
+              "description": "API for graphql"
             }
           },
           "additionalAuthenticationProviders": [

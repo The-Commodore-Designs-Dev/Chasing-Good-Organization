@@ -20,6 +20,9 @@ mutation CreateSubmission(
     referenceOne
     referenceTwo
     disclaimerAgreement
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
     votes {
@@ -29,10 +32,14 @@ mutation CreateSubmission(
         voted
         totalVotesEarned
         maxVotesPossible
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
   }
 }
@@ -57,6 +64,9 @@ mutation UpdateSubmission(
     referenceOne
     referenceTwo
     disclaimerAgreement
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
     votes {
@@ -66,10 +76,14 @@ mutation UpdateSubmission(
         voted
         totalVotesEarned
         maxVotesPossible
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
   }
 }
@@ -94,6 +108,9 @@ mutation DeleteSubmission(
     referenceOne
     referenceTwo
     disclaimerAgreement
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
     votes {
@@ -103,10 +120,14 @@ mutation DeleteSubmission(
         voted
         totalVotesEarned
         maxVotesPossible
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
   }
 }
@@ -120,6 +141,9 @@ mutation CreateVote(
     voted
     totalVotesEarned
     maxVotesPossible
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
     judges {
@@ -128,10 +152,14 @@ mutation CreateVote(
         judgeID
         name
         username
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
   }
 }
@@ -145,6 +173,9 @@ mutation UpdateVote(
     voted
     totalVotesEarned
     maxVotesPossible
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
     judges {
@@ -153,10 +184,14 @@ mutation UpdateVote(
         judgeID
         name
         username
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
   }
 }
@@ -170,6 +205,9 @@ mutation DeleteVote(
     voted
     totalVotesEarned
     maxVotesPossible
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
     judges {
@@ -178,10 +216,14 @@ mutation DeleteVote(
         judgeID
         name
         username
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
   }
 }
@@ -194,6 +236,9 @@ mutation CreateJudge(
     judgeID
     name
     username
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -207,6 +252,9 @@ mutation UpdateJudge(
     judgeID
     name
     username
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -220,6 +268,9 @@ mutation DeleteJudge(
     judgeID
     name
     username
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }

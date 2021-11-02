@@ -17,6 +17,9 @@ subscription OnCreateSubmission {
     referenceOne
     referenceTwo
     disclaimerAgreement
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
     votes {
@@ -26,10 +29,14 @@ subscription OnCreateSubmission {
         voted
         totalVotesEarned
         maxVotesPossible
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
   }
 }
@@ -51,6 +58,9 @@ subscription OnUpdateSubmission {
     referenceOne
     referenceTwo
     disclaimerAgreement
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
     votes {
@@ -60,10 +70,14 @@ subscription OnUpdateSubmission {
         voted
         totalVotesEarned
         maxVotesPossible
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
   }
 }
@@ -85,6 +99,9 @@ subscription OnDeleteSubmission {
     referenceOne
     referenceTwo
     disclaimerAgreement
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
     votes {
@@ -94,10 +111,14 @@ subscription OnDeleteSubmission {
         voted
         totalVotesEarned
         maxVotesPossible
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
   }
 }
@@ -108,6 +129,9 @@ subscription OnCreateVote {
     voted
     totalVotesEarned
     maxVotesPossible
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
     judges {
@@ -116,10 +140,14 @@ subscription OnCreateVote {
         judgeID
         name
         username
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
   }
 }
@@ -130,6 +158,9 @@ subscription OnUpdateVote {
     voted
     totalVotesEarned
     maxVotesPossible
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
     judges {
@@ -138,10 +169,14 @@ subscription OnUpdateVote {
         judgeID
         name
         username
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
   }
 }
@@ -152,6 +187,9 @@ subscription OnDeleteVote {
     voted
     totalVotesEarned
     maxVotesPossible
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
     judges {
@@ -160,10 +198,14 @@ subscription OnDeleteVote {
         judgeID
         name
         username
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
   }
 }
@@ -173,6 +215,9 @@ subscription OnCreateJudge {
     judgeID
     name
     username
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -183,6 +228,9 @@ subscription OnUpdateJudge {
     judgeID
     name
     username
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -193,6 +241,9 @@ subscription OnDeleteJudge {
     judgeID
     name
     username
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
