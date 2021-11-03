@@ -18,7 +18,6 @@ const SUBMISSION_DATA: Submission[] = [{
   firstName: 'Fred',
   lastName: 'Wilcox',
   email: 'fred.wilcox@gmail.com',
-  date: date,
   nominatingOptions: 'Self',
   organizationName: null,
   individualFullName: null,
@@ -33,7 +32,6 @@ const SUBMISSION_DATA: Submission[] = [{
   firstName: 'Dale',
   lastName: 'Johnson',
   email: 'johnsondj@gmail.com',
-  date: date,
   nominatingOptions: 'Organization',
   organizationName: 'Google',
   individualFullName: null,
@@ -51,7 +49,7 @@ const SUBMISSION_DATA: Submission[] = [{
   styleUrls: ['./submission-table.component.scss']
 })
 export class SubmissionTableComponent implements AfterViewInit {
-  columnsToDisplay: string[] = ['id', 'firstName', 'lastName', 'email', 'date', 'nominating', 'voted','action'];
+  columnsToDisplay: string[] = ['id', 'firstName', 'lastName', 'email', 'nominating', 'voted','action'];
   dataSource = new MatTableDataSource(SUBMISSION_DATA);
   
   constructor(public dialog: MatDialog) {}

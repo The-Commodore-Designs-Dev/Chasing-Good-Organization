@@ -4,21 +4,21 @@ import { Vote } from './Vote';
 
 export interface Submission {
     id: string;
-    firstName: string;
-    lastName: string;
-    email: string;
+    firstName?: string;
+    lastName?: string;
+    email?: string;
     phoneNumber?: string;
-    date: string;
-    nominatingOptions: string;
-    organizationName: string;
-    individualFullName: string;
-    otherDescription: string;
+    date?: string;
+    nominatingOptions?: string;
+    organizationName?: string;
+    individualFullName?: string;
+    otherDescription?: string;
     category?: string;
     county?: string;
-    story: string;
-    uploadedVideo: string;
+    story?: string;
+    uploadedVideo?: string;
     referenceOne?: string;
     referenceTwo?: string;
-    disclaimerAgreement: boolean;
+    disclaimerAgreement?: boolean;
     voted?: Vote[];
 }

@@ -323,6 +323,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
       alert('Thank you, your form has been submitted!');
       this.createForm.reset();
     }).catch((event) => {
+      alert(event.errors[0].message);
       console.log(event);
     });
   }
