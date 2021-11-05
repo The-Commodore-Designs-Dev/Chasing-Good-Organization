@@ -5,10 +5,10 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
 import { GoogleMapsModule } from '@angular/google-maps';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './features/header/header.component';
 import { AboutComponent } from './pages/about/about.component';
 import { PagesComponent } from './pages/pages.component';
 import { SubmitYourStoryComponent } from './pages/submit-your-story/submit-your-story.component';
@@ -61,7 +61,7 @@ import { ContactComponentDialog } from './admin/dashboard/submission-table/conta
 import { VoteComponentDialog } from './admin/dashboard/submission-table/vote/vote.component';
 import { BasicInfoFormComponent } from './features/submissions/basic-info-form/basic-info-form.component';
 import { ReviewFormComponent } from './features/submissions/review-form/review-form.component';
-import { MobileMenuComponent } from './header/mobile-menu/mobile-menu.component';
+import { MobileMenuComponent } from './features/mobile-menu/mobile-menu.component';
 import { NominationDetailsFormComponent } from './features/submissions/nomination-details-form/nomination-details-form.component';
 import { ReferencesFormComponent } from './features/submissions/references-form/references-form.component';
 import { StoryDetailsFormComponent } from './features/submissions/story-details-form/story-details-form.component';
@@ -128,7 +128,8 @@ import { StoryDetailsFormComponent } from './features/submissions/story-details-
     MatMenuModule,
     MatDialogModule,
     GoogleMapsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    FontAwesomeModule
   ],
   providers: [
     AmplifyService,

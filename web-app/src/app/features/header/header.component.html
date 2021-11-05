@@ -1,4 +1,4 @@
-<div id="header" class="header">
+<div id="header" class="header" *ngIf="currentScreenSize == 'Large'; else elseBlock">
     <div class="menu display" id="menu">
         <nav mat-tab-nav-bar>
             <a mat-tab-link *ngFor="let linkLeft of linksLeft" [routerLink]="linkLeft.link"  routerLinkActive #rla="routerLinkActive" [active]="rla.isActive"> {{linkLeft.label}} </a>
@@ -10,5 +10,9 @@
             <a mat-tab-link *ngFor="let linkRight of linksRight" [routerLink]="linkRight.link"  routerLinkActive #rla="routerLinkActive" [active]="rla.isActive"> {{linkRight.label}} </a>
         </nav>
     </div>
+    
 </div>
 
+<ng-template #elseBlock>
+    <app-mobile-menu></app-mobile-menu>
+</ng-template>

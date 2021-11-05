@@ -14,18 +14,29 @@ export class HeaderComponent implements OnInit {
   currentScreenSize: string;
 
   displayNameMap = new Map([
-    [Breakpoints.XSmall, 'XSmall'],
     [Breakpoints.Small, 'Small'],
     [Breakpoints.Medium, 'Medium'],
     [Breakpoints.Large, 'Large'],
-    [Breakpoints.XLarge, 'XLarge'],
   ]);
-
   linksLeft: any[] = [];
   linksRight: any[] = [];
   activeLink = -1;
 
-  constructor(public _router: Router, breakpointObserver: BreakpointObserver) {
+  constructor(public _router: Router, private observer: BreakpointObserver) {
+    this.observer
+    .observe([
+      Breakpoints.Small,
+      Breakpoints.Medium,
+      Breakpoints.Large
+    ])
+    .pipe(takeUntil(this.destroyed))
+    .subscribe(result => {
+      for(const query of Object.keys(result.breakpoints)) {
+        if(result.breakpoints[query]) {
+          this.currentScreenSize = this.displayNameMap.get(query);
+        }
+      }
+    });
     this.linksLeft = [
       {
         label: 'About Us',
@@ -60,7 +71,15 @@ export class HeaderComponent implements OnInit {
     });
     window.addEventListener('scroll', () => {
       navbarScroll();
-    })
+    });
+    
+    window.addEventListener('load', (event) => {
+      var inkBar = document.querySelector('mat-ink-bar');
+      inkBar.id = 'mat-ink-bar';
+      var inkElement = document.getElementById('mat-ink-bar');
+      inkElement.style.visibility = "hidden";
+    });
+
      function navbarScroll() {
       var header = document.getElementById('header');
       var logo = document.getElementById('logo');

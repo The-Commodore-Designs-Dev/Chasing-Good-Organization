@@ -4,7 +4,7 @@ p {
 
 .about-section {
     margin: 0 auto 50px;
-    padding: 15px;
+    padding: 15px 0;
     background-color: white;
     width: 98%;
 }
@@ -16,12 +16,12 @@ p {
 
 .family-image {
     margin: 0 auto 15px auto;
-    width: 667px;
+    width: 22em;
 }
 
 .family-image img {
     margin: 0 auto 0 auto;
-    width: 667px;
+    width: 100%;
 }
 
 .quote-wrap {
@@ -71,6 +71,7 @@ p {
 
 .greeting, .our-story-1, .our-story-2 {
     margin: 5px 10px;
+    line-height: 1.5;
 }
 
 .our-story-1 {
