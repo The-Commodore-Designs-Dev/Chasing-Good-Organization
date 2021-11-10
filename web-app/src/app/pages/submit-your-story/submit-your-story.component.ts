@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-submit-your-story',
@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubmitYourStoryComponent implements OnInit {
 
-  constructor() { }
+
+  constructor() {
+
+   }
 
   ngOnInit(): void {
   }

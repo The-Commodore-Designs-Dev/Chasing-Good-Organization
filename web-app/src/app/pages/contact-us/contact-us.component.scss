@@ -18,9 +18,10 @@ mat-card {
 }
 
 .mat-card-title {
-    font-size: 24pt;
+    font-size: 32pt;
     font-weight: 400;
     text-align: center;
+    line-height: 1.5;
 }
 
 .mat-card-subtitle, .mat-tab-label, .mat-tab-link, .mat-tab-label-content {
@@ -33,7 +34,6 @@ mat-card {
 h3 {
     font-size: 24pt;
     font-weight: 400;
-    border-bottom: 1px solid #c4c4c4;
     text-align: center;
 }
 
@@ -56,11 +56,8 @@ google-map {
 }
 
 .details-wrapper {
-    border-left: 1px solid rgba(0, 0, 0, 0.12);
     padding: 10px;
     height: 480px;
-    position: relative;
-    margin-left: 12px;
     position: relative;
 }
 
@@ -99,8 +96,8 @@ google-map {
     transform: translate(-50%, -50%);
 }
 
-.email-wrapper {
-    margin: 10px 0;
+.email-wrapper, .address-wrapper {
+    margin: 2em 0;
 }
 
 .socials-wrapper {

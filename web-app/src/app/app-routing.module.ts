@@ -8,6 +8,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { MeetSomeNomineesComponent } from './pages/meet-some-nominees/meet-some-nominees.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { LoginComponent } from './admin/login/login.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -24,7 +25,7 @@ const routes: Routes = [
     component: PagesComponent,
     children: [{
       path: 'about',
-      component: AboutComponent
+      component: AboutComponent,
     }, {
       path: 'submit-your-story',
       component: SubmitYourStoryComponent
@@ -36,7 +37,8 @@ const routes: Routes = [
       component: ContactUsComponent
     }]
   },
-  {path:'admin/login', component: LoginComponent}
+  {path:'admin/login', component: LoginComponent},
+  {path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({

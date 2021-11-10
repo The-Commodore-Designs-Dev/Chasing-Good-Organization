@@ -65,6 +65,8 @@ import { MobileMenuComponent } from './features/mobile-menu/mobile-menu.componen
 import { NominationDetailsFormComponent } from './features/submissions/nomination-details-form/nomination-details-form.component';
 import { ReferencesFormComponent } from './features/submissions/references-form/references-form.component';
 import { StoryDetailsFormComponent } from './features/submissions/story-details-form/story-details-form.component';
+import { PrivacypolicyComponentDialog } from './dialogs/privacypolicy/privacypolicy.component';
+import { TermsofuseComponentDialog } from './dialogs/termsofuse/termsofuse.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +98,9 @@ import { StoryDetailsFormComponent } from './features/submissions/story-details-
     MobileMenuComponent,
     NominationDetailsFormComponent,
     ReferencesFormComponent,
-    StoryDetailsFormComponent
+    StoryDetailsFormComponent,
+    PrivacypolicyComponentDialog,
+    TermsofuseComponentDialog
   ],
   imports: [
     AmplifyAngularModule,

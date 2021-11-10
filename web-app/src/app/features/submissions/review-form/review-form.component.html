@@ -80,7 +80,7 @@
 
     <form [formGroup]="disclaimerFormGroup">
         <div>
-          <mat-checkbox formControlName="agreeToTermsAndPrivacy" id="disclaimer">I Agree to the <a>Privacy Policy</a> and <a>Terms of Use</a> of ChasingGood</mat-checkbox>                                
+          <mat-checkbox formControlName="agreeToTermsAndPrivacy" id="disclaimer">I Agree to the <a (click)='openPrivacyPolicy();'>Privacy Policy</a> and <a (click)='openTermsOfUse();'>Terms of Use</a> of ChasingGood</mat-checkbox>                                
         </div>
     </form>
 </div>

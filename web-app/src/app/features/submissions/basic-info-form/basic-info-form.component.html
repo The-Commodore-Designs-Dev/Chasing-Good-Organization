@@ -1,5 +1,5 @@
 <form [formGroup]="basicInfoFormGroup">
-    <div class="mt your-name">
+    <div class="mt your-name" *ngIf="currentScreenSize == 'Large'; else elseBlock">
         <mat-form-field>
             <mat-label for="firstNameNominator">First Name:</mat-label>
             <input matInput id="firstNameNominator" type="text" formControlName="firstName" placeholder="Your First Name" required>
@@ -11,6 +11,20 @@
             <mat-error *ngIf="basicInfoFormGroup.controls['lastName'].invalid">Please enter a valid last name</mat-error>
         </mat-form-field>
     </div>
+    <ng-template #elseBlock>
+        <div class="mt your-name-mobile">
+            <mat-form-field>
+                <mat-label for="firstNameNominator">First Name:</mat-label>
+                <input matInput id="firstNameNominator" type="text" formControlName="firstName" placeholder="Your First Name" required>
+                <mat-error *ngIf="basicInfoFormGroup.controls['firstName'].invalid">Please enter a valid first name</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label for="lastNameNominator">Last Name:</mat-label>
+                <input matInput id="lastNameNominator" type="text" formControlName="lastName" placeholder="Your Last Name" required>
+                <mat-error *ngIf="basicInfoFormGroup.controls['lastName'].invalid">Please enter a valid last name</mat-error>
+            </mat-form-field>
+        </div>
+    </ng-template>    
     <div class="mt">
         <mat-form-field>
             <mat-label for="emailNominator">Email:</mat-label>
@@ -25,3 +39,5 @@
         </mat-form-field>
     </div>
 </form>
+
+

@@ -1,4 +1,7 @@
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild, Input } from '@angular/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { FormGroup, FormControl, FormBuilder, ValidationErrors, Validators } from '@angular/forms';
 import { DataStore } from 'aws-amplify';
 import { APIService } from '../../../API.service';
@@ -34,6 +37,14 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
   formSubmitted: boolean = false;
   allFormsValid: boolean = false;
   public createForm: FormGroup;
+  destroyed = new Subject<void>();
+  currentScreenSize: string;
+
+  displayNameMap = new Map([
+    [Breakpoints.Small, 'Small'],
+    [Breakpoints.Medium, 'Medium'],
+    [Breakpoints.Large, 'Large'],
+  ]);
 
   @ViewChild(BasicInfoFormComponent) basicInfoFormComponent: BasicInfoFormComponent;
   @ViewChild(NominationDetailsFormComponent) nominationDetailsFormComponent: NominationDetailsFormComponent;
@@ -45,7 +56,22 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
   @Input() storyDetailsFormGroup: FormGroup;
   @Input() refFormGroup: FormGroup;
   @Input() disclaimerFormGroup: FormGroup;
-  constructor(private api: APIService, private fb: FormBuilder) {}
+  constructor(private api: APIService, private fb: FormBuilder, private observer: BreakpointObserver) {
+    this.observer
+    .observe([
+      Breakpoints.Small,
+      Breakpoints.Medium,
+      Breakpoints.Large
+    ])
+    .pipe(takeUntil(this.destroyed))
+    .subscribe(result => {
+      for(const query of Object.keys(result.breakpoints)) {
+        if(result.breakpoints[query]) {
+          this.currentScreenSize = this.displayNameMap.get(query);
+        }
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.createForm = this.fb.group({
