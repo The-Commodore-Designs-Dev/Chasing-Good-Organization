@@ -52,18 +52,18 @@
                 </mat-step>
                 <mat-step label="Review & Submit">
                     <app-review-form [submission]="submission" [errorMessages]="errorMessages"></app-review-form>
+                    <div id="messages"></div>
                     <div class="mt" *ngIf="currentScreenSize == 'Large'; else elseBlockReview">
                         <button mat-button matStepperPrevious type="button" class="prev-btn">Back</button>
-                        <button [disabled]="!allFormsValid" *ngIf="!formSubmitted" mat-button matStepperNext type="submit" class="submit-btn" (click)="onCreate()">Submit</button>
-                        <mat-spinner *ngIf="formSubmitted" [diameter]="50"></mat-spinner>
+                        <button [disabled]="!allFormsValid" mat-button matStepperNext type="submit" class="submit-btn" (click)="onCreate()">Submit</button>
                     </div>
                     <ng-template #elseBlockReview>
                         <div class="mt">
                             <button mat-button matStepperPrevious type="button" class="prev-btn mat-button-mobile">Back</button>
-                            <button [disabled]="!allFormsValid" *ngIf="!formSubmitted" mat-button matStepperNext type="submit" class="submit-btn mat-button-mobile" (click)="onCreate()">Submit</button>
-                            <mat-spinner *ngIf="formSubmitted" [diameter]="50"></mat-spinner>                            
+                            <button [disabled]="!allFormsValid" mat-button matStepperNext type="submit" class="submit-btn mat-button-mobile" (click)="onCreate()">Submit</button>                            
                         </div>
                     </ng-template>
                 </mat-step>
     </mat-stepper>
+    
 </div>

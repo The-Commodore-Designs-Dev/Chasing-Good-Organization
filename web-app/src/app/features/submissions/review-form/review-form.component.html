@@ -15,13 +15,13 @@
         <p class="review-header"><strong>Basic Info Details</strong></p>
       </div>
       <div>
-        <div class="name review">
+        <div class="name review" *ngIf="submission.firstName && submission.lastName">
           <p>My name is {{submission.firstName}} {{submission.lastName}}.</p>
         </div>
-        <div class="email review">
+        <div class="email review" *ngIf="submission.email">
           <p>My email is {{submission.email}}.</p>
         </div>
-        <div class="phone review" *ngIf="submission.phoneNumber !== ''">
+        <div class="phone review" *ngIf="submission.phoneNumber">
           <p>My phone number is {{submission.phoneNumber}}.</p>
         </div>
       </div>      
@@ -69,11 +69,11 @@
         <p class="review-header"><strong>References</strong></p>
       </div>
       <div>
-        <div class="reference review">
-          <p>{{submission.referenceOne | json}}</p>
+        <div class="reference review" *ngIf="submission.referenceOne !== null">
+          <p>{{submission.referenceOne}}</p>
         </div>
-        <div class="reference review">
-          <p>{{submission.referenceTwo | json}}</p>
+        <div class="reference review" *ngIf="submission.referenceTwo !== null">
+          <p>{{submission.referenceTwo}}</p>
         </div>
       </div>
     </div>

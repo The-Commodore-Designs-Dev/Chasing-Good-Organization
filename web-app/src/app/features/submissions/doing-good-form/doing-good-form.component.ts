@@ -3,7 +3,7 @@ import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild, Input } from '@
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { FormGroup, FormControl, FormBuilder, ValidationErrors, Validators } from '@angular/forms';
-import { DataStore } from 'aws-amplify';
+import { DataStore, Storage } from 'aws-amplify';
 import { APIService } from '../../../API.service';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { Submission } from '../../../../models';
@@ -13,6 +13,9 @@ import { NominationDetailsFormComponent } from '../nomination-details-form/nomin
 import { ReferencesFormComponent } from '../references-form/references-form.component';
 import { StoryDetailsFormComponent } from '../story-details-form/story-details-form.component';
 import { ReviewFormComponent } from '../review-form/review-form.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SentMessage } from '../../messages/sent/sent.component';
+import { ErrorMessage } from '../../messages/error/error.component';
 
 const BASIC_INFO_INDEX: number = 0;
 const NOMINATION_INDEX: number = 1;
@@ -27,6 +30,7 @@ const REVIEW_INDEX: number = 5;
   styleUrls: ['./doing-good-form.component.scss']
 })
 export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy {
+  durationOfMessage = 5;
   errorMessages: string[] = [];
   submission: Submission = {} as Submission;
   currentStepIndex: number = 0;
@@ -56,7 +60,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
   @Input() storyDetailsFormGroup: FormGroup;
   @Input() refFormGroup: FormGroup;
   @Input() disclaimerFormGroup: FormGroup;
-  constructor(private api: APIService, private fb: FormBuilder, private observer: BreakpointObserver) {
+  constructor(private api: APIService, private fb: FormBuilder, private observer: BreakpointObserver, private snackBar: MatSnackBar) {
     this.observer
     .observe([
       Breakpoints.Small,
@@ -339,18 +343,34 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
     if(key == 'email') this.errorMessages.push("Please Include an Email Address");
   }
 
+  sentSnackBar() {
+    this.snackBar.openFromComponent(SentMessage, {
+      duration: this.durationOfMessage * 1000,
+    });
+  }
+
+  errorSnackbar() {
+    this.snackBar.openFromComponent(ErrorMessage, {
+      duration: this.durationOfMessage * 1000,
+    });
+  }
+
   /**
   * onCreate
   * submission: Submission   
   */
   public onCreate() {
-    console.log(this.submission);
     this.api.CreateSubmission(this.submission).then(async (event) => {
-      alert('Thank you, your form has been submitted!');
+      this.formSubmitted = true;
+      Storage.put(this.submission.uploadedVideo, this.submission.uploadedVideo);
+      this.sentSnackBar();
       this.createForm.reset();
+      
     }).catch((event) => {
-      alert(event.errors[0].message);
-      console.log(event);
+      this.errorSnackbar();
+      let errSpan = document.getElementById('errorMessageSent');
+      let errMessageText = document.createTextNode(event.errors[0].message);
+      errSpan.appendChild(errMessageText);
     });
   }
 

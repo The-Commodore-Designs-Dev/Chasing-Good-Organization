@@ -7,15 +7,24 @@
     margin-left: 7px;
 }
 
+.fileInput {
+    display: none;
+}
+
+.fileUpload {
+    min-width: 150px;
+    max-width: 500px;
+    display: inline;
+}
+
 .story {
     display: flex;
     margin: 2em 1em;
 }
 
 .video-hint {
-    margin-left: 95px;
     font-style: italic;
-    font-size: 8pt;
+    font-size: 12pt;
     color: #ff0000;
 }
 

@@ -35,6 +35,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import 'hammerjs';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
@@ -67,6 +68,8 @@ import { ReferencesFormComponent } from './features/submissions/references-form/
 import { StoryDetailsFormComponent } from './features/submissions/story-details-form/story-details-form.component';
 import { PrivacypolicyComponentDialog } from './dialogs/privacypolicy/privacypolicy.component';
 import { TermsofuseComponentDialog } from './dialogs/termsofuse/termsofuse.component';
+import { SentMessage } from './features/messages/sent/sent.component';
+import { ErrorMessage } from './features/messages/error/error.component';
 
 @NgModule({
   declarations: [
@@ -100,7 +103,9 @@ import { TermsofuseComponentDialog } from './dialogs/termsofuse/termsofuse.compo
     ReferencesFormComponent,
     StoryDetailsFormComponent,
     PrivacypolicyComponentDialog,
-    TermsofuseComponentDialog
+    TermsofuseComponentDialog,
+    SentMessage,
+    ErrorMessage
   ],
   imports: [
     AmplifyAngularModule,
@@ -133,7 +138,8 @@ import { TermsofuseComponentDialog } from './dialogs/termsofuse/termsofuse.compo
     MatDialogModule,
     GoogleMapsModule,
     MatExpansionModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatSnackBarModule
   ],
   providers: [
     AmplifyService,

@@ -13,7 +13,8 @@
     },
     "categories": {
       "auth": {
-        "cognitobbb32116": {}
+        "cognitobbb32116": {},
+        "userPoolGroups": {}
       },
       "function": {
         "AdminQueriesa09a7da4": {

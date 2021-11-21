@@ -12,21 +12,23 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class ReviewFormComponent implements OnInit {
   public disclaimerFormGroup: FormGroup;
-  public refString: String;
-  public refString2: String;
+  
   @Input() submission: Submission;
   @Input() errorMessages: string[] = [];
+  @Input() refFormGroup: FormGroup;
   @ViewChild(PrivacypolicyComponentDialog) privacypolicyComponentDialog: PrivacypolicyComponentDialog;
   @ViewChild(TermsofuseComponentDialog) termsofuseComponentDialog: TermsofuseComponentDialog;
-  constructor(private fb: FormBuilder, public dialog: MatDialog) { }
+
+  constructor(private fb: FormBuilder, public dialog: MatDialog) {
+    
+  }
 
   ngOnInit(): void {
     this.disclaimerFormGroup = this.fb.group({
       'agreeToTermsAndPrivacy': ['', []]
     });
-
-    this.refString = JSON.stringify(this.submission.referenceOne);
-    this.refString2 = JSON.stringify(this.submission.referenceTwo);
+    
+    
   }
 
   populateSubmission(submission: Submission) {

@@ -33,3 +33,4 @@ type Judge @model @auth(rules: [{allow: public, operations: [create]}, { allow: 
   name: String
   username: AWSEmail
 }
+ 
