@@ -30,7 +30,7 @@ const REVIEW_INDEX: number = 5;
   styleUrls: ['./doing-good-form.component.scss']
 })
 export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy {
-  durationOfMessage = 5;
+  durationOfMessage = 15;
   errorMessages: string[] = [];
   submission: Submission = {} as Submission;
   currentStepIndex: number = 0;
@@ -43,6 +43,9 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
   public createForm: FormGroup;
   destroyed = new Subject<void>();
   currentScreenSize: string;
+  public file: File;
+  public reference1: Object;
+  public reference2: Object;
 
   displayNameMap = new Map([
     [Breakpoints.Small, 'Small'],
@@ -362,10 +365,10 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
   public onCreate() {
     this.api.CreateSubmission(this.submission).then(async (event) => {
       this.formSubmitted = true;
-      Storage.put(this.submission.uploadedVideo, this.submission.uploadedVideo);
+      Storage.put(this.submission.uploadedVideo, this.file);
       this.sentSnackBar();
       this.createForm.reset();
-      
+      this.submission = null;
     }).catch((event) => {
       this.errorSnackbar();
       let errSpan = document.getElementById('errorMessageSent');

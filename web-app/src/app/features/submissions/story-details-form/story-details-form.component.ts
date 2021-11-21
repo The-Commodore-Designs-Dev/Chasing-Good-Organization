@@ -15,6 +15,8 @@ export class StoryDetailsFormComponent implements OnInit, OnChanges {
   });
   fileName = '';
 
+  @Input() file: File;
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -29,10 +31,10 @@ export class StoryDetailsFormComponent implements OnInit, OnChanges {
   }
 
   onFileSelected(event: any) {
-    const file: File = event.target.files[0];
-    console.log(file);
-    if (file) {
-      this.fileName = file.name;
+    this.file = event.target.files[0];
+    console.log(this.file);
+    if (this.file) {
+      this.fileName = this.file.name;
     }
   }
 

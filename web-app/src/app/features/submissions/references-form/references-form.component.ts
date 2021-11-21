@@ -10,6 +10,9 @@ import { Submission } from '../../../../types/Submission';
 })
 export class ReferencesFormComponent implements OnInit {
   public refFormGroup: FormGroup;
+
+  @Input() reference1: Object;
+  @Input() reference2: Object;
   
   constructor(private fb: FormBuilder) { }
 
@@ -26,29 +29,26 @@ export class ReferencesFormComponent implements OnInit {
 
   populateSubmission(submission: Submission) {
     let references: FormGroup = this.refFormGroup;
-    let reference1 = new Object();
-    let reference2 = new Object();
+    this.reference1 = new Object();
+    this.reference2 = new Object();
 
-    reference1 = {
+    this.reference1 = {
       name: references.controls['referenceName1'].value.trim(),
       email: references.controls['referenceEmail1'].value.trim(),
       phone: references.controls['referencePhone1'].value.trim()
     }
     
-    reference2 = {
+    this.reference2 = {
       name: references.controls['referenceName2'].value.trim(),
       email: references.controls['referenceEmail2'].value.trim(),
       phone: references.controls['referencePhone2'].value.trim()
     }
 
-    let reference1String = JSON.stringify(reference1);
-    let reference2String = JSON.stringify(reference2);  
+    let reference1String = JSON.stringify(this.reference1);
+    let reference2String = JSON.stringify(this.reference2);  
 
     submission.referenceOne = reference1String;
     submission.referenceTwo = reference2String;
-
-    console.log("Ref #1: " + submission.referenceOne);
-    console.log("Ref #2: " + submission.referenceTwo);
   }
 
 }

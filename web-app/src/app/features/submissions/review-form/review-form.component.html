@@ -69,11 +69,19 @@
         <p class="review-header"><strong>References</strong></p>
       </div>
       <div>
-        <div class="reference review" *ngIf="submission.referenceOne !== null">
-          <p>{{submission.referenceOne}}</p>
+        <div class="reference review">
+          <div>
+            <p>{{submission.referenceOne | split:"\"":3}} {{submission.referenceOne | split:"\"":7}} {{submission.referenceOne | split:"\"":11}}</p>
+          </div>
+          
         </div>
-        <div class="reference review" *ngIf="submission.referenceTwo !== null">
-          <p>{{submission.referenceTwo}}</p>
+        <div class="reference review">
+          <div>
+            <p>{{submission.referenceTwo | split:"\"":3}} {{submission.referenceTwo | split:"\"":7}} {{submission.referenceTwo | split:"\"":11}}</p>
+          </div>
+          <div>
+
+          </div>
         </div>
       </div>
     </div>

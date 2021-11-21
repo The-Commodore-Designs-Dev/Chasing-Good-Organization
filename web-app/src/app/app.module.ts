@@ -70,6 +70,7 @@ import { PrivacypolicyComponentDialog } from './dialogs/privacypolicy/privacypol
 import { TermsofuseComponentDialog } from './dialogs/termsofuse/termsofuse.component';
 import { SentMessage } from './features/messages/sent/sent.component';
 import { ErrorMessage } from './features/messages/error/error.component';
+import { SplitPipe } from './pipes/split.pipe';
 
 @NgModule({
   declarations: [
@@ -105,7 +106,8 @@ import { ErrorMessage } from './features/messages/error/error.component';
     PrivacypolicyComponentDialog,
     TermsofuseComponentDialog,
     SentMessage,
-    ErrorMessage
+    ErrorMessage,
+    SplitPipe
   ],
   imports: [
     AmplifyAngularModule,
