@@ -12,7 +12,7 @@ mutation CreateSubmission(
     nominatingOptions
     organizationName
     individualFullName
-    otherDescription
+    individualEmailAddress
     category
     county
     story
@@ -56,7 +56,7 @@ mutation UpdateSubmission(
     nominatingOptions
     organizationName
     individualFullName
-    otherDescription
+    individualEmailAddress
     category
     county
     story
@@ -100,7 +100,7 @@ mutation DeleteSubmission(
     nominatingOptions
     organizationName
     individualFullName
-    otherDescription
+    individualEmailAddress
     category
     county
     story

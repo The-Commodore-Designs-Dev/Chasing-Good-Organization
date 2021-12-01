@@ -59,10 +59,10 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "otherDescription": {
-                    "name": "otherDescription",
+                "individualEmailAddress": {
+                    "name": "individualEmailAddress",
                     "isArray": false,
-                    "type": "String",
+                    "type": "AWSEmail",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -439,5 +439,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "52e6f8f395ac2ecfcdf80c0838bd9abe"
+    "version": "187e76e1842df3b7fdf03e29e1bf1a96"
 };

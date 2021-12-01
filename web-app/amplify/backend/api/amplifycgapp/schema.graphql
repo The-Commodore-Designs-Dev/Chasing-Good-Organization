@@ -7,7 +7,7 @@ type Submission @model @auth(rules: [{allow: public, operations: [create]}, {all
   nominatingOptions: String
   organizationName: String
   individualFullName: String
-  otherDescription: String
+  individualEmailAddress: AWSEmail
   category: String
   county: String
   story: String

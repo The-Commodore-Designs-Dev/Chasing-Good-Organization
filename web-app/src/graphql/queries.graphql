@@ -9,7 +9,7 @@ query GetSubmission($id: ID!) {
     nominatingOptions
     organizationName
     individualFullName
-    otherDescription
+    individualEmailAddress
     category
     county
     story
@@ -55,7 +55,7 @@ query ListSubmissions(
       nominatingOptions
       organizationName
       individualFullName
-      otherDescription
+      individualEmailAddress
       category
       county
       story
@@ -98,7 +98,7 @@ query SyncSubmissions(
       nominatingOptions
       organizationName
       individualFullName
-      otherDescription
+      individualEmailAddress
       category
       county
       story

@@ -9,7 +9,7 @@ subscription OnCreateSubmission {
     nominatingOptions
     organizationName
     individualFullName
-    otherDescription
+    individualEmailAddress
     category
     county
     story
@@ -50,7 +50,7 @@ subscription OnUpdateSubmission {
     nominatingOptions
     organizationName
     individualFullName
-    otherDescription
+    individualEmailAddress
     category
     county
     story
@@ -91,7 +91,7 @@ subscription OnDeleteSubmission {
     nominatingOptions
     organizationName
     individualFullName
-    otherDescription
+    individualEmailAddress
     category
     county
     story

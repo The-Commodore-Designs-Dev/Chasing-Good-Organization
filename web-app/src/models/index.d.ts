@@ -25,7 +25,7 @@ export declare class Submission {
   readonly nominatingOptions?: string;
   readonly organizationName?: string;
   readonly individualFullName?: string;
-  readonly otherDescription?: string;
+  readonly individualEmailAddress?: string;
   readonly category?: string;
   readonly county?: string;
   readonly story?: string;

@@ -12,7 +12,7 @@ export interface Submission {
     nominatingOptions?: string;
     organizationName?: string;
     individualFullName?: string;
-    otherDescription?: string;
+    individualEmailAddress?: string;
     category?: string;
     county?: string;
     story?: string;

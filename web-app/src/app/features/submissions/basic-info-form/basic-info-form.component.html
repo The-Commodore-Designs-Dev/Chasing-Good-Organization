@@ -35,7 +35,8 @@
     <div class="mt">
         <mat-form-field>
             <mat-label for="phoneNominator">Phone:</mat-label>
-            <input matInput id="phoneNominator" type="phone" formControlName="phone" placeholder="Phone Number">
+            <input matInput mask="(000)000-0000" id="phoneNominator" type="phone" formControlName="phone" placeholder="(000)000-0000" required>
+            <mat-error *ngIf="basicInfoFormGroup.controls['phone'].invalid">Please enter a valid phone number</mat-error>
         </mat-form-field>
     </div>
 </form>

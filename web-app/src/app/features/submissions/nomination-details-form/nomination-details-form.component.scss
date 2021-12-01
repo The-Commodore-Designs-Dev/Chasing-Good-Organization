@@ -19,7 +19,8 @@
 }
 
 .mat-form-field {
-    width: 53em;
+    min-width: 15em;
+    width: 100%;
 }
 
 .mat-radio-group {
@@ -41,4 +42,9 @@
 
 .mt {
     margin-top: 1em;
+}
+
+.mat-hint,
+.mat-error {
+    font-size: 10pt;
 }

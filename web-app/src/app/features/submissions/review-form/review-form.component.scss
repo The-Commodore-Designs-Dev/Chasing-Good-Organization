@@ -38,3 +38,26 @@ a {
 strong {
     font-weight: 700;
 }
+
+p {
+    width: auto;
+    overflow-wrap: break-word;
+}
+
+.mat-checkbox-layout {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: inherit;
+    align-items: baseline;
+    vertical-align: middle;
+    display: inline-block !important;
+    white-space: break-spaces !important;
+}
+
+.mat-checkbox-layout .mat-checkbox-label {
+    line-height: 24px;
+    width: 100%;
+    min-width: 15em;
+}

@@ -24,6 +24,11 @@
         "S3Triggerbd342f6e": {
           "deploymentBucketName": "amplify-amplifycgapp-dev-124349-deployment",
           "s3Key": "amplify-builds/S3Triggerbd342f6e-76424661587469415669-build.zip"
+        },
+        "amplifycgEmailScript": {
+          "sendgridApiKey": "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",
+          "deploymentBucketName": "amplify-amplifycgapp-dev-124349-deployment",
+          "s3Key": "amplify-builds/amplifycgEmailScript-512b71587a4445726171-build.zip"
         }
       }
     }

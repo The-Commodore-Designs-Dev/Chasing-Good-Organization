@@ -30,7 +30,7 @@ export type CreateSubmissionInput = {
   nominatingOptions?: string | null;
   organizationName?: string | null;
   individualFullName?: string | null;
-  otherDescription?: string | null;
+  individualEmailAddress?: string | null;
   category?: string | null;
   county?: string | null;
   story?: string | null;
@@ -49,7 +49,7 @@ export type ModelSubmissionConditionInput = {
   nominatingOptions?: ModelStringInput | null;
   organizationName?: ModelStringInput | null;
   individualFullName?: ModelStringInput | null;
-  otherDescription?: ModelStringInput | null;
+  individualEmailAddress?: ModelStringInput | null;
   category?: ModelStringInput | null;
   county?: ModelStringInput | null;
   story?: ModelStringInput | null;
@@ -118,7 +118,7 @@ export type Submission = {
   nominatingOptions?: string | null;
   organizationName?: string | null;
   individualFullName?: string | null;
-  otherDescription?: string | null;
+  individualEmailAddress?: string | null;
   category?: string | null;
   county?: string | null;
   story?: string | null;
@@ -185,7 +185,7 @@ export type UpdateSubmissionInput = {
   nominatingOptions?: string | null;
   organizationName?: string | null;
   individualFullName?: string | null;
-  otherDescription?: string | null;
+  individualEmailAddress?: string | null;
   category?: string | null;
   county?: string | null;
   story?: string | null;
@@ -301,7 +301,7 @@ export type ModelSubmissionFilterInput = {
   nominatingOptions?: ModelStringInput | null;
   organizationName?: ModelStringInput | null;
   individualFullName?: ModelStringInput | null;
-  otherDescription?: ModelStringInput | null;
+  individualEmailAddress?: ModelStringInput | null;
   category?: ModelStringInput | null;
   county?: ModelStringInput | null;
   story?: ModelStringInput | null;
@@ -352,7 +352,7 @@ export type CreateSubmissionMutation = {
   nominatingOptions?: string | null;
   organizationName?: string | null;
   individualFullName?: string | null;
-  otherDescription?: string | null;
+  individualEmailAddress?: string | null;
   category?: string | null;
   county?: string | null;
   story?: string | null;
@@ -395,7 +395,7 @@ export type UpdateSubmissionMutation = {
   nominatingOptions?: string | null;
   organizationName?: string | null;
   individualFullName?: string | null;
-  otherDescription?: string | null;
+  individualEmailAddress?: string | null;
   category?: string | null;
   county?: string | null;
   story?: string | null;
@@ -438,7 +438,7 @@ export type DeleteSubmissionMutation = {
   nominatingOptions?: string | null;
   organizationName?: string | null;
   individualFullName?: string | null;
-  otherDescription?: string | null;
+  individualEmailAddress?: string | null;
   category?: string | null;
   county?: string | null;
   story?: string | null;
@@ -613,7 +613,7 @@ export type GetSubmissionQuery = {
   nominatingOptions?: string | null;
   organizationName?: string | null;
   individualFullName?: string | null;
-  otherDescription?: string | null;
+  individualEmailAddress?: string | null;
   category?: string | null;
   county?: string | null;
   story?: string | null;
@@ -658,7 +658,7 @@ export type ListSubmissionsQuery = {
     nominatingOptions?: string | null;
     organizationName?: string | null;
     individualFullName?: string | null;
-    otherDescription?: string | null;
+    individualEmailAddress?: string | null;
     category?: string | null;
     county?: string | null;
     story?: string | null;
@@ -693,7 +693,7 @@ export type SyncSubmissionsQuery = {
     nominatingOptions?: string | null;
     organizationName?: string | null;
     individualFullName?: string | null;
-    otherDescription?: string | null;
+    individualEmailAddress?: string | null;
     category?: string | null;
     county?: string | null;
     story?: string | null;
@@ -854,7 +854,7 @@ export type OnCreateSubmissionSubscription = {
   nominatingOptions?: string | null;
   organizationName?: string | null;
   individualFullName?: string | null;
-  otherDescription?: string | null;
+  individualEmailAddress?: string | null;
   category?: string | null;
   county?: string | null;
   story?: string | null;
@@ -897,7 +897,7 @@ export type OnUpdateSubmissionSubscription = {
   nominatingOptions?: string | null;
   organizationName?: string | null;
   individualFullName?: string | null;
-  otherDescription?: string | null;
+  individualEmailAddress?: string | null;
   category?: string | null;
   county?: string | null;
   story?: string | null;
@@ -940,7 +940,7 @@ export type OnDeleteSubmissionSubscription = {
   nominatingOptions?: string | null;
   organizationName?: string | null;
   individualFullName?: string | null;
-  otherDescription?: string | null;
+  individualEmailAddress?: string | null;
   category?: string | null;
   county?: string | null;
   story?: string | null;
@@ -1124,7 +1124,7 @@ export class APIService {
           nominatingOptions
           organizationName
           individualFullName
-          otherDescription
+          individualEmailAddress
           category
           county
           story
@@ -1183,7 +1183,7 @@ export class APIService {
           nominatingOptions
           organizationName
           individualFullName
-          otherDescription
+          individualEmailAddress
           category
           county
           story
@@ -1242,7 +1242,7 @@ export class APIService {
           nominatingOptions
           organizationName
           individualFullName
-          otherDescription
+          individualEmailAddress
           category
           county
           story
@@ -1526,7 +1526,7 @@ export class APIService {
           nominatingOptions
           organizationName
           individualFullName
-          otherDescription
+          individualEmailAddress
           category
           county
           story
@@ -1585,7 +1585,7 @@ export class APIService {
             nominatingOptions
             organizationName
             individualFullName
-            otherDescription
+            individualEmailAddress
             category
             county
             story
@@ -1642,7 +1642,7 @@ export class APIService {
             nominatingOptions
             organizationName
             individualFullName
-            otherDescription
+            individualEmailAddress
             category
             county
             story
@@ -1938,7 +1938,7 @@ export class APIService {
           nominatingOptions
           organizationName
           individualFullName
-          otherDescription
+          individualEmailAddress
           category
           county
           story
@@ -1991,7 +1991,7 @@ export class APIService {
           nominatingOptions
           organizationName
           individualFullName
-          otherDescription
+          individualEmailAddress
           category
           county
           story
@@ -2044,7 +2044,7 @@ export class APIService {
           nominatingOptions
           organizationName
           individualFullName
-          otherDescription
+          individualEmailAddress
           category
           county
           story

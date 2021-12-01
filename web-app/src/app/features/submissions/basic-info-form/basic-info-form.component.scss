@@ -20,5 +20,11 @@
 }
 
 .mat-form-field {
-    width: 53em;
+    min-width: 15em;
+    width: 100%;
+}
+
+.mat-hint,
+.mat-error {
+    font-size: 10pt;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { RouteService } from 'src/app/route.service';
 
 @Component({
   selector: 'app-submit-your-story',
@@ -8,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class SubmitYourStoryComponent implements OnInit {
 
 
-  constructor() {
+  constructor(private routeService: RouteService) {
 
    }
 

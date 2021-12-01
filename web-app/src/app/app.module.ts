@@ -38,6 +38,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import 'hammerjs';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MeetSomeNomineesComponent } from './pages/meet-some-nominees/meet-some-nominees.component';
@@ -71,6 +72,7 @@ import { TermsofuseComponentDialog } from './dialogs/termsofuse/termsofuse.compo
 import { SentMessage } from './features/messages/sent/sent.component';
 import { ErrorMessage } from './features/messages/error/error.component';
 import { SplitPipe } from './pipes/split.pipe';
+import { FooterComponent } from './features/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -107,7 +109,8 @@ import { SplitPipe } from './pipes/split.pipe';
     TermsofuseComponentDialog,
     SentMessage,
     ErrorMessage,
-    SplitPipe
+    SplitPipe,
+    FooterComponent
   ],
   imports: [
     AmplifyAngularModule,
@@ -141,7 +144,8 @@ import { SplitPipe } from './pipes/split.pipe';
     GoogleMapsModule,
     MatExpansionModule,
     FontAwesomeModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [
     AmplifyService,

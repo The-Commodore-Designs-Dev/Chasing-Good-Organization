@@ -13,4 +13,8 @@ export class PagesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onActivate(event: Event) {
+    event.preventDefault;
+    window.scroll(0,0);
+  }
 }
