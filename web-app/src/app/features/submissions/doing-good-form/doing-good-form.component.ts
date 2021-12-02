@@ -365,7 +365,9 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
   public onCreate() {
     this.api.CreateSubmission(this.submission).then(async (event) => {
       this.formSubmitted = true;
-      Storage.put(this.submission.uploadedVideo, this.file);
+      Storage.put(this.submission.id + '/' + this.submission.uploadedVideo, this.file, {
+        contentType: 'video/*',
+      });
       this.sentSnackBar();
       this.createForm.reset();
       this.submission = null;
