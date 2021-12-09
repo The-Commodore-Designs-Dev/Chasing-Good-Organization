@@ -39,6 +39,7 @@
         "@types/graphql": "^14.5.0",
         "@types/jasmine": "~3.6.0",
         "@types/node": "^12.11.1",
+        "cypress": "^6.3.0",
         "ini": "^1.3.5",
         "inquirer": "^6.5.1",
         "jasmine-core": "~3.7.0",
@@ -49,9 +50,12 @@
         "karma-coverage": "~2.0.3",
         "karma-jasmine": "~4.0.0",
         "karma-jasmine-html-reporter": "^1.5.0",
+        "mocha": "^9.1.3",
+        "mochawesome": "^4.1.0",
         "protractor": "^7.0.0",
         "protractor-html-reporter-2": "^1.0.4",
         "protractor-pretty-html-reporter": "0.0.16",
+        "start-server-and-test": "^1.14.0",
         "typescript": "~4.2.3"
     }
 }
