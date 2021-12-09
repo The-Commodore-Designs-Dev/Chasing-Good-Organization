@@ -16,6 +16,7 @@
 .wrapper {
     width: 25%;
     margin: 40px auto 0;
+    padding: 12px;
     background: #ffffff;
     border-radius: 8px;
     min-width: 410px;
@@ -40,4 +41,13 @@
     background: #ffffff;
     border: none;
     text-align: center;
+}
+
+.alert {
+    background-color: #caa4a4;
+    border: 1px solid #cc3030;
+    color: #cc3030;
+    border-radius: 5px;
+    margin: 15px;
+    padding: 5px;
 }
