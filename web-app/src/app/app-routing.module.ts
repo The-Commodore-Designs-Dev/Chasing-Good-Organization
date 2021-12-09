@@ -3,12 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { PagesComponent } from './pages/pages.component';
 import { AboutComponent } from './pages/about/about.component';
 import { SubmitYourStoryComponent } from './pages/submit-your-story/submit-your-story.component';
-import { AdminComponent } from './admin/admin.component';
+import { AdminComponent } from './features/admin/admin.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MeetSomeNomineesComponent } from './pages/meet-some-nominees/meet-some-nominees.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
-import { LoginComponent } from './admin/login/login.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { LoginComponent } from './features/admin/login/login.component';
 
 const routes: Routes = [
   {

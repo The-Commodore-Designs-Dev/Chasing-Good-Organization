@@ -1,0 +1,34 @@
+version: 1
+applications:
+  - frontend:
+      phases:
+        preBuild:
+          commands:
+            - nvm install --lts
+            - nvm use --lts
+            - npm ci
+        build:
+          commands:
+            - npm run build
+      artifacts:
+        baseDirectory: dist/web-app
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*
+    appRoot: web-app
+  - test:
+      phases:
+        pre-test:
+          commands:
+            - npm ci
+            - npm install protractor@latest 
+        test:
+          commands:
+            - 'protractor protractor.conf.js'
+      artifacts:
+        baseDirectory: target
+        files:
+            - '**/*.png'
+            - '**/*.mp4'
