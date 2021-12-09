@@ -4,7 +4,7 @@ import { AdminComponent } from './admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SubmissionTableComponent } from './dashboard/submission-table/submission-table.component';
 import { UsersComponent } from './dashboard/users/users.component';
-import { AuthGuard } from '../_helpers/auth.guard';
+import { AuthGuard } from '../../_helpers/auth.guard';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
