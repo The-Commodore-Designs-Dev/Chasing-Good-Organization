@@ -42,7 +42,7 @@ export class NominationDetailsFormComponent implements OnInit {
     submission.nominatingOptions = nominationDetails.controls['nominatingOptions'].value;
     submission.organizationName = nominationDetails.controls['organizationName'].value.trim();
     submission.individualFullName = nominationDetails.controls['individualFullName'].value.trim();
-    submission.individualEmailAddress = nominationDetails.controls['individualEmailAddress'].value.trim();
+    submission.individualEmailAddress = (nominationDetails.controls['individualEmailAddress'].value === ``) ? "undefined" : nominationDetails.controls['individualEmailAddress'].value.trim();
     submission.category = nominationDetails.controls['category'].value;
     submission.county = nominationDetails.controls['njCounty'].value;
 }

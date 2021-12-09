@@ -370,7 +370,24 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
       });
       this.sentSnackBar();
       this.createForm.reset();
-      this.submission = null;
+      this.submission = {
+        id: "",
+        firstName: "",
+        lastName: "",
+        email: "",
+        phoneNumber: "",
+        nominatingOptions: "",
+        organizationName: "",
+        individualFullName: "",
+        individualEmailAddress: "",
+        category: "",
+        county: "",
+        story: "",
+        uploadedVideo: "",
+        referenceOne: "",
+        referenceTwo: "",
+        disclaimerAgreement: false
+      };
     }).catch((event) => {
       this.errorSnackbar();
       let errSpan = document.getElementById('errorMessageSent');

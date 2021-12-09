@@ -1,5 +1,5 @@
 <div class="form-wrap" [formGroup]="createForm">
-    <mat-stepper orientation="vertical" linear labelPosition="bottom" (selectionChange)="onStepChange($event)">
+    <mat-stepper orientation="vertical" linear labelPosition="bottom" (selectionChange)="onStepChange($event)" #stepper>
                 <mat-step label="Your Basic Information">
                     <app-basic-info-form></app-basic-info-form>
                     <div class="mt" *ngIf="currentScreenSize == 'Large'; else elseBlockBasic">
@@ -60,7 +60,7 @@
                     <ng-template #elseBlockReview>
                         <div class="mt">
                             <button mat-button matStepperPrevious type="button" class="prev-btn mat-button-mobile">Back</button>
-                            <button [disabled]="!allFormsValid" mat-button matStepperNext type="submit" class="submit-btn mat-button-mobile" (click)="onCreate()">Submit</button>                            
+                            <button [disabled]="!allFormsValid" mat-button matStepperNext type="submit" class="submit-btn mat-button-mobile" (click)="onCreate(); stepper.reset();">Submit</button>                            
                         </div>
                     </ng-template>
                 </mat-step>
