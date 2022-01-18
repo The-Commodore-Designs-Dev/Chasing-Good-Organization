@@ -115,20 +115,6 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "votes": {
-                    "name": "votes",
-                    "isArray": true,
-                    "type": {
-                        "model": "Vote"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true,
-                    "association": {
-                        "connectionType": "HAS_MANY",
-                        "associatedWith": "voteID"
-                    }
-                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -151,6 +137,10 @@ export const schema = {
             "attributes": [
                 {
                     "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "aws_api_key",
                     "properties": {}
                 },
                 {
@@ -280,26 +270,13 @@ export const schema = {
                     "properties": {}
                 },
                 {
-                    "type": "key",
-                    "properties": {
-                        "name": "byVote",
-                        "fields": [
-                            "voteID",
-                            "totalVotesEarned",
-                            "maxVotesPossible"
-                        ]
-                    }
+                    "type": "aws_api_key",
+                    "properties": {}
                 },
                 {
                     "type": "auth",
                     "properties": {
                         "rules": [
-                            {
-                                "allow": "public",
-                                "operations": [
-                                    "create"
-                                ]
-                            },
                             {
                                 "groupClaim": "cognito:groups",
                                 "provider": "userPools",
@@ -386,6 +363,10 @@ export const schema = {
                     "properties": {}
                 },
                 {
+                    "type": "aws_api_key",
+                    "properties": {}
+                },
+                {
                     "type": "key",
                     "properties": {
                         "name": "byJudge",
@@ -400,12 +381,6 @@ export const schema = {
                     "type": "auth",
                     "properties": {
                         "rules": [
-                            {
-                                "allow": "public",
-                                "operations": [
-                                    "create"
-                                ]
-                            },
                             {
                                 "groupClaim": "cognito:groups",
                                 "provider": "userPools",
@@ -439,5 +414,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "187e76e1842df3b7fdf03e29e1bf1a96"
+    "version": "b651e83a4e618eaacba357378cb849c0"
 };

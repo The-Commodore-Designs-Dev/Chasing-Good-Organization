@@ -20,5 +20,4 @@ export interface Submission {
     referenceOne?: string;
     referenceTwo?: string;
     disclaimerAgreement?: boolean;
-    voted?: Vote[];
 }

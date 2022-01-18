@@ -25,22 +25,6 @@ mutation CreateSubmission(
     _lastChangedAt
     createdAt
     updatedAt
-    votes {
-      items {
-        id
-        voteID
-        voted
-        totalVotesEarned
-        maxVotesPossible
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
-    }
   }
 }
 mutation UpdateSubmission(
@@ -69,22 +53,6 @@ mutation UpdateSubmission(
     _lastChangedAt
     createdAt
     updatedAt
-    votes {
-      items {
-        id
-        voteID
-        voted
-        totalVotesEarned
-        maxVotesPossible
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
-    }
   }
 }
 mutation DeleteSubmission(
@@ -113,22 +81,6 @@ mutation DeleteSubmission(
     _lastChangedAt
     createdAt
     updatedAt
-    votes {
-      items {
-        id
-        voteID
-        voted
-        totalVotesEarned
-        maxVotesPossible
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
-    }
   }
 }
 mutation CreateVote(

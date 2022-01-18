@@ -22,22 +22,6 @@ subscription OnCreateSubmission {
     _lastChangedAt
     createdAt
     updatedAt
-    votes {
-      items {
-        id
-        voteID
-        voted
-        totalVotesEarned
-        maxVotesPossible
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
-    }
   }
 }
 subscription OnUpdateSubmission {
@@ -63,22 +47,6 @@ subscription OnUpdateSubmission {
     _lastChangedAt
     createdAt
     updatedAt
-    votes {
-      items {
-        id
-        voteID
-        voted
-        totalVotesEarned
-        maxVotesPossible
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
-    }
   }
 }
 subscription OnDeleteSubmission {
@@ -104,22 +72,6 @@ subscription OnDeleteSubmission {
     _lastChangedAt
     createdAt
     updatedAt
-    votes {
-      items {
-        id
-        voteID
-        voted
-        totalVotesEarned
-        maxVotesPossible
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
-    }
   }
 }
 subscription OnCreateVote {

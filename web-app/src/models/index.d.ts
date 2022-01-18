@@ -33,7 +33,6 @@ export declare class Submission {
   readonly referenceOne?: string;
   readonly referenceTwo?: string;
   readonly disclaimerAgreement?: boolean;
-  readonly votes?: (Vote | null)[];
   readonly createdAt?: string;
   readonly updatedAt?: string;
   constructor(init: ModelInit<Submission, SubmissionMetaData>);

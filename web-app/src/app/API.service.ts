@@ -131,49 +131,6 @@ export type Submission = {
   _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
-  votes?: ModelVoteConnection | null;
-};
-
-export type ModelVoteConnection = {
-  __typename: "ModelVoteConnection";
-  items?: Array<Vote | null> | null;
-  nextToken?: string | null;
-  startedAt?: number | null;
-};
-
-export type Vote = {
-  __typename: "Vote";
-  id: string;
-  voteID: string;
-  voted?: boolean | null;
-  totalVotesEarned?: number | null;
-  maxVotesPossible?: number | null;
-  _version: number;
-  _deleted?: boolean | null;
-  _lastChangedAt: number;
-  createdAt: string;
-  updatedAt: string;
-  judges?: ModelJudgeConnection | null;
-};
-
-export type ModelJudgeConnection = {
-  __typename: "ModelJudgeConnection";
-  items?: Array<Judge | null> | null;
-  nextToken?: string | null;
-  startedAt?: number | null;
-};
-
-export type Judge = {
-  __typename: "Judge";
-  id: string;
-  judgeID: string;
-  name?: string | null;
-  username?: string | null;
-  _version: number;
-  _deleted?: boolean | null;
-  _lastChangedAt: number;
-  createdAt: string;
-  updatedAt: string;
 };
 
 export type UpdateSubmissionInput = {
@@ -248,6 +205,41 @@ export type ModelIntInput = {
   attributeType?: ModelAttributeTypes | null;
 };
 
+export type Vote = {
+  __typename: "Vote";
+  id: string;
+  voteID: string;
+  voted?: boolean | null;
+  totalVotesEarned?: number | null;
+  maxVotesPossible?: number | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
+  createdAt: string;
+  updatedAt: string;
+  judges?: ModelJudgeConnection | null;
+};
+
+export type ModelJudgeConnection = {
+  __typename: "ModelJudgeConnection";
+  items: Array<Judge>;
+  nextToken?: string | null;
+  startedAt?: number | null;
+};
+
+export type Judge = {
+  __typename: "Judge";
+  id: string;
+  judgeID: string;
+  name?: string | null;
+  username?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
+  createdAt: string;
+  updatedAt: string;
+};
+
 export type UpdateVoteInput = {
   id: string;
   voteID?: string | null;
@@ -316,7 +308,7 @@ export type ModelSubmissionFilterInput = {
 
 export type ModelSubmissionConnection = {
   __typename: "ModelSubmissionConnection";
-  items?: Array<Submission | null> | null;
+  items: Array<Submission>;
   nextToken?: string | null;
   startedAt?: number | null;
 };
@@ -330,6 +322,13 @@ export type ModelVoteFilterInput = {
   and?: Array<ModelVoteFilterInput | null> | null;
   or?: Array<ModelVoteFilterInput | null> | null;
   not?: ModelVoteFilterInput | null;
+};
+
+export type ModelVoteConnection = {
+  __typename: "ModelVoteConnection";
+  items: Array<Vote>;
+  nextToken?: string | null;
+  startedAt?: number | null;
 };
 
 export type ModelJudgeFilterInput = {
@@ -365,24 +364,6 @@ export type CreateSubmissionMutation = {
   _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
-  votes?: {
-    __typename: "ModelVoteConnection";
-    items?: Array<{
-      __typename: "Vote";
-      id: string;
-      voteID: string;
-      voted?: boolean | null;
-      totalVotesEarned?: number | null;
-      maxVotesPossible?: number | null;
-      _version: number;
-      _deleted?: boolean | null;
-      _lastChangedAt: number;
-      createdAt: string;
-      updatedAt: string;
-    } | null> | null;
-    nextToken?: string | null;
-    startedAt?: number | null;
-  } | null;
 };
 
 export type UpdateSubmissionMutation = {
@@ -408,24 +389,6 @@ export type UpdateSubmissionMutation = {
   _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
-  votes?: {
-    __typename: "ModelVoteConnection";
-    items?: Array<{
-      __typename: "Vote";
-      id: string;
-      voteID: string;
-      voted?: boolean | null;
-      totalVotesEarned?: number | null;
-      maxVotesPossible?: number | null;
-      _version: number;
-      _deleted?: boolean | null;
-      _lastChangedAt: number;
-      createdAt: string;
-      updatedAt: string;
-    } | null> | null;
-    nextToken?: string | null;
-    startedAt?: number | null;
-  } | null;
 };
 
 export type DeleteSubmissionMutation = {
@@ -451,24 +414,6 @@ export type DeleteSubmissionMutation = {
   _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
-  votes?: {
-    __typename: "ModelVoteConnection";
-    items?: Array<{
-      __typename: "Vote";
-      id: string;
-      voteID: string;
-      voted?: boolean | null;
-      totalVotesEarned?: number | null;
-      maxVotesPossible?: number | null;
-      _version: number;
-      _deleted?: boolean | null;
-      _lastChangedAt: number;
-      createdAt: string;
-      updatedAt: string;
-    } | null> | null;
-    nextToken?: string | null;
-    startedAt?: number | null;
-  } | null;
 };
 
 export type CreateVoteMutation = {
@@ -485,7 +430,7 @@ export type CreateVoteMutation = {
   updatedAt: string;
   judges?: {
     __typename: "ModelJudgeConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "Judge";
       id: string;
       judgeID: string;
@@ -496,7 +441,7 @@ export type CreateVoteMutation = {
       _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    }>;
     nextToken?: string | null;
     startedAt?: number | null;
   } | null;
@@ -516,7 +461,7 @@ export type UpdateVoteMutation = {
   updatedAt: string;
   judges?: {
     __typename: "ModelJudgeConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "Judge";
       id: string;
       judgeID: string;
@@ -527,7 +472,7 @@ export type UpdateVoteMutation = {
       _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    }>;
     nextToken?: string | null;
     startedAt?: number | null;
   } | null;
@@ -547,7 +492,7 @@ export type DeleteVoteMutation = {
   updatedAt: string;
   judges?: {
     __typename: "ModelJudgeConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "Judge";
       id: string;
       judgeID: string;
@@ -558,7 +503,7 @@ export type DeleteVoteMutation = {
       _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    }>;
     nextToken?: string | null;
     startedAt?: number | null;
   } | null;
@@ -626,29 +571,11 @@ export type GetSubmissionQuery = {
   _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
-  votes?: {
-    __typename: "ModelVoteConnection";
-    items?: Array<{
-      __typename: "Vote";
-      id: string;
-      voteID: string;
-      voted?: boolean | null;
-      totalVotesEarned?: number | null;
-      maxVotesPossible?: number | null;
-      _version: number;
-      _deleted?: boolean | null;
-      _lastChangedAt: number;
-      createdAt: string;
-      updatedAt: string;
-    } | null> | null;
-    nextToken?: string | null;
-    startedAt?: number | null;
-  } | null;
 };
 
 export type ListSubmissionsQuery = {
   __typename: "ModelSubmissionConnection";
-  items?: Array<{
+  items: Array<{
     __typename: "Submission";
     id: string;
     firstName?: string | null;
@@ -671,19 +598,14 @@ export type ListSubmissionsQuery = {
     _lastChangedAt: number;
     createdAt: string;
     updatedAt: string;
-    votes?: {
-      __typename: "ModelVoteConnection";
-      nextToken?: string | null;
-      startedAt?: number | null;
-    } | null;
-  } | null> | null;
+  }>;
   nextToken?: string | null;
   startedAt?: number | null;
 };
 
 export type SyncSubmissionsQuery = {
   __typename: "ModelSubmissionConnection";
-  items?: Array<{
+  items: Array<{
     __typename: "Submission";
     id: string;
     firstName?: string | null;
@@ -706,12 +628,7 @@ export type SyncSubmissionsQuery = {
     _lastChangedAt: number;
     createdAt: string;
     updatedAt: string;
-    votes?: {
-      __typename: "ModelVoteConnection";
-      nextToken?: string | null;
-      startedAt?: number | null;
-    } | null;
-  } | null> | null;
+  }>;
   nextToken?: string | null;
   startedAt?: number | null;
 };
@@ -730,7 +647,7 @@ export type GetVoteQuery = {
   updatedAt: string;
   judges?: {
     __typename: "ModelJudgeConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "Judge";
       id: string;
       judgeID: string;
@@ -741,7 +658,7 @@ export type GetVoteQuery = {
       _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    }>;
     nextToken?: string | null;
     startedAt?: number | null;
   } | null;
@@ -749,7 +666,7 @@ export type GetVoteQuery = {
 
 export type ListVotesQuery = {
   __typename: "ModelVoteConnection";
-  items?: Array<{
+  items: Array<{
     __typename: "Vote";
     id: string;
     voteID: string;
@@ -766,14 +683,14 @@ export type ListVotesQuery = {
       nextToken?: string | null;
       startedAt?: number | null;
     } | null;
-  } | null> | null;
+  }>;
   nextToken?: string | null;
   startedAt?: number | null;
 };
 
 export type SyncVotesQuery = {
   __typename: "ModelVoteConnection";
-  items?: Array<{
+  items: Array<{
     __typename: "Vote";
     id: string;
     voteID: string;
@@ -790,7 +707,7 @@ export type SyncVotesQuery = {
       nextToken?: string | null;
       startedAt?: number | null;
     } | null;
-  } | null> | null;
+  }>;
   nextToken?: string | null;
   startedAt?: number | null;
 };
@@ -810,7 +727,7 @@ export type GetJudgeQuery = {
 
 export type ListJudgesQuery = {
   __typename: "ModelJudgeConnection";
-  items?: Array<{
+  items: Array<{
     __typename: "Judge";
     id: string;
     judgeID: string;
@@ -821,14 +738,14 @@ export type ListJudgesQuery = {
     _lastChangedAt: number;
     createdAt: string;
     updatedAt: string;
-  } | null> | null;
+  }>;
   nextToken?: string | null;
   startedAt?: number | null;
 };
 
 export type SyncJudgesQuery = {
   __typename: "ModelJudgeConnection";
-  items?: Array<{
+  items: Array<{
     __typename: "Judge";
     id: string;
     judgeID: string;
@@ -839,7 +756,7 @@ export type SyncJudgesQuery = {
     _lastChangedAt: number;
     createdAt: string;
     updatedAt: string;
-  } | null> | null;
+  }>;
   nextToken?: string | null;
   startedAt?: number | null;
 };
@@ -867,24 +784,6 @@ export type OnCreateSubmissionSubscription = {
   _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
-  votes?: {
-    __typename: "ModelVoteConnection";
-    items?: Array<{
-      __typename: "Vote";
-      id: string;
-      voteID: string;
-      voted?: boolean | null;
-      totalVotesEarned?: number | null;
-      maxVotesPossible?: number | null;
-      _version: number;
-      _deleted?: boolean | null;
-      _lastChangedAt: number;
-      createdAt: string;
-      updatedAt: string;
-    } | null> | null;
-    nextToken?: string | null;
-    startedAt?: number | null;
-  } | null;
 };
 
 export type OnUpdateSubmissionSubscription = {
@@ -910,24 +809,6 @@ export type OnUpdateSubmissionSubscription = {
   _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
-  votes?: {
-    __typename: "ModelVoteConnection";
-    items?: Array<{
-      __typename: "Vote";
-      id: string;
-      voteID: string;
-      voted?: boolean | null;
-      totalVotesEarned?: number | null;
-      maxVotesPossible?: number | null;
-      _version: number;
-      _deleted?: boolean | null;
-      _lastChangedAt: number;
-      createdAt: string;
-      updatedAt: string;
-    } | null> | null;
-    nextToken?: string | null;
-    startedAt?: number | null;
-  } | null;
 };
 
 export type OnDeleteSubmissionSubscription = {
@@ -953,24 +834,6 @@ export type OnDeleteSubmissionSubscription = {
   _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
-  votes?: {
-    __typename: "ModelVoteConnection";
-    items?: Array<{
-      __typename: "Vote";
-      id: string;
-      voteID: string;
-      voted?: boolean | null;
-      totalVotesEarned?: number | null;
-      maxVotesPossible?: number | null;
-      _version: number;
-      _deleted?: boolean | null;
-      _lastChangedAt: number;
-      createdAt: string;
-      updatedAt: string;
-    } | null> | null;
-    nextToken?: string | null;
-    startedAt?: number | null;
-  } | null;
 };
 
 export type OnCreateVoteSubscription = {
@@ -987,7 +850,7 @@ export type OnCreateVoteSubscription = {
   updatedAt: string;
   judges?: {
     __typename: "ModelJudgeConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "Judge";
       id: string;
       judgeID: string;
@@ -998,7 +861,7 @@ export type OnCreateVoteSubscription = {
       _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    }>;
     nextToken?: string | null;
     startedAt?: number | null;
   } | null;
@@ -1018,7 +881,7 @@ export type OnUpdateVoteSubscription = {
   updatedAt: string;
   judges?: {
     __typename: "ModelJudgeConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "Judge";
       id: string;
       judgeID: string;
@@ -1029,7 +892,7 @@ export type OnUpdateVoteSubscription = {
       _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    }>;
     nextToken?: string | null;
     startedAt?: number | null;
   } | null;
@@ -1049,7 +912,7 @@ export type OnDeleteVoteSubscription = {
   updatedAt: string;
   judges?: {
     __typename: "ModelJudgeConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "Judge";
       id: string;
       judgeID: string;
@@ -1060,7 +923,7 @@ export type OnDeleteVoteSubscription = {
       _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    }>;
     nextToken?: string | null;
     startedAt?: number | null;
   } | null;
@@ -1137,24 +1000,6 @@ export class APIService {
           _lastChangedAt
           createdAt
           updatedAt
-          votes {
-            __typename
-            items {
-              __typename
-              id
-              voteID
-              voted
-              totalVotesEarned
-              maxVotesPossible
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-            }
-            nextToken
-            startedAt
-          }
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -1196,24 +1041,6 @@ export class APIService {
           _lastChangedAt
           createdAt
           updatedAt
-          votes {
-            __typename
-            items {
-              __typename
-              id
-              voteID
-              voted
-              totalVotesEarned
-              maxVotesPossible
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-            }
-            nextToken
-            startedAt
-          }
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -1255,24 +1082,6 @@ export class APIService {
           _lastChangedAt
           createdAt
           updatedAt
-          votes {
-            __typename
-            items {
-              __typename
-              id
-              voteID
-              voted
-              totalVotesEarned
-              maxVotesPossible
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-            }
-            nextToken
-            startedAt
-          }
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -1539,24 +1348,6 @@ export class APIService {
           _lastChangedAt
           createdAt
           updatedAt
-          votes {
-            __typename
-            items {
-              __typename
-              id
-              voteID
-              voted
-              totalVotesEarned
-              maxVotesPossible
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-            }
-            nextToken
-            startedAt
-          }
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -1598,11 +1389,6 @@ export class APIService {
             _lastChangedAt
             createdAt
             updatedAt
-            votes {
-              __typename
-              nextToken
-              startedAt
-            }
           }
           nextToken
           startedAt
@@ -1655,11 +1441,6 @@ export class APIService {
             _lastChangedAt
             createdAt
             updatedAt
-            votes {
-              __typename
-              nextToken
-              startedAt
-            }
           }
           nextToken
           startedAt
@@ -1951,24 +1732,6 @@ export class APIService {
           _lastChangedAt
           createdAt
           updatedAt
-          votes {
-            __typename
-            items {
-              __typename
-              id
-              voteID
-              voted
-              totalVotesEarned
-              maxVotesPossible
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-            }
-            nextToken
-            startedAt
-          }
         }
       }`
     )
@@ -2004,24 +1767,6 @@ export class APIService {
           _lastChangedAt
           createdAt
           updatedAt
-          votes {
-            __typename
-            items {
-              __typename
-              id
-              voteID
-              voted
-              totalVotesEarned
-              maxVotesPossible
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-            }
-            nextToken
-            startedAt
-          }
         }
       }`
     )
@@ -2057,24 +1802,6 @@ export class APIService {
           _lastChangedAt
           createdAt
           updatedAt
-          votes {
-            __typename
-            items {
-              __typename
-              id
-              voteID
-              voted
-              totalVotesEarned
-              maxVotesPossible
-              _version
-              _deleted
-              _lastChangedAt
-              createdAt
-              updatedAt
-            }
-            nextToken
-            startedAt
-          }
         }
       }`
     )

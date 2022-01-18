@@ -22,22 +22,6 @@ query GetSubmission($id: ID!) {
     _lastChangedAt
     createdAt
     updatedAt
-    votes {
-      items {
-        id
-        voteID
-        voted
-        totalVotesEarned
-        maxVotesPossible
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
-    }
   }
 }
 query ListSubmissions(
@@ -68,10 +52,6 @@ query ListSubmissions(
       _lastChangedAt
       createdAt
       updatedAt
-      votes {
-        nextToken
-        startedAt
-      }
     }
     nextToken
     startedAt
@@ -111,10 +91,6 @@ query SyncSubmissions(
       _lastChangedAt
       createdAt
       updatedAt
-      votes {
-        nextToken
-        startedAt
-      }
     }
     nextToken
     startedAt
