@@ -6,12 +6,11 @@ import { SharedModule } from '../shared.module';
 import { AppComponent } from '../app.component';
 
 @NgModule({
-  imports: [
-    SharedModule,
-    RouterModule.forChild(PAGES_ROUTES),
-    NgxMaskModule.forChild(),
-  ],
-  bootstrap: [AppComponent],
-  entryComponents: [AppComponent]
+    imports: [
+        SharedModule,
+        RouterModule.forChild(PAGES_ROUTES),
+        NgxMaskModule.forChild(),
+    ],
+    bootstrap: [AppComponent]
 })
 export class PagesModule { }
