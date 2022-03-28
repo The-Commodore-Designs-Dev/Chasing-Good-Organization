@@ -1,0 +1,36 @@
+.instructions {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.the-form {
+    min-height: 50em;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.instructions p, .the-form p {
+    text-align: center;
+}
+
+.mat-card {
+    box-shadow: none;
+}
+
+.page-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    background: #ffffff;
+    padding-top: 2em;
+}
+
+h2 {
+    font-size: 32pt;
+    font-weight: 400;
+    line-height: 45px;
+    letter-spacing: initial;
+    color: #000;
+}

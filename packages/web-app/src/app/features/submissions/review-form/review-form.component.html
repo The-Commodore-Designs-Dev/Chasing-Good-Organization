@@ -1,0 +1,91 @@
+<div *ngIf="errorMessages && errorMessages.length > 0" class="errors-box">
+    <div>
+      <p style="margin-left: 16px" class="error-spree-header">Form Contains Errors</p>
+    </div>
+    <div>
+      <ul>
+        <li *ngFor="let errorMessage of errorMessages" class="error-spree">{{errorMessage}}</li>
+      </ul>
+    </div>
+</div>
+
+<div *ngIf="errorMessages.length == 0" class="info-box">
+    <div class="basic-info">
+      <div>
+        <p class="review-header"><strong>Basic Info Details</strong></p>
+      </div>
+      <div>
+        <div class="name review" *ngIf="submission.firstName && submission.lastName">
+          <p>My name is {{submission.firstName}} {{submission.lastName}}.</p>
+        </div>
+        <div class="email review" *ngIf="submission.email">
+          <p>My email is {{submission.email}}.</p>
+        </div>
+        <div class="phone review" *ngIf="submission.phoneNumber">
+          <p>My phone number is {{submission.phoneNumber}}.</p>
+        </div>
+      </div>      
+    </div>
+
+    <div class="nomination-info">
+        <div>
+          <p class="review-header"><strong>Nomination Details</strong></p>
+        </div>
+        <div>
+          <div *ngIf="submission.nominatingOptions === 'Self'" class="nominating review">
+            <p>I am nominating my{{submission.nominatingOptions.toLowerCase()}}, and I'm from {{submission.county}}.</p>
+          </div>
+          <div *ngIf="submission.nominatingOptions === 'Organization'" class="nominating review">
+            <p>I am nominating an {{submission.nominatingOptions}} their name is {{submission.organizationName}}, and they are from {{submission.county}}.</p>
+          </div>
+          <div *ngIf="submission.nominatingOptions === 'Individual'" class="nominating review">
+            <p>I am nominating an {{submission.nominatingOptions}} their name is {{submission.individualFullName}} with {{submission.individualEmailAddress}}, and they are from {{submission.county}}.</p>
+          </div>
+          <div class="category">
+            {{submission.category}}
+          </div>
+        </div>      
+    </div>
+
+    <div class="story-info">
+      <div>
+        <p class="review-header"><strong>Story Details</strong></p>
+      </div>
+      <div>
+        <div class="story review">
+          <p>{{submission.story}}</p>
+        </div>
+        <div class="video review">
+          <p>{{submission.uploadedVideo}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="references-info">
+      <div>
+        <p class="review-header"><strong>References</strong></p>
+      </div>
+      <div>
+        <div class="reference review">
+          <div>
+            <p>{{submission.referenceOne | split:"\"":3}} {{submission.referenceOne | split:"\"":7}} {{submission.referenceOne | split:"\"":11}}</p>
+          </div>
+          
+        </div>
+        <div class="reference review">
+          <div>
+            <p>{{submission.referenceTwo | split:"\"":3}} {{submission.referenceTwo | split:"\"":7}} {{submission.referenceTwo | split:"\"":11}}</p>
+          </div>
+          <div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form [formGroup]="disclaimerFormGroup">
+        <div>
+          <mat-checkbox [required] formControlName="agreeToTermsAndPrivacy" id="disclaimer"><span style="white-space:normal; display:inline-block;">I Agree to the Privacy Policy and Terms of Use of ChasingGood</span></mat-checkbox>                                
+        </div>
+    </form>
+</div>

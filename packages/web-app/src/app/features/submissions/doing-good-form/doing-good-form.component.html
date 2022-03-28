@@ -1,0 +1,69 @@
+<div class="form-wrap" [formGroup]="createForm">
+    <mat-stepper orientation="vertical" linear labelPosition="bottom" (selectionChange)="onStepChange($event)" #stepper>
+                <mat-step label="Your Basic Information">
+                    <app-basic-info-form></app-basic-info-form>
+                    <div class="mt" *ngIf="currentScreenSize == 'Large'; else elseBlockBasic">
+                        <button mat-button matStepperNext type="button" class="nxt-btn">Next</button>
+                    </div>
+                    <ng-template #elseBlockBasic>
+                        <div class="mt">
+                            <button mat-button matStepperNext type="button" class="nxt-btn mat-button-mobile">Next</button>    
+                        </div>
+                    </ng-template>
+                </mat-step>
+                <mat-step label="Nomination Details">
+                    <app-nomination-details-form></app-nomination-details-form>
+                    <div class="mt" *ngIf="currentScreenSize == 'Large'; else elseBlockNomination">
+                        <button mat-button matStepperPrevious type="button" class="prev-btn">Back</button>
+                        <button mat-button matStepperNext type="button" class="nxt-btn">Next</button>
+                    </div>
+                    <ng-template #elseBlockNomination>
+                        <div class="mt">
+                            <button mat-button matStepperPrevious type="button" class="prev-btn mat-button-mobile">Back</button>
+                            <button mat-button matStepperNext type="button" class="nxt-btn mat-button-mobile">Next</button>                            
+                        </div>
+                    </ng-template>
+                </mat-step>
+                <mat-step label="Story Details">
+                    <app-story-details-form></app-story-details-form>
+                    <div class="mt" *ngIf="currentScreenSize == 'Large'; else elseBlockStory">
+                        <button mat-button matStepperPrevious type="button" class="prev-btn">Back</button>
+                        <button mat-button matStepperNext type="button" class="nxt-btn">Next</button>
+                    </div>
+                    <ng-template #elseBlockStory>
+                        <div class="mt">
+                            <button mat-button matStepperPrevious type="button" class="prev-btn mat-button-mobile">Back</button>
+                            <button mat-button matStepperNext type="button" class="nxt-btn mat-button-mobile">Next</button>                            
+                        </div>
+                    </ng-template>
+                </mat-step>
+                <mat-step label="References">
+                    <app-references-form></app-references-form>
+                    <div class="mt" *ngIf="currentScreenSize == 'Large'; else elseBlockReferences">
+                        <button mat-button matStepperPrevious type="button" class="prev-btn">Back</button>
+                        <button mat-button matStepperNext type="button" class="nxt-btn">Next</button>
+                    </div>
+                    <ng-template #elseBlockReferences>
+                        <div class="mt">
+                            <button mat-button matStepperPrevious type="button" class="prev-btn mat-button-mobile">Back</button>
+                            <button mat-button matStepperNext type="button" class="nxt-btn mat-button-mobile">Next</button>
+                        </div>
+                    </ng-template>
+                </mat-step>
+                <mat-step label="Review & Submit">
+                    <app-review-form [submission]="submission" [errorMessages]="errorMessages"></app-review-form>
+                    <div id="messages"></div>
+                    <div class="mt" *ngIf="currentScreenSize == 'Large'; else elseBlockReview">
+                        <button mat-button matStepperPrevious type="button" class="prev-btn">Back</button>
+                        <button [disabled]="!allFormsValid" mat-button matStepperNext type="submit" class="submit-btn" (click)="onCreate()">Submit</button>
+                    </div>
+                    <ng-template #elseBlockReview>
+                        <div class="mt">
+                            <button mat-button matStepperPrevious type="button" class="prev-btn mat-button-mobile">Back</button>
+                            <button [disabled]="!allFormsValid" mat-button matStepperNext type="submit" class="submit-btn mat-button-mobile" (click)="onCreate(); stepper.reset();">Submit</button>                            
+                        </div>
+                    </ng-template>
+                </mat-step>
+    </mat-stepper>
+    
+</div>

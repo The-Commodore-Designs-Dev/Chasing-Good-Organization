@@ -1,0 +1,246 @@
+# this is an auto generated file. This will be overwritten
+query GetSubmission($id: ID!) {
+  getSubmission(id: $id) {
+    id
+    firstName
+    lastName
+    email
+    phoneNumber
+    nominatingOptions
+    organizationName
+    individualFullName
+    individualEmailAddress
+    category
+    county
+    story
+    uploadedVideo
+    referenceOne
+    referenceTwo
+    disclaimerAgreement
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+query ListSubmissions(
+  $filter: ModelSubmissionFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listSubmissions(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      firstName
+      lastName
+      email
+      phoneNumber
+      nominatingOptions
+      organizationName
+      individualFullName
+      individualEmailAddress
+      category
+      county
+      story
+      uploadedVideo
+      referenceOne
+      referenceTwo
+      disclaimerAgreement
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+    nextToken
+    startedAt
+  }
+}
+query SyncSubmissions(
+  $filter: ModelSubmissionFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncSubmissions(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      firstName
+      lastName
+      email
+      phoneNumber
+      nominatingOptions
+      organizationName
+      individualFullName
+      individualEmailAddress
+      category
+      county
+      story
+      uploadedVideo
+      referenceOne
+      referenceTwo
+      disclaimerAgreement
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+    nextToken
+    startedAt
+  }
+}
+query GetVote($id: ID!) {
+  getVote(id: $id) {
+    id
+    voteID
+    voted
+    totalVotesEarned
+    maxVotesPossible
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+    judges {
+      items {
+        id
+        judgeID
+        name
+        username
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+}
+query ListVotes(
+  $filter: ModelVoteFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listVotes(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      voteID
+      voted
+      totalVotesEarned
+      maxVotesPossible
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      judges {
+        nextToken
+        startedAt
+      }
+    }
+    nextToken
+    startedAt
+  }
+}
+query SyncVotes(
+  $filter: ModelVoteFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncVotes(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      voteID
+      voted
+      totalVotesEarned
+      maxVotesPossible
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      judges {
+        nextToken
+        startedAt
+      }
+    }
+    nextToken
+    startedAt
+  }
+}
+query GetJudge($id: ID!) {
+  getJudge(id: $id) {
+    id
+    judgeID
+    name
+    username
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+query ListJudges(
+  $filter: ModelJudgeFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listJudges(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      judgeID
+      name
+      username
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+    nextToken
+    startedAt
+  }
+}
+query SyncJudges(
+  $filter: ModelJudgeFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncJudges(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      judgeID
+      name
+      username
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+    nextToken
+    startedAt
+  }
+}

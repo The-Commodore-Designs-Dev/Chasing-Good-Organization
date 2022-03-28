@@ -1,0 +1,23 @@
+#page-wrap{
+    
+}
+
+.call-to-action {
+    background-color: hsl(281, 99%, 29%);
+    color: white;
+    padding: 150px 0;
+    margin: 150px 0;
+    text-align: center;
+}
+
+.instructions {
+    padding: 15px;
+    background-color: white;
+    margin: 0 auto 0;
+    width: 75vw;
+}
+
+.instructions > p {
+    line-height: 1.5;
+    padding-bottom: 12pt;
+}

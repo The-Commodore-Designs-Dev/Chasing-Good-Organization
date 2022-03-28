@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "api": {
+      "amplifycgapp": [
+        "Query"
+      ]
+    }
+  },
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "sendgridApiKey",
+      "environmentVariableName": "SENDGRID_API_KEY"
+    }
+  ]
+}
