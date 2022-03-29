@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { RouteService } from 'src/app/route.service';
+import { RouteService } from '../../_services/route.service';
 
 @Component({
   selector: 'app-submit-your-story',

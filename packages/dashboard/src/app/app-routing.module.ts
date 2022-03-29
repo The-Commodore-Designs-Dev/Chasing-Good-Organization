@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { SubmissionTableComponent } from './dashboard/submission-table/submission-table.component';
-import { UsersComponent } from './dashboard/users/users.component';
+import { SubmissionTableComponent } from './submission-table/submission-table.component';
+import { UsersComponent } from './dashboard/users-table/users.component';
 import { AuthGuard } from '../../../dashboard/src/app/_helpers/auth.guard';
 import { LoginComponent } from './login/login.component';
 
