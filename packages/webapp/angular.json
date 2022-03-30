@@ -36,7 +36,7 @@
               "crypto-js",
               "isomorphic-unfetch"
             ],
-            "outputPath": "dist/web-app",
+            "outputPath": "dist/webapp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -123,5 +123,5 @@
       }
     }
   },
-  "defaultProject": "web-app"
+  "defaultProject": "webapp"
 }
