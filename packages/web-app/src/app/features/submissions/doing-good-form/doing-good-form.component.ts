@@ -16,12 +16,13 @@ import { ReviewFormComponent } from '../review-form/review-form.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SentMessage } from '../../messages/sent/sent.component';
 import { ErrorMessage } from '../../messages/error/error.component';
+import { AgreementFormComponent } from '../agreement-form/agreement-form.component';
 
 const BASIC_INFO_INDEX: number = 0;
 const NOMINATION_INDEX: number = 1;
 const STORY_INDEX: number = 2;
 const REFERENCES_INDEX: number = 3;
-const DISCLAIMER_INDEX: number = 4;
+const AGREEMENT_INDEX: number = 4;
 const REVIEW_INDEX: number = 5;
 
 @Component({
@@ -38,6 +39,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
   nominationInfoFormSubscription: Subscription = new Subscription;
   storyInfoFormSubscription: Subscription = new Subscription;
   referencesInfoFormSubscription: Subscription = new Subscription;
+  agreementFormSubscriotion: Subscription = new Subscription;
   formSubmitted: boolean = false;
   allFormsValid: boolean = false;
   public createForm: FormGroup;
@@ -57,12 +59,14 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
   @ViewChild(NominationDetailsFormComponent) nominationDetailsFormComponent: NominationDetailsFormComponent;
   @ViewChild(StoryDetailsFormComponent) storyDetailsFormComponent: StoryDetailsFormComponent;
   @ViewChild(ReferencesFormComponent) referencesFormComponent: ReferencesFormComponent;
+  @ViewChild(AgreementFormComponent) agreementFormComponent: AgreementFormComponent;
   @ViewChild(ReviewFormComponent) reviewFormComponent: ReviewFormComponent;
   @Input() basicInfoFormGroup: FormGroup;
   @Input() nominationDetailsFormGroup: FormGroup;
   @Input() storyDetailsFormGroup: FormGroup;
   @Input() refFormGroup: FormGroup;
   @Input() disclaimerFormGroup: FormGroup;
+  @Input() checkbox1: boolean;
   constructor(private api: APIService, private fb: FormBuilder, private observer: BreakpointObserver, private snackBar: MatSnackBar) {
     this.observer
     .observe([
@@ -95,6 +99,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
     this.nominationInfoFormSubscription.unsubscribe();
     this.storyInfoFormSubscription.unsubscribe();
     this.referencesInfoFormSubscription.unsubscribe();
+    this.agreementFormSubscriotion.unsubscribe();
   }
 
   ngAfterViewInit() {
@@ -106,6 +111,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
     this.handleNominationInfoFormSubscription();
     this.handleStoryInfoFormSubscription();
     this.handleReferencesInfoFormSubscription();
+    this.handleAgreementFormSubscription();
   }
 
   private handleBasicInfoFormSubscription() {
@@ -168,11 +174,27 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
     );
   }
 
+  private handleAgreementFormSubscription() {
+    this.agreementFormSubscriotion = this.agreementFormComponent
+    .disclaimerFormGroup
+    .valueChanges
+    .pipe(
+      debounceTime(500),
+      distinctUntilChanged()
+    )
+    .subscribe(
+      (values) => {
+        this.handleFormCheck();
+      }
+    );
+  }
+
   private handleFormCheck() {
     this.handleBasicInfoFormCheck();
     this.handleNominationInfoFormCheck();
     this.handleStoryInfoFormCheck();
     this.handleReferencesInfoFormCheck();
+    this.handleAgreementDisclaimerFormCheck();
   }
 
   private handleBasicInfoFormCheck() {
@@ -203,6 +225,14 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
     if (this.currentStepIndex == REFERENCES_INDEX) {
       if (this.referencesFormComponent.refFormGroup.valid) {
         this.clearIconError(REFERENCES_INDEX);
+      }
+    }
+  }
+
+  private handleAgreementDisclaimerFormCheck() {
+    if (this.currentStepIndex == AGREEMENT_INDEX) {
+      if (this.agreementFormComponent.disclaimerFormGroup.valid) {
+        this.clearIconError(AGREEMENT_INDEX);
       }
     }
   }
@@ -264,11 +294,26 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
         this.allFormsValid = true;
       }
     }
+    
+    if (previousIndex == AGREEMENT_INDEX) {
+      this.agreementFormComponent.populateSubmission(this.submission);
+
+      let validForm: boolean = (this.agreementFormComponent.disclaimerFormGroup.valid);
+      if (!validForm) {
+        this.changeIcon(previousIndex);
+        this.allFormsValid = false;
+      } else {
+        this.clearIconError(previousIndex);
+        this.allFormsValid = true;
+      }
+    }
 
     if (currentIndex == REVIEW_INDEX) {
       this.validateForms();
     }
   }
+
+  
 
   private clearIconError(index: number) {
     let iconElement: HTMLElement = this.getIconElementByIndex(index);
@@ -294,6 +339,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
     this.validateNominationInfoForm();
     this.validateStoryInfoForm();
     this.validateReferencesInfoForm();
+    this.validateAgreementDisclaimerForm();
   }
 
   private validateBasicInfoForm() {
@@ -340,9 +386,20 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
     });
   }
 
+  private validateAgreementDisclaimerForm() {
+    let agreementForm: FormGroup = this.agreementFormComponent.disclaimerFormGroup;
+
+    Object.keys(agreementForm.controls).forEach(key => {
+      const controlErrors: ValidationErrors = this.agreementFormComponent.disclaimerFormGroup;
+      if (controlErrors != null) {
+        this.addErrorByKey(key);
+      }
+    });
+  }
+
   private addErrorByKey(key: string) {
-    if(key == 'firstName') this.errorMessages.push("Please enter a valid First Name");
-    if(key == 'lastName') this.errorMessages.push("Please enter a valid Last Name");
+    if(key == 'firstName') this.errorMessages.push("Please Enter a valid First Name");
+    if(key == 'lastName') this.errorMessages.push("Please Enter a valid Last Name");
     if(key == 'email') this.errorMessages.push("Please Include an Email Address");
   }
 

@@ -19,5 +19,5 @@ export default () => {
 
         history.listen(onParentNavigate);
     }, []);
-    return <div ref={ref}><app-root></app-root></div>;
+    return <div ref={ref}><app-root-website></app-root-website></div>;
 };

@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+      "module": "commonjs",
+      "target": "es5",
+      "sourceMap": true,
+      "baseUrl": "./packages",
+      "paths": {
+        "packages/web-app": ["web-app/src"],
+        "packages/dashboard": ["dashboard/src"],
+        "packages/*": ["*/src"]
+      }
+    },
+  
+    "exclude": [
+      "node_modules",
+      "dist"
+    ]
+}

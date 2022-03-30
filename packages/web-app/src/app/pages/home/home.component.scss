@@ -1,4 +1,4 @@
-.header {
+.page-wrapper {
     width: 100%;
     min-height: 100vh;
     display: flex;
@@ -6,7 +6,7 @@
     font-weight: 100;
     text-align: center;
     justify-content: center;
-    background: var(--primary);
+    background: #ffffff;;
     transition: .3s;
     overflow-x: hidden;
     // header shrinks when .small added to .header
@@ -75,7 +75,7 @@
 
 .offset {
     margin-top: 0;
-    padding-top: 20em;
+    padding-top: 12em;
     text-align: center;
     transition: .3s;
 }
@@ -89,7 +89,6 @@ mat-card {
     min-width: 100px;
     align-items: center;
     background: none;
-    color: #ffffff;
     box-shadow: none;
     border: none;
     line-height: 1.5;
@@ -107,6 +106,7 @@ mat-card {
 .smaller-para {
     font-size: 15pt;
     line-height: 1.5;
+    font-weight: 400;
 }
 
 .dots {
@@ -121,6 +121,7 @@ mat-card {
 .smaller-para-mobile {
     font-size: 10pt;
     line-height: 1.5;
+    font-weight: 400;
 }
 
 .dots-mobile {

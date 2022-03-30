@@ -3,6 +3,9 @@
 
 const awsmobile = {
     "aws_project_region": "us-east-1",
+    "aws_content_delivery_bucket": "cgo-web-app-hosting-dev",
+    "aws_content_delivery_bucket_region": "us-east-1",
+    "aws_content_delivery_url": "https://d2ldygdqblohqn.cloudfront.net",
     "aws_user_files_s3_bucket": "amplifycgapp51268758edab40cb8ce6c8114cc390d1124349-dev",
     "aws_user_files_s3_bucket_region": "us-east-1",
     "aws_cognito_identity_pool_id": "us-east-1:d1c8c259-87c5-4867-9b9b-d78ff8c581a2",

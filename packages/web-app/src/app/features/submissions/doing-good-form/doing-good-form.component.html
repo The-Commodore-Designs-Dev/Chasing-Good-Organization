@@ -50,6 +50,19 @@
                         </div>
                     </ng-template>
                 </mat-step>
+                <mat-step label="License and Consent Agreement Disclosure">
+                    <app-agreement-form></app-agreement-form>
+                    <div class="mt" *ngIf="currentScreenSize == 'Large'; else elseBlockReferences">
+                        <button mat-button matStepperPrevious type="button" class="prev-btn">Back</button>
+                        <button mat-button matStepperNext type="button" class="nxt-btn">Next</button>
+                    </div>
+                    <ng-template #elseBlockReferences>
+                        <div class="mt">
+                            <button mat-button matStepperPrevious type="button" class="prev-btn mat-button-mobile">Back</button>
+                            <button mat-button matStepperNext type="button" class="nxt-btn mat-button-mobile">Next</button>
+                        </div>
+                    </ng-template>
+                </mat-step>
                 <mat-step label="Review & Submit">
                     <app-review-form [submission]="submission" [errorMessages]="errorMessages"></app-review-form>
                     <div id="messages"></div>

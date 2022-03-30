@@ -27,7 +27,6 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import 'hammerjs';
 
 import { HomeComponent } from './pages/home/home.component';
 import { PagesComponent } from './pages/pages.component';
@@ -37,6 +36,7 @@ import { MeetSomeNomineesComponent } from './pages/meet-some-nominees/meet-some-
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { BasicInfoFormComponent } from './features/submissions/basic-info-form/basic-info-form.component';
+import { AgreementFormComponent } from './features/submissions/agreement-form/agreement-form.component';
 import { ReviewFormComponent } from './features/submissions/review-form/review-form.component';
 import { MobileMenuComponent } from './features/mobile-menu/mobile-menu.component';
 import { NominationDetailsFormComponent } from './features/submissions/nomination-details-form/nomination-details-form.component';
@@ -100,6 +100,7 @@ import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
         DoingGoodFormComponent,
         BasicInfoFormComponent,
         ReviewFormComponent,
+        AgreementFormComponent,
         PagesComponent,
         PageNotFoundComponent,
         MobileMenuComponent,
@@ -119,6 +120,7 @@ import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
         DoingGoodFormComponent,
         BasicInfoFormComponent,
         ReviewFormComponent,
+        AgreementFormComponent,
         MobileMenuComponent,
         NominationDetailsFormComponent,
         ReferencesFormComponent,

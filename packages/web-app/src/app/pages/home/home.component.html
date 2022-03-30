@@ -1,6 +1,4 @@
 <div class="page-wrapper">
-    <app-header></app-header>
-    <div id="header" class="header" *ngIf="_router.url == '/home'">
         <section class="about-program" *ngIf="currentScreenSize == 'Large'; else elseBlock">
             <mat-card>
                 <p class="big">
@@ -57,5 +55,4 @@
                     </mat-card>            
             </section>
         </ng-template>
-    </div>
 </div>

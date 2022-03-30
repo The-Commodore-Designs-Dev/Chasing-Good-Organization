@@ -11,6 +11,7 @@ import { AppComponent } from '../app.component';
         RouterModule.forChild(PAGES_ROUTES),
         NgxMaskModule.forChild(),
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    entryComponents: [AppComponent]
 })
 export class PagesModule { }
