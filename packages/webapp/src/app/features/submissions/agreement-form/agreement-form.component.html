@@ -1,0 +1,31 @@
+<div class="nlca_container">
+    <p class="nlca_header">{{nlca_header}}</p>
+    <p>{{nlca_last_updated}}</p>
+    <p>{{nlca_para1}}</p>
+    <p>{{nlca_para2}}</p>
+    <p>{{nlca_para3}}</p>
+    <ol type="1">
+        <li>
+            <p>{{nlca_ol.list_item_1.para1}}</p>
+            <ol type="A">
+                <li>{{nlca_ol.list_item_1.list_item_a}}</li>
+                <li>{{nlca_ol.list_item_1.list_item_b}}</li>
+            </ol>
+        </li>
+        <li>{{nlca_ol.list_item_2}}</li>
+        <li>{{nlca_ol.list_item_3}}</li>
+        <li>{{nlca_ol.list_item_4}}</li>
+    </ol>
+    <p class="nlca_fine_print">
+        <em>
+            {{nlca_fine_print}}
+        </em>
+    </p>
+    <div class="btn_container">
+        <form [formGroup]="disclaimerFormGroup">
+            <div>
+              <input type="checkbox" [required] formControlName="agreeToLicenseAndAgreement" id="disclaimer" [checked]="checkbox1" (change)="checkbox1 = !checkbox1" /><span style="white-space:normal; display:inline-block;">I Agree to the License and Consent Disclaimer of ChasingGood</span>                              
+            </div>
+        </form>
+    </div>
+</div>

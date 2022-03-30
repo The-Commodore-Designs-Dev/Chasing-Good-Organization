@@ -1,0 +1,26 @@
+<form [formGroup]="nominationDetailsFormGroup">
+        <div class="mt">
+            <mat-label for="organization">Who are you nominating:</mat-label>
+            <mat-radio-group formControlName="nominatingOptions">
+                <mat-radio-button value="Self" labelPosition="after">Self</mat-radio-button>
+                <mat-radio-button value="Organization" labelPosition="after">Organization</mat-radio-button>
+                <mat-radio-button value="Individual" labelPosition="after">Individual</mat-radio-button>
+            </mat-radio-group>
+            <mat-form-field><input matInput id="organization" type="text" formControlName="organizationName"><mat-hint>please provide the name of the organization you are nominating</mat-hint></mat-form-field>
+            <mat-form-field><input matInput id="individual" type="text" formControlName="individualFullName"><mat-hint>please provide the name of who you are nominating</mat-hint></mat-form-field>
+            <mat-form-field><input matInput id="individual" type="text" formControlName="individualEmailAddress"><mat-hint>please provide the email address of who you are nominating so we can ask their permission to use their story</mat-hint></mat-form-field>
+        </div>
+        
+        <div class="mt">
+            <mat-label for="category">Category for nomination:</mat-label>
+            <mat-select id="category" type="text" placeholder="Select a Category" formControlName="category">
+                <mat-option *ngFor="let category of categories" aria-placeholder="Select a Category" [value]="category.name">{{ category.name}}</mat-option>
+            </mat-select>
+        </div>
+        <div class="mt">
+            <mat-label for="nj_county">NJ County Where Nominee/Organization Resides:</mat-label>
+            <mat-select id="nj_county" type="text" placeholder="Select a NJ County" formControlName="njCounty">
+                <mat-option *ngFor="let county of njCounties;" aria-placeholder="Select a NJ County" [value]="county.name">{{ county.name }}</mat-option>
+            </mat-select>
+        </div>
+    </form>
