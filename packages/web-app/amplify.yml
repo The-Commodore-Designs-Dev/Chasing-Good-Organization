@@ -1,5 +1,6 @@
 version: 1
 applications:
+  appRoot: packages/web-app
   - frontend:
       phases:
         preBuild:
@@ -17,7 +18,6 @@ applications:
       cache:
         paths:
           - node_modules/**/*
-    appRoot: web-app
   - test:
       phases:
         pre-test:
