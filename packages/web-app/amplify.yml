@@ -1,5 +1,9 @@
 version: 1
 applications:
+  - appRoot: packages/web-app
+    env:
+      variables:
+        key: value
   - frontend:
       phases:
         preBuild:
