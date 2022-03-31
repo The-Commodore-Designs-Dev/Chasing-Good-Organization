@@ -4,15 +4,17 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --single-bundle",
+    "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "e2e": "ng e2e",
     "amplify-modelgen": "node amplify\\scripts\\amplify-modelgen.js",
-    "amplify-push": "node amplify\\scripts\\amplify-push.js"
+    "amplify-push": "node amplify\\scripts\\amplify-push.js",
+    "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"
   },
   "private": true,
   "dependencies": {
+    "@angular-architects/module-federation": "^14.2.2",
     "@angular/animations": "^13.3.0",
     "@angular/cdk": "^13.3.1",
     "@angular/common": "^13.3.0",

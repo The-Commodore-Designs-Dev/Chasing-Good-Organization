@@ -1,6 +1,9 @@
 version: 1
 applications:
   - appRoot: packages/container
+    env:
+      variables:
+        PRODUCTION_DOMAIN: https://main.d1yid7j9kgob6r.amplifyapp.com
     frontend:
       phases:
         preBuild:

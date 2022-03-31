@@ -3,7 +3,7 @@
 
 const awsmobile = {
     "aws_project_region": "us-east-1",
-    "aws_content_delivery_bucket": "chasinggoodorg-container-hosting-dev-dev",
+    "aws_content_delivery_bucket": "chasinggoodorg-webapp-hosting-dev",
     "aws_content_delivery_bucket_region": "us-east-1",
     "aws_content_delivery_url": "https://d2ldygdqblohqn.cloudfront.net",
     "aws_user_files_s3_bucket": "amplifycgapp51268758edab40cb8ce6c8114cc390d1124349-dev",

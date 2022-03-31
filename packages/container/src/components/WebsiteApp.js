@@ -1,4 +1,4 @@
-import { mount } from 'web/WebsiteApp';
+import { mount } from 'webApp/AppModule';
 import React, {useRef, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 
