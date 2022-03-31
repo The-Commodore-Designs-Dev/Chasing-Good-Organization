@@ -26,7 +26,7 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-        library: { type: "module" },
+        library: { type: 'var', name: 'webApp' },
 
         // For remotes (please adjust)
         name: "webApp",
