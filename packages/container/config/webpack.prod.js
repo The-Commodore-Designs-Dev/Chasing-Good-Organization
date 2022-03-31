@@ -11,13 +11,13 @@ const prodConfig = {
         filename: '[name].[contenthash].js',
     },
     plugins: [
-        // new ModuleFederationPlugin({
-        //     name: 'container',
-        //     remotes: {
-        //         web: `web@${domain}/webapp/latest/remoteEntry.js`
-        //     },
-        //     shared: packageJson.dependencies
-        // })
+        new ModuleFederationPlugin({
+            name: 'container',
+            remotes: {
+                web: `web@/dist/webapp/remoteEntry.js`
+            },
+            shared: packageJson.dependencies
+        })
     ]
 };
 

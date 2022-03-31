@@ -52,14 +52,6 @@
           "resourceName": "amplifycgapp",
           "attributes": [
             "GraphQLAPIIdOutput",
-            "GraphQLAPIEndpointOutput"
-          ]
-        },
-        {
-          "category": "api",
-          "resourceName": "amplifycgapp",
-          "attributes": [
-            "GraphQLAPIIdOutput",
             "GraphQLAPIEndpointOutput",
             "GraphQLAPIKeyOutput"
           ]

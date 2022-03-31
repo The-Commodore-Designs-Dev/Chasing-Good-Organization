@@ -26,9 +26,9 @@
           "s3Key": "amplify-builds/S3Triggerbd342f6e-39343530694b4d547664-build.zip"
         },
         "amplifycgEmailScript": {
-          "sendgridApiKey": "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",
           "deploymentBucketName": "amplify-amplifycgapp-dev-124349-deployment",
-          "s3Key": "amplify-builds/amplifycgEmailScript-3775797345332f44364c-build.zip"
+          "s3Key": "amplify-builds/amplifycgEmailScript-3775797345332f44364c-build.zip",
+          "sendgridApiKey": "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"
         }
       }
     }

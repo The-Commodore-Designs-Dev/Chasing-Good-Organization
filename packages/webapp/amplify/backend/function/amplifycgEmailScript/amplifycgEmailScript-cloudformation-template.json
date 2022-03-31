@@ -16,9 +16,6 @@
     "s3Key": {
       "Type": "String"
     },
-    "sendgridApiKey": {
-      "Type": "String"
-    },
     "apiamplifycgappGraphQLAPIIdOutput": {
       "Type": "String",
       "Default": "apiamplifycgappGraphQLAPIIdOutput"
@@ -30,6 +27,9 @@
     "apiamplifycgappGraphQLAPIKeyOutput": {
       "Type": "String",
       "Default": "apiamplifycgappGraphQLAPIKeyOutput"
+    },
+    "sendgridApiKey": {
+      "Type": "String"
     }
   },
   "Conditions": {
