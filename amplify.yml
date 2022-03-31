@@ -1,6 +1,30 @@
 version: 1
 applications:
-  - frontend:
+  - appRoot: packages/container
+    env:
+      variables:
+        key: value
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - npm install
+        build:
+          commands:
+            - npm run build
+      artifacts:
+        files:
+            - '**/*'
+        discard-paths: yes
+        baseDirectory: dist
+      cache:
+        paths:
+            - node_modules/**/*
+  - appRoot: packages/webapp
+    env:
+      variables:
+        key: value
+    frontend:
       phases:
         preBuild:
           commands:
@@ -11,24 +35,10 @@ applications:
           commands:
             - npm run build
       artifacts:
-        baseDirectory: dist/web-app
         files:
-          - '**/*'
+            - '**/*'
+        discard-paths: yes
+        baseDirectory: dist/webapp
       cache:
         paths:
-          - node_modules/**/*
-    appRoot: web-app
-  - test:
-      phases:
-        pre-test:
-          commands:
-            - npm ci
-            - npm install protractor@latest 
-        test:
-          commands:
-            - 'protractor protractor.conf.js'
-      artifacts:
-        baseDirectory: target
-        files:
-            - '**/*.png'
-            - '**/*.mp4'
+            - node_modules/**/*
