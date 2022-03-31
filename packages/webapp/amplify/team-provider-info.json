@@ -27,7 +27,7 @@
         },
         "amplifycgEmailScript": {
           "deploymentBucketName": "amplify-amplifycgapp-dev-124349-deployment",
-          "s3Key": "amplify-builds/amplifycgEmailScript-3775797345332f44364c-build.zip",
+          "s3Key": "amplify-builds/amplifycgEmailScript-3579376367436756746b-build.zip",
           "sendgridApiKey": "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"
         }
       }
