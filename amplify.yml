@@ -1,9 +1,6 @@
 version: 1
 applications:
   - appRoot: packages/container
-    env:
-      variables:
-        PRODUCTION_DOMAIN: d3nttaazp91le3.cloudfront.net
     frontend:
       phases:
         preBuild:
@@ -21,9 +18,6 @@ applications:
         paths:
             - node_modules/**/*
   - appRoot: packages/webapp
-    env:
-      variables:
-        PRODUCTION_DOMAIN: d2ldygdqblohqn.cloudfront.net
     frontend:
       phases:
         preBuild:
