@@ -13,9 +13,9 @@ module.exports = {
     uniqueName: "webApp",
     publicPath: "auto"
   },
-  optimization: {
-    runtimeChunk: false
-  },   
+  // optimization: {
+  //   runtimeChunk: false
+  // },   
   resolve: {
     alias: {
       ...sharedMappings.getAliases(),
@@ -26,7 +26,7 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-        library: { type: 'var', name: 'webApp' },
+        library: { type: "module" },
 
         // For remotes (please adjust)
         name: "webApp",

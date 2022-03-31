@@ -29,5 +29,17 @@ module.exports = {
             template: './public/index.html',
             favicon: './public/favicon.ico'
         }),
-    ]
+    ],
+    optimization: {
+        //runtimeChunk: 'single',
+        splitChunks: {
+            chunks: 'all',
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: module => (module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/) || [])[1]
+                }
+            }  
+        }
+    }
 }
