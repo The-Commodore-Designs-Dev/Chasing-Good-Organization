@@ -35,7 +35,7 @@ applications:
         files:
             - '**/*'
         discard-paths: yes
-        baseDirectory: dist/webapp
+        baseDirectory: dist
       cache:
         paths:
             - node_modules/**/*
