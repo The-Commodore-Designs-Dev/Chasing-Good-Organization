@@ -23,7 +23,7 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-        library: { type: 'umd' },
+        library: { type: 'module' },
 
         // For remotes (please adjust)
         name: "webApp",
