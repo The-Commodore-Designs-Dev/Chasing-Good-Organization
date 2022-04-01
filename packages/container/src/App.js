@@ -7,7 +7,7 @@ import Header from './components/Header';
 export default () => {
     return (
         <BrowserRouter>
-            <React.Suspense fallback="Loading...">
+            <React.Suspense fallback={"Loading..."}>
                 <Header />
                 <WebsiteApp />
             </React.Suspense>
