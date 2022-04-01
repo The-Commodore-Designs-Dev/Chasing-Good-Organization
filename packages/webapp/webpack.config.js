@@ -13,9 +13,6 @@ module.exports = {
     uniqueName: "webApp",
     publicPath: "auto"
   },
-  optimization: {
-    runtimeChunk: false
-  },  
   resolve: {
     alias: {
       ...sharedMappings.getAliases(),
