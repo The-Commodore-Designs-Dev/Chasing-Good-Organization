@@ -11,21 +11,7 @@ const prodConfig = {
         filename: '[name].[contenthash].js',
     },
     optimization: {
-        runtimeChunk: false,
-        splitChunks: {
-            default: {
-              idHint: "",
-              reuseExistingChunk: true,
-              minChunks: 2,
-              priority: -20
-            },
-            defaultVendors: {
-              idHint: "vendors",
-              reuseExistingChunk: true,
-              test: NODE_MODULES_REGEXP,
-              priority: -10
-            }
-        },
+        runtimeChunk: false
     },
     plugins: [
         new ModuleFederationPlugin({
