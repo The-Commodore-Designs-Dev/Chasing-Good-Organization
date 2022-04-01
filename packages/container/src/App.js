@@ -1,16 +1,21 @@
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import React, { lazy, Suspense} from 'react';
+import { Route, Router, Switch } from 'react-router-dom';
 
-import WebsiteApp from './components/WebsiteApp';
 import Header from './components/Header';
+
+const WebAppLazy = lazy(() => import('./components/WebsiteApp'));
 
 export default () => {
     return (
-        <BrowserRouter>
-            <React.Suspense fallback={"Loading..."}>
+        <Router>
+            <div>
                 <Header />
-                <WebsiteApp />
-            </React.Suspense>
-        </BrowserRouter>
+                <Suspense fallback={"Loading..."}>
+                    <Switch>
+                        <Route path="/" component={WebAppLazy} />
+                    </Switch>
+                </Suspense>                
+            </div>
+        </Router>
     );
 }
