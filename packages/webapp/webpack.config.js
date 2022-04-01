@@ -12,6 +12,9 @@ module.exports = {
   output: {
     publicPath: "auto"
   },
+  optimization: {
+    runtimeChunk: false
+  },
   resolve: {
     alias: {
       ...sharedMappings.getAliases(),
