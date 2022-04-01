@@ -7,10 +7,10 @@ import Header from './components/Header';
 export default () => {
     return (
         <BrowserRouter>
-            <div>
+            <React.Suspense fallback="Loading...">
                 <Header />
                 <WebsiteApp />
-            </div>
+            </React.Suspense>
         </BrowserRouter>
     );
 }
