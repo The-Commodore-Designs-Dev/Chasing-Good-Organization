@@ -31,7 +31,7 @@
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
-    "@angular-architects/module-federation": "^14.1.1",
+    "@angular-architects/module-federation": "^14.2.2",
     "@babel/core": "^7.12.3",
     "@babel/plugin-transform-runtime": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
