@@ -10,6 +10,9 @@ const prodConfig = {
     output: {
         filename: '[name].[contenthash].js',
     },
+    optimization: {
+        runtimeChunk: false
+    },
     plugins: [
         new ModuleFederationPlugin({
             name: 'container',
