@@ -12,7 +12,7 @@ export default () => {
                 <Header />
                 <Suspense fallback={"Loading..."}>
                     <Switch>
-                        <Route path="/" component={WebAppLazy} />
+                        <Route exact path="/" component={WebAppLazy} />
                     </Switch>
                 </Suspense>                
             </div>
