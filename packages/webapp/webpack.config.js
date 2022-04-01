@@ -6,7 +6,16 @@ const share = mf.share;
 const sharedMappings = new mf.SharedMappings();
 sharedMappings.register(
   path.join(__dirname, 'tsconfig.json'),
-  [/* mapped paths to share */]);
+  [
+    /* mapped paths to share */
+    'home',
+    'pages/about',
+    'pages/submit-your-story',
+    'pages/meet-some-nominees',
+    'pages/contact-us',
+    'terms-of-use',
+    'privacy-policy',
+  ]);
 
 module.exports = {
   output: {
