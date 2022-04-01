@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 import { Submission } from '../../../../types/Submission';
 
@@ -18,12 +18,24 @@ export class ReferencesFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.refFormGroup = this.fb.group({
-      'referenceName1': ['', []],
-      'referenceEmail1': ['', []],
-      'referencePhone1': ['', []],
-      'referenceName2': ['', []],
-      'referenceEmail2': ['', []],
-      'referencePhone2': ['', []],
+      'referenceName1': ['', {
+        validators: Validators.compose([Validators.required, Validators.pattern('[A-Za-z \-\_]+')])
+      }],
+      'referenceEmail1': ['', {
+        validators: Validators.compose([Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")])
+      }],
+      'referencePhone1': ['', {
+        validators: Validators.compose([Validators.required, Validators.pattern('(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})')])
+      }],
+      'referenceName2': ['', {
+        validators: Validators.compose([Validators.required, Validators.pattern('[A-Za-z \-\_]+')])
+      }],
+      'referenceEmail2': ['', {
+        validators: Validators.compose([Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")])
+      }],
+      'referencePhone2': ['', {
+        validators: Validators.compose([Validators.required, Validators.pattern('(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})')])
+      }],
     });
   }
 

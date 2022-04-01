@@ -32,10 +32,15 @@ export class StoryDetailsFormComponent implements OnInit, OnChanges {
 
   onFileSelected(event: any) {
     this.file = event.target.files[0];
-    console.log(this.file);
+
     if (this.file) {
       this.fileName = this.file.name;
+
+      const formData = new FormData();
+
+      formData.append("thumbnail", this.file);
     }
+
   }
 
   populateSubmission(submission: Submission) {

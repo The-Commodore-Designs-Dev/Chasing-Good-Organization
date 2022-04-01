@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, ValidationErrors } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, ValidationErrors, Validators } from '@angular/forms';
 import { Submission } from 'src/types/Submission';
 
 @Component({
@@ -36,7 +36,7 @@ export class AgreementFormComponent implements OnInit {
   ngOnInit(): void {
     this.checkbox1 = false;
     this.disclaimerFormGroup = this.fb.group({
-      'agreeToLicenseAndAgreement': ['', []]
+      'agreeToLicenseAndAgreement': ['', [Validators.required]]
     });
   }
 

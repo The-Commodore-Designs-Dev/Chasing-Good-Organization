@@ -401,6 +401,13 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
     if(key == 'firstName') this.errorMessages.push("Please Enter a valid First Name");
     if(key == 'lastName') this.errorMessages.push("Please Enter a valid Last Name");
     if(key == 'email') this.errorMessages.push("Please Include an Email Address");
+    if(key == 'referenceName1') this.errorMessages.push('');
+    if(key == 'referenceEmail1') this.errorMessages.push('');
+    if(key == 'referencePhone1') this.errorMessages.push('');
+    if(key == 'referenceName2') this.errorMessages.push('');
+    if(key == 'referenceEmail2') this.errorMessages.push('');
+    if(key == 'referencePhone2') this.errorMessages.push('');
+    if(key == 'agreeToLicenseAndAgreement') this.errorMessages.push("Please Read and Accept the Licsense and Consent Agreement");
   }
 
   sentSnackBar() {
