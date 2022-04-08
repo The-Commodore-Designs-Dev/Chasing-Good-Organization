@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'Chasing Good';
-  ngOnInit() {
 
+  constructor(public _router: Router) {
+
+  }
+
+  ngOnInit() {
+    window.location.reload();
   }
   
   onActivate(event: Event) {
