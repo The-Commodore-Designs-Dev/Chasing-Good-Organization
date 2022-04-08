@@ -9,7 +9,7 @@ const routes: Routes = [
     pathMatch: 'full'
   }
 ];
-// bug: fix loading issue on mobile browsers
+////- bug: fix loading issue on mobile browsers
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     scrollPositionRestoration: 'top',

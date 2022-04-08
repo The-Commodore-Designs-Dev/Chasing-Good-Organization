@@ -45,7 +45,6 @@ export class MobileMenuComponent implements OnInit {
 
   ngOnInit(): void {
     this._router.events.subscribe(() => {
-      window.location.reload();
       this.activeLink = this.links.indexOf(this.links.find(tab => tab.link === '.' + this._router.url));
     });
 

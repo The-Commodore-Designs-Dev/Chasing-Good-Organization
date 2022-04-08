@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    window.location.reload();
+    
   }
   
   onActivate(event: Event) {
