@@ -9,5 +9,10 @@ export class AppComponent implements OnInit {
   title = 'Chasing Good';
   ngOnInit() {
 
-  }  
+  }
+  
+  onActivate(event: Event) {
+    event.preventDefault;
+    window.scroll(0,0);
+  }
 }

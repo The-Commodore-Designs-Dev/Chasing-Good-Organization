@@ -1,7 +1,7 @@
 <div class="container" id="page-wrap">
     <app-header></app-header>
     <section id="content-wrap">
-        <router-outlet></router-outlet>
+        <router-outlet (activate)="onActivate($event)"></router-outlet>
     </section>
     <app-footer id="footer"></app-footer>
 </div>
