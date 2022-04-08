@@ -13,7 +13,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     scrollPositionRestoration: 'top',
-    onSameNavigationReload: 'reload'
+    onSameUrlNavigation: 'reload'
   })],
   exports: [RouterModule]
 })
