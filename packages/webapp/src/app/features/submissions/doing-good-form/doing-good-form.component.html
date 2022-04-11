@@ -68,7 +68,7 @@
                     <div id="messages"></div>
                     <div class="mt" *ngIf="currentScreenSize == 'Large'; else elseBlockReview">
                         <button mat-button matStepperPrevious type="button" class="prev-btn">Back</button>
-                        <button [disabled]="!allFormsValid" mat-button matStepperNext type="submit" class="submit-btn" (click)="onCreate()">Submit</button>
+                        <button [disabled]="!allFormsValid" mat-button matStepperNext type="submit" class="submit-btn" (click)="onCreate(); stepper.reset();">Submit</button>
                     </div>
                     <ng-template #elseBlockReview>
                         <div class="mt">

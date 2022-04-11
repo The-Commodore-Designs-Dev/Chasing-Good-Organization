@@ -27,7 +27,7 @@
         },
         "amplifycgEmailScript": {
           "deploymentBucketName": "amplify-amplifycgapp-dev-124349-deployment",
-          "s3Key": "amplify-builds/amplifycgEmailScript-3579376367436756746b-build.zip",
+          "s3Key": "amplify-builds/amplifycgEmailScript-426c586557447948396e-build.zip",
           "sendgridApiKey": "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"
         }
       }
@@ -44,6 +44,17 @@
       "StackName": "amplify-amplifycgapp-prod-133554",
       "StackId": "arn:aws:cloudformation:us-east-1:487435587416:stack/amplify-amplifycgapp-prod-133554/e3f4f6f0-0f38-11ec-805c-0a8082d84415",
       "AmplifyAppId": "d26p4jhw1k0qlv"
+    },
+    "categories": {
+      "function": {
+        "AdminQueriesa09a7da4": {},
+        "S3Triggerbd342f6e": {},
+        "amplifycgEmailScript": {}
+      },
+      "auth": {
+        "cognitobbb32116": {},
+        "userPoolGroups": {}
+      }
     }
   }
 }

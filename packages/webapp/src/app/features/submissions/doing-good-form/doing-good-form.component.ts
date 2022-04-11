@@ -254,9 +254,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
         this.clearIconError(previousIndex);
         this.allFormsValid = true;
       }
-    }
-
-    if (previousIndex == NOMINATION_INDEX) {
+    } else if (previousIndex == NOMINATION_INDEX) {
       this.nominationDetailsFormComponent.populateSubmission(this.submission);
 
       let validForm: boolean = (this.nominationDetailsFormComponent.nominationDetailsFormGroup.valid);
@@ -267,9 +265,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
         this.clearIconError(previousIndex);
         this.allFormsValid = true;
       }
-    }
-
-    if (previousIndex == STORY_INDEX) {
+    } else if (previousIndex == STORY_INDEX) {
       this.storyDetailsFormComponent.populateSubmission(this.submission);
 
       let validForm: boolean = (this.storyDetailsFormComponent.storyDetailsFormGroup.valid);
@@ -280,9 +276,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
         this.clearIconError(previousIndex);
         this.allFormsValid = true;
       }
-    }
-
-    if (previousIndex == REFERENCES_INDEX) {
+    } else if(previousIndex == REFERENCES_INDEX) {
       this.referencesFormComponent.populateSubmission(this.submission);
 
       let validForm: boolean = (this.referencesFormComponent.refFormGroup.valid);
@@ -293,9 +287,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
         this.clearIconError(previousIndex);
         this.allFormsValid = true;
       }
-    }
-    
-    if (previousIndex == AGREEMENT_INDEX) {
+    } else if (previousIndex == AGREEMENT_INDEX) {
       this.agreementFormComponent.populateSubmission(this.submission);
 
       let validForm: boolean = (this.agreementFormComponent.disclaimerFormGroup.valid);
@@ -350,6 +342,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
       if (controlErrors != null) {
         this.addErrorByKey(key);
       }
+      console.log(controlErrors)
     });
   }
 
@@ -398,15 +391,15 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   private addErrorByKey(key: string) {
-    if(key == 'firstName') this.errorMessages.push("Please Enter a valid First Name");
-    if(key == 'lastName') this.errorMessages.push("Please Enter a valid Last Name");
-    if(key == 'email') this.errorMessages.push("Please Include an Email Address");
-    if(key == 'referenceName1') this.errorMessages.push('');
-    if(key == 'referenceEmail1') this.errorMessages.push('');
-    if(key == 'referencePhone1') this.errorMessages.push('');
-    if(key == 'referenceName2') this.errorMessages.push('');
-    if(key == 'referenceEmail2') this.errorMessages.push('');
-    if(key == 'referencePhone2') this.errorMessages.push('');
+    if(key == 'firstName') this.errorMessages.push("Please enter a valid First Name");
+    if(key == 'lastName') this.errorMessages.push("Please enter a valid Last Name");
+    if(key == 'email') this.errorMessages.push("Please include an Email Address");
+    if(key == 'referenceName1') this.errorMessages.push('Please include a Reference Name');
+    if(key == 'referenceEmail1') this.errorMessages.push('Please include a Reference Email Address');
+    if(key == 'referencePhone1') this.errorMessages.push('Please include a Reference Phone Number');
+    if(key == 'referenceName2') this.errorMessages.push('Please include a second Reference Name');
+    if(key == 'referenceEmail2') this.errorMessages.push('Please include a second Reference Email Address');
+    if(key == 'referencePhone2') this.errorMessages.push('Please include a second Reference Phone Number');
     if(key == 'agreeToLicenseAndAgreement') this.errorMessages.push("Please Read and Accept the Licsense and Consent Agreement");
   }
 
