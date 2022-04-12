@@ -1,15 +1,15 @@
-<div *ngIf="errorMessages && errorMessages.length > 0" class="errors-box">
-    <div>
-      <p style="margin-left: 16px" class="error-spree-header">Form Contains Errors</p>
-    </div>
-    <div>
-      <ul>
-        <li *ngFor="let errorMessage of errorMessages" class="error-spree">{{errorMessage}}</li>
-      </ul>
-    </div>
-</div>
+<div class="info-box">
+  <div *ngIf="errorMessages && errorMessages.length > 0" class="errors-box">
+      <div>
+        <p style="margin-left: 16px" class="error-spree-header">Form Contains Errors</p>
+      </div>
+      <div>
+        <ul>
+          <li *ngFor="let errorMessage of errorMessages" class="error-spree">{{errorMessage}}</li>
+        </ul>
+      </div>
+  </div>
 
-<div *ngIf="errorMessages.length == 0" class="info-box">
     <div class="basic-info">
       <div>
         <p class="review-header"><strong>Basic Info Details</strong></p>

@@ -52,7 +52,7 @@ export class BasicInfoFormComponent implements OnInit {
       'email': ['', {
         validators: Validators.compose([Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")])
       }],
-      'phone': ['', [Validators.pattern('(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})')]]
+      'phone': ['', [Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]]
     });
   }
 
