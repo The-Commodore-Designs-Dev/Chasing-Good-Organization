@@ -1,111 +1,6 @@
 {
-  "hosting": {
-    "S3AndCloudFront": {
-      "service": "S3AndCloudFront",
-      "providerPlugin": "awscloudformation"
-    }
-  },
-  "storage": {
-    "s30572c0c1": {
-      "service": "S3",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "S3Triggerbd342f6e",
-          "attributes": [
-            "Name",
-            "Arn",
-            "LambdaExecutionRole"
-          ]
-        }
-      ]
-    }
-  },
-  "function": {
-    "AdminQueriesa09a7da4": {
-      "service": "Lambda",
-      "providerPlugin": "awscloudformation",
-      "build": true,
-      "dependsOn": [
-        {
-          "category": "auth",
-          "resourceName": "cognitobbb32116",
-          "attributes": [
-            "UserPoolId"
-          ]
-        }
-      ]
-    },
-    "S3Triggerbd342f6e": {
-      "service": "Lambda",
-      "providerPlugin": "awscloudformation",
-      "build": true
-    },
-    "amplifycgEmailScript": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "api",
-          "resourceName": "amplifycgapp",
-          "attributes": [
-            "GraphQLAPIIdOutput",
-            "GraphQLAPIEndpointOutput",
-            "GraphQLAPIKeyOutput"
-          ]
-        }
-      ]
-    }
-  },
-  "auth": {
-    "cognitobbb32116": {
-      "service": "Cognito",
-      "serviceType": "managed",
-      "providerPlugin": "awscloudformation"
-    },
-    "userPoolGroups": {
-      "service": "Cognito-UserPool-Groups",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "auth",
-          "resourceName": "cognitobbb32116",
-          "attributes": [
-            "UserPoolId",
-            "AppClientIDWeb",
-            "AppClientID",
-            "IdentityPoolId"
-          ]
-        }
-      ]
-    }
-  },
   "api": {
-    "AdminQueries": {
-      "service": "API Gateway",
-      "providerPlugin": "awscloudformation",
-      "authorizationType": "AMAZON_COGNITO_USER_POOLS",
-      "dependsOn": [
-        {
-          "category": "auth",
-          "resourceName": "cognitobbb32116",
-          "attributes": [
-            "UserPoolId"
-          ]
-        },
-        {
-          "category": "function",
-          "resourceName": "AdminQueriesa09a7da4",
-          "attributes": [
-            "Arn",
-            "Name"
-          ]
-        }
-      ]
-    },
-    "amplifycgapp": {
+    "cgowebapp": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
       "output": {
@@ -113,23 +8,67 @@
           "defaultAuthentication": {
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
-              "apiKeyExpirationDays": 365,
-              "description": "newapikeycg"
+              "apiKeyExpirationDays": 7
             }
           },
           "additionalAuthenticationProviders": [
             {
-              "authenticationType": "AWS_IAM"
-            },
-            {
               "authenticationType": "AMAZON_COGNITO_USER_POOLS",
               "userPoolConfig": {
-                "userPoolId": "authcognitobbb32116"
+                "userPoolId": "authcgowebapp83f983ca"
               }
             }
           ]
         }
       }
+    }
+  },
+  "auth": {
+    "cgowebapp83f983ca": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      }
+    }
+  },
+  "storage": {
+    "s3dd5e078b": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": []
+    }
+  },
+  "hosting": {
+    "S3AndCloudFront": {
+      "service": "S3AndCloudFront",
+      "providerPlugin": "awscloudformation"
+    }
+  },
+  "function": {
+    "thankyouemailLambda": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   }
 }

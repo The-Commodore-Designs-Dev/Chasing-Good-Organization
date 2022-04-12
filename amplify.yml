@@ -39,3 +39,22 @@ applications:
       cache:
         paths:
             - node_modules/**/*
+    - appRoot: packages/dashboard
+      frontend:
+        phases:
+          preBuild:
+            commands:
+              - nvm install --lts
+              - nvm use --lts
+              - npm ci
+          build:
+            commands:
+              - npm run build
+        artifacts:
+          files:
+            - '**/*'
+          discard-paths: yes
+          baseDirectory: dist
+        cache:
+          paths:
+            - node_modules/**/*

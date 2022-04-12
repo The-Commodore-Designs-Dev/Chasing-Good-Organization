@@ -3,6 +3,38 @@
 
 const awsmobile = {
     "aws_project_region": "us-east-1",
+    "aws_appsync_graphqlEndpoint": "https://zd3zjfq2jvbbdgejjiqpbk7rdq.appsync-api.us-east-1.amazonaws.com/graphql",
+    "aws_appsync_region": "us-east-1",
+    "aws_appsync_authenticationType": "API_KEY",
+    "aws_appsync_apiKey": "da2-g5wyggwkfnhzxh3afklleim4ue",
+    "aws_cognito_identity_pool_id": "us-east-1:1e5c44ab-8d12-481b-9d82-4f8021863e7d",
+    "aws_cognito_region": "us-east-1",
+    "aws_user_pools_id": "us-east-1_tslWQwme0",
+    "aws_user_pools_web_client_id": "1t9sss8e5g1in1pivmau3mhhg6",
+    "oauth": {},
+    "aws_cognito_username_attributes": [
+        "EMAIL"
+    ],
+    "aws_cognito_social_providers": [],
+    "aws_cognito_signup_attributes": [
+        "EMAIL"
+    ],
+    "aws_cognito_mfa_configuration": "OFF",
+    "aws_cognito_mfa_types": [
+        "SMS"
+    ],
+    "aws_cognito_password_protection_settings": {
+        "passwordPolicyMinLength": 8,
+        "passwordPolicyCharacters": []
+    },
+    "aws_cognito_verification_mechanisms": [
+        "EMAIL"
+    ],
+    "aws_user_files_s3_bucket": "cgowebapp3fe76c1ef7bb489ab3b3f7998288392a165517-prod",
+    "aws_user_files_s3_bucket_region": "us-east-1",
+    "aws_content_delivery_bucket": "cgo-webapp-hosting-prod",
+    "aws_content_delivery_bucket_region": "us-east-1",
+    "aws_content_delivery_url": "https://d2nkn5j2o50ki8.cloudfront.net",
     "aws_cognito_login_mechanisms": [
         "PREFERRED_USERNAME"
     ]

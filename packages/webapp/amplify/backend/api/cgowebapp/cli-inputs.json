@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "cgowebapp",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "C:\\Users\\Greg\\Development\\ChasingGood-website\\packages\\webapp\\amplify\\backend\\api\\cgowebapp\\schema.graphql",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 7
+    },
+    "conflictResolution": {
+      "defaultResolutionStrategy": {
+        "type": "AUTOMERGE"
+      }
+    },
+    "additionalAuthTypes": [
+      {
+        "mode": "AMAZON_COGNITO_USER_POOLS",
+        "cognitoUserPoolId": "authcgowebapp83f983ca"
+      }
+    ]
+  }
+}
