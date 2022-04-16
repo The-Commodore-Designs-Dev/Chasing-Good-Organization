@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -85,6 +85,10 @@ export class MobileMenuComponent implements OnInit {
         this.isDisplayed = !this.isDisplayed;
       }
       
-      
+
+  }
+
+  navigateMobile() {
+    window.location.reload();
   }
 }
