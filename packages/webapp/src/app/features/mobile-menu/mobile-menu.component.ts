@@ -89,6 +89,7 @@ export class MobileMenuComponent implements OnInit {
   }
 
   navigateMobile() {
-    window.location.reload();
+    var menu = document.getElementById('menu');
+    menu.classList.add('hide');
   }
 }
