@@ -1,28 +1,17 @@
 <div class="info-box">
-  <div *ngIf="errorMessages && errorMessages.length > 0" class="errors-box">
-      <div>
-        <p style="margin-left: 16px" class="error-spree-header">Form Contains Errors</p>
-      </div>
-      <div>
-        <ul>
-          <li *ngFor="let errorMessage of errorMessages" class="error-spree">{{errorMessage}}</li>
-        </ul>
-      </div>
-  </div>
-
     <div class="basic-info">
       <div>
         <p class="review-header"><strong>Basic Info Details</strong></p>
       </div>
       <div>
-        <div class="name review" *ngIf="submission.firstName && submission.lastName">
-          <p>My name is {{submission.firstName}} {{submission.lastName}}.</p>
+        <div class="name review">
+          <p *ngIf="submission.firstName || submission.lastName">My name is {{submission.firstName}} {{submission.lastName}}.</p>
         </div>
-        <div class="email review" *ngIf="submission.email">
-          <p>My email is {{submission.email}}.</p>
+        <div class="email review">
+          <p *ngIf="submission.email">My email is {{submission.email}}.</p>
         </div>
         <div class="phone review" *ngIf="submission.phoneNumber">
-          <p>My phone number is {{submission.phoneNumber}}.</p>
+          <p *ngIf="submission.phoneNumber">My phone number is {{submission.phoneNumber}}.</p>
         </div>
       </div>      
     </div>

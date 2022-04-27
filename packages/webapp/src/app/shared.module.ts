@@ -6,6 +6,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxMaskModule } from 'ngx-mask';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
@@ -88,7 +89,8 @@ import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
         MatPaginatorModule,
         MatMenuModule,
         MatExpansionModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        NgxMaskModule.forRoot(),
     ],
     declarations: [
         HomeComponent,
@@ -154,7 +156,7 @@ import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
         MatPaginatorModule,
         MatMenuModule,
         MatExpansionModule,
-        MatSnackBarModule
+        MatSnackBarModule,
     ],
     providers: [
         AmplifyService,

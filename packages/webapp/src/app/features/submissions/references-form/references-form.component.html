@@ -13,7 +13,7 @@
             </mat-form-field>
             <mat-form-field class="phone">
                 <mat-label for="referencePhone1">Phone:</mat-label>
-                <input matInput mask="(000)000-0000" placeholder="(000)000-0000" id="referencePhone1" type="phone" formControlName="referencePhone1" required>
+                <input matInput [showMaskTyped]="true" placeHolderCharacter="0" mask="(000)000-0000" prefix="+1" placeholder="(000)000-0000" id="referencePhone1" type="phone" formControlName="referencePhone1" required>
                 <mat-error>Please enter a valid phone</mat-error>
             </mat-form-field>
         </div>
@@ -31,7 +31,7 @@
             </mat-form-field>
             <mat-form-field class="phone">
                 <mat-label for="referencePhone2">Phone:</mat-label>
-                <input matInput mask="(000)000-0000" placeholder="(000)000-0000" id="referencePhone2" type="phone" formControlName="referencePhone2" required>
+                <input matInput [showMaskTyped]="true" placeHolderCharacter="0" mask="(000)000-0000" prefix="+1" placeholder="(000)000-0000" id="referencePhone2" type="phone" formControlName="referencePhone2" required>
                 <mat-error>Please enter a valid phone</mat-error>
             </mat-form-field>            
         </div>
