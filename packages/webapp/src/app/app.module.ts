@@ -14,7 +14,6 @@ import { createCustomElement } from '@angular/elements';
     AppRoutingModule,
     PagesModule,
     SharedModule,
-    NgxMaskModule.forRoot(),
   ],
   providers: [
 

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AgreementFormComponent } from './agreement-form.component';
+import { AgreementFormComponent } from '../../../../src/app/features/submissions/agreement-form/agreement-form.component';
 
 describe('AgreementFormComponent', () => {
   let component: AgreementFormComponent;

@@ -222,7 +222,7 @@ export type Vote = {
 
 export type ModelJudgeConnection = {
   __typename: "ModelJudgeConnection";
-  items: Array<Judge>;
+  items: Array<Judge | null>;
   nextToken?: string | null;
   startedAt?: number | null;
 };
@@ -308,7 +308,7 @@ export type ModelSubmissionFilterInput = {
 
 export type ModelSubmissionConnection = {
   __typename: "ModelSubmissionConnection";
-  items: Array<Submission>;
+  items: Array<Submission | null>;
   nextToken?: string | null;
   startedAt?: number | null;
 };
@@ -326,7 +326,7 @@ export type ModelVoteFilterInput = {
 
 export type ModelVoteConnection = {
   __typename: "ModelVoteConnection";
-  items: Array<Vote>;
+  items: Array<Vote | null>;
   nextToken?: string | null;
   startedAt?: number | null;
 };
@@ -441,7 +441,7 @@ export type CreateVoteMutation = {
       _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    }>;
+    } | null>;
     nextToken?: string | null;
     startedAt?: number | null;
   } | null;
@@ -472,7 +472,7 @@ export type UpdateVoteMutation = {
       _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    }>;
+    } | null>;
     nextToken?: string | null;
     startedAt?: number | null;
   } | null;
@@ -503,7 +503,7 @@ export type DeleteVoteMutation = {
       _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    }>;
+    } | null>;
     nextToken?: string | null;
     startedAt?: number | null;
   } | null;
@@ -598,7 +598,7 @@ export type ListSubmissionsQuery = {
     _lastChangedAt: number;
     createdAt: string;
     updatedAt: string;
-  }>;
+  } | null>;
   nextToken?: string | null;
   startedAt?: number | null;
 };
@@ -628,7 +628,7 @@ export type SyncSubmissionsQuery = {
     _lastChangedAt: number;
     createdAt: string;
     updatedAt: string;
-  }>;
+  } | null>;
   nextToken?: string | null;
   startedAt?: number | null;
 };
@@ -658,7 +658,7 @@ export type GetVoteQuery = {
       _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    }>;
+    } | null>;
     nextToken?: string | null;
     startedAt?: number | null;
   } | null;
@@ -683,7 +683,7 @@ export type ListVotesQuery = {
       nextToken?: string | null;
       startedAt?: number | null;
     } | null;
-  }>;
+  } | null>;
   nextToken?: string | null;
   startedAt?: number | null;
 };
@@ -707,7 +707,7 @@ export type SyncVotesQuery = {
       nextToken?: string | null;
       startedAt?: number | null;
     } | null;
-  }>;
+  } | null>;
   nextToken?: string | null;
   startedAt?: number | null;
 };
@@ -738,7 +738,7 @@ export type ListJudgesQuery = {
     _lastChangedAt: number;
     createdAt: string;
     updatedAt: string;
-  }>;
+  } | null>;
   nextToken?: string | null;
   startedAt?: number | null;
 };
@@ -756,7 +756,7 @@ export type SyncJudgesQuery = {
     _lastChangedAt: number;
     createdAt: string;
     updatedAt: string;
-  }>;
+  } | null>;
   nextToken?: string | null;
   startedAt?: number | null;
 };
@@ -861,7 +861,7 @@ export type OnCreateVoteSubscription = {
       _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    }>;
+    } | null>;
     nextToken?: string | null;
     startedAt?: number | null;
   } | null;
@@ -892,7 +892,7 @@ export type OnUpdateVoteSubscription = {
       _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    }>;
+    } | null>;
     nextToken?: string | null;
     startedAt?: number | null;
   } | null;
@@ -923,7 +923,7 @@ export type OnDeleteVoteSubscription = {
       _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    }>;
+    } | null>;
     nextToken?: string | null;
     startedAt?: number | null;
   } | null;

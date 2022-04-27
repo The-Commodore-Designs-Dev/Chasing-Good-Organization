@@ -6,6 +6,7 @@ import { FormGroup, FormControl, FormBuilder, ValidationErrors, Validators } fro
 import { DataStore, Storage } from 'aws-amplify';
 import { APIService } from '../../../API.service';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import emailjs from '@emailjs/browser';
 import { Submission } from '../../../../models';
 import { Subscription, GroupedObservable } from 'rxjs';
 import { BasicInfoFormComponent } from '../basic-info-form/basic-info-form.component';
@@ -242,7 +243,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
     let currentIndex: number = event.selectedIndex;
 
     this.currentStepIndex = currentIndex;
-
+    
     if (previousIndex == BASIC_INFO_INDEX) {
       this.basicInfoFormComponent.populateSubmission(this.submission);
 
@@ -254,7 +255,9 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
         this.clearIconError(previousIndex);
         this.allFormsValid = true;
       }
-    } else if (previousIndex == NOMINATION_INDEX) {
+    } 
+    
+    if (previousIndex == NOMINATION_INDEX) {
       this.nominationDetailsFormComponent.populateSubmission(this.submission);
 
       let validForm: boolean = (this.nominationDetailsFormComponent.nominationDetailsFormGroup.valid);
@@ -265,7 +268,9 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
         this.clearIconError(previousIndex);
         this.allFormsValid = true;
       }
-    } else if (previousIndex == STORY_INDEX) {
+    }
+    
+    if (previousIndex == STORY_INDEX) {
       this.storyDetailsFormComponent.populateSubmission(this.submission);
 
       let validForm: boolean = (this.storyDetailsFormComponent.storyDetailsFormGroup.valid);
@@ -276,7 +281,9 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
         this.clearIconError(previousIndex);
         this.allFormsValid = true;
       }
-    } else if(previousIndex == REFERENCES_INDEX) {
+    } 
+    
+    if(previousIndex == REFERENCES_INDEX) {
       this.referencesFormComponent.populateSubmission(this.submission);
 
       let validForm: boolean = (this.referencesFormComponent.refFormGroup.valid);
@@ -287,7 +294,9 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
         this.clearIconError(previousIndex);
         this.allFormsValid = true;
       }
-    } else if (previousIndex == AGREEMENT_INDEX) {
+    } 
+    
+    if (previousIndex == AGREEMENT_INDEX) {
       this.agreementFormComponent.populateSubmission(this.submission);
 
       let validForm: boolean = (this.agreementFormComponent.disclaimerFormGroup.valid);
@@ -310,17 +319,18 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
   private clearIconError(index: number) {
     let iconElement: HTMLElement = this.getIconElementByIndex(index);
     iconElement.classList.remove('mat-step-icon-invalid');
+    iconElement.style.backgroundColor = '';
   }
 
   private changeIcon(index: number) {
     let iconElement: HTMLElement = this.getIconElementByIndex(index);
     iconElement.classList.add('mat-step-icon-invalid');
+    iconElement.style.backgroundColor = '#e43a0f';
   }
 
   private getIconElementByIndex(index: number): HTMLElement {
     let nodeList: NodeList = document.querySelectorAll('.mat-step-icon');
     let node: Node = nodeList.item(index);
-
     return (<HTMLElement>node);
   }
 
@@ -342,7 +352,6 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
       if (controlErrors != null) {
         this.addErrorByKey(key);
       }
-      console.log(controlErrors)
     });
   }
 
@@ -392,15 +401,15 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
 
   private addErrorByKey(key: string) {
     if(key == 'firstName') this.errorMessages.push("Please enter a valid First Name");
-    if(key == 'lastName') this.errorMessages.push("Please enter a valid Last Name");
-    if(key == 'email') this.errorMessages.push("Please include an Email Address");
-    if(key == 'referenceName1') this.errorMessages.push('Please include a Reference Name');
-    if(key == 'referenceEmail1') this.errorMessages.push('Please include a Reference Email Address');
-    if(key == 'referencePhone1') this.errorMessages.push('Please include a Reference Phone Number');
-    if(key == 'referenceName2') this.errorMessages.push('Please include a second Reference Name');
-    if(key == 'referenceEmail2') this.errorMessages.push('Please include a second Reference Email Address');
-    if(key == 'referencePhone2') this.errorMessages.push('Please include a second Reference Phone Number');
-    if(key == 'agreeToLicenseAndAgreement') this.errorMessages.push("Please Read and Accept the Licsense and Consent Agreement");
+    else if(key == 'lastName') this.errorMessages.push("Please enter a valid Last Name");
+    else if(key == 'email') this.errorMessages.push("Please include an Email Address");
+    else if(key == 'referenceName1') this.errorMessages.push('Please include a Reference Name');
+    else if(key == 'referenceEmail1') this.errorMessages.push('Please include a Reference Email Address');
+    else if(key == 'referencePhone1') this.errorMessages.push('Please include a Reference Phone Number');
+    else if(key == 'referenceName2') this.errorMessages.push('Please include a second Reference Name');
+    else if(key == 'referenceEmail2') this.errorMessages.push('Please include a second Reference Email Address');
+    else if(key == 'referencePhone2') this.errorMessages.push('Please include a second Reference Phone Number');
+    else if(key == 'agreeToLicenseAndAgreement') this.errorMessages.push("Please Read and Accept the Licsense and Consent Agreement");
   }
 
   sentSnackBar() {
@@ -445,6 +454,14 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
         referenceTwo: "",
         disclaimerAgreement: false
       };
+      const templateParams = { name: this.submission.firstName, email: this.submission.email, notes: 'Thank You!'};
+      emailjs.send('service_oklq2dk', 'template_aobn5vr', templateParams, 'E3cXIrDd4XOdlo26a')
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+      })
+      .catch((err) => {
+        console.log('FAILED: ', err);
+      })
     }).catch((event) => {
       this.errorSnackbar();
       let errSpan = document.getElementById('errorMessageSent');
