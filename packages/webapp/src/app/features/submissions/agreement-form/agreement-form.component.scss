@@ -1,11 +1,41 @@
+/* width */
+.nlca_container::-webkit-scrollbar {
+    width: 2px;
+    height: 0;
+    border-radius: 10px;
+}
+  
+/* Track */
+.nlca_container::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(233, 233, 233); 
+    border-radius: 10px;
+}
+   
+/* Handle */
+.nlca_container::-webkit-scrollbar-thumb {
+    background: rgb(168, 168, 168); 
+    border-radius: 10px;
+}
+  
+/* Handle on hover */
+.nlca_container::-webkit-scrollbar-thumb:hover {
+    background: #8d8d8d; 
+}
+
 .nlca_container {
     padding: 1em;
     text-align: justify;
     line-height: 1.5em;
+    max-height: 500px;
+    overflow: scroll;
 }
 
 .nlca_header {
     text-align: center;
+}
+
+.btn_container {
+    font-size: small;
 }
 
 .mat-checkbox-layout {

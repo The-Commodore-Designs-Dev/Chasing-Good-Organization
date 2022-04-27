@@ -8,11 +8,33 @@ import { Submission } from 'src/types/Submission';
   styleUrls: ['./review-form.component.scss']
 })
 export class ReviewFormComponent implements OnInit {
-  public disclaimerFormGroup: FormGroup;
   public ref1Name: string;
+
+  public validationMessages = {
+    'firstName': [
+      { type: 'required', message: 'First Name is required' },
+    ],
+    'lastName': [
+      { type: 'required', message: 'Last Name is required' },
+    ],
+    'email': [
+      { type: 'required', message: 'Email is required' },
+      { type: 'email', message: 'Enter a valid email' }
+    ],
+    'phoneNumber': [
+      { type: 'required', message: 'Phone Number is required' },
+      { type: 'pattern', message: 'Enter a valid phone number' }
+    ]
+  }
 
   @Input() submission: Submission;
   @Input() errorMessages: string[] = [];
+  @Input() basicInfoFormGroup: FormGroup;
+  @Input() nominationDetailsFormGroup: FormGroup;
+  @Input() storyDetailsFormGroup: FormGroup;
+  @Input() refFormGroup: FormGroup;
+  @Input() disclaimerFormGroup: FormGroup;
+  @Input() checkbox1: boolean;
   
   constructor(private fb: FormBuilder) {
     
@@ -30,9 +52,4 @@ export class ReviewFormComponent implements OnInit {
     
   }
 
-  populateSubmission(submission: Submission) {
-    let disclaimer: FormGroup = this.disclaimerFormGroup;
-
-    submission.disclaimerAgreement = disclaimer.controls['agreeToTermsAndPrivacy'].value;
-  }
 }

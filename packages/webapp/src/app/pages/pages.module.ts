@@ -8,8 +8,7 @@ import { AppComponent } from '../app.component';
 @NgModule({
     imports: [
         SharedModule,
-        RouterModule.forChild(PAGES_ROUTES),
-        NgxMaskModule.forChild(),
+        RouterModule.forChild(PAGES_ROUTES)
     ],
     bootstrap: [AppComponent],
     entryComponents: [AppComponent]
