@@ -433,9 +433,41 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
       this.formSubmitted = true;
       Storage.put(this.submission.id + '/' + this.submission.uploadedVideo, this.file, {
         contentType: 'video/*',
+      }); 
+      const templateParams = { 
+        name: this.submission.firstName, 
+        email: this.submission.email,
+        to: this.submission.email,
+        notes: 'Thank You!'
+      };
+      emailjs.send('service_oklq2dk', 'template_aobn5vr', templateParams, 'E3cXIrDd4XOdlo26a')
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+      })
+      .catch((err) => {
+        console.log('FAILED: ', err);
+      })
+      this.createForm.reset({
+        'firstName': '',
+        'lastName': '',
+        'email': '',
+        'phone': '',
+        'nominatingOptions': '',
+        'organizationName': '',
+        'individualFullName': '',
+        'individualEmailAddress': '',
+        'category': '',
+        'njCounty': '',
+        'yourStory': '',
+        'yourVideo': '',
+        'referenceName1': '',
+        'referenceEmail1': '',
+        'referencePhone1': '',
+        'referenceName2': '',
+        'referenceEmail2': '',
+        'referencePhone2': '',
+        'agreeToLicenseAndAgreement': ''
       });
-      this.sentSnackBar();
-      this.createForm.reset();
       this.submission = {
         id: "",
         firstName: "",
@@ -454,14 +486,8 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
         referenceTwo: "",
         disclaimerAgreement: false
       };
-      const templateParams = { name: this.submission.firstName, email: this.submission.email, notes: 'Thank You!'};
-      emailjs.send('service_oklq2dk', 'template_aobn5vr', templateParams, 'E3cXIrDd4XOdlo26a')
-      .then((response) => {
-        console.log('SUCCESS!', response.status, response.text);
-      })
-      .catch((err) => {
-        console.log('FAILED: ', err);
-      })
+
+      this.sentSnackBar();
     }).catch((event) => {
       this.errorSnackbar();
       let errSpan = document.getElementById('errorMessageSent');
