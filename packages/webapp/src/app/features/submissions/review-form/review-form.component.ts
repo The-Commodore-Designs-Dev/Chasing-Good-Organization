@@ -21,7 +21,7 @@ export class ReviewFormComponent implements OnInit {
       { type: 'required', message: 'Email is required' },
       { type: 'email', message: 'Enter a valid email' }
     ],
-    'phoneNumber': [
+    'phone': [
       { type: 'required', message: 'Phone Number is required' },
       { type: 'pattern', message: 'Enter a valid phone number' }
     ]
