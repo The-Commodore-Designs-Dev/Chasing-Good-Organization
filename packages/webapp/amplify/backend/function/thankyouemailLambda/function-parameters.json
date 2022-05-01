@@ -1,9 +1,4 @@
 {
   "lambdaLayers": [],
-  "environmentVariableList": [
-    {
-      "cloudFormationParameterName": "sendgridKey",
-      "environmentVariableName": "SENDGRID_KEY"
-    }
-  ]
+  "environmentVariableList": []
 }

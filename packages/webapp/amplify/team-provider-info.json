@@ -28,8 +28,7 @@
         },
         "thankyouemailLambda": {
           "deploymentBucketName": "amplify-cgowebapp-prod-165517-deployment",
-          "s3Key": "amplify-builds/thankyouemailLambda-5757446f596166733644-build.zip",
-          "sendgridKey": "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"
+          "s3Key": "amplify-builds/thankyouemailLambda-5757446f596166733644-build.zip"
         }
       },
       "auth": {
