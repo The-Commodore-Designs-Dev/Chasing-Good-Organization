@@ -19,22 +19,22 @@ export class ReferencesFormComponent implements OnInit {
   ngOnInit(): void {
     this.refFormGroup = this.fb.group({
       'referenceName1': ['', {
-        validators: Validators.compose([Validators.required, Validators.pattern('[A-Za-z \-\_]+')])
+        validators: Validators.compose([Validators.pattern('[A-Za-z \-\_]+')])
       }],
       'referenceEmail1': ['', {
-        validators: Validators.compose([Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")])
+        validators: Validators.compose([Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")])
       }],
       'referencePhone1': ['', {
-        validators: Validators.compose([Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")])
+        validators: Validators.compose([Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")])
       }],
       'referenceName2': ['', {
-        validators: Validators.compose([Validators.required, Validators.pattern('[A-Za-z \-\_]+')])
+        validators: Validators.compose([Validators.pattern('[A-Za-z \-\_]+')])
       }],
       'referenceEmail2': ['', {
-        validators: Validators.compose([Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")])
+        validators: Validators.compose([Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")])
       }],
       'referencePhone2': ['', {
-        validators: Validators.compose([Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")])
+        validators: Validators.compose([Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")])
       }],
     });
   }
