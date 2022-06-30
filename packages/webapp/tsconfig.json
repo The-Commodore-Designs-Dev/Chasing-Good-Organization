@@ -22,7 +22,12 @@
       "es2018",
       "dom"
     ],
-    "allowJs": true
+    "allowJs": true,
+    "paths": {
+      "crypto": [
+        "../../node_modules/crypto-js"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

@@ -1,0 +1,33 @@
+name: Weekly Cross-Browser Testing
+
+on:
+  schedule:
+    - cron: "0 23 * * 0"
+
+jobs:
+  cross-browser:
+    runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node14.17.0-chrome91-ff89
+      options: --user 1001
+    steps:
+      - name: Checkout Commit
+        uses: actions/checkout@v1
+      - name: Firefox Browser Tests
+        working-directory: ./packages/webapp
+        uses: cypress-io/github-action@v1
+        with:
+          browser: firefox
+          start: yarn start
+          wait-on: "http://localhost:8000"
+          wait-on-timeout: 300
+          config: defaultCommandTimeout=100000,pageLoadTimeout=100000,watchForFileChanges=false,video=false
+      - name: Chrome Browser Tests
+        working-directory: ./packages/webapp
+        uses: cypress-io/github-action@v1
+        with:
+          browser: chrome
+          start: yarn start
+          wait-on: "http://localhost:8000"
+          wait-on-timeout: 300
+          config: defaultCommandTimeout=100000,pageLoadTimeout=100000,watchForFileChanges=false,video=false
