@@ -6,6 +6,7 @@ applications:
           commands:
             - nvm install 14.17.2
             - nvm use 14.17.2
+            - npm install pnpm
             - pnpm install
         build:
           commands:
