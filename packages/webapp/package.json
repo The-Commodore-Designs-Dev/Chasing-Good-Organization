@@ -18,7 +18,8 @@
   "private": true,
   "pnpm": {
     "overrides": {
-      "type-fest": "2"
+      "type-fest": "2",
+      "zen-observable-ts": "1"
     }
   },
   "dependencies": {
