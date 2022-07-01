@@ -4,8 +4,8 @@ applications:
       phases:
         preBuild:
           commands:
-            - nvm install --lts
-            - nvm use --lts
+            - nvm install 14.17.2
+            - nvm use 14.17.2
             - npm ci
         build:
           commands:
