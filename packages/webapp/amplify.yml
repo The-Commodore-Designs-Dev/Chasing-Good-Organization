@@ -6,10 +6,11 @@ applications:
           commands:
             - nvm install --lts
             - nvm use --lts
-            - pnpm ci
+            - npm install
+            - npm ci
         build:
           commands:
-            - pnpm run build
+            - npm run build
       artifacts:
         baseDirectory: dist
         files:
@@ -22,10 +23,10 @@ applications:
     phases:
       preTest:
         commands:
-          - pnpm ci
-          - pnpm install wait-on
-          - pnpm install pm2
-          - pnpm install mocha@5.2.0 mochawesome mochawesome-merge mochawesome-report-generator
+          - npm ci
+          - npm install wait-on
+          - npm install pm2
+          - npm install mocha@5.2.0 mochawesome mochawesome-merge mochawesome-report-generator
           - npx pm2 start pnpm -- start
           - "npx wait-on --timeout 60 http://localhost:4200"
       test:
