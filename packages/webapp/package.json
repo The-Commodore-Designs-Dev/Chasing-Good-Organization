@@ -41,7 +41,6 @@
     "@aws-amplify/datastore": "^3.12.1",
     "@aws-amplify/ui": "^3.12.0",
     "@aws-amplify/ui-angular": "^2.4.12",
-    "@babel/core": "7.0.0-beta.47",
     "@emailjs/browser": "^3.6.2",
     "@fortawesome/angular-fontawesome": "^0.10.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -49,7 +48,6 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@sendgrid/mail": "^7.6.2",
-    "@types/zen-observable": "^0.8.3",
     "amazon-cognito-identity-js": "^5.2.9",
     "aws-amplify": "4.3.26",
     "aws-amplify-angular": "^6.0.26",
@@ -70,7 +68,6 @@
     "type-fest": "2.3.4",
     "typescript": "4.6.3",
     "wait-on": "^6.0.0",
-    "zen-observable-ts": "^1.1.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
