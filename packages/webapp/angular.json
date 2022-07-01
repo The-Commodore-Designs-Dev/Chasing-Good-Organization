@@ -73,11 +73,14 @@
 							"@aws-amplify/core",
 							"@aws-amplify/analytics",
 							"@aws-amplify/ui-components",
+							"aws-amplify",
+							"aws-amplify-angular",
 							"url",
 							"buffer",
 							"fast-xml-parser",
 							"crypto-js",
-							"isomorphic-unfetch"
+							"isomorphic-unfetch",
+							"zen-observable-ts"
 						],
 						"outputPath": "dist",
 						"index": "src/index.html",
