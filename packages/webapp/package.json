@@ -36,6 +36,7 @@
     "@angular/platform-browser": "^13.3.0",
     "@angular/platform-browser-dynamic": "^13.3.0",
     "@angular/router": "^13.3.0",
+    "@aws-amplify/api": "^4.0.44",
     "@aws-amplify/api-graphql": "^2.3.8",
     "@aws-amplify/datastore": "^3.12.1",
     "@aws-amplify/ui": "^3.12.0",
