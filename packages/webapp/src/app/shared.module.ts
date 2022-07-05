@@ -28,6 +28,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { AmplifyService, AmplifyAngularModule } from 'aws-amplify-angular';
 
 import { HomeComponent } from './pages/home/home.component';
 import { PagesComponent } from './pages/pages.component';
@@ -55,7 +56,6 @@ import { DoingGoodFormComponent } from './features/submissions/doing-good-form/d
 import { ImgSrvcService } from './_services/img-srvc.service';
 import { UrlSrvcService } from './_services/url-srvc.service';
 import { APIService } from './API.service';
-import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
 
 
 @NgModule({
@@ -68,7 +68,6 @@ import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
         FormsModule,
         BrowserAnimationsModule,
         RouterModule,
-        AmplifyAngularModule,
         MatCardModule,
         MatInputModule,
         MatFormFieldModule,
@@ -90,6 +89,7 @@ import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
         MatMenuModule,
         MatExpansionModule,
         MatSnackBarModule,
+        AmplifyAngularModule,
         NgxMaskModule.forRoot(),
     ],
     declarations: [
@@ -134,7 +134,6 @@ import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
         LicenseandconsentagreementDialog,
         SplitPipe,
         FooterComponent,
-        AmplifyAngularModule,
         RouterModule,
         MatCardModule,
         MatInputModule,
@@ -157,6 +156,7 @@ import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
         MatMenuModule,
         MatExpansionModule,
         MatSnackBarModule,
+        AmplifyAngularModule
     ],
     providers: [
         AmplifyService,

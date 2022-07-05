@@ -1707,8 +1707,8 @@ export class APIService {
   OnCreateSubmissionListener: Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateSubmission">>
   > = API.graphql(
-    graphqlOperation(
-      `subscription OnCreateSubmission {
+      graphqlOperation(
+        `subscription OnCreateSubmission {
         onCreateSubmission {
           __typename
           id
@@ -1734,16 +1734,16 @@ export class APIService {
           updatedAt
         }
       }`
-    )
-  ) as Observable<
+      )
+    ) as Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateSubmission">>
   >;
 
   OnUpdateSubmissionListener: Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateSubmission">>
   > = API.graphql(
-    graphqlOperation(
-      `subscription OnUpdateSubmission {
+      graphqlOperation(
+        `subscription OnUpdateSubmission {
         onUpdateSubmission {
           __typename
           id
@@ -1769,16 +1769,16 @@ export class APIService {
           updatedAt
         }
       }`
-    )
-  ) as Observable<
+      )
+    ) as Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateSubmission">>
   >;
 
   OnDeleteSubmissionListener: Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteSubmission">>
   > = API.graphql(
-    graphqlOperation(
-      `subscription OnDeleteSubmission {
+      graphqlOperation(
+        `subscription OnDeleteSubmission {
         onDeleteSubmission {
           __typename
           id
@@ -1804,16 +1804,16 @@ export class APIService {
           updatedAt
         }
       }`
-    )
-  ) as Observable<
+      )
+    ) as Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteSubmission">>
   >;
 
   OnCreateVoteListener: Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateVote">>
   > = API.graphql(
-    graphqlOperation(
-      `subscription OnCreateVote {
+      graphqlOperation(
+        `subscription OnCreateVote {
         onCreateVote {
           __typename
           id
@@ -1845,16 +1845,16 @@ export class APIService {
           }
         }
       }`
-    )
-  ) as Observable<
+      )
+    ) as Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateVote">>
   >;
 
   OnUpdateVoteListener: Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateVote">>
   > = API.graphql(
-    graphqlOperation(
-      `subscription OnUpdateVote {
+      graphqlOperation(
+        `subscription OnUpdateVote {
         onUpdateVote {
           __typename
           id
@@ -1886,16 +1886,16 @@ export class APIService {
           }
         }
       }`
-    )
-  ) as Observable<
+      )
+    ) as Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateVote">>
   >;
 
   OnDeleteVoteListener: Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteVote">>
   > = API.graphql(
-    graphqlOperation(
-      `subscription OnDeleteVote {
+      graphqlOperation(
+        `subscription OnDeleteVote {
         onDeleteVote {
           __typename
           id
@@ -1927,16 +1927,16 @@ export class APIService {
           }
         }
       }`
-    )
-  ) as Observable<
+      )
+    ) as Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteVote">>
   >;
 
   OnCreateJudgeListener: Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateJudge">>
   > = API.graphql(
-    graphqlOperation(
-      `subscription OnCreateJudge {
+      graphqlOperation(
+        `subscription OnCreateJudge {
         onCreateJudge {
           __typename
           id
@@ -1950,16 +1950,16 @@ export class APIService {
           updatedAt
         }
       }`
-    )
-  ) as Observable<
+      )
+    ) as Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateJudge">>
   >;
 
   OnUpdateJudgeListener: Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateJudge">>
   > = API.graphql(
-    graphqlOperation(
-      `subscription OnUpdateJudge {
+      graphqlOperation(
+        `subscription OnUpdateJudge {
         onUpdateJudge {
           __typename
           id
@@ -1973,16 +1973,16 @@ export class APIService {
           updatedAt
         }
       }`
-    )
-  ) as Observable<
+      )
+    ) as Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateJudge">>
   >;
 
   OnDeleteJudgeListener: Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteJudge">>
   > = API.graphql(
-    graphqlOperation(
-      `subscription OnDeleteJudge {
+      graphqlOperation(
+        `subscription OnDeleteJudge {
         onDeleteJudge {
           __typename
           id
@@ -1996,8 +1996,8 @@ export class APIService {
           updatedAt
         }
       }`
-    )
-  ) as Observable<
+      )
+    ) as Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteJudge">>
   >;
 }
