@@ -19,7 +19,7 @@ jobs:
         with:
           browser: firefox
           start: yarn start
-          wait-on: "http://localhost:8000"
+          wait-on: "http://localhost:4200"
           wait-on-timeout: 300
           config: defaultCommandTimeout=100000,pageLoadTimeout=100000,watchForFileChanges=false,video=false
       - name: Chrome Browser Tests
@@ -28,6 +28,6 @@ jobs:
         with:
           browser: chrome
           start: yarn start
-          wait-on: "http://localhost:8000"
+          wait-on: "http://localhost:4200"
           wait-on-timeout: 300
           config: defaultCommandTimeout=100000,pageLoadTimeout=100000,watchForFileChanges=false,video=false
