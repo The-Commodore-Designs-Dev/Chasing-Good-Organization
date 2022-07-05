@@ -3,7 +3,7 @@
 //  This file was automatically generated and should not be edited.
 import { Injectable } from "@angular/core";
 import API, { graphqlOperation, GraphQLResult } from "@aws-amplify/api-graphql";
-import { Observable } from "rxjs";
+import { Observable } from "zen-observable-ts";
 
 export interface SubscriptionResponse<T> {
   value: GraphQLResult<T>;
@@ -1735,7 +1735,7 @@ export class APIService {
         }
       }`
       )
-    ) as unknown as Observable<
+    ) as Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateSubmission">>
   >;
 
@@ -1770,7 +1770,7 @@ export class APIService {
         }
       }`
       )
-    ) as unknown as Observable<
+    ) as Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateSubmission">>
   >;
 
@@ -1805,7 +1805,7 @@ export class APIService {
         }
       }`
       )
-    ) as unknown as Observable<
+    ) as Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteSubmission">>
   >;
 
@@ -1846,7 +1846,7 @@ export class APIService {
         }
       }`
       )
-    ) as unknown as Observable<
+    ) as Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateVote">>
   >;
 
@@ -1887,7 +1887,7 @@ export class APIService {
         }
       }`
       )
-    ) as unknown as Observable<
+    ) as Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateVote">>
   >;
 
@@ -1928,7 +1928,7 @@ export class APIService {
         }
       }`
       )
-    ) as unknown as Observable<
+    ) as Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteVote">>
   >;
 
@@ -1951,7 +1951,7 @@ export class APIService {
         }
       }`
       )
-    ) as unknown as Observable<
+    ) as Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateJudge">>
   >;
 
@@ -1974,7 +1974,7 @@ export class APIService {
         }
       }`
       )
-    ) as unknown as Observable<
+    ) as Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateJudge">>
   >;
 
@@ -1997,7 +1997,7 @@ export class APIService {
         }
       }`
       )
-    ) as unknown as Observable<
+    ) as Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteJudge">>
   >;
 }

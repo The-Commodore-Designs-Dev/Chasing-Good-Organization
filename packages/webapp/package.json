@@ -43,7 +43,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@sendgrid/mail": "^7.6.2",
-    "aws-amplify": "4.3.26",
+    "aws-amplify": "^4.3.17",
     "aws-amplify-angular": "^6.0.26",
     "aws-lambda": "^1.0.7",
     "hammerjs": "^2.0.8",
@@ -55,12 +55,8 @@
     "ngx-build-plus": "^13.0.1",
     "ngx-mask": "^13.1.3",
     "pm2": "^5.1.2",
-    "react": "16.4.1",
-    "react-native": "^0.69.1",
     "rxjs": "^6.6.7",
     "tslib": "^1.10.0",
-    "type-fest": "2.3.4",
-    "typescript": "4.6.3",
     "wait-on": "^6.0.0",
     "zone.js": "~0.11.4"
   },
@@ -88,6 +84,7 @@
     "protractor": "^7.0.0",
     "protractor-html-reporter-2": "^1.0.4",
     "protractor-pretty-html-reporter": "0.0.16",
-    "start-server-and-test": "^1.14.0"
+    "start-server-and-test": "^1.14.0",
+    "typescript": "^4.7.4"
   }
 }
