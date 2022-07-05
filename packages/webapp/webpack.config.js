@@ -36,6 +36,15 @@ module.exports = {
   experiments: {
     outputModule: true
   },
+  module: {
+    rules: [{
+        test: /\.js$/,
+        exclude: path.join(__dirname, '/node_modules'),
+        use: {
+            loader: 'babel-loader'
+        }
+    }]
+  },
   plugins: [
     new ModuleFederationPlugin({
         library: { type: 'module' },
