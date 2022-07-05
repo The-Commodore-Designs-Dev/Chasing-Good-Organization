@@ -28,7 +28,6 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { AmplifyAuthenticatorModule } from '@aws-amplify/ui-angular';
 import { AmplifyService, AmplifyAngularModule } from 'aws-amplify-angular';
 
 import { HomeComponent } from './pages/home/home.component';
@@ -90,7 +89,6 @@ import { APIService } from './API.service';
         MatMenuModule,
         MatExpansionModule,
         MatSnackBarModule,
-        AmplifyAuthenticatorModule,
         AmplifyAngularModule,
         NgxMaskModule.forRoot(),
     ],
@@ -158,7 +156,6 @@ import { APIService } from './API.service';
         MatMenuModule,
         MatExpansionModule,
         MatSnackBarModule,
-        AmplifyAuthenticatorModule,
         AmplifyAngularModule
     ],
     providers: [
