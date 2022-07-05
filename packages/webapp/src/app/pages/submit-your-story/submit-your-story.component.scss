@@ -34,3 +34,11 @@ h2 {
     letter-spacing: initial;
     color: #000;
 }
+
+p > em {
+    font-size: 14pt;
+}
+
+.email {
+    color: rgba(0, 0, 0, 0.87);
+}

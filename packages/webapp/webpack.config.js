@@ -19,7 +19,8 @@ sharedMappings.register(
 
 module.exports = {
   output: {
-    publicPath: "auto"
+    publicPath: "auto",
+    scriptType: 'text/javascript',
   },
   optimization: {
     runtimeChunk: false
@@ -27,10 +28,22 @@ module.exports = {
   resolve: {
     alias: {
       ...sharedMappings.getAliases(),
+    },
+    fallback: {
+      "crypto": false
     }
   },
   experiments: {
     outputModule: true
+  },
+  module: {
+    rules: [{
+        test: /\.js$/,
+        exclude: path.join(__dirname, '/node_modules'),
+        use: {
+            loader: 'babel-loader'
+        }
+    }]
   },
   plugins: [
     new ModuleFederationPlugin({
@@ -68,7 +81,6 @@ module.exports = {
           "@fortawesome/free-regular-svg-icons": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
           "@fortawesome/free-solid-svg-icons": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
           "aws-amplify": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-          "aws-amplify-angular": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
 
           ...sharedMappings.getDescriptors()
         })
