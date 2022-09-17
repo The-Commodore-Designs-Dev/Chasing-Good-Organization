@@ -30,7 +30,7 @@ context('Cintact Us Page', () => {
     })
     
     it('should go to the sample stories page', () => {
-      cy.get('.mat-tab-links').children('#mat-tab-link-2').click('center').location('pathname').should('include', 'meet-some-nominees')
+      cy.get('.mat-tab-links').children('#mat-tab-link-2').click('center').location('pathname').should('include', 'meet-the-winners')
     })
   })
 

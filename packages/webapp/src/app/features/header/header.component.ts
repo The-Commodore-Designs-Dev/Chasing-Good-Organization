@@ -52,8 +52,8 @@ export class HeaderComponent implements OnInit {
 
     this.linksRight = [
       {
-        label: 'Meet Some Nominees',
-        link: '/pages/meet-some-nominees',
+        label: 'Meet The Winners',
+        link: '/pages/meet-the-winners',
         index: 2
       },
       {
