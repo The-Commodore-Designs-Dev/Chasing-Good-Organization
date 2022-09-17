@@ -24,7 +24,7 @@ export const PAGES_ROUTES: Routes = [
           path: 'submit-your-story',
           component: SubmitYourStoryComponent
         }, {
-          path: 'meet-some-nominees',
+          path: 'meet-the-winners',
           component: MeetSomeNomineesComponent
         }, {
           path: 'contact-us',

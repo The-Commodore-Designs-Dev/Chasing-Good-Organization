@@ -31,8 +31,8 @@ export class MobileMenuComponent implements OnInit {
         index: 1
       },
       {
-        label: 'Meet Some Nominees',
-        link: '/pages/meet-some-nominees',
+        label: 'Meet The Winners',
+        link: '/pages/meet-the-winners',
         index: 2
       },
       {
