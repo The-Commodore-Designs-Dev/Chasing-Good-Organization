@@ -3,10 +3,12 @@
   "serviceConfiguration": {
     "apiName": "cgowebapp",
     "serviceName": "AppSync",
-    "gqlSchemaPath": "C:\\Users\\Greg\\Development\\ChasingGood-website\\packages\\webapp\\amplify\\backend\\api\\cgowebapp\\schema.graphql",
+    "gqlSchemaPath": "F:\\Development\\ChasingGood-website\\packages\\webapp\\amplify\\backend\\api\\cgowebapp\\schema.graphql",
     "defaultAuthType": {
       "mode": "API_KEY",
-      "expirationTime": 7
+      "expirationTime": 365,
+      "apiKeyExpirationDate": "2023-12-23T16:27:32.776Z",
+      "keyDescription": "newapi2023"
     },
     "conflictResolution": {
       "defaultResolutionStrategy": {
