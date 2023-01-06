@@ -36,6 +36,15 @@
         "userPoolGroups": {},
         "cgowebapp83f983ca": {},
         "true": {}
+      },
+      "api": {
+        "cgowebapp": {}
+      },
+      "storage": {
+        "s3dd5e078b": {}
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
       }
     }
   },
