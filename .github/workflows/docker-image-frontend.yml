@@ -22,6 +22,9 @@ jobs:
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+        
+    - name: Build the Docker Image
+      run: docker build . --file Dockerfile --tag thecommodoredesignsdev/chasinggood-frontend:latest
 
     - name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}
