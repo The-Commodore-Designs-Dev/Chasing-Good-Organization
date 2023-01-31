@@ -1,5 +1,6 @@
 #stage 1
 FROM node:latest as node
+EXPOSE 80
 WORKDIR /app
 COPY . .
 RUN npm install
