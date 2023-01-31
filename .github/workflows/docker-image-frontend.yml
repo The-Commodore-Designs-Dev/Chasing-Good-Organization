@@ -12,7 +12,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      working-directory: /packages/webapp
+      working-directory: packages/webapp
     defaults:
       run:
         working-directory: ${{ env.working-directory }}
