@@ -13,8 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     env:
       working-directory: ./packages/webapp
+    defaults:
+      run:
+        working-directory: ${{ env.working-directory }}
 
     steps:
+    - run: pwd # will respect working-directory
     - name: Checkout Code
       uses: actions/checkout@v3
       
