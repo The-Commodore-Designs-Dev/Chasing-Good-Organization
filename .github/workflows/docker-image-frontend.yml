@@ -21,7 +21,7 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
-      working-directory: /packages/webapp
+      working-directory: ../packages/webapp
       run: |
         docker build . --file Dockerfile --tag thecommodoredesignsdev/chasinggood-frontend:$(date +%s)
     - name: Push the Docker Image
