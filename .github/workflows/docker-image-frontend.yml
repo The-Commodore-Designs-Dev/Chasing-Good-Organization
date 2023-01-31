@@ -18,7 +18,6 @@ jobs:
         working-directory: ${{ env.working-directory }}
 
     steps:
-    - run: pwd # will respect working-directory
     - name: Checkout Code
       uses: actions/checkout@v3
       
