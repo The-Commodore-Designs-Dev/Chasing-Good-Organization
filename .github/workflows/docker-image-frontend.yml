@@ -22,6 +22,6 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
       run: |
-        docker build . -f packages/webapp/Dockerfile -t thecommodoredesignsdev/chasinggood-frontend:$(date +%s)
+        docker build . -f ./packages/webapp/Dockerfile -t thecommodoredesignsdev/chasinggood-frontend:$(date +%s)
     - name: Push the Docker Image
       run: docker push ${{secrets.DOCKER_USER}}/chasinggood-frontend
