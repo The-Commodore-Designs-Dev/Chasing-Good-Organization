@@ -1,0 +1,36 @@
+name: Docker Image CI
+
+on:
+  release:
+    types: [published]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+    env:
+      working-directory: packages/webapp
+    defaults:
+      run:
+        working-directory: ${{ env.working-directory }}
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+      
+    - name: Docker Login
+      env:
+        DOCKER_USER: ${{secrets.DOCKER_USER}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+        
+    - name: Build the Docker Image
+      run: docker build . --file Dockerfile --tag thecommodoredesignsdev/chasinggood-frontend:latest
+      
+    - name: Push the Docker Image
+      run: docker push ${{secrets.DOCKER_USER}}/chasinggood-frontend
+
+    - name: Image digest
+      run: echo ${{ steps.docker_build.outputs.digest }}
