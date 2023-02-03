@@ -2,8 +2,8 @@ version: "3.7"
 services:
   spring_dev:
     build:
-      context:
-    image: maven/builder:0.0.1
+      context: .
+    image: thecommodoredesignsdev/chasinggood-submissions-api
     container_name: spring_container_api
     ports:
       - "8080:8080"
@@ -14,7 +14,7 @@ services:
     volumes:
       - "./src:/build/src"
       - "./target:/build/target:cached"
-    command: " spring-boot:run"
+    command: "mvnwspring-boot:run"
     depends_on:
       - spring_dev_db
   spring_dev_db:

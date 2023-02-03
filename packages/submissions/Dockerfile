@@ -1,5 +1,5 @@
 ### BUILD a maven builder. This will contain all mvn dependencies and act as an abstraction for all mvn goals
-FROM maven:3.5.4-jdk-8-alpine as builder
+FROM maven:3.8.7-eclipse-temurin-17-alpine as builder
 
 # create app folder for sources
 RUN mkdir -p /build
