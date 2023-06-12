@@ -1,0 +1,75 @@
+.logo {
+    height: 40vh;
+    font-weight: 100;
+    text-align: center;
+    transition: .3s;
+    // header shrinks when .small added to .header
+    &.small {
+        height: 3.6em;
+    // when header.small also change page offset
+    & ~ .offset {
+        padding-top: 140px;
+    }
+      // when header.small change logo pad & font size
+      .header_logo {
+        padding-top: 20px;
+        font-size: 20px;
+        text-shadow: none;
+      }
+    }
+}
+
+.menu {
+    width: 100%;
+    float: left;
+    height: 0;
+    margin: 0 0;
+}
+
+.menu ul{
+    list-style: none;
+}
+
+.menu ul li {
+    float: left;
+    display: block;
+    min-width: 63px;
+    margin: 0 15px;
+}
+
+.menu ul li a {
+    cursor: pointer;
+}
+.menu ul li a:hover {
+    color: rgb(78, 62, 53);
+}
+
+.offset {
+    margin-top: 0;
+    padding-top: 12em;
+    text-align: center;
+    transition: .3s;
+}
+
+.mat-tab-link {
+    text-transform: uppercase;
+    color: #ffffff;
+    opacity: 1;
+    letter-spacing: 2pt;
+}
+
+.mat-tab-nav-bar, .mat-tab-header {
+    border-bottom: none;
+}
+
+.mdc-tab-indicator__content--underline{ 
+    display: none !important;
+}
+
+.mdc-tab__text-label {
+    color: #ffffff !important;
+    text-transform: uppercase;
+    font-weight: 200;
+    opacity: 1;
+    letter-spacing: 2pt;
+}

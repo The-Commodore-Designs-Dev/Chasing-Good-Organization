@@ -1,0 +1,9 @@
+<div id="header" class="header">
+    <a routerLink="/"><img class="display logo" id="logo" src="/assets/images/chasinggood-logo.png" alt=""></a>    
+    <a class="menu-button" (click)="toggleMenu();">Menu</a>
+    <div class="menu home hide" id="menu">
+        <nav mat-tab-nav-bar [disablePagination]=true class="mat-tab-nav-bar">
+            <a mat-tab-link *ngFor="let link of links" [routerLink]="link.link"  routerLinkActive #rla="routerLinkActive" [active]="rla.isActive" (click)="navigateMobile()"> {{link.label}} </a>
+        </nav>
+    </div>
+</div>

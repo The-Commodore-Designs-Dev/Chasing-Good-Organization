@@ -1,0 +1,46 @@
+.remote-menu {
+    padding-top: 0.25em;
+    padding-right: 2em;
+    margin-right: 2em;
+    z-index: 10000;
+    position: fixed;
+    display: flex;
+    align-items: right;
+    justify-content: right;
+    width: 100%;
+    height: 1.75em;
+    float: left;
+    text-align: center;
+    background: var(--secondary);
+    transition: .3s;
+    // header shrinks when .small added to .header
+    &.small {
+      height: 30px;
+      box-shadow: 0 0 5px rgba(black, .2);
+      // when header.small also change page offset
+      & ~ .offset {
+        padding-top: 40px;
+      }
+      // when header.small change logo pad & font size
+      .header_logo {
+        padding-top: 0px;
+        font-size: 8px;
+        text-shadow: none;
+      }
+    }
+}
+
+.remote-menu ul {
+  list-style: none;
+  width: 13em;
+  padding: 0 0.5em 0 0;
+  align-items: center;
+  text-align: right;
+}
+
+.remote-menu ul li {
+  width: 3em;
+  float: right;
+  display: block;
+  padding: 0 0.5em 0 0.5em;
+}

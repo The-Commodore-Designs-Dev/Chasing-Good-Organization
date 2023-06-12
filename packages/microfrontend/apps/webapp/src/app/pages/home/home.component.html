@@ -1,0 +1,70 @@
+<div class="page-wrapper page-wrapper-home">
+    <div class="about-program" *ngIf="currentScreenSize === 'Large'; else elseBlock">
+        <mat-card>
+            <p class="big">
+                Are you a NJ resident who has done something good in your community, your life, or the world?
+            </p>
+            <p class="big">
+                Do you know someone who is from NJ and has “done some good” in this world and want to nominate them for an award?              
+            </p>
+            <p class="big">
+                Are you part of a NJ organization that does good?
+            </p>
+            <p class="dots">•••</p>
+            <p class="smaller-para">
+                If you answered “yes”- tell us about it! We are chasing good in the world and rewarding people for their good deeds, good works, and in general doing good. <br> We believe there is so much good in the world- we need to find it and celebrate it!
+            </p>
+            <p class="smaller-para">
+                Share your story with us and you could be granted an award. Awards will range from $500 - $1000. We will be showcasing and highlighting good deeds, good people and good organizations!
+            </p>
+            <p class="smaller-para">
+                Fill out the form on the Submit Your Story page and write your story or upload a video.
+            </p>
+            <p class="smaller-para">
+                We can’t wait to see the GOOD you have done!
+            </p>
+            <p class="smaller-para">
+                <strong>Please note that the submission period has closed for 2022. Please come back in the fall and see who won and also visit us for another chance in 2023!</strong>
+            </p>
+            <p class="smaller-para">
+                <strong>Please visit Chasing Good in the spring as our next round of nominations will be opening September 1, 2023.</strong>
+            </p>          
+        </mat-card>
+        
+    </div>
+    <div class="offset"></div>
+    <ng-template #elseBlock>
+        <div class="about-program">
+            <mat-card>
+                    <p class="big-mobile">
+                        Are you a NJ resident who has done something good in your community, your life, or the world?
+                    </p>
+                    <p class="big-mobile">
+                        Do you know someone who is from NJ and has “done some good” in this world and want to nominate them for an award?              
+                    </p>
+                    <p class="big-mobile">
+                        Are you part of a NJ organization that does good?
+                    </p>
+                    <p class="dots-mobile">•••</p>
+                    <p class="smaller-para-mobile">
+                        If you answered “yes”- tell us about it! We are chasing good in the world and rewarding people for their good deeds, good works, and in general doing good. <br> We believe there is so much good in the world- we need to find it and celebrate it!
+                    </p>
+                    <p class="smaller-para-mobile">
+                        Share your story with us and you could be granted an award. We will be showcasing and highlighting good deeds, good people and good organizations!
+                    </p>
+                    <p class="smaller-para-mobile">
+                        Fill out the form on the Submit Your Story page and write your story or upload a video.
+                    </p>
+                    <p class="smaller-para-mobile">
+                        We can’t wait to see the GOOD you have done!
+                    </p>
+                    <p class="smaller-para-mobile">
+                        <strong>Please note that the submission period has closed for 2022. Please come back in the fall and see who won and also visit us for another chance in 2023!</strong>
+                    </p>
+                    <p class="smaller-para-mobile">
+                        <strong>Please visit Chasing Good in the spring as our next round of nominations will be opening September 1, 2023.</strong>
+                    </p>                 
+                </mat-card>            
+        </div>
+    </ng-template>
+</div>
