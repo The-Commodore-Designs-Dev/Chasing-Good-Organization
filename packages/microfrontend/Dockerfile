@@ -5,6 +5,9 @@ WORKDIR /app
 COPY . .
 RUN npm install
 RUN npm run shell:prod:docker
+RUN npm run webapp:prod:docker
+RUN npm run form:prod:docker
+RUN npm run dashboard:prod:docker
 
 #stage 2
 FROM nginx:alpine

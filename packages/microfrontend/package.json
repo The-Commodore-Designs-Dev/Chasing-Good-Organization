@@ -7,7 +7,10 @@
     "webapp:dev:docker": "nx serve webapp --host=0.0.0.0",
     "form:dev:docker": "nx serve form --host=0.0.0.0",
     "dashboard:dev:docker": "nx serve dashboard --host=0.0.0.0",
-    "shell:prod:docker": "nx build shell"
+    "shell:prod:docker": "nx build shell",
+    "webapp:prod:docker": "nx build webapp",
+    "form:prod:docker": "nx build form",
+    "dashboard:prod:docker": "nx build dashboard"
   },
   "private": true,
   "devDependencies": {
