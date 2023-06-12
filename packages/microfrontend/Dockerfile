@@ -8,5 +8,5 @@ RUN npm run shell:prod:docker
 
 #stage 2
 FROM nginx:alpine
-COPY --from=node /app/dist/shell /usr/share/nginx/html
+COPY --from=node /app/dist/apps/shell /usr/share/nginx/html
 COPY --from=node /app/nginx-custom.conf /etc/nginx/conf.d/default.conf
