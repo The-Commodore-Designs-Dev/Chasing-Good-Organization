@@ -4,7 +4,7 @@ EXPOSE 80
 WORKDIR /app
 COPY . .
 RUN npm install
-RUN npm run build --prod
+RUN npm run shell:prod:docker
 
 #stage 2
 FROM nginx:alpine
