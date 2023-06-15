@@ -12,4 +12,9 @@ module.exports = withModuleFederation({
    *   ['app2', 'https://app2.example.com'],
    * ]
    */
+  remotes: [
+    ['web', 'https://chasinggood.org:80/web'],
+    ['form', 'https://chasinggood.org:80/form'],
+    ['dashboard', 'https://chasinggood.org:80/dashboard']
+  ],
 });
