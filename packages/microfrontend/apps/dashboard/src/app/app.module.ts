@@ -11,6 +11,7 @@ import { UserComponent } from './pages/user/user.component';
 import { HomeComponent } from './pages/home/home.component';
 import { TableModule } from 'primeng/table';
 import { UiModule } from '@microfrontend/ui';
+import { APP_BASE_HREF } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { UiModule } from '@microfrontend/ui';
       { initialNavigation: 'enabledBlocking' }
     ),
   ],
-  providers: [],
+  providers: [{ provide: APP_BASE_HREF, useValue: '/dashboard/' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -9,6 +9,7 @@
       "executor": "@nrwl/angular:webpack-browser",
       "outputs": ["{options.outputPath}"],
       "options": {
+        "baseHref": "/form/",
         "outputPath": "dist/apps/form",
         "index": "apps/form/src/index.html",
         "main": "apps/form/src/main.ts",

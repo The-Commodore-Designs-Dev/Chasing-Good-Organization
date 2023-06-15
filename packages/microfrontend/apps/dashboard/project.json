@@ -9,6 +9,7 @@
       "executor": "@nrwl/angular:webpack-browser",
       "outputs": ["{options.outputPath}"],
       "options": {
+        "baseHref": "/dashboard/",
         "outputPath": "dist/apps/dashboard",
         "index": "apps/dashboard/src/index.html",
         "main": "apps/dashboard/src/main.ts",

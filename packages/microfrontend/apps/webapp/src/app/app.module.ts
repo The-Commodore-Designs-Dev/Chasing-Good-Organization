@@ -1,5 +1,5 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { APP_BASE_HREF, CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -43,7 +43,7 @@ import { OurMissionComponent } from './pages/our-mission/our-mission.component';
       { initialNavigation: 'enabledBlocking' }
     ),
   ],
-  providers: [],
+  providers: [{ provide: APP_BASE_HREF, useValue: '/web/' }],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA],
   entryComponents: [AppComponent],
