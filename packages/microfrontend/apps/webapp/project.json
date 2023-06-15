@@ -9,7 +9,7 @@
       "executor": "@nrwl/angular:webpack-browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/webapp",
+        "outputPath": "dist/apps/web",
         "index": "apps/webapp/src/index.html",
         "main": "apps/webapp/src/main.ts",
         "polyfills": ["zone.js"],
