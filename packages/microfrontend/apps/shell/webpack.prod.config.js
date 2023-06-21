@@ -13,8 +13,8 @@ module.exports = withModuleFederation({
    * ]
    */
   remotes: [
-    ['web', 'https://chasinggood.org:80/web'],
-    ['form', 'https://chasinggood.org:80/form'],
-    ['dashboard', 'https://chasinggood.org:80/dashboard']
+    ['web', 'https://chasinggood.org:443/web'],
+    ['form', 'https://chasinggood.org:443/form'],
+    ['dashboard', 'https://chasinggood.org:443/dashboard']
   ],
 });
