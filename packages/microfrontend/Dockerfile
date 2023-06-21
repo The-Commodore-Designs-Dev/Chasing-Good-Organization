@@ -15,7 +15,7 @@ COPY --from=node /app/dist/apps /usr/share/nginx/html
 
 RUN chmod -R 777 /usr/share/nginx/html/*
 COPY --from=node /app/nginx-custom.conf /etc/nginx/conf.d/default.conf
-COPY ssl.cert /usr/share/nginx
+COPY ssl.crt /usr/share/nginx
 COPY ssl.pass /usr/share/nginx
 COPY ssl.key /usr/share/nginx
 
