@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      working-directory: packages/microfrontend
+      working-directory: packages/webapp
     defaults:
       run:
         working-directory: ${{ env.working-directory }}
