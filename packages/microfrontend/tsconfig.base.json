@@ -1,0 +1,27 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@microfrontend/assets": ["libs/assets/src/index.ts"],
+      "@microfrontend/guards": ["libs/guards/src/index.ts"],
+      "@microfrontend/pipes": ["libs/pipes/src/index.ts"],
+      "@microfrontend/services": ["libs/services/src/index.ts"],
+      "@microfrontend/submission": ["libs/submission/src/index.ts"],
+      "@microfrontend/ui": ["libs/ui/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

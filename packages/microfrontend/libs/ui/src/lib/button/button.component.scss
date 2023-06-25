@@ -1,0 +1,23 @@
+.mdc-button {
+    padding: 10px 50px;
+    background: var(--primary);
+    color: #ffffff;
+}
+
+.mdc-button-mobile {
+    padding: 5px 25px;
+    background: var(--primary);
+    color: #ffffff;
+}
+
+.prev-btn {
+    float: left;
+}
+
+.nxt-btn, .submit-btn {
+    float: right;
+}
+
+.mdc-button.mdc-button-disabled.mdc-button-disabled {
+    background-color: #c0c0c0;
+}

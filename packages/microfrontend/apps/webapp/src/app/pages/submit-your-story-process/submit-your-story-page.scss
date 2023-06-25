@@ -1,0 +1,66 @@
+.instructions {
+    width: 90%;
+    margin: 1em auto 2em;
+    text-align: center;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.the-form {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.instructions p, .the-form p {
+    text-align: center;
+}
+
+.mat-card {
+    box-shadow: none;
+}
+
+.mat-button {
+    padding: 10px 50px;
+    background: var(--primary);
+    color: #ffffff;
+    margin: 0 auto;
+}
+
+.mat-button-mobile {
+    padding: 5px 25px;
+    background: var(--primary);
+    color: #ffffff;
+}
+
+.mat-button.mat-button-disabled.mat-button-disabled {
+    background-color: #c0c0c0;
+}
+
+.page-wrapper-story {
+    width: 80%;
+    min-height: 100vh;
+    margin: 0 auto;
+    background: #ffffff;
+    padding-top: 2em;
+}
+
+h2 {
+    font-size: 32pt;
+    font-weight: 400;
+    line-height: 45px;
+    letter-spacing: initial;
+    color: #000;
+}
+
+p > em {
+    font-size: 14pt;
+}
+
+.email {
+    color: rgba(0, 0, 0, 0.87);
+}

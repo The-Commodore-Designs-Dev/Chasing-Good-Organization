@@ -1,0 +1,121 @@
+.page-wrapper {
+    width: 80%;
+    min-height: 100vh;
+    display: flex;
+    font-weight: 100;
+    text-align: center;
+    justify-content: center;
+    background: #ffffff;;
+    transition: .3s;
+    overflow-x: hidden;
+    // header shrinks when .small added to .header
+    &.small {
+      height: 70px;
+      box-shadow: 0 0 5px rgba(black, .2);
+      // when header.small also change page offset
+      & ~ .offset {
+        padding-top: 140px;
+      }
+      // when header.small change logo pad & font size
+      .header_logo {
+        padding-top: 20px;
+        font-size: 20px;
+        text-shadow: none;
+      }
+    }
+}
+
+#page-wrap {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+    padding-bottom: 2.5rem;
+}
+
+.mat-body, .mat-body-1, .mat-typography {
+    font: 400 16pt 'Poppins', sans-serif;
+    letter-spacing: normal;
+}
+
+/* Styles for the ink bar */
+.mat-ink-bar {
+    display: none !important;
+}
+
+.height-full {
+    height: 100vh;
+}
+
+.height-auto {
+    height: auto;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.t-center {
+    text-align: center;
+}
+
+.left {
+    float: left;
+    display: block;
+    margin-left: 150px;
+    margin-right: 0;
+    text-align: left;
+}
+
+.display {
+    display: block;
+}
+
+.no-display{
+    display: none;
+}
+
+.hr-divider {
+    width: 40px;
+    height: 1px;
+    background-color: #c4c4c4;
+    margin: 25px auto;
+}
+
+.flex-wrapper{
+    display: flex;
+    flex-direction: row;
+    margin: 0 50px;
+    align-items: center;
+}
+
+.flex-wrapper-reverse{
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 0 50px;
+    align-items: center;
+}
+
+.flex-wrapper-colunm {
+    display: flex;
+    flex-direction: column;
+    margin: 0 50px;
+    align-items: center;
+}
+
+@media(max-width:1024px) {
+    .flex-wrapper{
+        flex-direction: column;
+        align-items: center;
+        grid-row-gap: 13px;
+    }
+
+    .flex-wrapper-reverse{
+        flex-direction: column;
+        align-items: center;
+        grid-row-gap: 13px;
+    }
+}

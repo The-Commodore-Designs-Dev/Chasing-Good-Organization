@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  # Angular Shell App
+  shell:
+    extends:
+      file: docker-compose.base.yml
+      service: nx-app-base
+    command: npm run shell:dev:docker
+    ports:
+      - 4200:4200
+
+  # Angular Webapp App
+  webapp:
+    extends:
+      file: docker-compose.base.yml
+      service: nx-app-base
+    command: npm run webapp:dev:docker
+    ports:
+      - 4201:4201
+
+  # Angular Form App
+  form:
+    extends:
+      file: docker-compose.base.yml
+      service: nx-app-base
+    command: npm run form:dev:docker
+    ports:
+      - 4203:4203
+
+  # Angular Form App
+  dashboard:
+    extends:
+      file: docker-compose.base.yml
+      service: nx-app-base
+    command: npm run dashboard:dev:docker
+    ports:
+      - 4202:4202
+
+volumes:
+  mono-node-modules: null

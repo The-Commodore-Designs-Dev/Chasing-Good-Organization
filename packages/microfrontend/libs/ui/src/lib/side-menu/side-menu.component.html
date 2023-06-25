@@ -1,0 +1,5 @@
+<p-sidebar [(visible)]="sidebarVisible">
+    <h3>Sidebar</h3>
+    <p-panelMenu [model]="items" [style]="{'background-color': 'none'}"></p-panelMenu>
+</p-sidebar>
+<p-button (click)="sidebarVisible = true" icon="pi pi-arrow-right" [style]="{'margin': '1em 1em'}"></p-button>

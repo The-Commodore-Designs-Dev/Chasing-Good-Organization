@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Docker Image CI/CD in Development
 
 on:
   push:
@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      working-directory: packages/webapp
+      working-directory: packages/microfrontend
     defaults:
       run:
         working-directory: ${{ env.working-directory }}

@@ -1,0 +1,63 @@
+.errors-box {
+    background-color: #caa4a4;
+    border: 1px solid #cc3030;
+    color: #cc3030;
+    border-radius: 5px;
+    margin: 15px;
+    padding: 5px;
+}
+
+.info-box {
+    margin: 15px;
+    padding: 5px;
+}
+
+.basic-info,
+.nomination-info,
+.story-info,
+.references-info {
+    border: 1px solid #c4c4c4;
+    padding: 13px;
+    margin: 7px 0;
+}
+
+.review {
+    margin: 7px 0;
+}
+
+li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: var(--primary);
+}
+
+strong {
+    font-weight: 700;
+}
+
+p {
+    width: auto;
+    overflow-wrap: break-word;
+}
+
+.mat-checkbox-layout {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: inherit;
+    align-items: baseline;
+    vertical-align: middle;
+    display: inline-block !important;
+    white-space: break-spaces !important;
+}
+
+.mat-checkbox-layout .mat-checkbox-label {
+    line-height: 24px;
+    width: 100%;
+    min-width: 15em;
+}

@@ -1,0 +1,18 @@
+@import './base/colors.scss';
+@import './base/fonts.scss';
+@import './base/configuration.scss';
+
+//Shared
+@import './apps/shared/header.scss';
+@import './apps/shared/footer.scss';
+
+//App Specific {Webapp}
+@import './apps/webapp/main.scss';
+
+//App Specific {Form}
+@import './apps/form/main.scss';
+@import './apps/form/pages/submission-page.scss';
+
+//App Specific {Dashboard}
+//Libraries
+@import './apps/dashboard/main.scss';

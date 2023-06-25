@@ -1,0 +1,25 @@
+.your-name {
+    display: flex;
+}
+
+.your-name-mobile {
+    display: flex;
+    flex-direction: column;
+}
+
+.your-name > input {
+    margin: 2em 4em 2em 0;
+}
+
+.your-name-mobile > input {
+    margin: 2em 4em 2em 0;
+}
+
+.mt {
+    margin-top: 1em;
+}
+
+.mat-hint,
+.mat-error {
+    font-size: 10pt;
+}
