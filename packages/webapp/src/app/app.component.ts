@@ -43,7 +43,7 @@ export class AppComponent implements OnInit {
     window.scrollTo(0, 0);
   }
   
-  onActivate(event: _Event) {
+  onActivate(event: any) {
     event.preventDefault;
     window.scroll(0,0);
   }
