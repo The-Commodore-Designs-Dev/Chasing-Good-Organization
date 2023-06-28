@@ -107,7 +107,7 @@ export class AppComponent implements OnInit {
     `)
 
     //Append the tags to the DOM
-    document.head.prepend(customGtagScriptElem);
+    document.head.append(customGtagScriptElem);
     document.head.appendChild(customScriptElem);
   }
 }
