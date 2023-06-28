@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterState, Event } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { AppConfig } from './app.config';
+import { environment } from 'src/environments/environment';
 
 declare const gtag: Function;
 @Component({
@@ -13,11 +15,13 @@ export class AppComponent implements OnInit {
   title: string = 'Chasing Good';
   loadingDataImg: boolean = false;
 
-  constructor(public _router: Router, private activatedRoute: ActivatedRoute,
+  constructor(public _router: Router, private activatedRoute: ActivatedRoute, public config: AppConfig,
     private titleService: Title) {
       _router.events.subscribe(event => {
         this.navigationInterceptor(event);
       })
+
+      this.grabTrackId();
   
       /** START : Code to Track Page View using gtag.js */
       this._router.events.pipe(
@@ -50,7 +54,7 @@ export class AppComponent implements OnInit {
 
   // collect that title data properties from all child routes
   // there might be a better way but this works for now
-  getTitle(state: RouterState, parent: ActivatedRoute):any {
+  getTitle(state: any, parent: any):any {
     state = this._router.routerState;
     parent = state.root;
     const child = parent.firstChild;
@@ -60,7 +64,7 @@ export class AppComponent implements OnInit {
     }
 
     if(state && parent) {
-      data.push(... this.getTitle(state, child));
+      data.push(... this.getTitle(state, state.firstChild(parent)));
     }
 
     return data;
@@ -87,5 +91,17 @@ export class AppComponent implements OnInit {
         this.loadingDataImg = false;
       }
     }
+
+  grabTrackId() {
+    //Read the value of the track id
+    let gaTrackId = this.config.getConfig('trackId')
+
+    //Add the custom script tag for the Google Analytics
+    let customGtagScriptElem: HTMLScriptElement = document.createElement('script');
+    customGtagScriptElem.async = true;
+    customGtagScriptElem.src = 'https://www.googletagmanager.com/gtag/js?id='+ gaTrackId;
+    document.head.prepend(customGtagScriptElem);
+    gtag('config', environment.GA_TRACKING_ID, { send_page_view: false });
+  }
 }
 
