@@ -105,7 +105,7 @@ export class AppComponent implements OnInit {
     let customScriptElem: HTMLScriptElement = document.createElement('script');
     customScriptElem.append(`window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('config', environment.GA_TRACKING_ID, { send_page_view: false });
+    gtag('config', ${environment.GA_TRACKING_ID}, { send_page_view: false });
     `)
 
     //Append the tags to the DOM
