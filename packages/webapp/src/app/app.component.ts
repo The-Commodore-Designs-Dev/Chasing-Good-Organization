@@ -100,8 +100,17 @@ export class AppComponent implements OnInit {
     let customGtagScriptElem: HTMLScriptElement = document.createElement('script');
     customGtagScriptElem.async = true;
     customGtagScriptElem.src = 'https://www.googletagmanager.com/gtag/js?id='+ gaTrackId;
-    document.head.prepend(customGtagScriptElem);
+    
+    //Add the custom script tag for gtag
+    let customScriptElem: HTMLScriptElement = document.createElement('script');
+    customScriptElem.append(`window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
     gtag('config', environment.GA_TRACKING_ID, { send_page_view: false });
+    `)
+
+    //Append the tags to the DOM
+    document.head.prepend(customGtagScriptElem);
+    document.head.appendChild(customScriptElem);
   }
 }
 
