@@ -17,7 +17,7 @@ export class AppConfig {
     }
 
     public load() {
-        this.http.get('/assets/config/globalconfig.json').pipe(map(data => {
+        this.http.get('../assets/config/globalconfig.json').pipe(map(data => {
             return data;
         })).subscribe((data)=> {
             AppConfig.config = data;
