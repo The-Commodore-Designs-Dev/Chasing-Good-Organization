@@ -4,9 +4,6 @@ EXPOSE 4200
 WORKDIR /app
 COPY . .
 
-ENV PATH=.npm-global/bin:$PATH
-ENV NPM_CONFIG_PREFIX=.npm-global
-
 RUN npm install -g @angular/cli@8.0.6
 
 RUN npm install
