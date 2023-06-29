@@ -1,10 +1,10 @@
 #stage 1
 FROM node:latest as node
-EXPOSE 80
+EXPOSE 4200
 WORKDIR /app
 COPY . .
 RUN npm install
-RUN npm run build --include=dev
+RUN npm run start
 
 #stage 2
 FROM nginx:alpine
