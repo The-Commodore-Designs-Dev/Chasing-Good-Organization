@@ -15,8 +15,7 @@ export class AppComponent implements OnInit {
   title: string = 'Chasing Good';
   loadingDataImg: boolean = false;
 
-  constructor(public _router: Router, private activatedRoute: ActivatedRoute, public config: AppConfig,
-    private titleService: Title) {
+  constructor(public _router: Router, private activatedRoute: ActivatedRoute, public config: AppConfig, private titleService: Title) {
       _router.events.subscribe(event => {
         this.navigationInterceptor(event);
       })
