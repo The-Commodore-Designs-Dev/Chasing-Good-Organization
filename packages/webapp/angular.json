@@ -45,7 +45,7 @@
 						"assets": [
 							"src/favicon.ico",
 							"src/assets",
-							{ "glob": "globalconfig.json", "input": "./assets/config/", "output": "./assets/config/" }
+							{ "glob": "globalconfig.json", "input": "src/assets/config/", "output": "./assets/config/" }
 						],
 						"styles": [
 							"src/styles.scss"
