@@ -54,13 +54,10 @@ export class ReferencesFormComponent implements OnInit {
       name: references.controls['referenceName2'].value.trim(),
       email: references.controls['referenceEmail2'].value.trim(),
       phone: references.controls['referencePhone2'].value.trim()
-    }
+    }  
 
-    let reference1String = JSON.stringify(this.reference1);
-    let reference2String = JSON.stringify(this.reference2);  
-
-    submission.referenceOne = reference1String;
-    submission.referenceTwo = reference2String;
+    submission.referenceOne = this.reference1;
+    submission.referenceTwo = this.reference2;
   }
 
 }

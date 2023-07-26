@@ -17,7 +17,7 @@ export interface Submission {
     county?: string;
     story?: string;
     uploadedVideo?: string;
-    referenceOne?: string;
-    referenceTwo?: string;
+    referenceOne?: Object;
+    referenceTwo?: Object;
     disclaimerAgreement?: boolean;
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, ValidationErrors } from '@angular/forms';
-import { Submission } from 'src/types/Submission';
+import { Submission } from '../../../../types/Submission';
 
 @Component({
   selector: 'app-review-form',
@@ -46,8 +46,8 @@ export class ReviewFormComponent implements OnInit {
     });
 
     if(this.submission.referenceOne && this.submission.referenceTwo) {
-      this.submission.referenceOne.substr(0, 14);
-      this.submission.referenceTwo.substr(0, 14);
+      this.submission.referenceOne;
+      this.submission.referenceTwo;
     }
     
   }

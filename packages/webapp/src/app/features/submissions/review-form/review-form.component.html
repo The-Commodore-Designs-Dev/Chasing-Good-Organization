@@ -57,13 +57,17 @@
       <div>
         <div class="reference review">
           <div>
-            <p>{{submission.referenceOne | split:"\"":3}} {{submission.referenceOne | split:"\"":7}} {{submission.referenceOne | split:"\"":11}}</p>
+            <p>{{submission.referenceOne.name}}</p>
+            <p>{{submission.referenceOne.email}}</p>
+            <p>{{submission.referenceOne.phone}}</p>
           </div>
           
         </div>
         <div class="reference review">
           <div>
-            <p>{{submission.referenceTwo | split:"\"":3}} {{submission.referenceTwo | split:"\"":7}} {{submission.referenceTwo | split:"\"":11}}</p>
+            <p>{{submission.referenceTwo.name}}</p>
+            <p>{{submission.referenceTwo.email}}</p>
+            <p>{{submission.referenceTwo.phone}}</p>
           </div>
           <div>
 
