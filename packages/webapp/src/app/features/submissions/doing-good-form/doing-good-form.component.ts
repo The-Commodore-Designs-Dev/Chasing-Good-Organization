@@ -7,7 +7,6 @@ import { DataStore, Storage } from 'aws-amplify';
 import { APIService } from '../../../API.service';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import emailjs from '@emailjs/browser';
-import { Submission } from '../../../../models';
 import { Subscription, GroupedObservable } from 'rxjs';
 import { BasicInfoFormComponent } from '../basic-info-form/basic-info-form.component';
 import { NominationDetailsFormComponent } from '../nomination-details-form/nomination-details-form.component';
@@ -18,6 +17,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { SentMessage } from '../../messages/sent/sent.component';
 import { ErrorMessage } from '../../messages/error/error.component';
 import { AgreementFormComponent } from '../agreement-form/agreement-form.component';
+import { Reference } from '../../../../types/Reference';
+import { Submission } from '../../../../types/Submission';
 
 const BASIC_INFO_INDEX: number = 0;
 const NOMINATION_INDEX: number = 1;
@@ -47,8 +48,8 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
   destroyed = new Subject<void>();
   currentScreenSize: string;
   public file: File;
-  public reference1: Object;
-  public reference2: Object;
+  public reference1: Reference;
+  public reference2: Reference;
 
   displayNameMap = new Map([
     [Breakpoints.Small, 'Small'],
@@ -330,7 +331,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
 
   private getIconElementByIndex(index: number): HTMLElement {
     let nodeList: NodeList = document.querySelectorAll('.mat-step-icon');
-    let node: Node = nodeList.item(index);
+    let node: Node | null = nodeList.item(index);
     return (<HTMLElement>node);
   }
 
@@ -482,8 +483,16 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
         county: "",
         story: "",
         uploadedVideo: "",
-        referenceOne: "",
-        referenceTwo: "",
+        referenceOne: {
+          name: "",
+          email: "",
+          phoneNumber: ""
+        },
+        referenceTwo: {
+          name: "",
+          email: "",
+          phoneNumber: ""
+        },
         disclaimerAgreement: false
       };
 
@@ -492,7 +501,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
       this.errorSnackbar();
       let errSpan = document.getElementById('errorMessageSent');
       let errMessageText = document.createTextNode(event.errors[0].message);
-      errSpan.appendChild(errMessageText);
+      errSpan?.appendChild(errMessageText);
     });
   }
 
