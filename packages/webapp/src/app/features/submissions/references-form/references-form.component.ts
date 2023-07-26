@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 import { Submission } from '../../../../types/Submission';
+import { Reference } from '../../../../types/Reference'
 
 @Component({
   selector: 'app-references-form',
@@ -11,8 +12,8 @@ import { Submission } from '../../../../types/Submission';
 export class ReferencesFormComponent implements OnInit {
   public refFormGroup: FormGroup;
 
-  @Input() reference1: Object;
-  @Input() reference2: Object;
+  @Input() reference1: Reference;
+  @Input() reference2: Reference;
   
   constructor(private fb: FormBuilder) { }
 
@@ -41,19 +42,19 @@ export class ReferencesFormComponent implements OnInit {
 
   populateSubmission(submission: Submission) {
     let references: FormGroup = this.refFormGroup;
-    this.reference1 = new Object();
-    this.reference2 = new Object();
+    this.reference1;
+    this.reference2;
 
     this.reference1 = {
       name: references.controls['referenceName1'].value.trim(),
       email: references.controls['referenceEmail1'].value.trim(),
-      phone: references.controls['referencePhone1'].value.trim()
+      phoneNumber: references.controls['referencePhone1'].value.trim()
     }
     
     this.reference2 = {
       name: references.controls['referenceName2'].value.trim(),
       email: references.controls['referenceEmail2'].value.trim(),
-      phone: references.controls['referencePhone2'].value.trim()
+      phoneNumber: references.controls['referencePhone2'].value.trim()
     }  
 
     submission.referenceOne = this.reference1;
