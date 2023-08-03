@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
+import env from "../../.env";
 
 const connectDB = async () => {
     try {
-        await mongoose.connect(process.env.DATABASE_URI, {
+        await mongoose.connect(env.DATABASE_URI, {
             useUnifiedTopology: true,
             useNewUrlParser: true
         })
