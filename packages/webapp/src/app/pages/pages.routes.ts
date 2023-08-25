@@ -29,7 +29,8 @@ export const PAGES_ROUTES: Routes = [
         }, {
           path: 'contact-us',
           component: ContactUsComponent
-        }]
+        }
+      ]
     },
     {
       path: 'terms-of-use',
