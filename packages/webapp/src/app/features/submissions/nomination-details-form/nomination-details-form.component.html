@@ -2,8 +2,9 @@
         <div class="mt">
             <mat-label for="organization">Who are you nominating:</mat-label>
             <mat-radio-group formControlName="nominatingOptions">
-                <mat-radio-button value="Organization" labelPosition="after">Organization</mat-radio-button>
-                <mat-radio-button value="Individual" labelPosition="after">Individual</mat-radio-button>
+                <mat-radio-button value="An organization" labelPosition="after">Nominate an organization</mat-radio-button>
+                <mat-radio-button value="An Adult Individual" labelPosition="after">Nominate an adult individual (18+)</mat-radio-button>
+                <mat-radio-button value="A Teen Individual" labelPosition="after">Nominate a teen individual (ages 13-17)</mat-radio-button>
             </mat-radio-group>
             <mat-form-field><input matInput id="organization" type="text" formControlName="organizationName"><mat-hint>please provide the name of the organization you are nominating</mat-hint></mat-form-field>
             <mat-form-field><input matInput id="individual" type="text" formControlName="individualFullName"><mat-hint>please provide the name of who you are nominating</mat-hint></mat-form-field>

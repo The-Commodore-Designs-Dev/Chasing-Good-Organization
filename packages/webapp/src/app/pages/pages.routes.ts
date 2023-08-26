@@ -29,16 +29,15 @@ export const PAGES_ROUTES: Routes = [
         }, {
           path: 'contact-us',
           component: ContactUsComponent
-        }
+        }, {
+          path: 'terms-of-use',
+          component: TermsofuseComponent
+        }, {
+          path: 'privacy-policy',
+          component: PrivacypolicyComponent
+        },
       ]
     },
-    {
-      path: 'terms-of-use',
-      component: TermsofuseComponent
-    },
-    {
-      path: 'privacy-policy',
-      component: PrivacypolicyComponent
-    },
+
     {path: '**', component: PageNotFoundComponent}
 ];
