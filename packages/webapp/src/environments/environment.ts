@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:4200'
+  apiUrl: 'https://dev0api.chasiggood.org',
+  baseUrl: 'https://dev0.chasinggood.org',
+  GA_TRACKING_ID: 'G-WVEYC73KXN'
 };
 
 /*

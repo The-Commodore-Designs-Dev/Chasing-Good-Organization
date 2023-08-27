@@ -3,6 +3,23 @@ mat-card {
     margin: 0 auto;
 }
 
+.first-card {
+    min-height: 22em;
+}
+
+.first-card-div {
+    min-height: 22em;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.first-card > div > div > img {
+    display: inline-block;
+    width: 30em;
+    height: 30em;
+}
+
 p {
     line-height: 1.5;
     text-align: justify;

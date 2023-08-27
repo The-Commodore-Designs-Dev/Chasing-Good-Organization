@@ -1,6 +1,6 @@
 
 export const categories = [
-    { id: '1', name: 'An Organization That Has Done Good'},
-    { id: '2', name: 'An Individual 18 Or Over Who Has Done Good'},
-    { id: '3', name: 'An Individual 13-17 Who Has Done Good'}
+    { id: '1', name: 'Nominate an organization'},
+    { id: '2', name: 'Nominate an adult individual (18+)'},
+    { id: '3', name: 'Nominate a teen individual (ages 13-17)'}
 ]

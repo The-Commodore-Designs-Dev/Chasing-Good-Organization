@@ -27,7 +27,7 @@ export class NominationDetailsFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.nominationDetailsFormGroup = this.fb.group({
-      'nominatingOptions': [['Self', 'Organization', 'Individual', 'Other'], []],
+      'nominatingOptions': [['An organization', 'An Adult Individual', 'A Teen Individual'], []],
       'organizationName': ['', []],
       'individualFullName': ['', []],
       'individualEmailAddress': ['', []],

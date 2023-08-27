@@ -84,6 +84,7 @@ export const schema = {
                     "name": "story",
                     "isArray": false,
                     "type": "String",
+                    
                     "isRequired": false,
                     "attributes": []
                 },

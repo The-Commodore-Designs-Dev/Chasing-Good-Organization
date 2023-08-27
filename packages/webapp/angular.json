@@ -44,7 +44,8 @@
 						"inlineStyleLanguage": "scss",
 						"assets": [
 							"src/favicon.ico",
-							"src/assets"
+							"src/assets",
+							{ "glob": "globalconfig.json", "input": "src/assets/config/", "output": "./assets/config/" }
 						],
 						"styles": [
 							"src/styles.scss"

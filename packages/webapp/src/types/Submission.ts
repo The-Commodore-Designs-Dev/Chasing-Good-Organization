@@ -4,20 +4,20 @@ import { Vote } from './Vote';
 
 export interface Submission {
     id: string;
-    firstName?: string;
-    lastName?: string;
-    email?: string;
-    phoneNumber?: string;
-    date?: string;
-    nominatingOptions?: string;
-    organizationName?: string;
-    individualFullName?: string;
-    individualEmailAddress?: string;
-    category?: string;
-    county?: string;
-    story?: string;
-    uploadedVideo?: string;
-    referenceOne?: string;
-    referenceTwo?: string;
-    disclaimerAgreement?: boolean;
+    firstName?: string | null;
+    lastName?: string | null;
+    email?: string | null;
+    phoneNumber?: string | null;
+    date?: string | null;
+    nominatingOptions?: string | null;
+    organizationName?: string | null;
+    individualFullName?: string | null;
+    individualEmailAddress?: string | null;
+    category?: string | null;
+    county?: string | null;
+    story?: string | null;
+    uploadedVideo?: string | null;
+    referenceOne?: Reference | null;
+    referenceTwo?: Reference | null;
+    disclaimerAgreement?: boolean | null;
 }

@@ -1,0 +1,37 @@
+name: Docker Image Backend CI/CD in Development
+
+on:
+  push:
+    branches:
+      - developer
+    paths:
+      - "packages/server/**"
+
+jobs:
+  build_backend:
+    runs-on: ubuntu-latest
+    env:
+      working-directory: packages/server
+    defaults:
+      run:
+        working-directory: ${{ env.working-directory }}
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Docker Login
+        env:
+          DOCKER_USER: ${{secrets.DOCKER_USER}}
+          DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+        run: |
+          docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+
+      - name: Build the Docker Image
+        run: docker build . --file Dockerfile.dev --tag thecommodoredesignsdev/chasinggood-backend-development:latest
+
+      - name: Push the Docker Image
+        run: docker push ${{secrets.DOCKER_USER}}/chasinggood-backend-development
+
+      - name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}

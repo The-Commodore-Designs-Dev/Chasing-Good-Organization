@@ -34,7 +34,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { PagesComponent } from './pages/pages.component';
 import { AboutComponent } from './pages/about/about.component';
 import { SubmitYourStoryComponent } from './pages/submit-your-story/submit-your-story.component';
-import { MeetSomeNomineesComponent } from './pages/meet-some-nominees/meet-some-nominees.component';
+import { MeetTheWinnersComponent } from './pages/meet-the-winners/meet-the-winners.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { BasicInfoFormComponent } from './features/submissions/basic-info-form/basic-info-form.component';
@@ -96,7 +96,7 @@ import { APIService } from './API.service';
         HomeComponent,
         AboutComponent,
         SubmitYourStoryComponent,
-        MeetSomeNomineesComponent,
+        MeetTheWinnersComponent,
         ContactUsComponent,
         HeaderComponent,
         DoingGoodFormComponent,

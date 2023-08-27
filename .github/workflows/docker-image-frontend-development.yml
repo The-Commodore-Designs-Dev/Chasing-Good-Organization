@@ -1,15 +1,17 @@
-name: Docker Image CI/CD in Development
+name: Docker Image Frontend CI/CD in Development
 
 on:
   push:
     branches:
       - developer
+    paths:
+      - "packages/webapp/**"
 
 jobs:
-  build:
+  build_frontend:
     runs-on: ubuntu-latest
     env:
-      working-directory: packages/microfrontend
+      working-directory: packages/webapp
     defaults:
       run:
         working-directory: ${{ env.working-directory }}
@@ -26,7 +28,7 @@ jobs:
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
       - name: Build the Docker Image
-        run: docker build . --file Dockerfile --tag thecommodoredesignsdev/chasinggood-frontend-development:latest
+        run: docker build . --file Dockerfile.dev --tag thecommodoredesignsdev/chasinggood-frontend-development:latest
 
       - name: Push the Docker Image
         run: docker push ${{secrets.DOCKER_USER}}/chasinggood-frontend-development

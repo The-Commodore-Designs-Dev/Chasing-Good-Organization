@@ -30,8 +30,8 @@ export declare class Submission {
   readonly county?: string | null;
   readonly story?: string | null;
   readonly uploadedVideo?: string | null;
-  readonly referenceOne?: string | null;
-  readonly referenceTwo?: string | null;
+  readonly referenceOne?: object | null;
+  readonly referenceTwo?: object | null;
   readonly disclaimerAgreement?: boolean | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
