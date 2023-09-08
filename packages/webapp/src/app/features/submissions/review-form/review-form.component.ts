@@ -46,8 +46,8 @@ export class ReviewFormComponent implements OnInit {
     });
 
     if(this.submission.referenceOne && this.submission.referenceTwo) {
-      this.submission.referenceOne;
-      this.submission.referenceTwo;
+      this.submission.referenceOne.name;
+      this.submission.referenceTwo.name;
     }
     
   }

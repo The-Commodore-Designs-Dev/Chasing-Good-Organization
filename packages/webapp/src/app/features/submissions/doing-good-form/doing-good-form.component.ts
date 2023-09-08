@@ -100,7 +100,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
     this.basicInfoFormSubscription.unsubscribe();
     this.nominationInfoFormSubscription.unsubscribe();
     this.storyInfoFormSubscription.unsubscribe();
-    this.referencesInfoFormSubscription.unsubscribe();
+/*     this.referencesInfoFormSubscription.unsubscribe(); */
     this.agreementFormSubscriotion.unsubscribe();
   }
 
@@ -112,7 +112,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
     this.handleBasicInfoFormSubscription();
     this.handleNominationInfoFormSubscription();
     this.handleStoryInfoFormSubscription();
-    this.handleReferencesInfoFormSubscription();
+/*     this.handleReferencesInfoFormSubscription(); */
     this.handleAgreementFormSubscription();
   }
 
@@ -161,7 +161,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
     );
   }
 
-  private handleReferencesInfoFormSubscription() {
+/*   private handleReferencesInfoFormSubscription() {
     this.referencesInfoFormSubscription = this.referencesFormComponent
     .refFormGroup
     .valueChanges
@@ -174,7 +174,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
         this.handleFormCheck();
       }
     );
-  }
+  } */
 
   private handleAgreementFormSubscription() {
     this.agreementFormSubscriotion = this.agreementFormComponent
@@ -195,7 +195,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
     this.handleBasicInfoFormCheck();
     this.handleNominationInfoFormCheck();
     this.handleStoryInfoFormCheck();
-    this.handleReferencesInfoFormCheck();
+/*     this.handleReferencesInfoFormCheck(); */
     this.handleAgreementDisclaimerFormCheck();
   }
 
@@ -223,13 +223,13 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
     }
   }
 
-  private handleReferencesInfoFormCheck() {
+/*   private handleReferencesInfoFormCheck() {
     if (this.currentStepIndex == REFERENCES_INDEX) {
       if (this.referencesFormComponent.refFormGroup.valid) {
         this.clearIconError(REFERENCES_INDEX);
       }
     }
-  }
+  } */
 
   private handleAgreementDisclaimerFormCheck() {
     if (this.currentStepIndex == AGREEMENT_INDEX) {
@@ -284,7 +284,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
       }
     } 
     
-    if(previousIndex == REFERENCES_INDEX) {
+/*     if(previousIndex == REFERENCES_INDEX) {
       this.referencesFormComponent.populateSubmission(this.submission);
 
       let validForm: boolean = (this.referencesFormComponent.refFormGroup.valid);
@@ -295,7 +295,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
         this.clearIconError(previousIndex);
         this.allFormsValid = true;
       }
-    } 
+    }  */
     
     if (previousIndex == AGREEMENT_INDEX) {
       this.agreementFormComponent.populateSubmission(this.submission);
@@ -341,7 +341,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
     this.validateBasicInfoForm();
     this.validateNominationInfoForm();
     this.validateStoryInfoForm();
-    this.validateReferencesInfoForm();
+/*     this.validateReferencesInfoForm(); */
     this.validateAgreementDisclaimerForm();
   }
 
@@ -378,7 +378,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
     });
   }
 
-  private validateReferencesInfoForm() {
+/*   private validateReferencesInfoForm() {
     let referencesInfoForm: FormGroup = this.referencesFormComponent.refFormGroup;
 
     Object.keys(referencesInfoForm.controls).forEach(key => {
@@ -387,7 +387,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
         this.addErrorByKey(key);
       }
     });
-  }
+  } */
 
   private validateAgreementDisclaimerForm() {
     let agreementForm: FormGroup = this.agreementFormComponent.disclaimerFormGroup;
@@ -404,12 +404,12 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
     if(key == 'firstName') this.errorMessages.push("Please enter a valid First Name");
     else if(key == 'lastName') this.errorMessages.push("Please enter a valid Last Name");
     else if(key == 'email') this.errorMessages.push("Please include an Email Address");
-    else if(key == 'referenceName1') this.errorMessages.push('Please include a Reference Name');
+/*     else if(key == 'referenceName1') this.errorMessages.push('Please include a Reference Name');
     else if(key == 'referenceEmail1') this.errorMessages.push('Please include a Reference Email Address');
     else if(key == 'referencePhone1') this.errorMessages.push('Please include a Reference Phone Number');
     else if(key == 'referenceName2') this.errorMessages.push('Please include a second Reference Name');
     else if(key == 'referenceEmail2') this.errorMessages.push('Please include a second Reference Email Address');
-    else if(key == 'referencePhone2') this.errorMessages.push('Please include a second Reference Phone Number');
+    else if(key == 'referencePhone2') this.errorMessages.push('Please include a second Reference Phone Number'); */
     else if(key == 'agreeToLicenseAndAgreement') this.errorMessages.push("Please Read and Accept the Licsense and Consent Agreement");
   }
 

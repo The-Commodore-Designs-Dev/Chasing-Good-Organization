@@ -1,46 +1,47 @@
 export type AmplifyDependentResourcesAttributes = {
-    "api": {
-        "cgowebapp": {
-            "GraphQLAPIIdOutput": "string",
-            "GraphQLAPIEndpointOutput": "string"
-        }
-    },
-    "auth": {
-        "cgowebapp83f983ca": {
-            "IdentityPoolId": "string",
-            "IdentityPoolName": "string",
-            "UserPoolId": "string",
-            "UserPoolArn": "string",
-            "UserPoolName": "string",
-            "AppClientIDWeb": "string",
-            "AppClientID": "string",
-            "CreatedSNSRole": "string"
-        }
-    },
-    "storage": {
-        "s3dd5e078b": {
-            "BucketName": "string",
-            "Region": "string"
-        }
-    },
-    "hosting": {
-        "S3AndCloudFront": {
-            "Region": "string",
-            "HostingBucketName": "string",
-            "WebsiteURL": "string",
-            "S3BucketSecureURL": "string",
-            "CloudFrontDistributionID": "string",
-            "CloudFrontDomainName": "string",
-            "CloudFrontSecureURL": "string",
-            "CloudFrontOriginAccessIdentity": "string"
-        }
-    },
-    "function": {
-        "thankyouemailLambda": {
-            "Name": "string",
-            "Arn": "string",
-            "Region": "string",
-            "LambdaExecutionRole": "string"
-        }
+  "api": {
+    "cgowebapp": {
+      "GraphQLAPIEndpointOutput": "string",
+      "GraphQLAPIIdOutput": "string"
     }
+  },
+  "auth": {
+    "cgowebapp83f983ca": {
+      "AppClientID": "string",
+      "AppClientIDWeb": "string",
+      "CreatedSNSRole": "string",
+      "IdentityPoolId": "string",
+      "IdentityPoolName": "string",
+      "UserPoolArn": "string",
+      "UserPoolId": "string",
+      "UserPoolName": "string"
+    }
+  },
+  "function": {
+    "thankyouemailLambda": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    }
+  },
+  "hosting": {
+    "S3AndCloudFront": {
+      "CloudFrontDistributionID": "string",
+      "CloudFrontDomainName": "string",
+      "CloudFrontOriginAccessIdentity": "string",
+      "CloudFrontSecureURL": "string",
+      "HostingBucketName": "string",
+      "Region": "string",
+      "S3BucketSecureURL": "string",
+      "WebsiteURL": "string"
+    }
+  },
+  "storage": {
+    "s3dd5e078b": {
+      "BucketName": "string",
+      "Region": "string"
+    }
+  }
 }
