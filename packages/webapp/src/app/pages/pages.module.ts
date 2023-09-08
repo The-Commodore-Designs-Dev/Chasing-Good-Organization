@@ -10,7 +10,6 @@ import { AppComponent } from '../app.component';
         SharedModule,
         RouterModule.forChild(PAGES_ROUTES)
     ],
-    bootstrap: [AppComponent],
-    entryComponents: [AppComponent]
+    bootstrap: [AppComponent]
 })
 export class PagesModule { }

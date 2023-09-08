@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, UntypedFormBuilder } from '@angular/forms';
 
 import { njCounties } from '../../../../types/NJCounty';
 import { categories } from '../../../../types/Category';
@@ -14,16 +14,16 @@ export class NominationDetailsFormComponent implements OnInit {
   njCounties = njCounties;
   categories = categories;
   
-  public nominationDetailsFormGroup: FormGroup = new FormGroup({
-    nominatingOptions: new FormControl(''),
-    organizationName: new FormControl(''),
-    individualFullName: new FormControl(''),
-    individualEmailAddress: new FormControl(''),
-    category: new FormControl(''),
-    njCounty: new FormControl('')
+  public nominationDetailsFormGroup: UntypedFormGroup = new UntypedFormGroup({
+    nominatingOptions: new UntypedFormControl(''),
+    organizationName: new UntypedFormControl(''),
+    individualFullName: new UntypedFormControl(''),
+    individualEmailAddress: new UntypedFormControl(''),
+    category: new UntypedFormControl(''),
+    njCounty: new UntypedFormControl('')
   });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: UntypedFormBuilder) { }
 
   ngOnInit(): void {
     this.nominationDetailsFormGroup = this.fb.group({
@@ -37,7 +37,7 @@ export class NominationDetailsFormComponent implements OnInit {
   }
 
   populateSubmission(submission: Submission) {
-    let nominationDetails: FormGroup = this.nominationDetailsFormGroup;
+    let nominationDetails: UntypedFormGroup = this.nominationDetailsFormGroup;
 
     submission.nominatingOptions = nominationDetails.controls['nominatingOptions'].value;
     submission.organizationName = nominationDetails.controls['organizationName'].value.trim();
