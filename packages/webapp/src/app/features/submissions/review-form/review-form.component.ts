@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, ValidationErrors } from '@angular/forms';
+import { UntypedFormGroup, FormControl, UntypedFormBuilder, ValidationErrors } from '@angular/forms';
 import { Submission } from '../../../../types/Submission';
 
 @Component({
@@ -29,14 +29,14 @@ export class ReviewFormComponent implements OnInit {
 
   @Input() submission: Submission;
   @Input() errorMessages: string[] = [];
-  @Input() basicInfoFormGroup: FormGroup;
-  @Input() nominationDetailsFormGroup: FormGroup;
-  @Input() storyDetailsFormGroup: FormGroup;
-  @Input() refFormGroup: FormGroup;
-  @Input() disclaimerFormGroup: FormGroup;
+  @Input() basicInfoFormGroup: UntypedFormGroup;
+  @Input() nominationDetailsFormGroup: UntypedFormGroup;
+  @Input() storyDetailsFormGroup: UntypedFormGroup;
+  @Input() refFormGroup: UntypedFormGroup;
+  @Input() disclaimerFormGroup: UntypedFormGroup;
   @Input() checkbox1: boolean;
   
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: UntypedFormBuilder) {
     
   }
   

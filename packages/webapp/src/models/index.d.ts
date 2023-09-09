@@ -35,8 +35,8 @@ export declare class Submission {
   readonly disclaimerAgreement?: boolean | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
-  constructor(init: ModelInit<Submission, SubmissionMetaData>);
-  static copyOf(source: Submission, mutator: (draft: MutableModel<Submission, SubmissionMetaData>) => MutableModel<Submission, SubmissionMetaData> | void): Submission;
+  constructor(init: ModelInit<Submission>);
+  static copyOf(source: Submission, mutator: (draft: MutableModel<Submission>) => MutableModel<Submission> | void): Submission;
 }
 
 export declare class Vote {
@@ -48,8 +48,8 @@ export declare class Vote {
   readonly judges?: (Judge | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
-  constructor(init: ModelInit<Vote, VoteMetaData>);
-  static copyOf(source: Vote, mutator: (draft: MutableModel<Vote, VoteMetaData>) => MutableModel<Vote, VoteMetaData> | void): Vote;
+  constructor(init: ModelInit<Vote>);
+  static copyOf(source: Vote, mutator: (draft: MutableModel<Vote>) => MutableModel<Vote> | void): Vote;
 }
 
 export declare class Judge {
@@ -59,6 +59,6 @@ export declare class Judge {
   readonly username?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
-  constructor(init: ModelInit<Judge, JudgeMetaData>);
-  static copyOf(source: Judge, mutator: (draft: MutableModel<Judge, JudgeMetaData>) => MutableModel<Judge, JudgeMetaData> | void): Judge;
+  constructor(init: ModelInit<Judge>);
+  static copyOf(source: Judge, mutator: (draft: MutableModel<Judge>) => MutableModel<Judge> | void): Judge;
 }

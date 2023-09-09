@@ -133,6 +133,5 @@
 				}
 			}
 		}
-	},
-	"defaultProject": "web-app"
+  }
 }
