@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { UntypedFormGroup, FormControl, UntypedFormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, FormControl, UntypedFormBuilder, Validators, FormGroup, FormBuilder } from '@angular/forms';
 
 import { Submission } from '../../../../types/Submission';
 import { Reference } from '../../../../types/Reference'
@@ -10,12 +10,12 @@ import { Reference } from '../../../../types/Reference'
   styleUrls: ['./references-form.component.scss']
 })
 export class ReferencesFormComponent implements OnInit {
-  public refFormGroup: UntypedFormGroup;
+  public refFormGroup: FormGroup;
 
   @Input() reference1: Reference;
   @Input() reference2: Reference;
   
-  constructor(private fb: UntypedFormBuilder) { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.refFormGroup = this.fb.group({
@@ -41,7 +41,7 @@ export class ReferencesFormComponent implements OnInit {
   }
 
   populateSubmission(submission: Submission) {
-    let references: UntypedFormGroup = this.refFormGroup;
+    let references: FormGroup = this.refFormGroup;
     this.reference1;
     this.reference2;
 

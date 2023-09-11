@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { UntypedFormGroup, FormControl, UntypedFormBuilder, ValidationErrors } from '@angular/forms';
+import { UntypedFormGroup, FormControl, UntypedFormBuilder, ValidationErrors, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Submission } from '../../../../types/Submission';
 
 @Component({
@@ -24,25 +24,28 @@ export class ReviewFormComponent implements OnInit {
     'phone': [
       { type: 'required', message: 'Phone Number is required' },
       { type: 'pattern', message: 'Enter a valid phone number' }
+    ],
+    'ageree': [
+      {type: 'required', messaged: 'Agreement is required'}
     ]
   }
 
   @Input() submission: Submission;
   @Input() errorMessages: string[] = [];
-  @Input() basicInfoFormGroup: UntypedFormGroup;
-  @Input() nominationDetailsFormGroup: UntypedFormGroup;
-  @Input() storyDetailsFormGroup: UntypedFormGroup;
-  @Input() refFormGroup: UntypedFormGroup;
-  @Input() disclaimerFormGroup: UntypedFormGroup;
-  @Input() checkbox1: boolean;
+  @Input() basicInfoFormGroup: FormGroup;
+  @Input() nominationDetailsFormGroup: FormGroup;
+  @Input() storyDetailsFormGroup: FormGroup;
+  @Input() refFormGroup: FormGroup;
+  @Input() disclaimerFormGroup: FormGroup;
+  @Input() theChkAcceptTerms: boolean;
   
-  constructor(private fb: UntypedFormBuilder) {
+  constructor(private fb: FormBuilder) {
     
   }
   
   ngOnInit(): void {
     this.disclaimerFormGroup = this.fb.group({
-      'agreeToTermsAndPrivacy': ['', []]
+      'agreeToTermsAndPrivacy': ['', [Validators.required]]
     });
 
     if(this.submission.referenceOne && this.submission.referenceTwo) {

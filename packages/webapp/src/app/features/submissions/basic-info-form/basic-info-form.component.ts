@@ -1,6 +1,6 @@
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit, Input } from '@angular/core';
-import { UntypedFormGroup, UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, UntypedFormControl, Validators, FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Submission } from 'src/types/Submission';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -19,14 +19,14 @@ export class BasicInfoFormComponent implements OnInit {
     [Breakpoints.Medium, 'Medium'],
     [Breakpoints.Large, 'Large'],
   ]);
-  basicInfoFormGroup: UntypedFormGroup =  new UntypedFormGroup({
-    firstName: new UntypedFormControl(''),
-    lastName: new UntypedFormControl(''),
-    email: new UntypedFormControl(''),
-    phone: new UntypedFormControl(''), 
+  basicInfoFormGroup: FormGroup =  new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    email: new FormControl(''),
+    phone: new FormControl(''), 
   });
   
-  constructor(private fb: UntypedFormBuilder, private observer: BreakpointObserver) {
+  constructor(private fb: FormBuilder, private observer: BreakpointObserver) {
     this.observer
     .observe([
       Breakpoints.Small,
@@ -57,7 +57,7 @@ export class BasicInfoFormComponent implements OnInit {
   }
 
   populateSubmission(submission: Submission) {
-    let basicInfo: UntypedFormGroup = this.basicInfoFormGroup;
+    let basicInfo: FormGroup = this.basicInfoFormGroup;
 
     submission.firstName = basicInfo.controls['firstName'].value.trim();
     submission.lastName = basicInfo.controls['lastName'].value.trim();

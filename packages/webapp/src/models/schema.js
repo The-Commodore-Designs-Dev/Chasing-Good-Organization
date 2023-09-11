@@ -113,7 +113,7 @@ export const schema = {
                     "name": "disclaimerAgreement",
                     "isArray": false,
                     "type": "Boolean",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
                 },
                 "createdAt": {

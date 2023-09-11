@@ -24,7 +24,7 @@
     <div class="btn_container">
         <form [formGroup]="disclaimerFormGroup">
             <div>
-              <input type="checkbox" [required] formControlName="agreeToLicenseAndAgreement" id="disclaimer" [checked]="checkbox1" (change)="checkbox1 = !checkbox1" /><span style="white-space:normal; display:inline-block; padding-left:5px;">I Agree to the License and Consent Disclaimer of ChasingGood</span>                              
+              <input type="checkbox" [required] value="theChkAcceptTerms"  [(ngModel)]="theChkAcceptTerms"  (ngModelChange)="changed($event, 'theChkAcceptTerms')" formControlName="agreeToLicenseAndAgreement" id="disclaimer" [checked]="theChkAcceptTerms" /><span style="white-space:normal; display:inline-block; padding-left:5px;">I Agree to the License and Consent Disclaimer of ChasingGood</span>                              
             </div>
         </form>
     </div>

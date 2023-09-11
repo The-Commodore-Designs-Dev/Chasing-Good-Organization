@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { UntypedFormGroup, FormControl, UntypedFormBuilder, ValidationErrors, Validators } from '@angular/forms';
+import { UntypedFormGroup, FormControl, UntypedFormBuilder, ValidationErrors, Validators, FormGroup } from '@angular/forms';
 import { Submission } from 'src/types/Submission';
 
 @Component({
@@ -24,24 +24,50 @@ export class AgreementFormComponent implements OnInit {
     list_item_4: `Law. This Agreement shall be deemed to have been made in the State of New Jersey, United States of America and all matters arising from or relating in any manner to the subject matter of this Agreement shall be interpreted, and the rights and liabilities of the parties determined, in accordance with the Laws of the State of New Jersey applicable to agreements executed, delivered, and performed within such State, without regard to the principles of conflicts of Laws thereof.  As part of the consideration for value received, you further consent to the exclusive jurisdiction of any state or federal court located within the State of New Jersey with respect to all matters arising from or relating in any manner to the subject matter of this Agreement.  With respect to all matters arising from or relating in any manner to the subject matter of this Agreement, you further hereby: (a) waive any objection to New Jersey as the venue of any action instituted hereunder, and (b) consent to the granting of such legal or equitable relief as is deemed appropriate by any aforementioned court.`
   };
   nlca_fine_print: `As the Nominating Party in this Nomination, I expressly warrant and represent that: 1) I am the creator/owner of all Digital Content submitted with the Nomination or otherwise have the express, written consent from the creator/owner of the Digital Content to use it in this Nomination for the purposes stated above, 2) I have the authority to grant to Chasing Good the license rights to the Digital Content as set forth above, and 3) If the Nominated Party is under the age of eighteen (18) years of age, I am either a parent or legal guardian of the Nominated Party or otherwise have the express written permission of a parent or legal guardian of the Nominated Party to use the Digital Content in which the minor Nominated Party is depicted.  I further expressly, warrant and represent that, upon request by Chasing Good, I will provide to Chasing Good a digital, legible copy of the written consent by the Nominated Party’s parent or legal guardian.`;
-  public disclaimerFormGroup: UntypedFormGroup;
-  public checkbox1: boolean;
+  public disclaimerFormGroup: FormGroup;
 
   @Input() submission: Submission;
+  @Input() theChkAcceptTerms: boolean;
+  canSubmit: boolean;
 
 
 
-  constructor(private fb: UntypedFormBuilder) { }
+  constructor(private fb: UntypedFormBuilder) {
+    this.theChkAcceptTerms;
+    this.canSubmit;
+  }
 
   ngOnInit(): void {
-    this.checkbox1 = false;
     this.disclaimerFormGroup = this.fb.group({
       'agreeToLicenseAndAgreement': ['', [Validators.required]]
     });
   }
 
+  changed(status: boolean, control: string ){
+
+    switch(control) { 
+        case 'theChkAcceptTerms': { 
+           this.theChkAcceptTerms = status
+           console.log('Checkbox clicked!')
+            break; 
+        } 
+        default: { 
+            break; 
+        } 
+    }
+    if(this.theChkAcceptTerms){
+      this.canSubmit = true;
+      console.log('Can Submit!');
+    }else{
+      this.canSubmit = false;
+      console.log('Cannot Submit!');
+    }
+
+
+  }
+
   populateSubmission(submission: Submission) {
-    let disclaimer: UntypedFormGroup = this.disclaimerFormGroup;
+    let disclaimer: FormGroup = this.disclaimerFormGroup;
 
     submission.disclaimerAgreement = disclaimer.controls['agreeToLicenseAndAgreement'].value;
   }

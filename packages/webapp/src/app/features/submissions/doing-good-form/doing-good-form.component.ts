@@ -2,7 +2,7 @@ import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/l
 import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild, Input } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { UntypedFormGroup, FormControl, UntypedFormBuilder, ValidationErrors, Validators } from '@angular/forms';
+import { UntypedFormGroup, FormControl, UntypedFormBuilder, ValidationErrors, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { DataStore, Storage } from 'aws-amplify';
 import { APIService } from '../../../API.service';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -44,7 +44,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
   agreementFormSubscriotion: Subscription = new Subscription;
   formSubmitted: boolean = false;
   allFormsValid: boolean = false;
-  public createForm: UntypedFormGroup;
+  public createForm: FormGroup;
   destroyed = new Subject<void>();
   currentScreenSize: string;
   public file: File;
@@ -63,13 +63,16 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
   @ViewChild(ReferencesFormComponent) referencesFormComponent: ReferencesFormComponent;
   @ViewChild(AgreementFormComponent) agreementFormComponent: AgreementFormComponent;
   @ViewChild(ReviewFormComponent) reviewFormComponent: ReviewFormComponent;
-  @Input() basicInfoFormGroup: UntypedFormGroup;
-  @Input() nominationDetailsFormGroup: UntypedFormGroup;
-  @Input() storyDetailsFormGroup: UntypedFormGroup;
-  @Input() refFormGroup: UntypedFormGroup;
-  @Input() disclaimerFormGroup: UntypedFormGroup;
-  @Input() checkbox1: boolean;
-  constructor(private api: APIService, private fb: UntypedFormBuilder, private observer: BreakpointObserver, private snackBar: MatSnackBar) {
+  @Input() basicInfoFormGroup: FormGroup;
+  @Input() nominationDetailsFormGroup: FormGroup;
+  @Input() storyDetailsFormGroup: FormGroup;
+  @Input() refFormGroup: FormGroup;
+  @Input() disclaimerFormGroup: FormGroup;
+  @Input() theChkAcceptTerms: boolean;
+  @Input() canSubmit: boolean;
+  constructor(private api: APIService, private fb: FormBuilder, private observer: BreakpointObserver, private snackBar: MatSnackBar) {
+    this.theChkAcceptTerms;
+    this.canSubmit;
     this.observer
     .observe([
       Breakpoints.Small,
@@ -94,6 +97,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
       referencesForm: this.refFormGroup,
       disclaimerAgreementForm: this.disclaimerFormGroup
     });
+    this.canSubmit = false;
   }
 
   ngOnDestroy() {
@@ -106,6 +110,29 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
 
   ngAfterViewInit() {
     this.handleSubscriptions();
+  }
+
+  public changed(status: boolean, control: string ){
+
+    switch(control) { 
+        case 'theChkAcceptTerms': { 
+           this.theChkAcceptTerms = status
+           console.log('Checkbox clicked!')
+            break; 
+        } 
+        default: { 
+            break; 
+        } 
+    }
+    if(this.theChkAcceptTerms){
+      this.canSubmit = true;
+      console.log('Can Submit!');
+    }else{
+      this.canSubmit = false;
+      console.log('Cannot Submit!');
+    }
+
+
   }
 
   private handleSubscriptions() {
@@ -346,7 +373,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   private validateBasicInfoForm() {
-    let basicInfoForm: UntypedFormGroup = this.basicInfoFormComponent.basicInfoFormGroup;
+    let basicInfoForm: FormGroup = this.basicInfoFormComponent.basicInfoFormGroup;
 
     Object.keys(basicInfoForm.controls).forEach(key => {
       const controlErrors: ValidationErrors = this.basicInfoFormComponent.basicInfoFormGroup;
@@ -357,7 +384,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   private validateNominationInfoForm() {
-    let nomintaionInfoForm: UntypedFormGroup = this.nominationDetailsFormComponent.nominationDetailsFormGroup;
+    let nomintaionInfoForm: FormGroup = this.nominationDetailsFormComponent.nominationDetailsFormGroup;
 
     Object.keys(nomintaionInfoForm.controls).forEach(key => {
       const controlErrors: ValidationErrors = this.nominationDetailsFormComponent.nominationDetailsFormGroup;
@@ -368,7 +395,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   private validateStoryInfoForm() {
-    let storyInfoForm: UntypedFormGroup = this.storyDetailsFormComponent.storyDetailsFormGroup;
+    let storyInfoForm: FormGroup = this.storyDetailsFormComponent.storyDetailsFormGroup;
 
     Object.keys(storyInfoForm.controls).forEach(key => {
       const controlErrors: ValidationErrors = this.storyDetailsFormComponent.storyDetailsFormGroup;
@@ -390,7 +417,7 @@ export class DoingGoodFormComponent implements OnInit, AfterViewInit, OnDestroy 
   } */
 
   private validateAgreementDisclaimerForm() {
-    let agreementForm: UntypedFormGroup = this.agreementFormComponent.disclaimerFormGroup;
+    let agreementForm: FormGroup = this.agreementFormComponent.disclaimerFormGroup;
 
     Object.keys(agreementForm.controls).forEach(key => {
       const controlErrors: ValidationErrors = this.agreementFormComponent.disclaimerFormGroup;
