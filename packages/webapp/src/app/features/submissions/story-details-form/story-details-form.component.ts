@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import { UntypedFormGroup, UntypedFormControl, UntypedFormBuilder } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, UntypedFormBuilder, FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { Submission } from '../../../../types/Submission';
 import { Storage } from 'aws-amplify';
 
@@ -9,15 +9,15 @@ import { Storage } from 'aws-amplify';
   styleUrls: ['./story-details-form.component.scss']
 })
 export class StoryDetailsFormComponent implements OnInit, OnChanges {
-  public storyDetailsFormGroup: UntypedFormGroup = new UntypedFormGroup({
-    yourStory: new UntypedFormControl(''),
-    yourVideo: new UntypedFormControl(''),
+  public storyDetailsFormGroup: FormGroup = new FormGroup({
+    yourStory: new FormControl(''),
+    yourVideo: new FormControl(''),
   });
   fileName = '';
 
   @Input() file: File;
 
-  constructor(private fb: UntypedFormBuilder) { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.storyDetailsFormGroup = this.fb.group({
@@ -44,7 +44,7 @@ export class StoryDetailsFormComponent implements OnInit, OnChanges {
   }
 
   populateSubmission(submission: Submission) {
-    let storyDetails: UntypedFormGroup = this.storyDetailsFormGroup;
+    let storyDetails: FormGroup = this.storyDetailsFormGroup;
 
     submission.story = storyDetails.controls['yourStory'].value.trim();
     submission.uploadedVideo = this.fileName;
