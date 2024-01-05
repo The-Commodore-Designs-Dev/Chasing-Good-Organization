@@ -1,6 +1,10 @@
 mat-card {
     width: 80%;
-    margin: 0 auto;
+    margin: 15px auto;
+}
+
+mat-card.info-cards{
+   min-height: 325px; 
 }
 
 .first-card {
@@ -33,6 +37,10 @@ img {
 hr {
     width: 75%;
     margin: 0 auto;
+}
+
+a {
+    color: #000000;
 }
 
 .mat-card {
