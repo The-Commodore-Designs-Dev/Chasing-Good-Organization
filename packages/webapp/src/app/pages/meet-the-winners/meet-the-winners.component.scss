@@ -1,7 +1,10 @@
 mat-card {
-    min-height: 325px;
     width: 80%;
     margin: 15px auto;
+}
+
+mat-card.info-cards{
+   min-height: 325px; 
 }
 
 .first-card {
